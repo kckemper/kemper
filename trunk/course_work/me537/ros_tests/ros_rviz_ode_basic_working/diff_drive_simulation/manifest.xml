@@ -1,0 +1,17 @@
+<package>
+  <description brief="diff_drive_simulation">
+
+     diff_drive_simulation
+
+  </description>
+  <author>koepld</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/diff_drive_simulation</url>
+  <depend package="roscpp"/>
+  <depend package="visualization_msgs"/>
+	<depend package="opende"/>
+
+</package>
+
+

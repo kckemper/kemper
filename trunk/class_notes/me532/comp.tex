@@ -1,0 +1,55 @@
+In many, if not most real world scenarios, it is impossible to know the entire state of the system, and instead, limited measurements are known.  If we have a system
+$$
+\dot x(t) = f(t,x(t),u(t)), \quad x(0) = x_0
+$$
+we denote the sensed measurements (a.k.a. measured output) as
+$$y = Cx.$$
+Note that $C=I$ implies full state feedback.
+
+Since we know the system dynamics, we can build an estimator (a.k.a observer or filter) to estimate the state, $x_c$ based on the sensed measurements, $y$. This estimator has the form
+$$
+\dot x_c(t) = A_cx_c(t) + Fy(t) , \quad x_c(0) = x_{c_0}.
+$$
+The control law has the same feedback gain, but now, instead of feeding back the entire state $x$ (which we do not have), we feed back $x_c$. So, the control law looks like
+$$u(t) = -Kx_c(t).$$
+
+These four equations are coupled; by substituting $u$ into the state equation and $y$ into the estimator equation, we obtain the system
+$$\left[\begin{array}{c} \dot x\\ \dot x_c\end{array}\right] = \left[\begin{array}{cc}A & -BK \\ FC &A_c\end{array}\right]    \left[\begin{array}{c}  x\\  x_c\end{array}\right] $$
+
+To determine $A_c$, we can use either the approach of Linear Quadratic Gaussian, or MinMax.  The specific optimization problems from which these result will be discussed in a future lesson. At this point, we will simply formally present the equations that come out of the first order necessary conditions for these problems.
+
+Note,  there are several variations on these necessary conditions. We will start with the simplest one and build out from there.
+
+\subsection{Linear Quadratic Gaussian}
+This compensator is the extension of LQR applied to problems with limited system information. Assume we have linear system of the form
+$$
+\dot x(t) = Ax(t) + Bu(t), \quad x(0) = x_0
+$$
+$$ y(t) = Cx(t).$$
+ In this case, the feedback gain matrix $K$, is the same as for LQR:
+$$K = -R^{-1} B^T \Pi$$
+where $R$ is a symmetric positive definite weighting matrix for the control, and $\Pi$ is the solution to the algebraic Riccati equation
+$$A^T\Pi + \Pi A - \Pi BR^{-1}B^T \Pi + Q = 0.$$
+Here, $Q$ is a symmetric positive semidefinite weighting matrix for the state.
+To determine $F$ and $A_c$, a second Riccati equation (sometimes called the filter Riccati equation) is solved:
+$$P A^T + AP + P C^TNC P + BB^T = 0$$
+where $N$ is another positive definite weighting matrix.
+
+In this case, $$F = PC^T$$ and $$A_c = A - BK - FC.$$
+
+\subsection{MinMax Compensator}
+This compensator is the extension of the MinMax controller for full-state feedback. Assume we have a linear system of the form
+$$
+\dot x(t) = Ax(t) + Bu(t) + Dw(t), \quad x(0) = x_0
+$$
+$$ y(t) = Cx(t).$$
+ In this case, the feedback gain matrix $K$, is the same as for MinMax:
+$$K = -R^{-1} B^T \Pi$$
+where $R$ is a symmetric positive definite weighting matrix for the control, and $\Pi$ is the solution to the algebraic Riccati equation
+$$A^T\Pi + \Pi A - \Pi (BR^{-1}B^T - \theta^2DD^T) \Pi + Q = 0.$$
+Here, $Q$ is a symmetric positive semidefinite weighting matrix for the state, and $\theta$ is the MinMax parameter ($\theta = 0$ yields LQR/LQG).
+To determine $F$ and $A_c$, a second Riccati equation is solved:
+$$P A^T + AP + P (C^TNC - \theta^2Q)P + DD^T = 0$$
+where $N$ is another positive definite weighting matrix.
+
+In this case, $$F = (I - \theta^2 P\Pi)PC^T$$ and $$A_c = A - BK - FC + \theta^2DD^T\Pi.$$

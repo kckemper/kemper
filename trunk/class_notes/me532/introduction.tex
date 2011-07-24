@@ -1,0 +1,62 @@
+General unconstrained optimization problems from calculus typically take the form of
+\begin{equation}
+\min f(x)\, {\rm or}\, \max f(x).
+\end{equation}
+Constraints can be added and the problems take the form of 
+$$
+\min f(x)\, {\rm or}\, \max f(x).
+$$ 
+subject to
+\begin{equation}
+g(x) = C.
+\end{equation}
+ME 517 considers cases where these problems are algebraic (i.e., no differential equations). The functions $f, g$ can be defined on scalars $x\in \Re$, or vectors $x \in \Re^n$; similar, $f, g$ can take on values in $\Re$ or in $\Re^n$.
+
+In this course, there may be derivatives in either the objective function $f$, or in the constraints $g$. We will develop techniques to address these kinds of problems, and we will need the basics of the Calculus of Variations. The types of problems addressed in this course will be those for which a mathematical model can be developed. 
+
+Examples of optimal control problems:
+\begin{enumerate}
+\item About 1910, R. H. Goddard asked if we can do space research with rockets. Was involved in the liquid propellant rocket engine whose thrust could be controlled. Question: How should thrust vary with time in order to reach the highest altitude?  \\
+Objective function:  maximize altitude at final time, $h(t_f)$\\
+Constraint:  with no drag, the thrust should be maximum until no propellant is left.  However, if drag depends on velocity and height, maybe high velocity is not good in densest part of atmosphere. Optimal control can be used to develop a velocity profile.
+$v$: velocity, $u$: thrust, $h$: height, $m$: mass, $g$: gravity, $D$: drag
+$$\max h(t_f)$$
+\hspace{1.5in}{\it subject to}
+\begin{eqnarray*}
+\dot{v}&=&\frac 1m(u - D(v,h) - g)\\
+\dot{m}&=&-\gamma u
+\end{eqnarray*}
+$$
+v(0) = 0, \quad h(0) = 0, \quad m(0) = m_0, \quad m(t_f) = m_1$$
+$$0\leq u\leq u_{max}$$
+
+\item Elevated train $m$ on a smooth track with friction constant $\gamma$. Bring train to rest in minimum time with minimum jerk.\\
+$x(t)$: position of train; $u(t)$: external force controlling train.
+$$\min \sigma t_f + (1-\sigma)\dddot x(t)$$
+\hspace{1.5in}{\it subject to}
+$$ m\ddot x (t) + \gamma \dot x(t) = u(t)$$
+$$x(0) = x_0, \quad \dot x (0) = x_1, \quad x(t_f) = x_d, \quad \dot x(t_f) = 0, \quad  |u(t)| \leq u_{max}$$
+
+\item Linear Quadratic Regulator---infinite time horizon version
+$$\min \int_0^{\infty} \left(x^T(t)Qx(t) + u^T(t)Ru(t) \right)dt$$
+\hspace{1.5in}{\it subject to}
+$$\dot x(t) = Ax(t) + Bu(t), \quad x(0) = x_0$$
+$$ x(t) \in \Re^n, \quad u(t) \in \Re^m, \quad A\in\Re ^{n\times n}, \quad B\in \Re ^{n\times m}$$
+
+Example:  $m\ddot y + d\dot y + k y = u(t), \quad y(0) = y_0, \dot y(0) = y_1$
+\begin{eqnarray*}
+ x_1 = y \qquad \dot x_1 = \dot y &=& x_2 \\
+ x_2 =\dot y \qquad \dot x_2 = \ddot y &=& -\frac d m \dot y - \frac km y + \frac 1m u\\
+ &=& -\frac d m x_2 - \frac km x_1 + \frac 1m u
+\end{eqnarray*}
+
+\begin{eqnarray*}
+\dot x = \left[\begin{array}{c} \dot x_1\\ \dot x_2\end{array}\right] = \left[\begin{array}{cc}0  & 1\\  - \frac km &-\frac d m\end{array}\right] \left [ \begin{array}{c} x_1\\ x_2\end{array}\right]  + \left[\begin{array}c 0 \\ \frac 1m\end{array}\right] u
+\end{eqnarray*}
+ If $\ds Q = \left[\begin{array}{cc} 0&0\\0&1\end{array}\right]$, then velocity is weighted;  if $\ds Q = \left[\begin{array}{cc} 1&0\\0&0\end{array}\right]$, then position is weighted.
+ 
+ 
+
+
+
+\end{enumerate}

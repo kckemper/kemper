@@ -1,0 +1,337 @@
+#LyX 1.6.5 created this file. For more info see http://www.lyx.org/
+\lyxformat 345
+\begin_document
+\begin_header
+\textclass article
+\use_default_options true
+\language english
+\inputencoding auto
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\paperfontsize default
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_amsmath 1
+\use_esint 1
+\cite_engine basic
+\use_bibtopic false
+\paperorientation portrait
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\defskip medskip
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\author "" 
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Equation of Motion for Stopping/Catching a Mass
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\series bold
+Variables:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula \[
+\begin{array}{c|l|l}
+F_{m}(t) & \textrm{Motor force} & N\\
+x_{m}(t) & \textrm{Motor position} & m\\
+ & \\
+F_{L}(t) & \textrm{Load force} & N\\
+x_{L}(t) & \textrm{Load position} & m\end{array}\]
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\series bold
+Constants:
+\series default
+
+\begin_inset Formula \[
+\begin{array}{c|l|l}
+k & \textrm{Spring constant} & N\cdot m\\
+B & \textrm{Damping constant} & \frac{kg\cdot m^{2}}{s}\\
+ & \\
+m_{m} & \textrm{Motor/transmission mass} & kg\\
+F_{limit} & \textrm{Motor force limit} & N\\
+F_{mc} & \textrm{Motor force constant} & N\\
+ & \\
+m_{L} & \textrm{Load mass} & kg\\
+F_{peak} & \textrm{Peak torque allowed at load} & N\end{array}\]
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\series bold
+Iinitial Conditions & Constraints:
+\series default
+
+\begin_inset Formula \[
+\begin{array}{c|l|l}
+x_{L0}=0 & \textrm{Load position} & m\\
+\dot{x}_{L0}>0 & \textrm{Load velocity} & \frac{m}{s}\\
+\ddot{x}_{L0}=0 & \textrm{Load acceleration} & \frac{m}{s^{2}}\\
+ & \\
+x_{m0}=0 & \textrm{Motor position} & m\\
+\dot{x}_{m0}=0 & \textrm{Motor velocity} & \frac{m}{s}\\
+\ddot{x}_{m0}=0 & \textrm{Motor acceleration}\textrm{} & \frac{m}{s^{2}}\end{array}\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The force of the spring is defined as:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula \begin{eqnarray*}
+F_{k} & = & k\left(x_{m}-x_{L}\right)\\
+F_{B} & = & B\left(\dot{x}_{m}-\dot{x}_{L}\right)\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Note: spring can only be in compression!
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+setlength{
+\backslash
+jot}{3mm+3pt}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+System 1 (motor side):
+\begin_inset Formula \begin{eqnarray*}
+\Sigma F=m_{m}\ddot{x}_{m} & = & F_{m}-F_{k}-F_{B}\\
+m_{m}\ddot{x}_{m}(t) & = & F_{m}(t)-k\left(x_{m}(t)-x_{L}(t)\right)-B\left(\dot{x}_{m}(t)-\dot{x}_{L}(t)\right)\\
+m_{m}\ddot{x}_{m}(t) & = & F_{m}(t)-kx_{m}(t)+kx_{L}(t)-B\dot{x}_{m}(t)+B\dot{x}_{L}(t)\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Take the Laplace:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula \begin{eqnarray*}
+m_{m}\left[s^{2}X_{m}(s)-sx_{m0}-\dot{x}_{m0}\right] & = & F_{m}(s)-k\left(X_{m}(s)-X_{L}(s)\right)-B\left(sX_{m}(s)-x_{m0}-sX_{L}(s)+x_{L0}\right)\\
+m_{m}s^{2}X_{m}(s)-m_{m}x_{m0}s-m_{m}\dot{x}_{m0} & = & F_{m}(s)-X_{m}(s)k+X_{L}(s)k-X_{m}(s)Bs+x_{m0}B+X_{L}(s)Bs-x_{L0}B\\
+\\\textrm{Move }X_{m}(s)\textrm{ to the left side:}\\
+X_{m}(s)m_{m}s^{2}+X_{m}(s)Bs+X_{m}(s)k & = & F_{m}(s)+X_{L}(s)Bs+X_{L}(s)k+x_{m0}B-x_{L0}B+m_{m}x_{m0}s+m_{m}\dot{x}_{m0}\\
+X_{m}(s)\left(m_{m}s^{2}+Bs+k\right) & = & F_{m}(s)+X_{L}(s)\left(Bs+k\right)+x_{m0}B-x_{L0}B+m_{m}x_{m0}s+m_{m}\dot{x}_{m0}\\
+X_{m}(s) & = & \frac{F_{m}(s)+X_{L}(s)\left(Bs+k\right)+x_{m0}B-x_{L0}B+m_{m}x_{m0}s+m_{m}\dot{x}_{m0}}{m_{m}s^{2}+Bs+k}\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+System 2 (load side):
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula \begin{eqnarray*}
+\Sigma F=m_{L}\ddot{x}_{L} & = & F_{k}+F_{B}\\
+m_{L}\ddot{x}_{L} & = & k\left(x_{m}(t)-x_{L}(t)\right)+B\left(\dot{x}_{m}(t)-\dot{x}_{L}(t)\right)\\
+m_{L}\ddot{x}_{L} & = & x_{m}(t)k-x_{L}(t)k+\dot{x}_{m}(t)B-\dot{x}_{L}(t)B\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Take the Laplace:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula \begin{eqnarray*}
+m_{L}\left[s^{2}X_{L}(s)-sx_{L0}-\dot{x}_{L0}\right] & = & k\left(X_{m}(s)-X_{L}(s)\right)+B\left(sX_{m}(s)-x_{m0}-sX_{L}(s)+x_{L0}\right)\\
+m_{L}s^{2}X_{L}(s)-m_{L}x_{L0}s-m_{L}\dot{x}_{L0} & = & X_{m}(s)k-X_{L}(s)k+X_{m}(s)Bs-x_{m0}B-X_{L}(s)Bs+x_{L0}B\\
+\\\textrm{Move }X_{m}(s)\textrm{ to the left side:}\\
+X_{L}(s)m_{L}s^{2}+X_{L}(s)Bs+X_{L}(s)k-m_{L}x_{L0}s-m_{L}\dot{x}_{L0}+x_{m0}B-x_{L0}B & = & X_{m}(s)k+X_{m}(s)Bs\\
+X_{L}(s)\left(m_{L}s^{2}+Bs+k\right)-m_{L}x_{L0}s-m_{L}\dot{x}_{L0}+x_{m0}B-x_{L0}B & = & X_{m}(s)\left(Bs+k\right)\\
+X_{m}(s) & = & \frac{X_{L}(s)\left(m_{L}s^{2}+Bs+k\right)-m_{L}x_{L0}s-m_{L}\dot{x}_{L0}+x_{m0}B-x_{L0}B}{Bs+k}\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+First find the Laplace of 
+\begin_inset Formula $F_{m}(t)$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula \begin{eqnarray*}
+\textrm{Set the motor to constant max torque:}\\
+F_{m}(t) & = & F_{mc}u(t)\\
+F_{m}(s) & = & \frac{F_{mc}}{s}\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Now solve for 
+\begin_inset Formula $X_{L}(t)$
+\end_inset
+
+:
+\begin_inset Formula \begin{eqnarray*}
+\frac{F_{m}(s)+X_{L}(s)\left(Bs+k\right)+x_{m0}B-x_{L0}B+m_{m}x_{m0}s+m_{m}\dot{x}_{m0}}{m_{m}s^{2}+Bs+k} & = & \frac{X_{L}(s)\left(m_{L}s^{2}+Bs+k\right)-m_{L}x_{L0}s-m_{L}\dot{x}_{L0}+x_{m0}B-x_{L0}B}{Bs+k}\\
+\frac{F_{m}(s)+X_{L}(s)\left(Bs+k\right)+x_{m0}B-x_{L0}B+m_{m}x_{m0}s+m_{m}\dot{x}_{m0}}{m_{m}s^{2}+Bs+k} & = & X_{L}(s)\frac{\left(m_{L}s^{2}+Bs+k\right)}{Bs+k}+\frac{-m_{L}x_{L0}s-m_{L}\dot{x}_{L0}+x_{m0}B-x_{L0}B}{Bs+k}\\
+\frac{F_{m}(s)+X_{L}(s)\left(Bs+k\right)+x_{m0}B-x_{L0}B+m_{m}x_{m0}s+m_{m}\dot{x}_{m0}}{m_{m}s^{2}+Bs+k}+\frac{m_{L}x_{L0}s+m_{L}\dot{x}_{L0}-x_{m0}B+x_{L0}B}{Bs+k} & = & X_{L}(s)\frac{\left(m_{L}s^{2}+Bs+k\right)}{Bs+k}\\
+\left(Bs+k\right)\frac{F_{m}(s)+X_{L}(s)\left(Bs+k\right)+x_{m0}B-x_{L0}B+m_{m}x_{m0}s+m_{m}\dot{x}_{m0}}{m_{m}s^{2}+Bs+k}+m_{L}x_{L0}s+m_{L}\dot{x}_{L0}-x_{m0}B+x_{L0}B & = & X_{L}(s)\left(m_{L}s^{2}+Bs+k\right)\\
+\left(\frac{Bs+k}{m_{L}s^{2}+Bs+k}\right)\frac{F_{m}(s)+X_{L}(s)\left(Bs+k\right)+x_{m0}B-x_{L0}B+m_{m}x_{m0}s+m_{m}\dot{x}_{m0}}{m_{m}s^{2}+Bs+k}+\frac{m_{L}x_{L0}s+m_{L}\dot{x}_{L0}-x_{m0}B+x_{L0}B}{m_{L}s^{2}+Bs+k} & = & X_{L}(s)\\
+\\\\\\\frac{F_{m}(s)+X_{L}(s)\left(Bs+k\right)+x_{m0}B-x_{L0}B+m_{m}x_{m0}s+m_{m}\dot{x}_{m0}}{m_{m}s^{2}+Bs+k} & = & \frac{X_{L}(s)\left(m_{L}s^{2}+Bs+k\right)-m_{L}x_{L0}s-m_{L}\dot{x}_{L0}+x_{m0}B-x_{L0}B}{Bs+k}\\
+\left(Bs+k\right)\left(F_{m}(s)+X_{L}(s)\left(Bs+k\right)+x_{m0}B-x_{L0}B+m_{m}x_{m0}s+m_{m}\dot{x}_{m0}\right) & = & \left(X_{L}(s)\left(m_{L}s^{2}+Bs+k\right)-m_{L}x_{L0}s-m_{L}\dot{x}_{L0}+x_{m0}B-x_{L0}B\right)\left(m_{m}s^{2}+Bs+k\right)\\
+F_{m}(s)\left(Bs+k\right)+X_{L}(s)\left(Bs+k\right)^{2}+\left(x_{m0}B-x_{L0}B+m_{m}x_{m0}s+m_{m}\dot{x}_{m0}\right)\left(Bs+k\right) & = & X_{L}(s)\left(m_{L}s^{2}+Bs+k\right)\left(m_{m}s^{2}+Bs+k\right)+\left(-m_{L}x_{L0}s-m_{L}\dot{x}_{L0}+x_{m0}B-x_{L0}B\right)\left(m_{m}s^{2}+Bs+k\right)\\
+F_{m}(s)\left(Bs+k\right)+\left(x_{m0}B-x_{L0}B+m_{m}x_{m0}s+m_{m}\dot{x}_{m0}\right)\left(Bs+k\right)+\left(m_{L}x_{L0}s+m_{L}\dot{x}_{L0}-x_{m0}B+x_{L0}B\right)\left(m_{m}s^{2}+Bs+k\right) & = & X_{L}(s)\left(m_{L}s^{2}+Bs+k\right)\left(m_{m}s^{2}+Bs+k\right)-X_{L}(s)\left(Bs+k\right)^{2}\\
+F_{m}(s)\left(Bs+k\right)+\left(x_{m0}B-x_{L0}B+m_{m}x_{m0}s+m_{m}\dot{x}_{m0}\right)\left(Bs+k\right)+\left(m_{L}x_{L0}s+m_{L}\dot{x}_{L0}-x_{m0}B+x_{L0}B\right)\left(m_{m}s^{2}+Bs+k\right) & = & X_{L}(s)\left(\left(m_{L}s^{2}+Bs+k\right)\left(m_{m}s^{2}+Bs+k\right)-\left(Bs+k\right)^{2}\right)\\
+\frac{F_{m}(s)\left(Bs+k\right)+\left(x_{m0}B-x_{L0}B+m_{m}x_{m0}s+m_{m}\dot{x}_{m0}\right)\left(Bs+k\right)+\left(m_{L}x_{L0}s+m_{L}\dot{x}_{L0}-x_{m0}B+x_{L0}B\right)\left(m_{m}s^{2}+Bs+k\right)}{\left(m_{L}s^{2}+Bs+k\right)\left(m_{m}s^{2}+Bs+k\right)-\left(Bs+k\right)^{2}} & = & X_{L}(s)\\
+X_{L}(s) & = & F_{m}(s)\frac{\left(Bs+k\right)}{\left(m_{L}s^{2}+Bs+k\right)\left(m_{m}s^{2}+Bs+k\right)-\left(Bs+k\right)^{2}}+\frac{\left(x_{m0}B-x_{L0}B+m_{m}x_{m0}s+m_{m}\dot{x}_{m0}\right)\left(Bs+k\right)}{\left(m_{L}s^{2}+Bs+k\right)\left(m_{m}s^{2}+Bs+k\right)-\left(Bs+k\right)^{2}}+\frac{\left(m_{L}x_{L0}s+m_{L}\dot{x}_{L0}-x_{m0}B+x_{L0}B\right)\left(m_{m}s^{2}+Bs+k\right)}{\left(m_{L}s^{2}+Bs+k\right)\left(m_{m}s^{2}+Bs+k\right)-\left(Bs+k\right)^{2}}\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Formula \begin{eqnarray*}
+\text{Now sub in \ensuremath{F_{m}(s)}and inverse laplace:}\\
+X_{L}(s) & = & \left(\frac{F_{mc}}{s}\right)\frac{Bs+k}{\left(m_{L}s^{2}+Bs+k\right)\left(m_{m}s^{2}+Bs+k\right)-\left(Bs+k\right)^{2}}+\frac{\left(x_{m0}B-x_{L0}B+m_{m}x_{m0}s+m_{m}\dot{x}_{m0}\right)\left(Bs+k\right)}{\left(m_{L}s^{2}+Bs+k\right)\left(m_{m}s^{2}+Bs+k\right)-\left(Bs+k\right)^{2}}+\frac{\left(m_{L}x_{L0}s+m_{L}\dot{x}_{L0}-x_{m0}B+x_{L0}B\right)\left(m_{m}s^{2}+Bs+k\right)}{\left(m_{L}s^{2}+Bs+k\right)\left(m_{m}s^{2}+Bs+k\right)-\left(Bs+k\right)^{2}}\\
+\\\\\\b_{1} & = & \sqrt{\left(m_{L}+m_{m}\right)\left(-4km_{L}m_{m}+B^{2}\left(m_{L}+m_{m}\right)\right)}\\
+\\a_{1} & = & \frac{\left(B\left(m_{L}+m_{m}\right)+b_{1}\right)}{2m_{L}m_{m}}\\
+a_{2} & = & \frac{b_{1}}{m_{L}m_{m}}\\
+\\\\x_{L}(t) & = & \frac{F_{mc}e^{-a_{1}t}\left(B\left(-1+e^{a_{2}t}\right)m_{L}m_{m}\left(m_{L}+m_{m}\right)+b_{1}\left(\left(1+e^{a_{2}t}\right)m_{L}m_{m}+e^{a_{1}t}\left(-2m_{L}m_{m}+k\left(m_{L}+m_{m}\right)t^{2}\right)\right)\right)}{2k\left(m_{L}+m_{m}\right)^{5/2}\sqrt{-4km_{L}m_{m}+B^{2}\left(m_{L}+m_{m}\right)}}\\
+ &  & +\frac{e^{-a_{1}t}\left(2\dot{x}_{m0}m_{m}\left(-\left(-1+e^{a_{2}t}\right)m_{L}m_{m}+e^{a_{1}t}b_{1}t\right)-\left(1+e^{a_{2}t}-2e^{a_{1}t}\right)m_{m}b_{1}x_{m0}+B\left(-2e^{a_{1}t}b_{1}t\left(x_{L0}-x_{m0}\right)+\left(-1+e^{a_{2}t}\right)m_{L}m_{m}\left(2x_{L0}-x_{m0}\right)-m_{m}^{2}x_{m0}+e^{a_{2}t}m_{m}^{2}x_{m0}\right)\right)}{2\left(m_{L}+m_{m}\right)^{3/2}\sqrt{-4km_{L}m_{m}+B^{2}\left(m_{L}+m_{m}\right)}}\\
+ &  & +\frac{e^{-a_{1}t}\left(2\dot{x}_{L0}m_{L}\left(\left(-1+e^{a_{2}t}\right)m_{m}^{2}+e^{a_{1}t}b_{1}t\right)+\left(2e^{a_{1}t}m_{L}+m_{m}+e^{a_{2}t}m_{m}\right)b_{1}x_{L0}+B\left(-\left(-1+e^{a_{2}t}\right)m_{L}m_{m}x_{L0}+\left(-1+e^{a_{2}t}\right)m_{m}^{2}\left(x_{L0}-2x_{m0}\right)+2e^{a_{1}t}b_{1}t\left(x_{L0}-x_{m0}\right)\right)\right)}{2\left(m_{L}+m_{m}\right)^{3/2}\sqrt{-4km_{L}m_{m}+B^{2}\left(m_{L}+m_{m}\right)}}\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Now solve for 
+\begin_inset Formula $X_{m}(t)$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula \begin{eqnarray*}
+\text{From sys1:}\\
+X_{m}(s)\left(m_{m}s^{2}+Bs+k\right) & = & F_{m}(s)+X_{L}(s)\left(Bs+k\right)+x_{m0}B-x_{L0}B+m_{m}x_{m0}s+m_{m}\dot{x}_{m0}\\
+\text{From sys2:}\\
+X_{L}(s)\left(m_{L}s^{2}+Bs+k\right) & = & X_{m}(s)\left(Bs+k\right)+m_{L}x_{L0}s+m_{L}\dot{x}_{L0}-x_{m0}B+x_{L0}B\\
+X_{L}(s) & = & \frac{X_{m}(s)\left(Bs+k\right)+m_{L}x_{L0}s+m_{L}\dot{x}_{L0}-x_{m0}B+x_{L0}B}{m_{L}s^{2}+Bs+k}\\
+\\\text{Plug \ensuremath{X_{L}}into sys1 eq:}\\
+X_{m}(s)\left(m_{m}s^{2}+Bs+k\right) & = & F_{m}(s)+\left(\frac{X_{m}(s)\left(Bs+k\right)+m_{L}x_{L0}s+m_{L}\dot{x}_{L0}-x_{m0}B+x_{L0}B}{m_{L}s^{2}+Bs+k}\right)\left(Bs+k\right)+x_{m0}B-x_{L0}B+m_{m}x_{m0}s+m_{m}\dot{x}_{m0}\\
+X_{m}(s)\left(m_{m}s^{2}+Bs+k\right) & = & F_{m}(s)+X_{m}(s)\frac{\left(Bs+k\right)^{2}}{m_{L}s^{2}+Bs+k}+\frac{\left(m_{L}x_{L0}s+m_{L}\dot{x}_{L0}-x_{m0}B+x_{L0}B\right)\left(Bs+k\right)}{m_{L}s^{2}+Bs+k}+x_{m0}B-x_{L0}B+m_{m}x_{m0}s+m_{m}\dot{x}_{m0}\\
+X_{m}(s)\left(m_{m}s^{2}+Bs+k\right)-X_{m}(s)\frac{\left(Bs+k\right)^{2}}{m_{L}s^{2}+Bs+k} & = & F_{m}(s)+\frac{\left(m_{L}x_{L0}s+m_{L}\dot{x}_{L0}-x_{m0}B+x_{L0}B\right)\left(Bs+k\right)}{m_{L}s^{2}+Bs+k}+x_{m0}B-x_{L0}B+m_{m}x_{m0}s+m_{m}\dot{x}_{m0}\\
+X_{m}(s)\left(\left(m_{m}s^{2}+Bs+k\right)-\frac{\left(Bs+k\right)^{2}}{m_{L}s^{2}+Bs+k}\right) & = & F_{m}(s)+\frac{\left(m_{L}x_{L0}s+m_{L}\dot{x}_{L0}-x_{m0}B+x_{L0}B\right)\left(Bs+k\right)}{m_{L}s^{2}+Bs+k}+x_{m0}B-x_{L0}B+m_{m}x_{m0}s+m_{m}\dot{x}_{m0}\\
+X_{m}(s) & = & \frac{F_{m}(s)+\frac{\left(m_{L}x_{L0}s+m_{L}\dot{x}_{L0}-x_{m0}B+x_{L0}B\right)\left(Bs+k\right)}{m_{L}s^{2}+Bs+k}+x_{m0}B-x_{L0}B+m_{m}x_{m0}s+m_{m}\dot{x}_{m0}}{\left(\left(m_{m}s^{2}+Bs+k\right)-\frac{\left(Bs+k\right)^{2}}{m_{L}s^{2}+Bs+k}\right)}\\
+X_{m}(s) & = & F_{m}(s)\frac{1}{\left(m_{m}s^{2}+Bs+k\right)-\frac{\left(Bs+k\right)^{2}}{m_{L}s^{2}+Bs+k}}+\frac{\left(m_{L}x_{L0}s+m_{L}\dot{x}_{L0}-x_{m0}B+x_{L0}B\right)\left(Bs+k\right)}{\left(m_{L}s^{2}+Bs+k\right)\left(\left(m_{m}s^{2}+Bs+k\right)-\frac{\left(Bs+k\right)^{2}}{m_{L}s^{2}+Bs+k}\right)}+\frac{x_{m0}B-x_{L0}B+m_{m}x_{m0}s+m_{m}\dot{x}_{m0}}{\left(m_{m}s^{2}+Bs+k\right)-\frac{\left(Bs+k\right)^{2}}{m_{L}s^{2}+Bs+k}}\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula \begin{eqnarray*}
+\text{Now sub in \ensuremath{F_{m}(s)}and inverse laplace:}\\
+X_{m}(s) & = & \left(\frac{F_{mc}}{s}\right)\frac{1}{\left(m_{m}s^{2}+Bs+k\right)-\frac{\left(Bs+k\right)^{2}}{m_{L}s^{2}+Bs+k}}+\frac{\left(m_{L}x_{L0}s+m_{L}\dot{x}_{L0}-x_{m0}B+x_{L0}B\right)\left(Bs+k\right)}{\left(m_{L}s^{2}+Bs+k\right)\left(\left(m_{m}s^{2}+Bs+k\right)-\frac{\left(Bs+k\right)^{2}}{m_{L}s^{2}+Bs+k}\right)}+\frac{x_{m0}B-x_{L0}B+m_{m}x_{m0}s+m_{m}\dot{x}_{m0}}{\left(m_{m}s^{2}+Bs+k\right)-\frac{\left(Bs+k\right)^{2}}{m_{L}s^{2}+Bs+k}}\\
+\\\\\\b_{1} & = & \sqrt{\left(m_{L}+m_{m}\right)\left(-4km_{L}m_{m}+B^{2}\left(m_{L}+m_{m}\right)\right)}\\
+\\a_{1} & = & \frac{\left(B\left(m_{L}+m_{m}\right)+b_{1}\right)}{2m_{L}m_{m}}\\
+a_{2} & = & \frac{b_{1}}{m_{L}m_{m}}\\
+\\x_{m}(t) & = & \frac{e^{-a_{1}t}F_{mc}\left(-B\left(-1+e^{a_{2}t}\right)m_{L}^{2}\left(m_{L}+m_{m}\right)+b_{1}\left(-\left(1+e^{a_{2}t}\right)m_{L}^{2}+e^{a_{1}t}\left(2m_{L}^{2}+k\left(m_{L}+m_{m}\right)t^{2}\right)\right)\right)}{2k\left(m_{L}+m_{m}\right)^{5/2}\sqrt{-4km_{L}m_{m}+B^{2}\left(m_{L}+m_{m}\right)}}\\
+ &  & +\frac{e^{-a_{1}t}\left(2\dot{x}_{L0}m_{L}\left(m_{L}m_{m}-e^{a_{2}t}m_{L}m_{m}+e^{a_{1}t}b_{1}t\right)-\left(1+e^{a_{2}t}-2e^{a_{1}t}\right)m_{L}b_{1}x_{L0}+B\left(\left(-1+e^{a_{2}t}\right)m_{L}^{2}x_{L0}-\left(-1+e^{a_{2}t}\right)m_{L}m_{m}\left(x_{L0}-2x_{m0}\right)+2e^{a_{1}t}b_{1}t\left(x_{L0}-x_{m0}\right)\right)\right)}{2\left(m_{L}+m_{m}\right)^{3/2}\sqrt{-4km_{L}m_{m}+B^{2}\left(m_{L}+m_{m}\right)}}\\
+ &  & +\frac{e^{-a_{1}t}\left(2\dot{x}_{m0}m_{m}\left(\left(-1+e^{a_{2}t}\right)m_{L}^{2}+e^{a_{1}t}b_{1}t\right)+\left(m_{L}+e^{a_{2}t}m_{L}+2e^{a_{1}t}m_{m}\right)b_{1}x_{m0}+B\left(-2e^{a_{1}t}b_{1}t\left(x_{L0}-x_{m0}\right)-\left(-1+e^{a_{2}t}\right)m_{L}^{2}\left(2x_{L0}-x_{m0}\right)-\left(-1+e^{a_{2}t}\right)m_{L}m_{m}x_{m0}\right)\right)}{2\left(m_{L}+m_{m}\right)^{3/2}\sqrt{-4km_{L}m_{m}+B^{2}\left(m_{L}+m_{m}\right)}}\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

@@ -1,0 +1,58 @@
+Derviation of the first order necessary conditions for the LQR problem proceeds in the same was as for the first optimal control problem.
+
+The goal in LQR problem is to design a control that regulates the system to $x = 0$ (or some other desired state by taking $z = x = x_d$) using ``not too much control effort'' $u$. Earlier in the notes we introduced the control problem and provided the solution, here we develop the first order necessary conditions.
+The LQR problem can be written as
+$$\min J(u) = \int_0^{T} (x^TQx + u^TRu)dt$$
+where the dynamics take the form
+\begin{equation}\label{eqn:lqrdyn}
+\dot x(t) = Ax(t) + Bu(t) , \quad x(0) = x_0
+\end{equation}
+where $Q=Q^T$ is positive semidefinite and $R = R^T$ is positive definite. 
+
+
+If $(x,u)$ satisfy the system dynamics in (\ref{eqn:lqrdyn}), then we write the augmented cost function
+$$ \tilde J = \int_0^{T} (x^TQx + u^TRu + \lambda^T(Ax + Bu  - \dot x)dt.$$
+Define the Hamiltonian for this problem to be
+$$H = x^TQx + u^TRu + \lambda^TAx + Bu.$$
+A similar derivation as the one developed for the first optimal control problem yields the first order necessary conditions
+$$\frac{\pd H}{\pd u} = 0$$
+$$\dot \lambda = -\left(\frac{\pd H}{\pd x}\right)^T, \quad \lambda(t_f) = 0.$$
+From the first condition, we obtain that
+$$B^T\lambda + 2Ru = 0$$
+or $$u = -\frac 1 2 R^{-1}B^T\lambda.$$
+Substituting this into the state equations yields
+$$\dot x(t) = Ax(t) - \frac{ B R^{-1}B^T\lambda}{2}.$$
+We can then write a matrix system for the state and adjoint equations:
+$$\left[\begin{array}{c} \dot x\\ \dot\lambda\end{array}\right] = \left[\begin{array}{cc} A &\frac{ B R^{-1}B^T}{2} \\[6pt]
+-2Q & -A^T\end{array}\right]\left[\begin{array}{c} x\\ \lambda\end{array}\right]$$	
+Define the fundamental matrix for the homogeneous differential equation
+$$\Phi(t) = e^{{\cal A} t} =  \left[\begin{array}{cc} \theta_{11} &\theta_{12} \\[6pt]
+\theta_{21} & \theta_{22}\end{array}\right].$$
+Using the theory of solutions from differential equations, we know two things:
+$$\left[\begin{array}{c} x\\ \lambda\end{array}\right] = \Phi(t)\left[\begin{array}{c} x_0\\ \lambda_0\end{array}\right],$$
+and 
+\begin{eqnarray*}
+\left[\begin{array}{c} x\\ \lambda\end{array}\right]& = &\Phi(t-T)\left[\begin{array}{c} x(T)\\ \lambda(T)\end{array}\right]\\
+&=&  \left[\begin{array}{cc} \theta_{11}(t-T) &\theta_{12}(t-T) \\[6pt]
+\theta_{21}(t-T) & \theta_{22}(t-T)\end{array}\right].
+\end{eqnarray*}
+From the first order necessary conditions, we know that $\lambda(T) = 0$. Then,
+$$x(t) = \theta_{11}(t - T)x(T)$$ or $$x(T) = \theta_{11}(t - T)^{-1}x(t).$$ 
+This means that 
+$$\lambda(t) = \theta_{21}(t-T)\theta_{11}(t-T)^{-1}x(t).$$
+Define $$2\Pi(t) = \theta_{21}(t-T)\theta_{11}(t-T)^{-1};$$ then $\lambda(t) = 2\Pi(t)x(t)$. Substituting this into the expression for $u$, we obtain 
+$$u = -\frac 1 2 R^{-1}B^T\lambda = -R^{-1}B^T\Pi x.$$Which means that the optimal control is a feedback control.  
+
+How do we find $\Pi(t)$?
+\begin{eqnarray*}
+\dot \lambda &=& 2\dot\Pi x + 2\Pi \dot x\\
+&=& 2\dot\Pi x + 2\Pi (Ax+Bu)\\
+&=& 2\left(\dot\Pi  + \Pi A   - \Pi B R_1^{-1}B^T\Pi  \right)x \\
+\end{eqnarray*}
+Also $\dot\lambda = -(2x^TQ + \lambda^TA)^T = -2(Qx + A^T\Pi)x$.  Pulling this all together provides the Differential Riccati Equation (DRE):
+$$\dot\Pi = \Pi A + A^T\Pi - \Pi(BR_1^{-1}B^T  + Q, \quad \Pi(T) = 0.$$
+
+Note, this is an alternative derivation to what was done in class.  The steady state solution is the algebraic Riccati equation (ARE)
+$$\Pi A + A^T\Pi - \Pi(BR_1^{-1}B^T  + Q = 0.$$
+
+

@@ -1,0 +1,21 @@
+The Linear Quadratic Regulator (LQR) Problem can be written as
+$$\min J(x,u) = \int_0^{T} \left(x^T(t)Qx(t) + u^T(t)Ru(t) \right)dt$$
+\hspace{1.5in}{\it subject to}
+$$\dot x(t) = Ax(t) + Bu(t), \quad x(0) = x_0$$
+$$ x(t) \in \Re^n, \quad u(t) \in \Re^m, \quad A\in\Re ^{n\times n}, \quad B\in \Re ^{n\times m}$$
+$$Q\in\Re ^{n\times n}, \quad R\in \Re ^{m\times m}\quad T \hspace{.1in}{\rm fixed}.$$
+The matrix $Q$ must be positive semidefinite, and the matrix $R$ must be positive definite for the problem to have a solution.
+
+Since $x$ is a function of $u$, we can consider the objective function alternatively as a function of $u$, i.e., $J(u)$. Using tools which we will develop later in the
+course, we can write the solution for this problem in feedback form as 
+$$u = Kx$$
+where $K = -R^{-1}B^T \Pi$ and $\Pi$ is the solution of the differential Riccati equation
+\begin{equation}\label{eq:dre}
+\dot{\Pi}(t) +A^T\Pi(t) +\Pi(t)A - \Pi(t)BR^{-1}B^T\Pi(t) +Q =0, \hspace{.1in}  \Pi(T) = 0.
+\end{equation}
+If we let $T\rightarrow\infty$, the steady state form of the problem is the same, but $\Pi$ is then the solution of the algebraic Riccati equation
+\begin{equation}\label{eq:are}
+A^T\Pi(t) + \Pi(t)A - \Pi(t)BR^{-1}B^T\Pi(t) +Q=0.
+\end{equation}
+Note that if $Q$ is positive definite, $\Pi$ is also positive definite.
+

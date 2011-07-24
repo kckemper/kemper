@@ -1,0 +1,857 @@
+#LyX 1.6.7 created this file. For more info see http://www.lyx.org/
+\lyxformat 345
+\begin_document
+\begin_header
+\textclass article
+\use_default_options true
+\language english
+\inputencoding auto
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_amsmath 1
+\use_esint 1
+\cite_engine basic
+\use_bibtopic false
+\paperorientation portrait
+\leftmargin 1in
+\topmargin 1in
+\rightmargin 1in
+\bottommargin 1in
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\defskip medskip
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\author "" 
+\author "" 
+\end_header
+
+\begin_body
+
+\begin_layout Title
+ME531 Homework 2
+\end_layout
+
+\begin_layout Author
+Kevin Kemper
+\end_layout
+
+\begin_layout Enumerate
+Given the state-space system.
+\begin_inset Formula \[
+\begin{bmatrix}\dot{x}_{1}\\
+\dot{x}_{2}\end{bmatrix}=\begin{bmatrix}2 & 1\\
+-1 & 1\end{bmatrix}\begin{bmatrix}x_{1}\\
+x_{2}\end{bmatrix}+\begin{bmatrix}1\\
+2\end{bmatrix}u\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Find the poles of the uncontrolled system
+\begin_inset Formula \begin{eqnarray*}
+\det\left[\lambda I-A\right] & = & 0\\
+\det\begin{bmatrix}\lambda-2 & 1\\
+-1 & \lambda-1\end{bmatrix} & = & 0\\
+\left(\lambda-2\right)\left(\lambda-1\right)+1 & = & 0\\
+\lambda^{2}-3\lambda+3 & = & 0\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Formula \[
+\lambda=\frac{3}{2}\pm j\frac{\sqrt{3}}{2}\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Is the system controllable? Determine controllability by any method you
+ choose.
+\begin_inset Formula \begin{eqnarray*}
+\mathcal{C}\left(A,B\right) & = & \begin{bmatrix}B & AB\end{bmatrix}\\
+ & = & \begin{bmatrix}1 & 4\\
+2 & 1\end{bmatrix}\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Formula \[
+\text{Rank}\left[\mathcal{C}\left(A,B\right)\right]=2\]
+
+\end_inset
+
+The system is controllable.
+\end_layout
+
+\begin_layout Enumerate
+Find a gain vector K = [k1 k2] such that the closed-loop system has poles
+ at -1 and -2.
+ After doing the analysis by hand, check your answer using Matlab.
+ 
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+Want poles at -1 and -2.
+ Desired characteristic equation:
+\begin_inset Formula \[
+\lambda^{2}+3\lambda+2=0\]
+
+\end_inset
+
+Ackerman's formula:
+\begin_inset Formula \[
+K=\begin{bmatrix}0 & 0 & \dots & 1\end{bmatrix}\mathcal{C}^{-1}\Phi_{d}\left(A\right)\]
+
+\end_inset
+
+
+\begin_inset Formula \[
+\mathcal{C}\left(A,B\right)=\begin{bmatrix}1 & 4\\
+2 & 1\end{bmatrix}\]
+
+\end_inset
+
+
+\begin_inset Formula \[
+\mathcal{C}^{-1}=\begin{bmatrix}-\frac{1}{7} & \frac{4}{7}\\
+\frac{2}{7} & -\frac{1}{7}\end{bmatrix}\]
+
+\end_inset
+
+
+\begin_inset Formula \begin{eqnarray*}
+K & = & \begin{bmatrix}0 & 1\end{bmatrix}\begin{bmatrix}-\frac{1}{7} & \frac{4}{7}\\
+\frac{2}{7} & -\frac{1}{7}\end{bmatrix}\left(\begin{bmatrix}2 & 1\\
+-1 & 1\end{bmatrix}^{2}+3\begin{bmatrix}2 & 1\\
+-1 & 1\end{bmatrix}+2I\right)\\
+ & = & \begin{bmatrix}0 & 1\end{bmatrix}\begin{bmatrix}-\frac{1}{7} & \frac{4}{7}\\
+\frac{2}{7} & -\frac{1}{7}\end{bmatrix}\left(\begin{bmatrix}3 & 3\\
+-3 & 0\end{bmatrix}+\begin{bmatrix}6 & 3\\
+-3 & 3\end{bmatrix}+\begin{bmatrix}2 & 0\\
+0 & 2\end{bmatrix}\right)\\
+ & = & \begin{bmatrix}0 & 1\end{bmatrix}\begin{bmatrix}-\frac{1}{7} & \frac{4}{7}\\
+\frac{2}{7} & -\frac{1}{7}\end{bmatrix}\begin{bmatrix}11 & 6\\
+-6 & 5\end{bmatrix}\\
+ & = & \begin{bmatrix}0 & 1\end{bmatrix}\begin{bmatrix}-\frac{1}{7} & \frac{4}{7}\\
+\frac{2}{7} & -\frac{1}{7}\end{bmatrix}\begin{bmatrix}11 & 6\\
+-6 & 5\end{bmatrix}\\
+ & = & \begin{bmatrix}0 & 1\end{bmatrix}\begin{bmatrix}-5 & 2\\
+4 & 1\end{bmatrix}\\
+\mathbf{K} & \mathbf{=} & \mathbf{\begin{bmatrix}4 & 1\end{bmatrix}}\end{eqnarray*}
+
+\end_inset
+
+Matlab script returns 
+\begin_inset Formula $K=\begin{bmatrix}4 & 1\end{bmatrix}$
+\end_inset
+
+.
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Consider the state space system given by 
+\begin_inset Formula \begin{eqnarray*}
+\dot{x} & = & Ax+Bu\\
+y & = & Cx\end{eqnarray*}
+
+\end_inset
+
+With
+\begin_inset Formula \begin{eqnarray*}
+A & = & \begin{bmatrix}-2 & 1 & 0\\
+0 & -1 & 1\\
+0 & -1 & -2\end{bmatrix}\\
+B & = & \begin{bmatrix}0\\
+0\\
+1\end{bmatrix}\\
+C & = & \begin{bmatrix}1 & 0 & 0\end{bmatrix}\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Determine the gains required so that the system has poles at -2, -1 + j,
+ -1 – j.
+ 
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+Want poles at 
+\begin_inset Formula $-2$
+\end_inset
+
+, 
+\begin_inset Formula $-1\pm j$
+\end_inset
+
+.
+ Desired characteristic equation:
+\begin_inset Formula \begin{eqnarray*}
+-1\pm j & = & \frac{-b}{2a}\pm\frac{\sqrt{b^{2}-4ac}}{2a}\\
+a & = & 1\\
+b & = & 2\\
+b^{2}-4ac & = & -4\\
+4-4c & = & -4\\
+c & = & 2\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Formula \begin{eqnarray*}
+\left(\lambda+2\right)\left(\lambda^{2}+2\lambda+2\right) & = & 0\\
+\lambda^{3}+4\lambda^{2}+6\lambda+4 & = & 0\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Formula \begin{eqnarray*}
+\mathcal{C}\left(A,B\right) & = & \begin{bmatrix}B & AB & A^{2}B\end{bmatrix}\\
+ & = & \begin{bmatrix}0 & 0 & 1\\
+0 & 1 & -3\\
+1 & -2 & 3\end{bmatrix}\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Formula \[
+\mathcal{C}^{-1}=\begin{bmatrix}3 & 2 & 1\\
+3 & 1 & 0\\
+1 & 0 & 0\end{bmatrix}\]
+
+\end_inset
+
+Ackerman's formula:
+\begin_inset Formula \[
+K=\begin{bmatrix}0 & 0 & \dots & 1\end{bmatrix}\mathcal{C}^{-1}\Phi_{d}\left(A\right)\]
+
+\end_inset
+
+
+\begin_inset Formula \begin{eqnarray*}
+K & = & \begin{bmatrix}0 & 0 & 1\end{bmatrix}\begin{bmatrix}3 & 2 & 1\\
+3 & 1 & 0\\
+1 & 0 & 0\end{bmatrix}\left(\begin{bmatrix}-2 & 1 & 0\\
+0 & -1 & 1\\
+0 & -1 & -2\end{bmatrix}^{3}+4\begin{bmatrix}-2 & 1 & 0\\
+0 & -1 & 1\\
+0 & -1 & -2\end{bmatrix}^{2}+6\begin{bmatrix}-2 & 1 & 0\\
+0 & -1 & 1\\
+0 & -1 & -2\end{bmatrix}+4I\right)\\
+ & = & \begin{bmatrix}0 & 0 & 1\end{bmatrix}\begin{bmatrix}3 & 2 & 1\\
+3 & 1 & 0\\
+1 & 0 & 0\end{bmatrix}\begin{bmatrix}0 & 0 & -1\\
+0 & 1 & 0\\
+0 & 0 & 1\end{bmatrix}\\
+ & = & \begin{bmatrix}0 & 0 & 1\end{bmatrix}\begin{bmatrix}0 & 2 & -2\\
+0 & 1 & -3\\
+0 & 0 & -1\end{bmatrix}\\
+\mathbf{K} & \mathbf{=} & \mathbf{\begin{bmatrix}0 & 0 & -1\end{bmatrix}}\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Determine the gains required such that the system has a settling time of
+ 4-5 seconds and an overshoot less than 15% using
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+The dominant second order approximation.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+Choose poles using 
+\begin_inset Formula \[
+\frac{\omega_{n}^{2}}{s^{2}+2\zeta\omega_{n}s+\omega_{n}^{2}}\]
+
+\end_inset
+
+
+\begin_inset Formula \begin{eqnarray*}
+\zeta & = & \frac{-\ln\left(\frac{\%OS}{100}\right)}{\sqrt{\pi^{2}+\ln^{2}\left(\frac{\%OS}{100}\right)}}\\
+\\\text{choose }\%OS & = & \%10\\
+\zeta & \approx & 0.591\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Formula \begin{eqnarray*}
+T_{s} & \approx & \frac{4}{\zeta\omega_{n}}\\
+4.5 & = & \frac{4}{\left(0.591\right)\omega_{n}}\\
+\omega_{n} & = & \frac{4}{\left(0.591\right)4.5}\\
+\omega_{n} & = & 1.504\end{eqnarray*}
+
+\end_inset
+
+Relevent poles are 
+\begin_inset Formula $-0.889\pm1.213j$
+\end_inset
+
+.
+ Set other pole to some large negative value 
+\begin_inset Formula $\rightarrow-100$
+\end_inset
+
+.
+ Using Matlab
+\begin_inset Formula \[
+K=\begin{bmatrix}244.180 & -119.486 & 96.778\end{bmatrix}\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+The Bessel polynomial system approximation.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+Choose poles with a settling time 
+\begin_inset Formula $T_{s}=4.5$
+\end_inset
+
+
+\begin_inset Formula \begin{eqnarray*}
+\lambda_{1} & = & \frac{-5.0093}{T_{s}}=-1.1132\\
+\lambda_{2} & = & \frac{-3.9668+3.7845j}{T_{s}}=-0.881+0.841j\\
+\lambda_{3} & = & \frac{-3.9668-3.7845j}{T_{s}}=-0.881-0.841j\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Formula \[
+K=\begin{bmatrix}-1.737 & 0.818 & -2.124\end{bmatrix}\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+ITAE.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+Using:
+\begin_inset Formula \[
+\frac{\omega_{n}^{3}}{s^{3}+1.75\omega_{n}s^{2}+2.15\omega_{n}^{2}s+\omega_{n}^{3}}\]
+
+\end_inset
+
+
+\begin_inset Formula \[
+K=\begin{bmatrix}-3.527 & 3.462 & -1.889\end{bmatrix}\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Simulate the response of each system in (b) to a unit step with 
+\begin_inset Formula $u=\bar{N}r-Kx$
+\end_inset
+
+, such that the system has zero steady state error.
+ 
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename hw2_2c.pdf
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+It is desired that the output 
+\begin_inset Formula $y$
+\end_inset
+
+ follow a trajectory given by 
+\begin_inset Formula $y_{d}=\sin(t)$
+\end_inset
+
+.
+ Determine the control 
+\begin_inset Formula $u$
+\end_inset
+
+ such that the output will track the desired trajectory.
+ Given an initial state of [2 1 0]T, simulate your controlled system to
+ show that the controller performs as desired (i.e.
+ compare it to 
+\begin_inset Formula $y_{d}$
+\end_inset
+
+).
+\begin_inset Formula \begin{eqnarray*}
+\dot{x} & = & \begin{bmatrix}-2 & 1 & 0\\
+0 & -1 & 1\\
+0 & -1 & -2\end{bmatrix}x+\begin{bmatrix}0\\
+0\\
+1\end{bmatrix}u\\
+y & = & \begin{bmatrix}1 & 0 & 0\end{bmatrix}x\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Formula \begin{eqnarray*}
+u & = & -Kx+v\\
+ & = & \left(-\begin{bmatrix}a_{0} & a_{1} & a_{2}\end{bmatrix}x+v\right)\end{eqnarray*}
+
+\end_inset
+
+now:
+\begin_inset Formula \[
+\dot{x}=\begin{bmatrix}-2 & 1 & 0\\
+0 & -1 & 1\\
+-a_{0} & -1-a_{1} & -2-a_{2}\end{bmatrix}x+\begin{bmatrix}0\\
+0\\
+1\end{bmatrix}v\]
+
+\end_inset
+
+Compute relative degree:
+\begin_inset Formula \[
+CB=\begin{bmatrix}1 & 0 & 0\end{bmatrix}\begin{bmatrix}0\\
+0\\
+1\end{bmatrix}=0\]
+
+\end_inset
+
+
+\begin_inset Formula \begin{eqnarray*}
+CAB & = & \begin{bmatrix}1 & 0 & 0\end{bmatrix}\begin{bmatrix}-2 & 1 & 0\\
+0 & -1 & 1\\
+-a_{0} & -1-a_{1} & -2-a_{2}\end{bmatrix}\begin{bmatrix}0\\
+0\\
+1\end{bmatrix}\\
+ & = & \begin{bmatrix}1 & 0 & 0\end{bmatrix}\begin{bmatrix}0\\
+1\\
+-2-a_{2}\end{bmatrix}=0\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Formula \begin{eqnarray*}
+CA^{2}B & = & \begin{bmatrix}1 & 0 & 0\end{bmatrix}\begin{bmatrix}-4 & -3 & 1\\
+-a_{0} & -a_{1} & -3-a_{2}\\
+2a_{0}-a_{0}(-2-a_{2}) & 1-a_{0}+a_{1}+(-1-a_{1})(-2-a_{2}) & -1-a_{1}+(-2-a_{2})^{2}\end{bmatrix}\begin{bmatrix}0\\
+0\\
+1\end{bmatrix}\\
+ & = & \begin{bmatrix}1 & 0 & 0\end{bmatrix}\begin{bmatrix}1\\
+-3-a_{2}\\
+-1-a_{1}+(-2-a_{2})^{2}\end{bmatrix}=1\ne0\end{eqnarray*}
+
+\end_inset
+
+Degree 
+\begin_inset Formula $\gamma=3$
+\end_inset
+
+
+\begin_inset Formula \[
+v=\frac{1}{CA^{2}B}\left(\dddot{y_{d}}-CA^{3}x+\bar{\alpha}^{T}\bar{e}\right)\]
+
+\end_inset
+
+
+\begin_inset Formula \[
+CA^{3}=\begin{bmatrix}-8-a_{0} & 6-a_{1} & -5-a_{2}\end{bmatrix}\]
+
+\end_inset
+
+
+\begin_inset Formula \[
+\bar{\alpha}^{T}\bar{e}=\begin{bmatrix}\alpha_{0} & \alpha_{1} & \alpha_{2}\end{bmatrix}\begin{bmatrix}e\\
+\dot{e}\\
+\ddot{e}\end{bmatrix}=\alpha_{0}e+\alpha_{1}\dot{e}+\alpha_{2}\ddot{e}\]
+
+\end_inset
+
+
+\begin_inset Formula \[
+v=\dddot{y}_{d}+\left(8+a_{0}\right)x_{0}+\left(-6+a_{1}\right)x_{1}+\left(5+a_{2}\right)x_{2}+\alpha_{0}e+\alpha_{1}\dot{e}+\alpha_{2}\ddot{e}\]
+
+\end_inset
+
+Combined system:
+\begin_inset Formula \begin{eqnarray*}
+\begin{bmatrix}\dot{\bar{x}}\\
+\dot{\bar{e}}\end{bmatrix} & = & \begin{bmatrix}-2 & 1 & 0 & 0 & 0 & 0\\
+0 & -1 & 1 & 0 & 0 & 0\\
+-a_{0} & -1-a_{1} & -2-a_{2} & 0 & 0 & 0\\
+0 & 0 & 0 & 0 & 1 & 0\\
+0 & 0 & 0 & 0 & 0 & 1\\
+0 & 0 & 0 & -\alpha_{0} & -\alpha_{1} & -\alpha_{2}\end{bmatrix}\begin{bmatrix}\bar{x}\\
+\bar{e}\end{bmatrix}+\begin{bmatrix}0\\
+0\\
+1\\
+0\\
+0\\
+0\end{bmatrix}v\\
+y & = & \begin{bmatrix}1 & 0 & 0 & 0 & 0 & 0\end{bmatrix}\begin{bmatrix}\bar{x}\\
+\bar{e}\end{bmatrix}\end{eqnarray*}
+
+\end_inset
+
+Substitue in for 
+\begin_inset Formula $v$
+\end_inset
+
+:
+\begin_inset Formula \[
+\begin{bmatrix}\dot{\bar{x}}\\
+\dot{\bar{e}}\end{bmatrix}=\begin{bmatrix}-2 & 1 & 0 & 0 & 0 & 0\\
+0 & -1 & 1 & 0 & 0 & 0\\
+8 & 5 & -5 & -\alpha_{0} & -\alpha_{1} & -\alpha_{2}\\
+0 & 0 & 0 & 0 & 1 & 0\\
+0 & 0 & 0 & 0 & 0 & 1\\
+0 & 0 & 0 & -\alpha_{0} & -\alpha_{1} & -\alpha_{2}\end{bmatrix}\begin{bmatrix}\bar{x}\\
+\bar{e}\end{bmatrix}+\begin{bmatrix}0\\
+0\\
+1\\
+0\\
+0\\
+0\end{bmatrix}\dddot{y}_{d}\]
+
+\end_inset
+
+
+\begin_inset Formula \[
+y_{d}=\sin(t)\ \rightarrow\ \omega=1\]
+
+\end_inset
+
+
+\begin_inset Formula \[
+\lambda^{3}+\alpha_{2}\lambda^{2}+\alpha_{1}\lambda+\alpha_{0}=0\]
+
+\end_inset
+
+
+\begin_inset Formula \begin{eqnarray*}
+\alpha_{0} & =\\
+\alpha_{1} & =\\
+\alpha_{2} & =\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Inital conditions
+\begin_inset Formula \begin{eqnarray*}
+x_{0}(0) & = & 2\\
+x_{1}(0) & = & 1\\
+x_{2}(0) & = & 0\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Formula \begin{eqnarray*}
+e(0) & = & y_{d}(0)-Cx(0)=\sin(0)-2=-2\\
+\dot{e}(0) & = & \dot{y}_{d}(0)-C\dot{x}(0)=\cos(0)-0=1\\
+\ddot{e}(0) & = & \ddot{y}_{d}(0)-C\ddot{x}(0)=-\sin(0)-0=0\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename hw2_2d.pdf
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+\start_of_appendix
+Matlab Code
+\end_layout
+
+\begin_layout Subsection
+Problem 1
+\end_layout
+
+\begin_layout Standard
+fprintf('Problem 1
+\backslash
+n'); A = [2 1; -1 1]; B = [1;2];
+\end_layout
+
+\begin_layout Standard
+p1_1 = -1; p1_2 = -2;
+\end_layout
+
+\begin_layout Standard
+K = place(A,B,[p1_1 p1_2])
+\end_layout
+
+\begin_layout Subsection
+Problem 2
+\end_layout
+
+\begin_layout Standard
+close all
+\end_layout
+
+\begin_layout Standard
+fprintf('Problem 2
+\backslash
+n');
+\end_layout
+
+\begin_layout Standard
+A = [-2 1 0; 0 -1 1; 0 -1 -2]; B = [0; 0; 1]; C = [1 0 0]; D = [0];
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+cMat = [B A*B A^2*B]; cMatInv = cMat^-1;
+\end_layout
+
+\begin_layout Standard
+P2a = [-2 -1+1j -1-1j];
+\end_layout
+
+\begin_layout Standard
+K2a = place(A,B,P2a)
+\end_layout
+
+\begin_layout Standard
+fprintf('
+\backslash
+tb)
+\backslash
+n'); 
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+Pi = [-100 -0.889+1.1213*j -0.889-1.1213*j];
+\end_layout
+
+\begin_layout Standard
+Ki = place(A,B,Pi);
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+Ts = 4.5;
+\end_layout
+
+\begin_layout Standard
+p1 = -5.0093/Ts; p2 = (-3.9668 + 3.7845*i)/Ts; p3 = (-3.9668 - 3.7845*i)/Ts;
+\end_layout
+
+\begin_layout Standard
+Pii = [p1 p2 p3];
+\end_layout
+
+\begin_layout Standard
+Kii = place(A,B,Pii)
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+Ts = 4.5; wn = 1; sys = tf(wn^3,[1 1.75*wn 2.15*wn^2 wn^3]);
+\end_layout
+
+\begin_layout Standard
+%figure %step(sys);
+\end_layout
+
+\begin_layout Standard
+%from step: Ts_sim ~ 8 sec % wm = 8/2 = 4 wn = 8/Ts;
+\end_layout
+
+\begin_layout Standard
+Piii = roots([1 1.75*wn 2.15*wn^2 wn^3]) Kiii = place(A,B,Piii)
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+N = inv([A B; C D])*[zeros(1, length(A)) 1]'; Nx = N(1:end-1); Nu = N(end);
+ Nbar = Nu+Ki*Nx; syscal_i = ss(A-B*Ki,B*Nbar,C,D);
+\end_layout
+
+\begin_layout Standard
+stepplot(syscal_i,'b');
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+N = inv([A B; C D])*[zeros(1, length(A)) 1]'; Nx = N(1:end-1); Nu = N(end);
+ Nbar = Nu+Kii*Nx; syscal_ii = ss(A-B*Kii,B*Nbar,C,D);
+\end_layout
+
+\begin_layout Standard
+stepplot(syscal_ii,'r');
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+N = inv([A B; C D])*[zeros(1, length(A)) 1]'; Nx = N(1:end-1); Nu = N(end);
+ Nbar = Nu+Kiii*Nx; syscal_iii = ss(A-B*Kiii,B*Nbar,C,D);
+\end_layout
+
+\begin_layout Standard
+stepplot(syscal_iii,'g');
+\end_layout
+
+\begin_layout Standard
+plot([0 7],[1.1 1.1],'k') legend('second order approx', 'Bessel', 'ITAE',
+ '10% over','Location','SouthEast'); %save2pdf('./hw2_2c.pdf')
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+a0 = 6; a1 = 11; a2 = 6;
+\end_layout
+
+\begin_layout Standard
+A = [ -2 1 0 0 0 0; 0 -1 1 0 0 0; -8 5 -5 -a0 -a1 -a2; 0 0 0 0 1 0; 0 0
+ 0 0 0 1; 0 0 0 -a0 -a1 -a2];
+\end_layout
+
+\begin_layout Standard
+B = [0;0;1;0;0;0]; C = [1,0,0,0,0,0]; D = [0];
+\end_layout
+
+\begin_layout Standard
+t = linspace(0,10,1e4); yd = 10*cos(t);
+\end_layout
+
+\begin_layout Standard
+sys = ss(A,B,C,D);
+\end_layout
+
+\begin_layout Standard
+figure hold on plot(t,sin(t)); [Y,T,X] = lsim(sys,yd,t,[2 1 0 -2 1 0]);
+ plot(t,Y(:,1));
+\end_layout
+
+\begin_layout Standard
+save2pdf('./hw2_2d.pdf')
+\end_layout
+
+\end_body
+\end_document

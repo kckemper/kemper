@@ -1,0 +1,505 @@
+#LyX 1.6.7 created this file. For more info see http://www.lyx.org/
+\lyxformat 345
+\begin_document
+\begin_header
+\textclass article
+\use_default_options true
+\language english
+\inputencoding auto
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_amsmath 1
+\use_esint 1
+\cite_engine basic
+\use_bibtopic false
+\paperorientation portrait
+\leftmargin 1in
+\topmargin 1in
+\rightmargin 1in
+\bottommargin 1in
+\secnumdepth -1
+\tocdepth 3
+\paragraph_separation indent
+\defskip medskip
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\author "" 
+\author "" 
+\end_header
+
+\begin_body
+
+\begin_layout Title
+ME 531 Final Exam
+\end_layout
+
+\begin_layout Author
+Kevin Kemper
+\end_layout
+
+\begin_layout Standard
+Given
+\begin_inset Formula \begin{eqnarray*}
+\dot{\bar{x}} & = & \begin{bmatrix}0 & 1 & 0 & 0\\
+9.4865 & -0.1055v & -\left(0.5713+0.8912v^{2}\right) & -0.3305v\\
+0 & 0 & 0 & 1\\
+11.7155 & 3.6768v & -\left(-30.8982+1.9717v^{2}\right) & -3.0849v\end{bmatrix}\bar{x}+\begin{bmatrix}0 & 0\\
+0.0159 & -0.1241\\
+0 & 0\\
+-0.1241 & 4.3228\end{bmatrix}\begin{bmatrix}T_{\phi}\\
+T_{\delta}\end{bmatrix}\\
+\bar{y} & = & \begin{bmatrix}1 & 0 & 0 & 0\\
+0 & 0 & 0 & 1\end{bmatrix}\bar{x}\end{eqnarray*}
+
+\end_inset
+
+Where
+\begin_inset Formula \[
+\bar{x}=\begin{bmatrix}\phi\\
+\dot{\phi}\\
+\delta\\
+\dot{\delta}\end{bmatrix}\]
+
+\end_inset
+
+
+\begin_inset Formula \begin{eqnarray*}
+\phi & : & \text{Lean angle}\\
+\delta & : & \text{Steering angle}\\
+T_{\phi} & : & \text{Lean torque}\\
+T_{\delta} & : & \text{Steering torque}\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Determine if the bicycle is self-stable
+\end_layout
+
+\begin_layout Standard
+The bicycle is dynaimcally stable roughly in 
+\begin_inset Formula $\left[4.292,\,6.024\right]\,\frac{m}{s}$
+\end_inset
+
+.
+ If the bicycle's velocity is perturbed to a value outside of this regon
+ it will fall.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename figures/partA.pdf
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Plot of real parts of the system poles over a range of velocites.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Full state feedback regulator
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename figures/partC1.pdf
+	scale 60
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename figures/partC2.pdf
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Plot of time response for the regulator controller.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Steady-state tracking
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename figures/partD1.pdf
+	scale 60
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename figures/partD2.pdf
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Plot of time response for the steady-state controller.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Full order estimator
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename figures/partF1.pdf
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Plot of time response for the steady-state controller.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Tacking
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula \begin{eqnarray*}
+\dot{\bar{x}} & = & A\bar{x}+Bu\\
+y & = & C\bar{x}\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Formula \begin{eqnarray*}
+\ddot{\bar{e}} & = & \ddot{\bar{y}}_{d}-\ddot{\bar{y}}\\
+ & = & \ddot{\bar{y}}_{d}-\frac{d^{2}}{dt^{2}}\left(\bar{y}\right)\\
+ & = & \ddot{\bar{y}}_{d}-\frac{d^{2}}{dt^{2}}\left(C\bar{x}\right)\\
+ & = & \ddot{\bar{y}}_{d}-\frac{d}{dt}\left(C\dot{\bar{x}}\right)\\
+ & = & \ddot{\bar{y}}_{d}-\frac{d}{dt}\left(C\left(A\bar{x}+Bu\right)\right)\\
+ & = & \ddot{\bar{y}}_{d}-CA\dot{\bar{x}}+CBu\end{eqnarray*}
+
+\end_inset
+
+For this problem
+\begin_inset Formula \[
+CB=0\]
+
+\end_inset
+
+
+\begin_inset Formula \begin{eqnarray*}
+\ddot{\bar{e}} & = & \ddot{\bar{y}}_{d}-CA\dot{\bar{x}}\\
+ & = & \ddot{\bar{y}}_{d}-CA\left(A\bar{x}+Bu\right)\\
+ & = & \ddot{\bar{y}}_{d}-CA^{2}\bar{x}-CABu\\
+\ddot{\bar{e}} & = & \ddot{\bar{y}}_{d}-CA^{2}\bar{x}-\underbrace{CAB}_{Z}u\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Formula \[
+\bar{w}=Z^{-1}\left(\ddot{\bar{y}}_{d}-CA^{2}\bar{x}-\alpha\ddot{\bar{e}}\right)\]
+
+\end_inset
+
+
+\begin_inset Formula \begin{eqnarray*}
+\begin{bmatrix}\ddot{e}_{1}\\
+\ddot{e}_{2}\end{bmatrix} & = & \begin{bmatrix}\alpha_{12}e_{1}+\alpha_{11}\dot{e}_{1}\\
+\alpha_{22}e_{2}+\alpha_{21}\dot{e}_{2}\end{bmatrix}\\
+ & = & \begin{bmatrix}\alpha_{12} & \alpha_{11} & 0 & 0\\
+0 & 0 & \alpha_{22} & \alpha_{21}\end{bmatrix}\begin{bmatrix}e_{1}\\
+\dot{e}_{1}\\
+e_{2}\\
+\dot{e}_{2}\end{bmatrix}\\
+\begin{bmatrix}\ddot{e}_{1}\\
+\ddot{e}_{2}\end{bmatrix} & = & \underbrace{\begin{bmatrix}0 & 1 & 0 & 0\\
+0 & 0 & 0 & 1\end{bmatrix}}_{\beta}\underbrace{\begin{bmatrix}0 & 0 & 0 & 0\\
+\alpha_{12} & \alpha_{11} & 0 & 0\\
+0 & 0 & 0 & 0\\
+0 & 0 & \alpha_{22} & \alpha_{21}\end{bmatrix}}_{\alpha}\underbrace{\begin{bmatrix}e_{1}\\
+\dot{e}_{1}\\
+e_{2}\\
+\dot{e}_{2}\end{bmatrix}}_{\bar{e}}\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Formula \begin{eqnarray*}
+\begin{bmatrix}\dot{\bar{x}}\\
+\ddot{\bar{e}}\end{bmatrix} & = & \begin{bmatrix}A-BZ^{-1}CA^{2} & BZ^{-1}\beta\alpha\\
+0 & -\alpha\end{bmatrix}\begin{bmatrix}\bar{x}\\
+\bar{e}\end{bmatrix}+\begin{bmatrix}B\\
+0\end{bmatrix}Z^{-1}\ddot{\bar{y}}_{d}\\
+\bar{y} & = & \begin{bmatrix}C & 0 & 0\\
+0 & C & 0\end{bmatrix}\begin{bmatrix}\bar{x}\\
+\hat{\bar{x}}\\
+\bar{e}\end{bmatrix}\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Tracking and state estimation
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula \begin{eqnarray*}
+\dot{\bar{x}} & = & A\bar{x}+Bu\\
+y & = & C\bar{x}\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Formula \[
+\bar{u}=-K\hat{\bar{x}}+\bar{w}\]
+
+\end_inset
+
+
+\begin_inset Formula \begin{eqnarray*}
+\ddot{\bar{e}} & = & \ddot{\bar{y}}_{d}-\ddot{\bar{y}}\\
+ & = & \ddot{\bar{y}}_{d}-\frac{d^{2}}{dt^{2}}\left(\bar{y}\right)\\
+ & = & \ddot{\bar{y}}_{d}-\frac{d^{2}}{dt^{2}}\left(C\bar{x}\right)\\
+ & = & \ddot{\bar{y}}_{d}-\frac{d}{dt}\left(C\dot{\bar{x}}\right)\\
+ & = & \ddot{\bar{y}}_{d}-\frac{d}{dt}\left(C\left(A\bar{x}+Bu\right)\right)\\
+ & = & \ddot{\bar{y}}_{d}-\frac{d}{dt}\left(C\left(A\bar{x}+B\left(-K\hat{\bar{x}}+\bar{w}\right)\right)\right)\\
+ & = & \ddot{\bar{y}}_{d}-CA\dot{\bar{x}}+CB\left(-K\hat{\bar{x}}+\bar{w}\right)\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Formula \[
+CB=0\]
+
+\end_inset
+
+
+\begin_inset Formula \begin{eqnarray*}
+\ddot{\bar{e}} & = & \ddot{\bar{y}}_{d}-CA\dot{\bar{x}}\\
+ & = & \ddot{\bar{y}}_{d}-CA\left(A\bar{x}+Bu\right)\\
+ & = & \ddot{\bar{y}}_{d}-CA^{2}\bar{x}-CABu\\
+ & = & \ddot{\bar{y}}_{d}-CA^{2}\bar{x}-CAB\left(-K\hat{\bar{x}}+\bar{w}\right)\\
+\ddot{\bar{e}} & = & \ddot{\bar{y}}_{d}-CA^{2}\bar{x}+CABK\hat{\bar{x}}-\underbrace{CAB}_{Z}\bar{w}\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Formula \[
+\bar{w}=Z^{-1}\left(\ddot{\bar{y}}_{d}-CA^{2}\bar{x}+CABK\hat{\bar{x}}-\alpha\ddot{\bar{e}}\right)\]
+
+\end_inset
+
+
+\begin_inset Formula \begin{eqnarray*}
+\begin{bmatrix}\ddot{e}_{1}\\
+\ddot{e}_{2}\end{bmatrix} & = & \begin{bmatrix}\alpha_{12}e_{1}+\alpha_{11}\dot{e}_{1}\\
+\alpha_{22}e_{2}+\alpha_{21}\dot{e}_{2}\end{bmatrix}\\
+ & = & \begin{bmatrix}\alpha_{12} & \alpha_{11} & 0 & 0\\
+0 & 0 & \alpha_{22} & \alpha_{21}\end{bmatrix}\begin{bmatrix}e_{1}\\
+\dot{e}_{1}\\
+e_{2}\\
+\dot{e}_{2}\end{bmatrix}\\
+\begin{bmatrix}\ddot{e}_{1}\\
+\ddot{e}_{2}\end{bmatrix} & = & \underbrace{\begin{bmatrix}0 & 1 & 0 & 0\\
+0 & 0 & 0 & 1\end{bmatrix}}_{\beta}\underbrace{\begin{bmatrix}0 & 1 & 0 & 0\\
+\alpha_{12} & \alpha_{11} & 0 & 0\\
+0 & 0 & 0 & 1\\
+0 & 0 & \alpha_{22} & \alpha_{21}\end{bmatrix}}_{\alpha}\underbrace{\begin{bmatrix}e_{1}\\
+\dot{e}_{1}\\
+e_{2}\\
+\dot{e}_{2}\end{bmatrix}}_{\bar{e}}\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Formula \begin{eqnarray*}
+\begin{bmatrix}\dot{\bar{x}}\\
+\hat{\bar{x}}\\
+\ddot{\bar{e}}\end{bmatrix} & = & \begin{bmatrix}A-BZ^{-1}CA^{2} & 0 & BZ^{-1}\beta\alpha\\
+GC-BZ^{-1}CA^{2} & A-GC & BZ^{-1}\beta\alpha\\
+0 & 0 & -\alpha\end{bmatrix}\begin{bmatrix}\bar{x}\\
+\hat{\bar{x}}\\
+\bar{e}\end{bmatrix}+\begin{bmatrix}B\\
+B\\
+0\end{bmatrix}Z^{-1}\ddot{\bar{y}}_{d}\\
+\bar{y} & = & \begin{bmatrix}C & 0 & 0\\
+0 & C & 0\end{bmatrix}\begin{bmatrix}\bar{x}\\
+\hat{\bar{x}}\\
+\bar{e}\end{bmatrix}\end{eqnarray*}
+
+\end_inset
+
+Initial conditions:
+\begin_inset Formula \[
+\bar{x}\left(0\right)=\begin{bmatrix}0.05\\
+0\\
+0.1\\
+0\end{bmatrix}\]
+
+\end_inset
+
+
+\begin_inset Formula \begin{eqnarray*}
+y_{d1}\left(0\right) & = & 0.15\sin\left(0\right)\\
+\dot{y}_{d1}\left(0\right) & = & 0.15\cos\left(0\right)\\
+y_{d2}\left(0\right) & = & 0.15\sin\left(0\right)\\
+\dot{y}_{d2}\left(0\right) & = & 0.30\cos\left(0\right)\\
+\\y_{1}\left(0\right) & = & Cx_{1}=0.05\\
+\dot{y}_{1}\left(0\right) & = & C\dot{x}_{1}=0\\
+y_{2}\left(0\right) & = & Cx_{2}=0.1\\
+\dot{y}_{2}\left(0\right) & = & C\dot{x}_{2}=0\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename figures/partH.pdf
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Plot of time response for the steady-state controller.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

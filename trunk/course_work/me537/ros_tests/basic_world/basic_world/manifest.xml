@@ -1,0 +1,17 @@
+<package>
+  <description brief="basic_world">
+
+     basic_world
+
+  </description>
+  <author>koepld</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/basic_world</url>
+  <depend package="roscpp"/>
+  <depend package="visualization_msgs"/>
+	<depend package="opende"/>
+
+</package>
+
+

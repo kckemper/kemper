@@ -1,0 +1,2714 @@
+(* Content-type: application/mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 7.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       145,          7]
+NotebookDataLength[     90511,       2705]
+NotebookOptionsPosition[     89297,       2661]
+NotebookOutlinePosition[     89733,       2678]
+CellTagsIndexPosition[     89690,       2675]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[TextData[{
+ "\nInverse Laplace of ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["X", "L"], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ "(s):"
+}], "Input",
+ CellChangeTimes->{{3.491310572946307*^9, 3.491310658205958*^9}},
+ FormatType->"TextForm"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"FullSimplify", "[", 
+  RowBox[{
+   RowBox[{"InverseLaplaceTransform", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"(", 
+       FractionBox["Fmc", "s"], ")"}], 
+      RowBox[{"(", 
+       FractionBox[
+        RowBox[{
+         RowBox[{"B", " ", "s"}], "+", "k"}], 
+        RowBox[{
+         RowBox[{
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"mL", " ", 
+             SuperscriptBox["s", "2"]}], "+", 
+            RowBox[{"B", " ", "s"}], "+", "k"}], ")"}], 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"mm", " ", 
+             SuperscriptBox["s", "2"]}], "+", 
+            RowBox[{"B", " ", "s"}], "+", "k"}], ")"}]}], "-", 
+         SuperscriptBox[
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"B", " ", "s"}], "+", "k"}], ")"}], "2"]}]], ")"}]}], ",",
+      "s", ",", "t"}], "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"k", "\[GreaterEqual]", "0"}], ",", 
+     RowBox[{"mm", ">", "0"}], ",", 
+     RowBox[{"mL", ">", "0"}], ",", 
+     RowBox[{"B", "\[GreaterEqual]", "0"}]}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.491251847023825*^9, 3.491251935557271*^9}, {
+  3.491308775469977*^9, 3.491308892825086*^9}, {3.491308947944618*^9, 
+  3.491308954071401*^9}, {3.491309015031633*^9, 3.491309015224866*^9}, {
+  3.491309057562169*^9, 3.491309059573357*^9}, {3.491309117039684*^9, 
+  3.491309117454079*^9}, {3.491309447149713*^9, 3.491309465231039*^9}, {
+  3.491309689904198*^9, 3.491309697136851*^9}, {3.491310100890989*^9, 
+  3.491310107735722*^9}, {3.491310190606525*^9, 3.491310214697195*^9}, {
+  3.491334025342871*^9, 3.491334059269539*^9}}],
+
+Cell[BoxData[
+ FractionBox[
+  RowBox[{
+   SuperscriptBox["\[ExponentialE]", 
+    RowBox[{"-", 
+     FractionBox[
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"B", " ", 
+          RowBox[{"(", 
+           RowBox[{"mL", "+", "mm"}], ")"}]}], "+", 
+         SqrtBox[
+          RowBox[{
+           RowBox[{"(", 
+            RowBox[{"mL", "+", "mm"}], ")"}], " ", 
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"-", "4"}], " ", "k", " ", "mL", " ", "mm"}], "+", 
+             RowBox[{
+              SuperscriptBox["B", "2"], " ", 
+              RowBox[{"(", 
+               RowBox[{"mL", "+", "mm"}], ")"}]}]}], ")"}]}]]}], ")"}], " ", 
+       "t"}], 
+      RowBox[{"2", " ", "mL", " ", "mm"}]]}]], " ", "Fmc", " ", 
+   RowBox[{"(", 
+    RowBox[{
+     RowBox[{"B", " ", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"-", "1"}], "+", 
+        SuperscriptBox["\[ExponentialE]", 
+         FractionBox[
+          RowBox[{
+           SqrtBox[
+            RowBox[{
+             RowBox[{"(", 
+              RowBox[{"mL", "+", "mm"}], ")"}], " ", 
+             RowBox[{"(", 
+              RowBox[{
+               RowBox[{
+                RowBox[{"-", "4"}], " ", "k", " ", "mL", " ", "mm"}], "+", 
+               RowBox[{
+                SuperscriptBox["B", "2"], " ", 
+                RowBox[{"(", 
+                 RowBox[{"mL", "+", "mm"}], ")"}]}]}], ")"}]}]], " ", "t"}], 
+          RowBox[{"mL", " ", "mm"}]]]}], ")"}], " ", "mL", " ", "mm", " ", 
+      RowBox[{"(", 
+       RowBox[{"mL", "+", "mm"}], ")"}]}], "+", 
+     RowBox[{
+      SqrtBox[
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{"mL", "+", "mm"}], ")"}], " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"-", "4"}], " ", "k", " ", "mL", " ", "mm"}], "+", 
+          RowBox[{
+           SuperscriptBox["B", "2"], " ", 
+           RowBox[{"(", 
+            RowBox[{"mL", "+", "mm"}], ")"}]}]}], ")"}]}]], " ", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"(", 
+          RowBox[{"1", "+", 
+           SuperscriptBox["\[ExponentialE]", 
+            FractionBox[
+             RowBox[{
+              SqrtBox[
+               RowBox[{
+                RowBox[{"(", 
+                 RowBox[{"mL", "+", "mm"}], ")"}], " ", 
+                RowBox[{"(", 
+                 RowBox[{
+                  RowBox[{
+                   RowBox[{"-", "4"}], " ", "k", " ", "mL", " ", "mm"}], "+", 
+                  
+                  RowBox[{
+                   SuperscriptBox["B", "2"], " ", 
+                   RowBox[{"(", 
+                    RowBox[{"mL", "+", "mm"}], ")"}]}]}], ")"}]}]], " ", 
+              "t"}], 
+             RowBox[{"mL", " ", "mm"}]]]}], ")"}], " ", "mL", " ", "mm"}], 
+        "+", 
+        RowBox[{
+         SuperscriptBox["\[ExponentialE]", 
+          FractionBox[
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"B", " ", 
+               RowBox[{"(", 
+                RowBox[{"mL", "+", "mm"}], ")"}]}], "+", 
+              SqrtBox[
+               RowBox[{
+                RowBox[{"(", 
+                 RowBox[{"mL", "+", "mm"}], ")"}], " ", 
+                RowBox[{"(", 
+                 RowBox[{
+                  RowBox[{
+                   RowBox[{"-", "4"}], " ", "k", " ", "mL", " ", "mm"}], "+", 
+                  
+                  RowBox[{
+                   SuperscriptBox["B", "2"], " ", 
+                   RowBox[{"(", 
+                    RowBox[{"mL", "+", "mm"}], ")"}]}]}], ")"}]}]]}], ")"}], 
+            " ", "t"}], 
+           RowBox[{"2", " ", "mL", " ", "mm"}]]], " ", 
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"-", "2"}], " ", "mL", " ", "mm"}], "+", 
+           RowBox[{"k", " ", 
+            RowBox[{"(", 
+             RowBox[{"mL", "+", "mm"}], ")"}], " ", 
+            SuperscriptBox["t", "2"]}]}], ")"}]}]}], ")"}]}]}], ")"}]}], 
+  RowBox[{"2", " ", "k", " ", 
+   SuperscriptBox[
+    RowBox[{"(", 
+     RowBox[{"mL", "+", "mm"}], ")"}], 
+    RowBox[{"5", "/", "2"}]], " ", 
+   SqrtBox[
+    RowBox[{
+     RowBox[{
+      RowBox[{"-", "4"}], " ", "k", " ", "mL", " ", "mm"}], "+", 
+     RowBox[{
+      SuperscriptBox["B", "2"], " ", 
+      RowBox[{"(", 
+       RowBox[{"mL", "+", "mm"}], ")"}]}]}]]}]]], "Output",
+ CellChangeTimes->{
+  3.491309756180298*^9, 3.491310109078854*^9, {3.491310191782441*^9, 
+   3.491310216102835*^9}, 3.491334033462282*^9, 3.491334108461714*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"FullSimplify", "[", 
+  RowBox[{
+   RowBox[{"InverseLaplaceTransform", "[", 
+    RowBox[{
+     RowBox[{"(", 
+      FractionBox[
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"xm0", " ", "B"}], "-", 
+          RowBox[{"xL0", " ", "B"}], "+", 
+          RowBox[{"mm", " ", "xm0", " ", "s"}], "+", 
+          RowBox[{"mm", " ", "dxm0"}]}], ")"}], 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"B", " ", "s"}], "+", "k"}], ")"}]}], 
+       RowBox[{
+        RowBox[{
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"mL", " ", 
+            SuperscriptBox["s", "2"]}], "+", 
+           RowBox[{"B", " ", "s"}], "+", "k"}], ")"}], 
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"mm", " ", 
+            SuperscriptBox["s", "2"]}], "+", 
+           RowBox[{"B", " ", "s"}], "+", "k"}], ")"}]}], "-", 
+        SuperscriptBox[
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"B", " ", "s"}], "+", "k"}], ")"}], "2"]}]], ")"}], ",", 
+     "s", ",", "t"}], "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"k", ">=", "0"}], ",", 
+     RowBox[{"mm", ">", "0"}], ",", 
+     RowBox[{"mL", ">", "0"}], ",", 
+     RowBox[{"B", ">=", "0"}]}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.491310692312431*^9, 3.491310748590222*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  FractionBox["1", 
+   RowBox[{"2", " ", 
+    SuperscriptBox[
+     RowBox[{"(", 
+      RowBox[{"mL", "+", "mm"}], ")"}], 
+     RowBox[{"3", "/", "2"}]], " ", 
+    SqrtBox[
+     RowBox[{
+      RowBox[{
+       RowBox[{"-", "4"}], " ", "k", " ", "mL", " ", "mm"}], "+", 
+      RowBox[{
+       SuperscriptBox["B", "2"], " ", 
+       RowBox[{"(", 
+        RowBox[{"mL", "+", "mm"}], ")"}]}]}]]}]], 
+  RowBox[{
+   SuperscriptBox["\[ExponentialE]", 
+    RowBox[{"-", 
+     FractionBox[
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"B", " ", 
+          RowBox[{"(", 
+           RowBox[{"mL", "+", "mm"}], ")"}]}], "+", 
+         SqrtBox[
+          RowBox[{
+           RowBox[{"(", 
+            RowBox[{"mL", "+", "mm"}], ")"}], " ", 
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"-", "4"}], " ", "k", " ", "mL", " ", "mm"}], "+", 
+             RowBox[{
+              SuperscriptBox["B", "2"], " ", 
+              RowBox[{"(", 
+               RowBox[{"mL", "+", "mm"}], ")"}]}]}], ")"}]}]]}], ")"}], " ", 
+       "t"}], 
+      RowBox[{"2", " ", "mL", " ", "mm"}]]}]], " ", 
+   RowBox[{"(", 
+    RowBox[{
+     RowBox[{"2", " ", "dxm0", " ", "mm", " ", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"-", 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"-", "1"}], "+", 
+            SuperscriptBox["\[ExponentialE]", 
+             FractionBox[
+              RowBox[{
+               SqrtBox[
+                RowBox[{
+                 RowBox[{"(", 
+                  RowBox[{"mL", "+", "mm"}], ")"}], " ", 
+                 RowBox[{"(", 
+                  RowBox[{
+                   RowBox[{
+                    RowBox[{"-", "4"}], " ", "k", " ", "mL", " ", "mm"}], "+", 
+                   RowBox[{
+                    SuperscriptBox["B", "2"], " ", 
+                    RowBox[{"(", 
+                    RowBox[{"mL", "+", "mm"}], ")"}]}]}], ")"}]}]], " ", 
+               "t"}], 
+              RowBox[{"mL", " ", "mm"}]]]}], ")"}]}], " ", "mL", " ", "mm"}], 
+        "+", 
+        RowBox[{
+         SuperscriptBox["\[ExponentialE]", 
+          FractionBox[
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"B", " ", 
+               RowBox[{"(", 
+                RowBox[{"mL", "+", "mm"}], ")"}]}], "+", 
+              SqrtBox[
+               RowBox[{
+                RowBox[{"(", 
+                 RowBox[{"mL", "+", "mm"}], ")"}], " ", 
+                RowBox[{"(", 
+                 RowBox[{
+                  RowBox[{
+                   RowBox[{"-", "4"}], " ", "k", " ", "mL", " ", "mm"}], "+", 
+                  
+                  RowBox[{
+                   SuperscriptBox["B", "2"], " ", 
+                   RowBox[{"(", 
+                    RowBox[{"mL", "+", "mm"}], ")"}]}]}], ")"}]}]]}], ")"}], 
+            " ", "t"}], 
+           RowBox[{"2", " ", "mL", " ", "mm"}]]], " ", 
+         SqrtBox[
+          RowBox[{
+           RowBox[{"(", 
+            RowBox[{"mL", "+", "mm"}], ")"}], " ", 
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"-", "4"}], " ", "k", " ", "mL", " ", "mm"}], "+", 
+             RowBox[{
+              SuperscriptBox["B", "2"], " ", 
+              RowBox[{"(", 
+               RowBox[{"mL", "+", "mm"}], ")"}]}]}], ")"}]}]], " ", "t"}]}], 
+       ")"}]}], "-", 
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{"1", "+", 
+        SuperscriptBox["\[ExponentialE]", 
+         FractionBox[
+          RowBox[{
+           SqrtBox[
+            RowBox[{
+             RowBox[{"(", 
+              RowBox[{"mL", "+", "mm"}], ")"}], " ", 
+             RowBox[{"(", 
+              RowBox[{
+               RowBox[{
+                RowBox[{"-", "4"}], " ", "k", " ", "mL", " ", "mm"}], "+", 
+               RowBox[{
+                SuperscriptBox["B", "2"], " ", 
+                RowBox[{"(", 
+                 RowBox[{"mL", "+", "mm"}], ")"}]}]}], ")"}]}]], " ", "t"}], 
+          RowBox[{"mL", " ", "mm"}]]], "-", 
+        RowBox[{"2", " ", 
+         SuperscriptBox["\[ExponentialE]", 
+          FractionBox[
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"B", " ", 
+               RowBox[{"(", 
+                RowBox[{"mL", "+", "mm"}], ")"}]}], "+", 
+              SqrtBox[
+               RowBox[{
+                RowBox[{"(", 
+                 RowBox[{"mL", "+", "mm"}], ")"}], " ", 
+                RowBox[{"(", 
+                 RowBox[{
+                  RowBox[{
+                   RowBox[{"-", "4"}], " ", "k", " ", "mL", " ", "mm"}], "+", 
+                  
+                  RowBox[{
+                   SuperscriptBox["B", "2"], " ", 
+                   RowBox[{"(", 
+                    RowBox[{"mL", "+", "mm"}], ")"}]}]}], ")"}]}]]}], ")"}], 
+            " ", "t"}], 
+           RowBox[{"2", " ", "mL", " ", "mm"}]]]}]}], ")"}], " ", "mm", " ", 
+      SqrtBox[
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{"mL", "+", "mm"}], ")"}], " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"-", "4"}], " ", "k", " ", "mL", " ", "mm"}], "+", 
+          RowBox[{
+           SuperscriptBox["B", "2"], " ", 
+           RowBox[{"(", 
+            RowBox[{"mL", "+", "mm"}], ")"}]}]}], ")"}]}]], " ", "xm0"}], "+", 
+     RowBox[{"B", " ", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"-", "2"}], " ", 
+         SuperscriptBox["\[ExponentialE]", 
+          FractionBox[
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"B", " ", 
+               RowBox[{"(", 
+                RowBox[{"mL", "+", "mm"}], ")"}]}], "+", 
+              SqrtBox[
+               RowBox[{
+                RowBox[{"(", 
+                 RowBox[{"mL", "+", "mm"}], ")"}], " ", 
+                RowBox[{"(", 
+                 RowBox[{
+                  RowBox[{
+                   RowBox[{"-", "4"}], " ", "k", " ", "mL", " ", "mm"}], "+", 
+                  
+                  RowBox[{
+                   SuperscriptBox["B", "2"], " ", 
+                   RowBox[{"(", 
+                    RowBox[{"mL", "+", "mm"}], ")"}]}]}], ")"}]}]]}], ")"}], 
+            " ", "t"}], 
+           RowBox[{"2", " ", "mL", " ", "mm"}]]], " ", 
+         SqrtBox[
+          RowBox[{
+           RowBox[{"(", 
+            RowBox[{"mL", "+", "mm"}], ")"}], " ", 
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"-", "4"}], " ", "k", " ", "mL", " ", "mm"}], "+", 
+             RowBox[{
+              SuperscriptBox["B", "2"], " ", 
+              RowBox[{"(", 
+               RowBox[{"mL", "+", "mm"}], ")"}]}]}], ")"}]}]], " ", "t", " ", 
+         
+         RowBox[{"(", 
+          RowBox[{"xL0", "-", "xm0"}], ")"}]}], "+", 
+        RowBox[{
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"-", "1"}], "+", 
+           SuperscriptBox["\[ExponentialE]", 
+            FractionBox[
+             RowBox[{
+              SqrtBox[
+               RowBox[{
+                RowBox[{"(", 
+                 RowBox[{"mL", "+", "mm"}], ")"}], " ", 
+                RowBox[{"(", 
+                 RowBox[{
+                  RowBox[{
+                   RowBox[{"-", "4"}], " ", "k", " ", "mL", " ", "mm"}], "+", 
+                  
+                  RowBox[{
+                   SuperscriptBox["B", "2"], " ", 
+                   RowBox[{"(", 
+                    RowBox[{"mL", "+", "mm"}], ")"}]}]}], ")"}]}]], " ", 
+              "t"}], 
+             RowBox[{"mL", " ", "mm"}]]]}], ")"}], " ", "mL", " ", "mm", " ", 
+         
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"2", " ", "xL0"}], "-", "xm0"}], ")"}]}], "-", 
+        RowBox[{
+         SuperscriptBox["mm", "2"], " ", "xm0"}], "+", 
+        RowBox[{
+         SuperscriptBox["\[ExponentialE]", 
+          FractionBox[
+           RowBox[{
+            SqrtBox[
+             RowBox[{
+              RowBox[{"(", 
+               RowBox[{"mL", "+", "mm"}], ")"}], " ", 
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{
+                 RowBox[{"-", "4"}], " ", "k", " ", "mL", " ", "mm"}], "+", 
+                RowBox[{
+                 SuperscriptBox["B", "2"], " ", 
+                 RowBox[{"(", 
+                  RowBox[{"mL", "+", "mm"}], ")"}]}]}], ")"}]}]], " ", "t"}], 
+           
+           RowBox[{"mL", " ", "mm"}]]], " ", 
+         SuperscriptBox["mm", "2"], " ", "xm0"}]}], ")"}]}]}], 
+    ")"}]}]}]], "Output",
+ CellChangeTimes->{3.491310844271434*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"FullSimplify", "[", 
+  RowBox[{
+   RowBox[{"InverseLaplaceTransform", "[", 
+    RowBox[{
+     RowBox[{"(", 
+      FractionBox[
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"mL", " ", "xL0", " ", "s"}], "+", 
+          RowBox[{"mL", " ", "dxL0"}], "-", 
+          RowBox[{"xm0", " ", "B"}], "+", 
+          RowBox[{"xL0", " ", "B"}]}], ")"}], 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"mm", " ", 
+           SuperscriptBox["s", "2"]}], "+", 
+          RowBox[{"B", " ", "s"}], "+", "k"}], ")"}]}], 
+       RowBox[{
+        RowBox[{
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"mL", " ", 
+            SuperscriptBox["s", "2"]}], "+", 
+           RowBox[{"B", " ", "s"}], "+", "k"}], ")"}], 
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"mm", " ", 
+            SuperscriptBox["s", "2"]}], "+", 
+           RowBox[{"B", " ", "s"}], "+", "k"}], ")"}]}], "-", 
+        SuperscriptBox[
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"B", " ", "s"}], "+", "k"}], ")"}], "2"]}]], ")"}], ",", 
+     "s", ",", "t"}], "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"k", ">=", "0"}], ",", 
+     RowBox[{"mm", ">", "0"}], ",", 
+     RowBox[{"mL", ">", "0"}], ",", 
+     RowBox[{"B", ">=", "0"}]}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.491314097556828*^9, 3.491314144088193*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  FractionBox["1", 
+   RowBox[{"2", " ", 
+    SuperscriptBox[
+     RowBox[{"(", 
+      RowBox[{"mL", "+", "mm"}], ")"}], 
+     RowBox[{"3", "/", "2"}]], " ", 
+    SqrtBox[
+     RowBox[{
+      RowBox[{
+       RowBox[{"-", "4"}], " ", "k", " ", "mL", " ", "mm"}], "+", 
+      RowBox[{
+       SuperscriptBox["B", "2"], " ", 
+       RowBox[{"(", 
+        RowBox[{"mL", "+", "mm"}], ")"}]}]}]]}]], 
+  RowBox[{
+   SuperscriptBox["\[ExponentialE]", 
+    RowBox[{"-", 
+     FractionBox[
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"B", " ", 
+          RowBox[{"(", 
+           RowBox[{"mL", "+", "mm"}], ")"}]}], "+", 
+         SqrtBox[
+          RowBox[{
+           RowBox[{"(", 
+            RowBox[{"mL", "+", "mm"}], ")"}], " ", 
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"-", "4"}], " ", "k", " ", "mL", " ", "mm"}], "+", 
+             RowBox[{
+              SuperscriptBox["B", "2"], " ", 
+              RowBox[{"(", 
+               RowBox[{"mL", "+", "mm"}], ")"}]}]}], ")"}]}]]}], ")"}], " ", 
+       "t"}], 
+      RowBox[{"2", " ", "mL", " ", "mm"}]]}]], " ", 
+   RowBox[{"(", 
+    RowBox[{
+     RowBox[{"2", " ", "dxL0", " ", "mL", " ", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"-", "1"}], "+", 
+           SuperscriptBox["\[ExponentialE]", 
+            FractionBox[
+             RowBox[{
+              SqrtBox[
+               RowBox[{
+                RowBox[{"(", 
+                 RowBox[{"mL", "+", "mm"}], ")"}], " ", 
+                RowBox[{"(", 
+                 RowBox[{
+                  RowBox[{
+                   RowBox[{"-", "4"}], " ", "k", " ", "mL", " ", "mm"}], "+", 
+                  
+                  RowBox[{
+                   SuperscriptBox["B", "2"], " ", 
+                   RowBox[{"(", 
+                    RowBox[{"mL", "+", "mm"}], ")"}]}]}], ")"}]}]], " ", 
+              "t"}], 
+             RowBox[{"mL", " ", "mm"}]]]}], ")"}], " ", 
+         SuperscriptBox["mm", "2"]}], "+", 
+        RowBox[{
+         SuperscriptBox["\[ExponentialE]", 
+          FractionBox[
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"B", " ", 
+               RowBox[{"(", 
+                RowBox[{"mL", "+", "mm"}], ")"}]}], "+", 
+              SqrtBox[
+               RowBox[{
+                RowBox[{"(", 
+                 RowBox[{"mL", "+", "mm"}], ")"}], " ", 
+                RowBox[{"(", 
+                 RowBox[{
+                  RowBox[{
+                   RowBox[{"-", "4"}], " ", "k", " ", "mL", " ", "mm"}], "+", 
+                  
+                  RowBox[{
+                   SuperscriptBox["B", "2"], " ", 
+                   RowBox[{"(", 
+                    RowBox[{"mL", "+", "mm"}], ")"}]}]}], ")"}]}]]}], ")"}], 
+            " ", "t"}], 
+           RowBox[{"2", " ", "mL", " ", "mm"}]]], " ", 
+         SqrtBox[
+          RowBox[{
+           RowBox[{"(", 
+            RowBox[{"mL", "+", "mm"}], ")"}], " ", 
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"-", "4"}], " ", "k", " ", "mL", " ", "mm"}], "+", 
+             RowBox[{
+              SuperscriptBox["B", "2"], " ", 
+              RowBox[{"(", 
+               RowBox[{"mL", "+", "mm"}], ")"}]}]}], ")"}]}]], " ", "t"}]}], 
+       ")"}]}], "+", 
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"2", " ", 
+         SuperscriptBox["\[ExponentialE]", 
+          FractionBox[
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"B", " ", 
+               RowBox[{"(", 
+                RowBox[{"mL", "+", "mm"}], ")"}]}], "+", 
+              SqrtBox[
+               RowBox[{
+                RowBox[{"(", 
+                 RowBox[{"mL", "+", "mm"}], ")"}], " ", 
+                RowBox[{"(", 
+                 RowBox[{
+                  RowBox[{
+                   RowBox[{"-", "4"}], " ", "k", " ", "mL", " ", "mm"}], "+", 
+                  
+                  RowBox[{
+                   SuperscriptBox["B", "2"], " ", 
+                   RowBox[{"(", 
+                    RowBox[{"mL", "+", "mm"}], ")"}]}]}], ")"}]}]]}], ")"}], 
+            " ", "t"}], 
+           RowBox[{"2", " ", "mL", " ", "mm"}]]], " ", "mL"}], "+", "mm", "+", 
+        RowBox[{
+         SuperscriptBox["\[ExponentialE]", 
+          FractionBox[
+           RowBox[{
+            SqrtBox[
+             RowBox[{
+              RowBox[{"(", 
+               RowBox[{"mL", "+", "mm"}], ")"}], " ", 
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{
+                 RowBox[{"-", "4"}], " ", "k", " ", "mL", " ", "mm"}], "+", 
+                RowBox[{
+                 SuperscriptBox["B", "2"], " ", 
+                 RowBox[{"(", 
+                  RowBox[{"mL", "+", "mm"}], ")"}]}]}], ")"}]}]], " ", "t"}], 
+           
+           RowBox[{"mL", " ", "mm"}]]], " ", "mm"}]}], ")"}], " ", 
+      SqrtBox[
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{"mL", "+", "mm"}], ")"}], " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"-", "4"}], " ", "k", " ", "mL", " ", "mm"}], "+", 
+          RowBox[{
+           SuperscriptBox["B", "2"], " ", 
+           RowBox[{"(", 
+            RowBox[{"mL", "+", "mm"}], ")"}]}]}], ")"}]}]], " ", "xL0"}], "+", 
+     RowBox[{"B", " ", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"-", 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"-", "1"}], "+", 
+            SuperscriptBox["\[ExponentialE]", 
+             FractionBox[
+              RowBox[{
+               SqrtBox[
+                RowBox[{
+                 RowBox[{"(", 
+                  RowBox[{"mL", "+", "mm"}], ")"}], " ", 
+                 RowBox[{"(", 
+                  RowBox[{
+                   RowBox[{
+                    RowBox[{"-", "4"}], " ", "k", " ", "mL", " ", "mm"}], "+", 
+                   RowBox[{
+                    SuperscriptBox["B", "2"], " ", 
+                    RowBox[{"(", 
+                    RowBox[{"mL", "+", "mm"}], ")"}]}]}], ")"}]}]], " ", 
+               "t"}], 
+              RowBox[{"mL", " ", "mm"}]]]}], ")"}]}], " ", "mL", " ", "mm", 
+         " ", "xL0"}], "+", 
+        RowBox[{
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"-", "1"}], "+", 
+           SuperscriptBox["\[ExponentialE]", 
+            FractionBox[
+             RowBox[{
+              SqrtBox[
+               RowBox[{
+                RowBox[{"(", 
+                 RowBox[{"mL", "+", "mm"}], ")"}], " ", 
+                RowBox[{"(", 
+                 RowBox[{
+                  RowBox[{
+                   RowBox[{"-", "4"}], " ", "k", " ", "mL", " ", "mm"}], "+", 
+                  
+                  RowBox[{
+                   SuperscriptBox["B", "2"], " ", 
+                   RowBox[{"(", 
+                    RowBox[{"mL", "+", "mm"}], ")"}]}]}], ")"}]}]], " ", 
+              "t"}], 
+             RowBox[{"mL", " ", "mm"}]]]}], ")"}], " ", 
+         SuperscriptBox["mm", "2"], " ", 
+         RowBox[{"(", 
+          RowBox[{"xL0", "-", 
+           RowBox[{"2", " ", "xm0"}]}], ")"}]}], "+", 
+        RowBox[{"2", " ", 
+         SuperscriptBox["\[ExponentialE]", 
+          FractionBox[
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"B", " ", 
+               RowBox[{"(", 
+                RowBox[{"mL", "+", "mm"}], ")"}]}], "+", 
+              SqrtBox[
+               RowBox[{
+                RowBox[{"(", 
+                 RowBox[{"mL", "+", "mm"}], ")"}], " ", 
+                RowBox[{"(", 
+                 RowBox[{
+                  RowBox[{
+                   RowBox[{"-", "4"}], " ", "k", " ", "mL", " ", "mm"}], "+", 
+                  
+                  RowBox[{
+                   SuperscriptBox["B", "2"], " ", 
+                   RowBox[{"(", 
+                    RowBox[{"mL", "+", "mm"}], ")"}]}]}], ")"}]}]]}], ")"}], 
+            " ", "t"}], 
+           RowBox[{"2", " ", "mL", " ", "mm"}]]], " ", 
+         SqrtBox[
+          RowBox[{
+           RowBox[{"(", 
+            RowBox[{"mL", "+", "mm"}], ")"}], " ", 
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"-", "4"}], " ", "k", " ", "mL", " ", "mm"}], "+", 
+             RowBox[{
+              SuperscriptBox["B", "2"], " ", 
+              RowBox[{"(", 
+               RowBox[{"mL", "+", "mm"}], ")"}]}]}], ")"}]}]], " ", "t", " ", 
+         
+         RowBox[{"(", 
+          RowBox[{"xL0", "-", "xm0"}], ")"}]}]}], ")"}]}]}], 
+    ")"}]}]}]], "Output",
+ CellChangeTimes->{3.491314223533433*^9}]
+}, Open  ]],
+
+Cell[TextData[{
+ "\nInverse Laplace of ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["X", "m"], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ "(s):"
+}], "Input",
+ CellChangeTimes->{{3.491310572946307*^9, 3.491310658205958*^9}, {
+  3.491314967102391*^9, 3.491314967775294*^9}},
+ FormatType->"TextForm"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"FullSimplify", "[", 
+  RowBox[{
+   RowBox[{"InverseLaplaceTransform", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"(", 
+       FractionBox["Fmc", "s"], ")"}], 
+      RowBox[{"(", 
+       FractionBox["1", 
+        RowBox[{
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"mm", " ", 
+            SuperscriptBox["s", "2"]}], "+", 
+           RowBox[{"B", " ", "s"}], "+", "k"}], ")"}], "-", 
+         FractionBox[
+          SuperscriptBox[
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{"B", " ", "s"}], "+", "k"}], ")"}], "2"], 
+          RowBox[{
+           RowBox[{"mL", " ", 
+            SuperscriptBox["s", "2"]}], "+", 
+           RowBox[{"B", " ", "s"}], "+", "k"}]]}]], ")"}]}], ",", "s", ",", 
+     "t"}], "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"k", "\[GreaterEqual]", "0"}], ",", 
+     RowBox[{"mm", ">", "0"}], ",", 
+     RowBox[{"mL", ">", "0"}], ",", 
+     RowBox[{"B", "\[GreaterEqual]", "0"}]}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.491315728584871*^9, 3.491315757240604*^9}, {
+   3.491315799383011*^9, 3.491315818777173*^9}, {3.491316141320539*^9, 
+   3.491316142289843*^9}, {3.491329347131803*^9, 3.491329360535027*^9}, 
+   3.491329435365671*^9, 3.491329504743186*^9, {3.491329550846552*^9, 
+   3.491329563183928*^9}}],
+
+Cell[BoxData[
+ FractionBox[
+  RowBox[{
+   SuperscriptBox["\[ExponentialE]", 
+    RowBox[{"-", 
+     FractionBox[
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"B", " ", 
+          RowBox[{"(", 
+           RowBox[{"mL", "+", "mm"}], ")"}]}], "+", 
+         SqrtBox[
+          RowBox[{
+           RowBox[{"(", 
+            RowBox[{"mL", "+", "mm"}], ")"}], " ", 
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"-", "4"}], " ", "k", " ", "mL", " ", "mm"}], "+", 
+             RowBox[{
+              SuperscriptBox["B", "2"], " ", 
+              RowBox[{"(", 
+               RowBox[{"mL", "+", "mm"}], ")"}]}]}], ")"}]}]]}], ")"}], " ", 
+       "t"}], 
+      RowBox[{"2", " ", "mL", " ", "mm"}]]}]], " ", "Fmc", " ", 
+   RowBox[{"(", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"-", "B"}], " ", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"-", "1"}], "+", 
+        SuperscriptBox["\[ExponentialE]", 
+         FractionBox[
+          RowBox[{
+           SqrtBox[
+            RowBox[{
+             RowBox[{"(", 
+              RowBox[{"mL", "+", "mm"}], ")"}], " ", 
+             RowBox[{"(", 
+              RowBox[{
+               RowBox[{
+                RowBox[{"-", "4"}], " ", "k", " ", "mL", " ", "mm"}], "+", 
+               RowBox[{
+                SuperscriptBox["B", "2"], " ", 
+                RowBox[{"(", 
+                 RowBox[{"mL", "+", "mm"}], ")"}]}]}], ")"}]}]], " ", "t"}], 
+          RowBox[{"mL", " ", "mm"}]]]}], ")"}], " ", 
+      SuperscriptBox["mL", "2"], " ", 
+      RowBox[{"(", 
+       RowBox[{"mL", "+", "mm"}], ")"}]}], "+", 
+     RowBox[{
+      SqrtBox[
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{"mL", "+", "mm"}], ")"}], " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"-", "4"}], " ", "k", " ", "mL", " ", "mm"}], "+", 
+          RowBox[{
+           SuperscriptBox["B", "2"], " ", 
+           RowBox[{"(", 
+            RowBox[{"mL", "+", "mm"}], ")"}]}]}], ")"}]}]], " ", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"-", 
+          RowBox[{"(", 
+           RowBox[{"1", "+", 
+            SuperscriptBox["\[ExponentialE]", 
+             FractionBox[
+              RowBox[{
+               SqrtBox[
+                RowBox[{
+                 RowBox[{"(", 
+                  RowBox[{"mL", "+", "mm"}], ")"}], " ", 
+                 RowBox[{"(", 
+                  RowBox[{
+                   RowBox[{
+                    RowBox[{"-", "4"}], " ", "k", " ", "mL", " ", "mm"}], "+", 
+                   RowBox[{
+                    SuperscriptBox["B", "2"], " ", 
+                    RowBox[{"(", 
+                    RowBox[{"mL", "+", "mm"}], ")"}]}]}], ")"}]}]], " ", 
+               "t"}], 
+              RowBox[{"mL", " ", "mm"}]]]}], ")"}]}], " ", 
+         SuperscriptBox["mL", "2"]}], "+", 
+        RowBox[{
+         SuperscriptBox["\[ExponentialE]", 
+          FractionBox[
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"B", " ", 
+               RowBox[{"(", 
+                RowBox[{"mL", "+", "mm"}], ")"}]}], "+", 
+              SqrtBox[
+               RowBox[{
+                RowBox[{"(", 
+                 RowBox[{"mL", "+", "mm"}], ")"}], " ", 
+                RowBox[{"(", 
+                 RowBox[{
+                  RowBox[{
+                   RowBox[{"-", "4"}], " ", "k", " ", "mL", " ", "mm"}], "+", 
+                  
+                  RowBox[{
+                   SuperscriptBox["B", "2"], " ", 
+                   RowBox[{"(", 
+                    RowBox[{"mL", "+", "mm"}], ")"}]}]}], ")"}]}]]}], ")"}], 
+            " ", "t"}], 
+           RowBox[{"2", " ", "mL", " ", "mm"}]]], " ", 
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"2", " ", 
+            SuperscriptBox["mL", "2"]}], "+", 
+           RowBox[{"k", " ", 
+            RowBox[{"(", 
+             RowBox[{"mL", "+", "mm"}], ")"}], " ", 
+            SuperscriptBox["t", "2"]}]}], ")"}]}]}], ")"}]}]}], ")"}]}], 
+  RowBox[{"2", " ", "k", " ", 
+   SuperscriptBox[
+    RowBox[{"(", 
+     RowBox[{"mL", "+", "mm"}], ")"}], 
+    RowBox[{"5", "/", "2"}]], " ", 
+   SqrtBox[
+    RowBox[{
+     RowBox[{
+      RowBox[{"-", "4"}], " ", "k", " ", "mL", " ", "mm"}], "+", 
+     RowBox[{
+      SuperscriptBox["B", "2"], " ", 
+      RowBox[{"(", 
+       RowBox[{"mL", "+", "mm"}], ")"}]}]}]]}]]], "Output",
+ CellChangeTimes->{
+  3.491315847526286*^9, 3.491316144514214*^9, {3.49132935307777*^9, 
+   3.491329368229266*^9}, 3.491329436260269*^9, {3.491329538826386*^9, 
+   3.491329564967154*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"FullSimplify", "[", 
+  RowBox[{
+   RowBox[{"InverseLaplaceTransform", "[", 
+    RowBox[{
+     RowBox[{"(", 
+      FractionBox[
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"mL", " ", "xL0", " ", "s"}], "+", 
+          RowBox[{"mL", " ", "dxL0"}], "-", 
+          RowBox[{"xm0", " ", "B"}], "+", 
+          RowBox[{"xL0", " ", "B"}]}], ")"}], 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"B", " ", "s"}], "+", "k"}], ")"}]}], 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"mL", " ", 
+           SuperscriptBox["s", "2"]}], "+", 
+          RowBox[{"B", " ", "s"}], "+", "k"}], ")"}], 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"mm", " ", 
+             SuperscriptBox["s", "2"]}], "+", 
+            RowBox[{"B", " ", "s"}], "+", "k"}], ")"}], "-", 
+          FractionBox[
+           SuperscriptBox[
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"B", " ", "s"}], "+", "k"}], ")"}], "2"], 
+           RowBox[{
+            RowBox[{"mL", " ", 
+             SuperscriptBox["s", "2"]}], "+", 
+            RowBox[{"B", " ", "s"}], "+", "k"}]]}], ")"}]}]], ")"}], ",", "s",
+      ",", "t"}], "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"k", "\[GreaterEqual]", "0"}], ",", 
+     RowBox[{"mm", ">", "0"}], ",", 
+     RowBox[{"mL", ">", "0"}], ",", 
+     RowBox[{"B", "\[GreaterEqual]", "0"}]}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.491316133867991*^9, 3.491316224561275*^9}, {
+  3.491329375283443*^9, 3.49132937551216*^9}, {3.491334230558119*^9, 
+  3.491334240110295*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  FractionBox["1", 
+   RowBox[{"2", " ", 
+    SuperscriptBox[
+     RowBox[{"(", 
+      RowBox[{"mL", "+", "mm"}], ")"}], 
+     RowBox[{"3", "/", "2"}]], " ", 
+    SqrtBox[
+     RowBox[{
+      RowBox[{
+       RowBox[{"-", "4"}], " ", "k", " ", "mL", " ", "mm"}], "+", 
+      RowBox[{
+       SuperscriptBox["B", "2"], " ", 
+       RowBox[{"(", 
+        RowBox[{"mL", "+", "mm"}], ")"}]}]}]]}]], 
+  RowBox[{
+   SuperscriptBox["\[ExponentialE]", 
+    RowBox[{"-", 
+     FractionBox[
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"B", " ", 
+          RowBox[{"(", 
+           RowBox[{"mL", "+", "mm"}], ")"}]}], "+", 
+         SqrtBox[
+          RowBox[{
+           RowBox[{"(", 
+            RowBox[{"mL", "+", "mm"}], ")"}], " ", 
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"-", "4"}], " ", "k", " ", "mL", " ", "mm"}], "+", 
+             RowBox[{
+              SuperscriptBox["B", "2"], " ", 
+              RowBox[{"(", 
+               RowBox[{"mL", "+", "mm"}], ")"}]}]}], ")"}]}]]}], ")"}], " ", 
+       "t"}], 
+      RowBox[{"2", " ", "mL", " ", "mm"}]]}]], " ", 
+   RowBox[{"(", 
+    RowBox[{
+     RowBox[{"2", " ", "dxL0", " ", "mL", " ", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"mL", " ", "mm"}], "-", 
+        RowBox[{
+         SuperscriptBox["\[ExponentialE]", 
+          FractionBox[
+           RowBox[{
+            SqrtBox[
+             RowBox[{
+              RowBox[{"(", 
+               RowBox[{"mL", "+", "mm"}], ")"}], " ", 
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{
+                 RowBox[{"-", "4"}], " ", "k", " ", "mL", " ", "mm"}], "+", 
+                RowBox[{
+                 SuperscriptBox["B", "2"], " ", 
+                 RowBox[{"(", 
+                  RowBox[{"mL", "+", "mm"}], ")"}]}]}], ")"}]}]], " ", "t"}], 
+           
+           RowBox[{"mL", " ", "mm"}]]], " ", "mL", " ", "mm"}], "+", 
+        RowBox[{
+         SuperscriptBox["\[ExponentialE]", 
+          FractionBox[
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"B", " ", 
+               RowBox[{"(", 
+                RowBox[{"mL", "+", "mm"}], ")"}]}], "+", 
+              SqrtBox[
+               RowBox[{
+                RowBox[{"(", 
+                 RowBox[{"mL", "+", "mm"}], ")"}], " ", 
+                RowBox[{"(", 
+                 RowBox[{
+                  RowBox[{
+                   RowBox[{"-", "4"}], " ", "k", " ", "mL", " ", "mm"}], "+", 
+                  
+                  RowBox[{
+                   SuperscriptBox["B", "2"], " ", 
+                   RowBox[{"(", 
+                    RowBox[{"mL", "+", "mm"}], ")"}]}]}], ")"}]}]]}], ")"}], 
+            " ", "t"}], 
+           RowBox[{"2", " ", "mL", " ", "mm"}]]], " ", 
+         SqrtBox[
+          RowBox[{
+           RowBox[{"(", 
+            RowBox[{"mL", "+", "mm"}], ")"}], " ", 
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"-", "4"}], " ", "k", " ", "mL", " ", "mm"}], "+", 
+             RowBox[{
+              SuperscriptBox["B", "2"], " ", 
+              RowBox[{"(", 
+               RowBox[{"mL", "+", "mm"}], ")"}]}]}], ")"}]}]], " ", "t"}]}], 
+       ")"}]}], "-", 
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{"1", "+", 
+        SuperscriptBox["\[ExponentialE]", 
+         FractionBox[
+          RowBox[{
+           SqrtBox[
+            RowBox[{
+             RowBox[{"(", 
+              RowBox[{"mL", "+", "mm"}], ")"}], " ", 
+             RowBox[{"(", 
+              RowBox[{
+               RowBox[{
+                RowBox[{"-", "4"}], " ", "k", " ", "mL", " ", "mm"}], "+", 
+               RowBox[{
+                SuperscriptBox["B", "2"], " ", 
+                RowBox[{"(", 
+                 RowBox[{"mL", "+", "mm"}], ")"}]}]}], ")"}]}]], " ", "t"}], 
+          RowBox[{"mL", " ", "mm"}]]], "-", 
+        RowBox[{"2", " ", 
+         SuperscriptBox["\[ExponentialE]", 
+          FractionBox[
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"B", " ", 
+               RowBox[{"(", 
+                RowBox[{"mL", "+", "mm"}], ")"}]}], "+", 
+              SqrtBox[
+               RowBox[{
+                RowBox[{"(", 
+                 RowBox[{"mL", "+", "mm"}], ")"}], " ", 
+                RowBox[{"(", 
+                 RowBox[{
+                  RowBox[{
+                   RowBox[{"-", "4"}], " ", "k", " ", "mL", " ", "mm"}], "+", 
+                  
+                  RowBox[{
+                   SuperscriptBox["B", "2"], " ", 
+                   RowBox[{"(", 
+                    RowBox[{"mL", "+", "mm"}], ")"}]}]}], ")"}]}]]}], ")"}], 
+            " ", "t"}], 
+           RowBox[{"2", " ", "mL", " ", "mm"}]]]}]}], ")"}], " ", "mL", " ", 
+      SqrtBox[
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{"mL", "+", "mm"}], ")"}], " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"-", "4"}], " ", "k", " ", "mL", " ", "mm"}], "+", 
+          RowBox[{
+           SuperscriptBox["B", "2"], " ", 
+           RowBox[{"(", 
+            RowBox[{"mL", "+", "mm"}], ")"}]}]}], ")"}]}]], " ", "xL0"}], "+", 
+     RowBox[{"B", " ", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"-", "1"}], "+", 
+           SuperscriptBox["\[ExponentialE]", 
+            FractionBox[
+             RowBox[{
+              SqrtBox[
+               RowBox[{
+                RowBox[{"(", 
+                 RowBox[{"mL", "+", "mm"}], ")"}], " ", 
+                RowBox[{"(", 
+                 RowBox[{
+                  RowBox[{
+                   RowBox[{"-", "4"}], " ", "k", " ", "mL", " ", "mm"}], "+", 
+                  
+                  RowBox[{
+                   SuperscriptBox["B", "2"], " ", 
+                   RowBox[{"(", 
+                    RowBox[{"mL", "+", "mm"}], ")"}]}]}], ")"}]}]], " ", 
+              "t"}], 
+             RowBox[{"mL", " ", "mm"}]]]}], ")"}], " ", 
+         SuperscriptBox["mL", "2"], " ", "xL0"}], "-", 
+        RowBox[{
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"-", "1"}], "+", 
+           SuperscriptBox["\[ExponentialE]", 
+            FractionBox[
+             RowBox[{
+              SqrtBox[
+               RowBox[{
+                RowBox[{"(", 
+                 RowBox[{"mL", "+", "mm"}], ")"}], " ", 
+                RowBox[{"(", 
+                 RowBox[{
+                  RowBox[{
+                   RowBox[{"-", "4"}], " ", "k", " ", "mL", " ", "mm"}], "+", 
+                  
+                  RowBox[{
+                   SuperscriptBox["B", "2"], " ", 
+                   RowBox[{"(", 
+                    RowBox[{"mL", "+", "mm"}], ")"}]}]}], ")"}]}]], " ", 
+              "t"}], 
+             RowBox[{"mL", " ", "mm"}]]]}], ")"}], " ", "mL", " ", "mm", " ", 
+         
+         RowBox[{"(", 
+          RowBox[{"xL0", "-", 
+           RowBox[{"2", " ", "xm0"}]}], ")"}]}], "+", 
+        RowBox[{"2", " ", 
+         SuperscriptBox["\[ExponentialE]", 
+          FractionBox[
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"B", " ", 
+               RowBox[{"(", 
+                RowBox[{"mL", "+", "mm"}], ")"}]}], "+", 
+              SqrtBox[
+               RowBox[{
+                RowBox[{"(", 
+                 RowBox[{"mL", "+", "mm"}], ")"}], " ", 
+                RowBox[{"(", 
+                 RowBox[{
+                  RowBox[{
+                   RowBox[{"-", "4"}], " ", "k", " ", "mL", " ", "mm"}], "+", 
+                  
+                  RowBox[{
+                   SuperscriptBox["B", "2"], " ", 
+                   RowBox[{"(", 
+                    RowBox[{"mL", "+", "mm"}], ")"}]}]}], ")"}]}]]}], ")"}], 
+            " ", "t"}], 
+           RowBox[{"2", " ", "mL", " ", "mm"}]]], " ", 
+         SqrtBox[
+          RowBox[{
+           RowBox[{"(", 
+            RowBox[{"mL", "+", "mm"}], ")"}], " ", 
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"-", "4"}], " ", "k", " ", "mL", " ", "mm"}], "+", 
+             RowBox[{
+              SuperscriptBox["B", "2"], " ", 
+              RowBox[{"(", 
+               RowBox[{"mL", "+", "mm"}], ")"}]}]}], ")"}]}]], " ", "t", " ", 
+         
+         RowBox[{"(", 
+          RowBox[{"xL0", "-", "xm0"}], ")"}]}]}], ")"}]}]}], 
+    ")"}]}]}]], "Output",
+ CellChangeTimes->{3.491316299635352*^9, 3.491329383950094*^9, 
+  3.491334323228106*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"FullSimplify", "[", 
+  RowBox[{
+   RowBox[{"InverseLaplaceTransform", "[", 
+    RowBox[{
+     RowBox[{"(", 
+      FractionBox[
+       RowBox[{
+        RowBox[{"xm0", " ", "B"}], "-", 
+        RowBox[{"xL0", " ", "B"}], "+", 
+        RowBox[{"mm", " ", "xm0", " ", "s"}], "+", 
+        RowBox[{"mm", " ", "dxm0"}]}], 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"mm", " ", 
+           SuperscriptBox["s", "2"]}], "+", 
+          RowBox[{"B", " ", "s"}], "+", "k"}], ")"}], "-", 
+        FractionBox[
+         SuperscriptBox[
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"B", " ", "s"}], "+", "k"}], ")"}], "2"], 
+         RowBox[{
+          RowBox[{"mL", " ", 
+           SuperscriptBox["s", "2"]}], "+", 
+          RowBox[{"B", " ", "s"}], "+", "k"}]]}]], ")"}], ",", "s", ",", 
+     "t"}], "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"k", "\[GreaterEqual]", "0"}], ",", 
+     RowBox[{"mm", ">", "0"}], ",", 
+     RowBox[{"mL", ">", "0"}], ",", 
+     RowBox[{"B", "\[GreaterEqual]", "0"}]}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.491317065074191*^9, 3.491317097502821*^9}, {
+  3.491329389935296*^9, 3.491329420055356*^9}, {3.491334244317167*^9, 
+  3.491334250403993*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  FractionBox["1", 
+   RowBox[{"2", " ", 
+    SuperscriptBox[
+     RowBox[{"(", 
+      RowBox[{"mL", "+", "mm"}], ")"}], 
+     RowBox[{"3", "/", "2"}]], " ", 
+    SqrtBox[
+     RowBox[{
+      RowBox[{
+       RowBox[{"-", "4"}], " ", "k", " ", "mL", " ", "mm"}], "+", 
+      RowBox[{
+       SuperscriptBox["B", "2"], " ", 
+       RowBox[{"(", 
+        RowBox[{"mL", "+", "mm"}], ")"}]}]}]]}]], 
+  RowBox[{
+   SuperscriptBox["\[ExponentialE]", 
+    RowBox[{"-", 
+     FractionBox[
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"B", " ", 
+          RowBox[{"(", 
+           RowBox[{"mL", "+", "mm"}], ")"}]}], "+", 
+         SqrtBox[
+          RowBox[{
+           RowBox[{"(", 
+            RowBox[{"mL", "+", "mm"}], ")"}], " ", 
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"-", "4"}], " ", "k", " ", "mL", " ", "mm"}], "+", 
+             RowBox[{
+              SuperscriptBox["B", "2"], " ", 
+              RowBox[{"(", 
+               RowBox[{"mL", "+", "mm"}], ")"}]}]}], ")"}]}]]}], ")"}], " ", 
+       "t"}], 
+      RowBox[{"2", " ", "mL", " ", "mm"}]]}]], " ", 
+   RowBox[{"(", 
+    RowBox[{
+     RowBox[{"2", " ", "dxm0", " ", "mm", " ", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"-", "1"}], "+", 
+           SuperscriptBox["\[ExponentialE]", 
+            FractionBox[
+             RowBox[{
+              SqrtBox[
+               RowBox[{
+                RowBox[{"(", 
+                 RowBox[{"mL", "+", "mm"}], ")"}], " ", 
+                RowBox[{"(", 
+                 RowBox[{
+                  RowBox[{
+                   RowBox[{"-", "4"}], " ", "k", " ", "mL", " ", "mm"}], "+", 
+                  
+                  RowBox[{
+                   SuperscriptBox["B", "2"], " ", 
+                   RowBox[{"(", 
+                    RowBox[{"mL", "+", "mm"}], ")"}]}]}], ")"}]}]], " ", 
+              "t"}], 
+             RowBox[{"mL", " ", "mm"}]]]}], ")"}], " ", 
+         SuperscriptBox["mL", "2"]}], "+", 
+        RowBox[{
+         SuperscriptBox["\[ExponentialE]", 
+          FractionBox[
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"B", " ", 
+               RowBox[{"(", 
+                RowBox[{"mL", "+", "mm"}], ")"}]}], "+", 
+              SqrtBox[
+               RowBox[{
+                RowBox[{"(", 
+                 RowBox[{"mL", "+", "mm"}], ")"}], " ", 
+                RowBox[{"(", 
+                 RowBox[{
+                  RowBox[{
+                   RowBox[{"-", "4"}], " ", "k", " ", "mL", " ", "mm"}], "+", 
+                  
+                  RowBox[{
+                   SuperscriptBox["B", "2"], " ", 
+                   RowBox[{"(", 
+                    RowBox[{"mL", "+", "mm"}], ")"}]}]}], ")"}]}]]}], ")"}], 
+            " ", "t"}], 
+           RowBox[{"2", " ", "mL", " ", "mm"}]]], " ", 
+         SqrtBox[
+          RowBox[{
+           RowBox[{"(", 
+            RowBox[{"mL", "+", "mm"}], ")"}], " ", 
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"-", "4"}], " ", "k", " ", "mL", " ", "mm"}], "+", 
+             RowBox[{
+              SuperscriptBox["B", "2"], " ", 
+              RowBox[{"(", 
+               RowBox[{"mL", "+", "mm"}], ")"}]}]}], ")"}]}]], " ", "t"}]}], 
+       ")"}]}], "+", 
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{"mL", "+", 
+        RowBox[{
+         SuperscriptBox["\[ExponentialE]", 
+          FractionBox[
+           RowBox[{
+            SqrtBox[
+             RowBox[{
+              RowBox[{"(", 
+               RowBox[{"mL", "+", "mm"}], ")"}], " ", 
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{
+                 RowBox[{"-", "4"}], " ", "k", " ", "mL", " ", "mm"}], "+", 
+                RowBox[{
+                 SuperscriptBox["B", "2"], " ", 
+                 RowBox[{"(", 
+                  RowBox[{"mL", "+", "mm"}], ")"}]}]}], ")"}]}]], " ", "t"}], 
+           
+           RowBox[{"mL", " ", "mm"}]]], " ", "mL"}], "+", 
+        RowBox[{"2", " ", 
+         SuperscriptBox["\[ExponentialE]", 
+          FractionBox[
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"B", " ", 
+               RowBox[{"(", 
+                RowBox[{"mL", "+", "mm"}], ")"}]}], "+", 
+              SqrtBox[
+               RowBox[{
+                RowBox[{"(", 
+                 RowBox[{"mL", "+", "mm"}], ")"}], " ", 
+                RowBox[{"(", 
+                 RowBox[{
+                  RowBox[{
+                   RowBox[{"-", "4"}], " ", "k", " ", "mL", " ", "mm"}], "+", 
+                  
+                  RowBox[{
+                   SuperscriptBox["B", "2"], " ", 
+                   RowBox[{"(", 
+                    RowBox[{"mL", "+", "mm"}], ")"}]}]}], ")"}]}]]}], ")"}], 
+            " ", "t"}], 
+           RowBox[{"2", " ", "mL", " ", "mm"}]]], " ", "mm"}]}], ")"}], " ", 
+      SqrtBox[
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{"mL", "+", "mm"}], ")"}], " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"-", "4"}], " ", "k", " ", "mL", " ", "mm"}], "+", 
+          RowBox[{
+           SuperscriptBox["B", "2"], " ", 
+           RowBox[{"(", 
+            RowBox[{"mL", "+", "mm"}], ")"}]}]}], ")"}]}]], " ", "xm0"}], "+", 
+     RowBox[{"B", " ", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"-", "2"}], " ", 
+         SuperscriptBox["\[ExponentialE]", 
+          FractionBox[
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"B", " ", 
+               RowBox[{"(", 
+                RowBox[{"mL", "+", "mm"}], ")"}]}], "+", 
+              SqrtBox[
+               RowBox[{
+                RowBox[{"(", 
+                 RowBox[{"mL", "+", "mm"}], ")"}], " ", 
+                RowBox[{"(", 
+                 RowBox[{
+                  RowBox[{
+                   RowBox[{"-", "4"}], " ", "k", " ", "mL", " ", "mm"}], "+", 
+                  
+                  RowBox[{
+                   SuperscriptBox["B", "2"], " ", 
+                   RowBox[{"(", 
+                    RowBox[{"mL", "+", "mm"}], ")"}]}]}], ")"}]}]]}], ")"}], 
+            " ", "t"}], 
+           RowBox[{"2", " ", "mL", " ", "mm"}]]], " ", 
+         SqrtBox[
+          RowBox[{
+           RowBox[{"(", 
+            RowBox[{"mL", "+", "mm"}], ")"}], " ", 
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"-", "4"}], " ", "k", " ", "mL", " ", "mm"}], "+", 
+             RowBox[{
+              SuperscriptBox["B", "2"], " ", 
+              RowBox[{"(", 
+               RowBox[{"mL", "+", "mm"}], ")"}]}]}], ")"}]}]], " ", "t", " ", 
+         
+         RowBox[{"(", 
+          RowBox[{"xL0", "-", "xm0"}], ")"}]}], "-", 
+        RowBox[{
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"-", "1"}], "+", 
+           SuperscriptBox["\[ExponentialE]", 
+            FractionBox[
+             RowBox[{
+              SqrtBox[
+               RowBox[{
+                RowBox[{"(", 
+                 RowBox[{"mL", "+", "mm"}], ")"}], " ", 
+                RowBox[{"(", 
+                 RowBox[{
+                  RowBox[{
+                   RowBox[{"-", "4"}], " ", "k", " ", "mL", " ", "mm"}], "+", 
+                  
+                  RowBox[{
+                   SuperscriptBox["B", "2"], " ", 
+                   RowBox[{"(", 
+                    RowBox[{"mL", "+", "mm"}], ")"}]}]}], ")"}]}]], " ", 
+              "t"}], 
+             RowBox[{"mL", " ", "mm"}]]]}], ")"}], " ", 
+         SuperscriptBox["mL", "2"], " ", 
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"2", " ", "xL0"}], "-", "xm0"}], ")"}]}], "-", 
+        RowBox[{
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"-", "1"}], "+", 
+           SuperscriptBox["\[ExponentialE]", 
+            FractionBox[
+             RowBox[{
+              SqrtBox[
+               RowBox[{
+                RowBox[{"(", 
+                 RowBox[{"mL", "+", "mm"}], ")"}], " ", 
+                RowBox[{"(", 
+                 RowBox[{
+                  RowBox[{
+                   RowBox[{"-", "4"}], " ", "k", " ", "mL", " ", "mm"}], "+", 
+                  
+                  RowBox[{
+                   SuperscriptBox["B", "2"], " ", 
+                   RowBox[{"(", 
+                    RowBox[{"mL", "+", "mm"}], ")"}]}]}], ")"}]}]], " ", 
+              "t"}], 
+             RowBox[{"mL", " ", "mm"}]]]}], ")"}], " ", "mL", " ", "mm", " ", 
+         "xm0"}]}], ")"}]}]}], ")"}]}]}]], "Output",
+ CellChangeTimes->{
+  3.491317163785078*^9, {3.491329398954485*^9, 3.49132942076907*^9}, 
+   3.491334397460173*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"FullSimplify", "[", 
+  RowBox[{
+   RowBox[{"InverseLaplaceTransform", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       RowBox[{"(", 
+        FractionBox["Fmc", "s"], ")"}], 
+       RowBox[{"(", 
+        FractionBox["1", 
+         RowBox[{
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"mm", " ", 
+             SuperscriptBox["s", "2"]}], "+", 
+            RowBox[{"B", " ", "s"}], "+", "k"}], ")"}], "-", 
+          FractionBox[
+           SuperscriptBox[
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"B", " ", "s"}], "+", "k"}], ")"}], "2"], 
+           RowBox[{
+            RowBox[{"mL", " ", 
+             SuperscriptBox["s", "2"]}], "+", 
+            RowBox[{"B", " ", "s"}], "+", "k"}]]}]], ")"}]}], "+", 
+      RowBox[{"(", 
+       FractionBox[
+        RowBox[{
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"mL", " ", "xL0", " ", "s"}], "+", 
+           RowBox[{"mL", " ", "dxL0"}], "-", 
+           RowBox[{"xm0", " ", "B"}], "+", 
+           RowBox[{"xL0", " ", "B"}]}], ")"}], 
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"B", " ", "s"}], "+", "k"}], ")"}]}], 
+        RowBox[{
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"mL", " ", 
+            SuperscriptBox["s", "2"]}], "+", 
+           RowBox[{"B", " ", "s"}], "+", "k"}], ")"}], 
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{"mm", " ", 
+              SuperscriptBox["s", "2"]}], "+", 
+             RowBox[{"B", " ", "s"}], "+", "k"}], ")"}], "-", 
+           FractionBox[
+            SuperscriptBox[
+             RowBox[{"(", 
+              RowBox[{
+               RowBox[{"B", " ", "s"}], "+", "k"}], ")"}], "2"], 
+            RowBox[{
+             RowBox[{"mL", " ", 
+              SuperscriptBox["s", "2"]}], "+", 
+             RowBox[{"B", " ", "s"}], "+", "k"}]]}], ")"}]}]], ")"}], "+", 
+      RowBox[{"(", 
+       FractionBox[
+        RowBox[{
+         RowBox[{"xm0", " ", "B"}], "-", 
+         RowBox[{"xL0", " ", "B"}], "+", 
+         RowBox[{"mm", " ", "xm0", " ", "s"}], "+", 
+         RowBox[{"mm", " ", "dxm0"}]}], 
+        RowBox[{
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"mm", " ", 
+            SuperscriptBox["s", "2"]}], "+", 
+           RowBox[{"B", " ", "s"}], "+", "k"}], ")"}], "-", 
+         FractionBox[
+          SuperscriptBox[
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{"B", " ", "s"}], "+", "k"}], ")"}], "2"], 
+          RowBox[{
+           RowBox[{"mL", " ", 
+            SuperscriptBox["s", "2"]}], "+", 
+           RowBox[{"B", " ", "s"}], "+", "k"}]]}]], ")"}]}], ",", "s", ",", 
+     "t"}], "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"k", "\[GreaterEqual]", "0"}], ",", 
+     RowBox[{"mm", ">", "0"}], ",", 
+     RowBox[{"mL", ">", "0"}], ",", 
+     RowBox[{"B", "==", "0"}]}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.491334424321921*^9, 3.491334439180291*^9}, {
+  3.491334700053194*^9, 3.491334700654865*^9}, {3.491334783049618*^9, 
+  3.49133479787662*^9}, {3.491334869039958*^9, 3.491334882187263*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  FractionBox[
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"dxL0", " ", "mL"}], "+", 
+      RowBox[{"dxm0", " ", "mm"}]}], ")"}], " ", "t"}], 
+   RowBox[{"mL", "+", "mm"}]], "+", 
+  FractionBox[
+   RowBox[{"Fmc", " ", 
+    SuperscriptBox["t", "2"]}], 
+   RowBox[{"2", " ", 
+    RowBox[{"(", 
+     RowBox[{"mL", "+", "mm"}], ")"}]}]], "+", 
+  FractionBox[
+   RowBox[{
+    RowBox[{"Fmc", " ", 
+     SuperscriptBox["mL", "2"]}], "+", 
+    RowBox[{"k", " ", 
+     SuperscriptBox["mL", "2"], " ", "xL0"}], "+", 
+    RowBox[{"k", " ", "mL", " ", "mm", " ", "xL0"}], "+", 
+    RowBox[{"k", " ", "mL", " ", "mm", " ", "xm0"}], "+", 
+    RowBox[{"k", " ", 
+     SuperscriptBox["mm", "2"], " ", "xm0"}]}], 
+   RowBox[{"k", " ", 
+    SuperscriptBox[
+     RowBox[{"(", 
+      RowBox[{"mL", "+", "mm"}], ")"}], "2"]}]], "+", 
+  RowBox[{
+   FractionBox["1", 
+    RowBox[{"2", " ", "k", " ", 
+     SuperscriptBox[
+      RowBox[{"(", 
+       RowBox[{"mL", "+", "mm"}], ")"}], 
+      RowBox[{"5", "/", "2"}]], " ", 
+     SqrtBox[
+      RowBox[{
+       RowBox[{
+        SuperscriptBox["B", "2"], " ", "mL"}], "+", 
+       RowBox[{
+        SuperscriptBox["B", "2"], " ", "mm"}], "-", 
+       RowBox[{"4", " ", "k", " ", "mL", " ", "mm"}]}]]}]], 
+   RowBox[{"(", 
+    RowBox[{
+     RowBox[{"B", " ", 
+      SuperscriptBox["\[ExponentialE]", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"-", 
+           FractionBox["B", 
+            RowBox[{"2", " ", "mL"}]]}], "-", 
+          FractionBox["B", 
+           RowBox[{"2", " ", "mm"}]], "-", 
+          FractionBox[
+           RowBox[{
+            SqrtBox[
+             RowBox[{"mL", "+", "mm"}]], " ", 
+            SqrtBox[
+             RowBox[{
+              RowBox[{
+               SuperscriptBox["B", "2"], " ", "mL"}], "+", 
+              RowBox[{
+               SuperscriptBox["B", "2"], " ", "mm"}], "-", 
+              RowBox[{"4", " ", "k", " ", "mL", " ", "mm"}]}]]}], 
+           RowBox[{"2", " ", "mL", " ", "mm"}]]}], ")"}], " ", "t"}]], " ", 
+      "Fmc", " ", 
+      SuperscriptBox["mL", "3"]}], "-", 
+     RowBox[{"B", " ", 
+      SuperscriptBox["\[ExponentialE]", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"-", 
+           FractionBox["B", 
+            RowBox[{"2", " ", "mL"}]]}], "-", 
+          FractionBox["B", 
+           RowBox[{"2", " ", "mm"}]], "+", 
+          FractionBox[
+           RowBox[{
+            SqrtBox[
+             RowBox[{"mL", "+", "mm"}]], " ", 
+            SqrtBox[
+             RowBox[{
+              RowBox[{
+               SuperscriptBox["B", "2"], " ", "mL"}], "+", 
+              RowBox[{
+               SuperscriptBox["B", "2"], " ", "mm"}], "-", 
+              RowBox[{"4", " ", "k", " ", "mL", " ", "mm"}]}]]}], 
+           RowBox[{"2", " ", "mL", " ", "mm"}]]}], ")"}], " ", "t"}]], " ", 
+      "Fmc", " ", 
+      SuperscriptBox["mL", "3"]}], "+", 
+     RowBox[{"B", " ", 
+      SuperscriptBox["\[ExponentialE]", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"-", 
+           FractionBox["B", 
+            RowBox[{"2", " ", "mL"}]]}], "-", 
+          FractionBox["B", 
+           RowBox[{"2", " ", "mm"}]], "-", 
+          FractionBox[
+           RowBox[{
+            SqrtBox[
+             RowBox[{"mL", "+", "mm"}]], " ", 
+            SqrtBox[
+             RowBox[{
+              RowBox[{
+               SuperscriptBox["B", "2"], " ", "mL"}], "+", 
+              RowBox[{
+               SuperscriptBox["B", "2"], " ", "mm"}], "-", 
+              RowBox[{"4", " ", "k", " ", "mL", " ", "mm"}]}]]}], 
+           RowBox[{"2", " ", "mL", " ", "mm"}]]}], ")"}], " ", "t"}]], " ", 
+      "Fmc", " ", 
+      SuperscriptBox["mL", "2"], " ", "mm"}], "-", 
+     RowBox[{"B", " ", 
+      SuperscriptBox["\[ExponentialE]", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"-", 
+           FractionBox["B", 
+            RowBox[{"2", " ", "mL"}]]}], "-", 
+          FractionBox["B", 
+           RowBox[{"2", " ", "mm"}]], "+", 
+          FractionBox[
+           RowBox[{
+            SqrtBox[
+             RowBox[{"mL", "+", "mm"}]], " ", 
+            SqrtBox[
+             RowBox[{
+              RowBox[{
+               SuperscriptBox["B", "2"], " ", "mL"}], "+", 
+              RowBox[{
+               SuperscriptBox["B", "2"], " ", "mm"}], "-", 
+              RowBox[{"4", " ", "k", " ", "mL", " ", "mm"}]}]]}], 
+           RowBox[{"2", " ", "mL", " ", "mm"}]]}], ")"}], " ", "t"}]], " ", 
+      "Fmc", " ", 
+      SuperscriptBox["mL", "2"], " ", "mm"}], "+", 
+     RowBox[{"2", " ", "dxL0", " ", 
+      SuperscriptBox["\[ExponentialE]", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"-", 
+           FractionBox["B", 
+            RowBox[{"2", " ", "mL"}]]}], "-", 
+          FractionBox["B", 
+           RowBox[{"2", " ", "mm"}]], "-", 
+          FractionBox[
+           RowBox[{
+            SqrtBox[
+             RowBox[{"mL", "+", "mm"}]], " ", 
+            SqrtBox[
+             RowBox[{
+              RowBox[{
+               SuperscriptBox["B", "2"], " ", "mL"}], "+", 
+              RowBox[{
+               SuperscriptBox["B", "2"], " ", "mm"}], "-", 
+              RowBox[{"4", " ", "k", " ", "mL", " ", "mm"}]}]]}], 
+           RowBox[{"2", " ", "mL", " ", "mm"}]]}], ")"}], " ", "t"}]], " ", 
+      "k", " ", 
+      SuperscriptBox["mL", "3"], " ", "mm"}], "-", 
+     RowBox[{"2", " ", "dxm0", " ", 
+      SuperscriptBox["\[ExponentialE]", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"-", 
+           FractionBox["B", 
+            RowBox[{"2", " ", "mL"}]]}], "-", 
+          FractionBox["B", 
+           RowBox[{"2", " ", "mm"}]], "-", 
+          FractionBox[
+           RowBox[{
+            SqrtBox[
+             RowBox[{"mL", "+", "mm"}]], " ", 
+            SqrtBox[
+             RowBox[{
+              RowBox[{
+               SuperscriptBox["B", "2"], " ", "mL"}], "+", 
+              RowBox[{
+               SuperscriptBox["B", "2"], " ", "mm"}], "-", 
+              RowBox[{"4", " ", "k", " ", "mL", " ", "mm"}]}]]}], 
+           RowBox[{"2", " ", "mL", " ", "mm"}]]}], ")"}], " ", "t"}]], " ", 
+      "k", " ", 
+      SuperscriptBox["mL", "3"], " ", "mm"}], "-", 
+     RowBox[{"2", " ", "dxL0", " ", 
+      SuperscriptBox["\[ExponentialE]", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"-", 
+           FractionBox["B", 
+            RowBox[{"2", " ", "mL"}]]}], "-", 
+          FractionBox["B", 
+           RowBox[{"2", " ", "mm"}]], "+", 
+          FractionBox[
+           RowBox[{
+            SqrtBox[
+             RowBox[{"mL", "+", "mm"}]], " ", 
+            SqrtBox[
+             RowBox[{
+              RowBox[{
+               SuperscriptBox["B", "2"], " ", "mL"}], "+", 
+              RowBox[{
+               SuperscriptBox["B", "2"], " ", "mm"}], "-", 
+              RowBox[{"4", " ", "k", " ", "mL", " ", "mm"}]}]]}], 
+           RowBox[{"2", " ", "mL", " ", "mm"}]]}], ")"}], " ", "t"}]], " ", 
+      "k", " ", 
+      SuperscriptBox["mL", "3"], " ", "mm"}], "+", 
+     RowBox[{"2", " ", "dxm0", " ", 
+      SuperscriptBox["\[ExponentialE]", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"-", 
+           FractionBox["B", 
+            RowBox[{"2", " ", "mL"}]]}], "-", 
+          FractionBox["B", 
+           RowBox[{"2", " ", "mm"}]], "+", 
+          FractionBox[
+           RowBox[{
+            SqrtBox[
+             RowBox[{"mL", "+", "mm"}]], " ", 
+            SqrtBox[
+             RowBox[{
+              RowBox[{
+               SuperscriptBox["B", "2"], " ", "mL"}], "+", 
+              RowBox[{
+               SuperscriptBox["B", "2"], " ", "mm"}], "-", 
+              RowBox[{"4", " ", "k", " ", "mL", " ", "mm"}]}]]}], 
+           RowBox[{"2", " ", "mL", " ", "mm"}]]}], ")"}], " ", "t"}]], " ", 
+      "k", " ", 
+      SuperscriptBox["mL", "3"], " ", "mm"}], "+", 
+     RowBox[{"2", " ", "dxL0", " ", 
+      SuperscriptBox["\[ExponentialE]", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"-", 
+           FractionBox["B", 
+            RowBox[{"2", " ", "mL"}]]}], "-", 
+          FractionBox["B", 
+           RowBox[{"2", " ", "mm"}]], "-", 
+          FractionBox[
+           RowBox[{
+            SqrtBox[
+             RowBox[{"mL", "+", "mm"}]], " ", 
+            SqrtBox[
+             RowBox[{
+              RowBox[{
+               SuperscriptBox["B", "2"], " ", "mL"}], "+", 
+              RowBox[{
+               SuperscriptBox["B", "2"], " ", "mm"}], "-", 
+              RowBox[{"4", " ", "k", " ", "mL", " ", "mm"}]}]]}], 
+           RowBox[{"2", " ", "mL", " ", "mm"}]]}], ")"}], " ", "t"}]], " ", 
+      "k", " ", 
+      SuperscriptBox["mL", "2"], " ", 
+      SuperscriptBox["mm", "2"]}], "-", 
+     RowBox[{"2", " ", "dxm0", " ", 
+      SuperscriptBox["\[ExponentialE]", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"-", 
+           FractionBox["B", 
+            RowBox[{"2", " ", "mL"}]]}], "-", 
+          FractionBox["B", 
+           RowBox[{"2", " ", "mm"}]], "-", 
+          FractionBox[
+           RowBox[{
+            SqrtBox[
+             RowBox[{"mL", "+", "mm"}]], " ", 
+            SqrtBox[
+             RowBox[{
+              RowBox[{
+               SuperscriptBox["B", "2"], " ", "mL"}], "+", 
+              RowBox[{
+               SuperscriptBox["B", "2"], " ", "mm"}], "-", 
+              RowBox[{"4", " ", "k", " ", "mL", " ", "mm"}]}]]}], 
+           RowBox[{"2", " ", "mL", " ", "mm"}]]}], ")"}], " ", "t"}]], " ", 
+      "k", " ", 
+      SuperscriptBox["mL", "2"], " ", 
+      SuperscriptBox["mm", "2"]}], "-", 
+     RowBox[{"2", " ", "dxL0", " ", 
+      SuperscriptBox["\[ExponentialE]", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"-", 
+           FractionBox["B", 
+            RowBox[{"2", " ", "mL"}]]}], "-", 
+          FractionBox["B", 
+           RowBox[{"2", " ", "mm"}]], "+", 
+          FractionBox[
+           RowBox[{
+            SqrtBox[
+             RowBox[{"mL", "+", "mm"}]], " ", 
+            SqrtBox[
+             RowBox[{
+              RowBox[{
+               SuperscriptBox["B", "2"], " ", "mL"}], "+", 
+              RowBox[{
+               SuperscriptBox["B", "2"], " ", "mm"}], "-", 
+              RowBox[{"4", " ", "k", " ", "mL", " ", "mm"}]}]]}], 
+           RowBox[{"2", " ", "mL", " ", "mm"}]]}], ")"}], " ", "t"}]], " ", 
+      "k", " ", 
+      SuperscriptBox["mL", "2"], " ", 
+      SuperscriptBox["mm", "2"]}], "+", 
+     RowBox[{"2", " ", "dxm0", " ", 
+      SuperscriptBox["\[ExponentialE]", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"-", 
+           FractionBox["B", 
+            RowBox[{"2", " ", "mL"}]]}], "-", 
+          FractionBox["B", 
+           RowBox[{"2", " ", "mm"}]], "+", 
+          FractionBox[
+           RowBox[{
+            SqrtBox[
+             RowBox[{"mL", "+", "mm"}]], " ", 
+            SqrtBox[
+             RowBox[{
+              RowBox[{
+               SuperscriptBox["B", "2"], " ", "mL"}], "+", 
+              RowBox[{
+               SuperscriptBox["B", "2"], " ", "mm"}], "-", 
+              RowBox[{"4", " ", "k", " ", "mL", " ", "mm"}]}]]}], 
+           RowBox[{"2", " ", "mL", " ", "mm"}]]}], ")"}], " ", "t"}]], " ", 
+      "k", " ", 
+      SuperscriptBox["mL", "2"], " ", 
+      SuperscriptBox["mm", "2"]}], "-", 
+     RowBox[{
+      SuperscriptBox["\[ExponentialE]", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"-", 
+           FractionBox["B", 
+            RowBox[{"2", " ", "mL"}]]}], "-", 
+          FractionBox["B", 
+           RowBox[{"2", " ", "mm"}]], "-", 
+          FractionBox[
+           RowBox[{
+            SqrtBox[
+             RowBox[{"mL", "+", "mm"}]], " ", 
+            SqrtBox[
+             RowBox[{
+              RowBox[{
+               SuperscriptBox["B", "2"], " ", "mL"}], "+", 
+              RowBox[{
+               SuperscriptBox["B", "2"], " ", "mm"}], "-", 
+              RowBox[{"4", " ", "k", " ", "mL", " ", "mm"}]}]]}], 
+           RowBox[{"2", " ", "mL", " ", "mm"}]]}], ")"}], " ", "t"}]], " ", 
+      "Fmc", " ", 
+      SuperscriptBox["mL", "2"], " ", 
+      SqrtBox[
+       RowBox[{"mL", "+", "mm"}]], " ", 
+      SqrtBox[
+       RowBox[{
+        RowBox[{
+         SuperscriptBox["B", "2"], " ", "mL"}], "+", 
+        RowBox[{
+         SuperscriptBox["B", "2"], " ", "mm"}], "-", 
+        RowBox[{"4", " ", "k", " ", "mL", " ", "mm"}]}]]}], "-", 
+     RowBox[{
+      SuperscriptBox["\[ExponentialE]", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"-", 
+           FractionBox["B", 
+            RowBox[{"2", " ", "mL"}]]}], "-", 
+          FractionBox["B", 
+           RowBox[{"2", " ", "mm"}]], "+", 
+          FractionBox[
+           RowBox[{
+            SqrtBox[
+             RowBox[{"mL", "+", "mm"}]], " ", 
+            SqrtBox[
+             RowBox[{
+              RowBox[{
+               SuperscriptBox["B", "2"], " ", "mL"}], "+", 
+              RowBox[{
+               SuperscriptBox["B", "2"], " ", "mm"}], "-", 
+              RowBox[{"4", " ", "k", " ", "mL", " ", "mm"}]}]]}], 
+           RowBox[{"2", " ", "mL", " ", "mm"}]]}], ")"}], " ", "t"}]], " ", 
+      "Fmc", " ", 
+      SuperscriptBox["mL", "2"], " ", 
+      SqrtBox[
+       RowBox[{"mL", "+", "mm"}]], " ", 
+      SqrtBox[
+       RowBox[{
+        RowBox[{
+         SuperscriptBox["B", "2"], " ", "mL"}], "+", 
+        RowBox[{
+         SuperscriptBox["B", "2"], " ", "mm"}], "-", 
+        RowBox[{"4", " ", "k", " ", "mL", " ", "mm"}]}]]}], "+", 
+     RowBox[{"B", " ", 
+      SuperscriptBox["\[ExponentialE]", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"-", 
+           FractionBox["B", 
+            RowBox[{"2", " ", "mL"}]]}], "-", 
+          FractionBox["B", 
+           RowBox[{"2", " ", "mm"}]], "-", 
+          FractionBox[
+           RowBox[{
+            SqrtBox[
+             RowBox[{"mL", "+", "mm"}]], " ", 
+            SqrtBox[
+             RowBox[{
+              RowBox[{
+               SuperscriptBox["B", "2"], " ", "mL"}], "+", 
+              RowBox[{
+               SuperscriptBox["B", "2"], " ", "mm"}], "-", 
+              RowBox[{"4", " ", "k", " ", "mL", " ", "mm"}]}]]}], 
+           RowBox[{"2", " ", "mL", " ", "mm"}]]}], ")"}], " ", "t"}]], " ", 
+      "k", " ", 
+      SuperscriptBox["mL", "3"], " ", "xL0"}], "-", 
+     RowBox[{"B", " ", 
+      SuperscriptBox["\[ExponentialE]", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"-", 
+           FractionBox["B", 
+            RowBox[{"2", " ", "mL"}]]}], "-", 
+          FractionBox["B", 
+           RowBox[{"2", " ", "mm"}]], "+", 
+          FractionBox[
+           RowBox[{
+            SqrtBox[
+             RowBox[{"mL", "+", "mm"}]], " ", 
+            SqrtBox[
+             RowBox[{
+              RowBox[{
+               SuperscriptBox["B", "2"], " ", "mL"}], "+", 
+              RowBox[{
+               SuperscriptBox["B", "2"], " ", "mm"}], "-", 
+              RowBox[{"4", " ", "k", " ", "mL", " ", "mm"}]}]]}], 
+           RowBox[{"2", " ", "mL", " ", "mm"}]]}], ")"}], " ", "t"}]], " ", 
+      "k", " ", 
+      SuperscriptBox["mL", "3"], " ", "xL0"}], "+", 
+     RowBox[{"2", " ", "B", " ", 
+      SuperscriptBox["\[ExponentialE]", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"-", 
+           FractionBox["B", 
+            RowBox[{"2", " ", "mL"}]]}], "-", 
+          FractionBox["B", 
+           RowBox[{"2", " ", "mm"}]], "-", 
+          FractionBox[
+           RowBox[{
+            SqrtBox[
+             RowBox[{"mL", "+", "mm"}]], " ", 
+            SqrtBox[
+             RowBox[{
+              RowBox[{
+               SuperscriptBox["B", "2"], " ", "mL"}], "+", 
+              RowBox[{
+               SuperscriptBox["B", "2"], " ", "mm"}], "-", 
+              RowBox[{"4", " ", "k", " ", "mL", " ", "mm"}]}]]}], 
+           RowBox[{"2", " ", "mL", " ", "mm"}]]}], ")"}], " ", "t"}]], " ", 
+      "k", " ", 
+      SuperscriptBox["mL", "2"], " ", "mm", " ", "xL0"}], "-", 
+     RowBox[{"2", " ", "B", " ", 
+      SuperscriptBox["\[ExponentialE]", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"-", 
+           FractionBox["B", 
+            RowBox[{"2", " ", "mL"}]]}], "-", 
+          FractionBox["B", 
+           RowBox[{"2", " ", "mm"}]], "+", 
+          FractionBox[
+           RowBox[{
+            SqrtBox[
+             RowBox[{"mL", "+", "mm"}]], " ", 
+            SqrtBox[
+             RowBox[{
+              RowBox[{
+               SuperscriptBox["B", "2"], " ", "mL"}], "+", 
+              RowBox[{
+               SuperscriptBox["B", "2"], " ", "mm"}], "-", 
+              RowBox[{"4", " ", "k", " ", "mL", " ", "mm"}]}]]}], 
+           RowBox[{"2", " ", "mL", " ", "mm"}]]}], ")"}], " ", "t"}]], " ", 
+      "k", " ", 
+      SuperscriptBox["mL", "2"], " ", "mm", " ", "xL0"}], "+", 
+     RowBox[{"B", " ", 
+      SuperscriptBox["\[ExponentialE]", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"-", 
+           FractionBox["B", 
+            RowBox[{"2", " ", "mL"}]]}], "-", 
+          FractionBox["B", 
+           RowBox[{"2", " ", "mm"}]], "-", 
+          FractionBox[
+           RowBox[{
+            SqrtBox[
+             RowBox[{"mL", "+", "mm"}]], " ", 
+            SqrtBox[
+             RowBox[{
+              RowBox[{
+               SuperscriptBox["B", "2"], " ", "mL"}], "+", 
+              RowBox[{
+               SuperscriptBox["B", "2"], " ", "mm"}], "-", 
+              RowBox[{"4", " ", "k", " ", "mL", " ", "mm"}]}]]}], 
+           RowBox[{"2", " ", "mL", " ", "mm"}]]}], ")"}], " ", "t"}]], " ", 
+      "k", " ", "mL", " ", 
+      SuperscriptBox["mm", "2"], " ", "xL0"}], "-", 
+     RowBox[{"B", " ", 
+      SuperscriptBox["\[ExponentialE]", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"-", 
+           FractionBox["B", 
+            RowBox[{"2", " ", "mL"}]]}], "-", 
+          FractionBox["B", 
+           RowBox[{"2", " ", "mm"}]], "+", 
+          FractionBox[
+           RowBox[{
+            SqrtBox[
+             RowBox[{"mL", "+", "mm"}]], " ", 
+            SqrtBox[
+             RowBox[{
+              RowBox[{
+               SuperscriptBox["B", "2"], " ", "mL"}], "+", 
+              RowBox[{
+               SuperscriptBox["B", "2"], " ", "mm"}], "-", 
+              RowBox[{"4", " ", "k", " ", "mL", " ", "mm"}]}]]}], 
+           RowBox[{"2", " ", "mL", " ", "mm"}]]}], ")"}], " ", "t"}]], " ", 
+      "k", " ", "mL", " ", 
+      SuperscriptBox["mm", "2"], " ", "xL0"}], "-", 
+     RowBox[{
+      SuperscriptBox["\[ExponentialE]", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"-", 
+           FractionBox["B", 
+            RowBox[{"2", " ", "mL"}]]}], "-", 
+          FractionBox["B", 
+           RowBox[{"2", " ", "mm"}]], "-", 
+          FractionBox[
+           RowBox[{
+            SqrtBox[
+             RowBox[{"mL", "+", "mm"}]], " ", 
+            SqrtBox[
+             RowBox[{
+              RowBox[{
+               SuperscriptBox["B", "2"], " ", "mL"}], "+", 
+              RowBox[{
+               SuperscriptBox["B", "2"], " ", "mm"}], "-", 
+              RowBox[{"4", " ", "k", " ", "mL", " ", "mm"}]}]]}], 
+           RowBox[{"2", " ", "mL", " ", "mm"}]]}], ")"}], " ", "t"}]], " ", 
+      "k", " ", 
+      SuperscriptBox["mL", "2"], " ", 
+      SqrtBox[
+       RowBox[{"mL", "+", "mm"}]], " ", 
+      SqrtBox[
+       RowBox[{
+        RowBox[{
+         SuperscriptBox["B", "2"], " ", "mL"}], "+", 
+        RowBox[{
+         SuperscriptBox["B", "2"], " ", "mm"}], "-", 
+        RowBox[{"4", " ", "k", " ", "mL", " ", "mm"}]}]], " ", "xL0"}], "-", 
+     RowBox[{
+      SuperscriptBox["\[ExponentialE]", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"-", 
+           FractionBox["B", 
+            RowBox[{"2", " ", "mL"}]]}], "-", 
+          FractionBox["B", 
+           RowBox[{"2", " ", "mm"}]], "+", 
+          FractionBox[
+           RowBox[{
+            SqrtBox[
+             RowBox[{"mL", "+", "mm"}]], " ", 
+            SqrtBox[
+             RowBox[{
+              RowBox[{
+               SuperscriptBox["B", "2"], " ", "mL"}], "+", 
+              RowBox[{
+               SuperscriptBox["B", "2"], " ", "mm"}], "-", 
+              RowBox[{"4", " ", "k", " ", "mL", " ", "mm"}]}]]}], 
+           RowBox[{"2", " ", "mL", " ", "mm"}]]}], ")"}], " ", "t"}]], " ", 
+      "k", " ", 
+      SuperscriptBox["mL", "2"], " ", 
+      SqrtBox[
+       RowBox[{"mL", "+", "mm"}]], " ", 
+      SqrtBox[
+       RowBox[{
+        RowBox[{
+         SuperscriptBox["B", "2"], " ", "mL"}], "+", 
+        RowBox[{
+         SuperscriptBox["B", "2"], " ", "mm"}], "-", 
+        RowBox[{"4", " ", "k", " ", "mL", " ", "mm"}]}]], " ", "xL0"}], "-", 
+     RowBox[{
+      SuperscriptBox["\[ExponentialE]", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"-", 
+           FractionBox["B", 
+            RowBox[{"2", " ", "mL"}]]}], "-", 
+          FractionBox["B", 
+           RowBox[{"2", " ", "mm"}]], "-", 
+          FractionBox[
+           RowBox[{
+            SqrtBox[
+             RowBox[{"mL", "+", "mm"}]], " ", 
+            SqrtBox[
+             RowBox[{
+              RowBox[{
+               SuperscriptBox["B", "2"], " ", "mL"}], "+", 
+              RowBox[{
+               SuperscriptBox["B", "2"], " ", "mm"}], "-", 
+              RowBox[{"4", " ", "k", " ", "mL", " ", "mm"}]}]]}], 
+           RowBox[{"2", " ", "mL", " ", "mm"}]]}], ")"}], " ", "t"}]], " ", 
+      "k", " ", "mL", " ", "mm", " ", 
+      SqrtBox[
+       RowBox[{"mL", "+", "mm"}]], " ", 
+      SqrtBox[
+       RowBox[{
+        RowBox[{
+         SuperscriptBox["B", "2"], " ", "mL"}], "+", 
+        RowBox[{
+         SuperscriptBox["B", "2"], " ", "mm"}], "-", 
+        RowBox[{"4", " ", "k", " ", "mL", " ", "mm"}]}]], " ", "xL0"}], "-", 
+     RowBox[{
+      SuperscriptBox["\[ExponentialE]", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"-", 
+           FractionBox["B", 
+            RowBox[{"2", " ", "mL"}]]}], "-", 
+          FractionBox["B", 
+           RowBox[{"2", " ", "mm"}]], "+", 
+          FractionBox[
+           RowBox[{
+            SqrtBox[
+             RowBox[{"mL", "+", "mm"}]], " ", 
+            SqrtBox[
+             RowBox[{
+              RowBox[{
+               SuperscriptBox["B", "2"], " ", "mL"}], "+", 
+              RowBox[{
+               SuperscriptBox["B", "2"], " ", "mm"}], "-", 
+              RowBox[{"4", " ", "k", " ", "mL", " ", "mm"}]}]]}], 
+           RowBox[{"2", " ", "mL", " ", "mm"}]]}], ")"}], " ", "t"}]], " ", 
+      "k", " ", "mL", " ", "mm", " ", 
+      SqrtBox[
+       RowBox[{"mL", "+", "mm"}]], " ", 
+      SqrtBox[
+       RowBox[{
+        RowBox[{
+         SuperscriptBox["B", "2"], " ", "mL"}], "+", 
+        RowBox[{
+         SuperscriptBox["B", "2"], " ", "mm"}], "-", 
+        RowBox[{"4", " ", "k", " ", "mL", " ", "mm"}]}]], " ", "xL0"}], "-", 
+     RowBox[{"B", " ", 
+      SuperscriptBox["\[ExponentialE]", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"-", 
+           FractionBox["B", 
+            RowBox[{"2", " ", "mL"}]]}], "-", 
+          FractionBox["B", 
+           RowBox[{"2", " ", "mm"}]], "-", 
+          FractionBox[
+           RowBox[{
+            SqrtBox[
+             RowBox[{"mL", "+", "mm"}]], " ", 
+            SqrtBox[
+             RowBox[{
+              RowBox[{
+               SuperscriptBox["B", "2"], " ", "mL"}], "+", 
+              RowBox[{
+               SuperscriptBox["B", "2"], " ", "mm"}], "-", 
+              RowBox[{"4", " ", "k", " ", "mL", " ", "mm"}]}]]}], 
+           RowBox[{"2", " ", "mL", " ", "mm"}]]}], ")"}], " ", "t"}]], " ", 
+      "k", " ", 
+      SuperscriptBox["mL", "3"], " ", "xm0"}], "+", 
+     RowBox[{"B", " ", 
+      SuperscriptBox["\[ExponentialE]", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"-", 
+           FractionBox["B", 
+            RowBox[{"2", " ", "mL"}]]}], "-", 
+          FractionBox["B", 
+           RowBox[{"2", " ", "mm"}]], "+", 
+          FractionBox[
+           RowBox[{
+            SqrtBox[
+             RowBox[{"mL", "+", "mm"}]], " ", 
+            SqrtBox[
+             RowBox[{
+              RowBox[{
+               SuperscriptBox["B", "2"], " ", "mL"}], "+", 
+              RowBox[{
+               SuperscriptBox["B", "2"], " ", "mm"}], "-", 
+              RowBox[{"4", " ", "k", " ", "mL", " ", "mm"}]}]]}], 
+           RowBox[{"2", " ", "mL", " ", "mm"}]]}], ")"}], " ", "t"}]], " ", 
+      "k", " ", 
+      SuperscriptBox["mL", "3"], " ", "xm0"}], "-", 
+     RowBox[{"2", " ", "B", " ", 
+      SuperscriptBox["\[ExponentialE]", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"-", 
+           FractionBox["B", 
+            RowBox[{"2", " ", "mL"}]]}], "-", 
+          FractionBox["B", 
+           RowBox[{"2", " ", "mm"}]], "-", 
+          FractionBox[
+           RowBox[{
+            SqrtBox[
+             RowBox[{"mL", "+", "mm"}]], " ", 
+            SqrtBox[
+             RowBox[{
+              RowBox[{
+               SuperscriptBox["B", "2"], " ", "mL"}], "+", 
+              RowBox[{
+               SuperscriptBox["B", "2"], " ", "mm"}], "-", 
+              RowBox[{"4", " ", "k", " ", "mL", " ", "mm"}]}]]}], 
+           RowBox[{"2", " ", "mL", " ", "mm"}]]}], ")"}], " ", "t"}]], " ", 
+      "k", " ", 
+      SuperscriptBox["mL", "2"], " ", "mm", " ", "xm0"}], "+", 
+     RowBox[{"2", " ", "B", " ", 
+      SuperscriptBox["\[ExponentialE]", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"-", 
+           FractionBox["B", 
+            RowBox[{"2", " ", "mL"}]]}], "-", 
+          FractionBox["B", 
+           RowBox[{"2", " ", "mm"}]], "+", 
+          FractionBox[
+           RowBox[{
+            SqrtBox[
+             RowBox[{"mL", "+", "mm"}]], " ", 
+            SqrtBox[
+             RowBox[{
+              RowBox[{
+               SuperscriptBox["B", "2"], " ", "mL"}], "+", 
+              RowBox[{
+               SuperscriptBox["B", "2"], " ", "mm"}], "-", 
+              RowBox[{"4", " ", "k", " ", "mL", " ", "mm"}]}]]}], 
+           RowBox[{"2", " ", "mL", " ", "mm"}]]}], ")"}], " ", "t"}]], " ", 
+      "k", " ", 
+      SuperscriptBox["mL", "2"], " ", "mm", " ", "xm0"}], "-", 
+     RowBox[{"B", " ", 
+      SuperscriptBox["\[ExponentialE]", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"-", 
+           FractionBox["B", 
+            RowBox[{"2", " ", "mL"}]]}], "-", 
+          FractionBox["B", 
+           RowBox[{"2", " ", "mm"}]], "-", 
+          FractionBox[
+           RowBox[{
+            SqrtBox[
+             RowBox[{"mL", "+", "mm"}]], " ", 
+            SqrtBox[
+             RowBox[{
+              RowBox[{
+               SuperscriptBox["B", "2"], " ", "mL"}], "+", 
+              RowBox[{
+               SuperscriptBox["B", "2"], " ", "mm"}], "-", 
+              RowBox[{"4", " ", "k", " ", "mL", " ", "mm"}]}]]}], 
+           RowBox[{"2", " ", "mL", " ", "mm"}]]}], ")"}], " ", "t"}]], " ", 
+      "k", " ", "mL", " ", 
+      SuperscriptBox["mm", "2"], " ", "xm0"}], "+", 
+     RowBox[{"B", " ", 
+      SuperscriptBox["\[ExponentialE]", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"-", 
+           FractionBox["B", 
+            RowBox[{"2", " ", "mL"}]]}], "-", 
+          FractionBox["B", 
+           RowBox[{"2", " ", "mm"}]], "+", 
+          FractionBox[
+           RowBox[{
+            SqrtBox[
+             RowBox[{"mL", "+", "mm"}]], " ", 
+            SqrtBox[
+             RowBox[{
+              RowBox[{
+               SuperscriptBox["B", "2"], " ", "mL"}], "+", 
+              RowBox[{
+               SuperscriptBox["B", "2"], " ", "mm"}], "-", 
+              RowBox[{"4", " ", "k", " ", "mL", " ", "mm"}]}]]}], 
+           RowBox[{"2", " ", "mL", " ", "mm"}]]}], ")"}], " ", "t"}]], " ", 
+      "k", " ", "mL", " ", 
+      SuperscriptBox["mm", "2"], " ", "xm0"}], "+", 
+     RowBox[{
+      SuperscriptBox["\[ExponentialE]", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"-", 
+           FractionBox["B", 
+            RowBox[{"2", " ", "mL"}]]}], "-", 
+          FractionBox["B", 
+           RowBox[{"2", " ", "mm"}]], "-", 
+          FractionBox[
+           RowBox[{
+            SqrtBox[
+             RowBox[{"mL", "+", "mm"}]], " ", 
+            SqrtBox[
+             RowBox[{
+              RowBox[{
+               SuperscriptBox["B", "2"], " ", "mL"}], "+", 
+              RowBox[{
+               SuperscriptBox["B", "2"], " ", "mm"}], "-", 
+              RowBox[{"4", " ", "k", " ", "mL", " ", "mm"}]}]]}], 
+           RowBox[{"2", " ", "mL", " ", "mm"}]]}], ")"}], " ", "t"}]], " ", 
+      "k", " ", 
+      SuperscriptBox["mL", "2"], " ", 
+      SqrtBox[
+       RowBox[{"mL", "+", "mm"}]], " ", 
+      SqrtBox[
+       RowBox[{
+        RowBox[{
+         SuperscriptBox["B", "2"], " ", "mL"}], "+", 
+        RowBox[{
+         SuperscriptBox["B", "2"], " ", "mm"}], "-", 
+        RowBox[{"4", " ", "k", " ", "mL", " ", "mm"}]}]], " ", "xm0"}], "+", 
+     RowBox[{
+      SuperscriptBox["\[ExponentialE]", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"-", 
+           FractionBox["B", 
+            RowBox[{"2", " ", "mL"}]]}], "-", 
+          FractionBox["B", 
+           RowBox[{"2", " ", "mm"}]], "+", 
+          FractionBox[
+           RowBox[{
+            SqrtBox[
+             RowBox[{"mL", "+", "mm"}]], " ", 
+            SqrtBox[
+             RowBox[{
+              RowBox[{
+               SuperscriptBox["B", "2"], " ", "mL"}], "+", 
+              RowBox[{
+               SuperscriptBox["B", "2"], " ", "mm"}], "-", 
+              RowBox[{"4", " ", "k", " ", "mL", " ", "mm"}]}]]}], 
+           RowBox[{"2", " ", "mL", " ", "mm"}]]}], ")"}], " ", "t"}]], " ", 
+      "k", " ", 
+      SuperscriptBox["mL", "2"], " ", 
+      SqrtBox[
+       RowBox[{"mL", "+", "mm"}]], " ", 
+      SqrtBox[
+       RowBox[{
+        RowBox[{
+         SuperscriptBox["B", "2"], " ", "mL"}], "+", 
+        RowBox[{
+         SuperscriptBox["B", "2"], " ", "mm"}], "-", 
+        RowBox[{"4", " ", "k", " ", "mL", " ", "mm"}]}]], " ", "xm0"}], "+", 
+     RowBox[{
+      SuperscriptBox["\[ExponentialE]", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"-", 
+           FractionBox["B", 
+            RowBox[{"2", " ", "mL"}]]}], "-", 
+          FractionBox["B", 
+           RowBox[{"2", " ", "mm"}]], "-", 
+          FractionBox[
+           RowBox[{
+            SqrtBox[
+             RowBox[{"mL", "+", "mm"}]], " ", 
+            SqrtBox[
+             RowBox[{
+              RowBox[{
+               SuperscriptBox["B", "2"], " ", "mL"}], "+", 
+              RowBox[{
+               SuperscriptBox["B", "2"], " ", "mm"}], "-", 
+              RowBox[{"4", " ", "k", " ", "mL", " ", "mm"}]}]]}], 
+           RowBox[{"2", " ", "mL", " ", "mm"}]]}], ")"}], " ", "t"}]], " ", 
+      "k", " ", "mL", " ", "mm", " ", 
+      SqrtBox[
+       RowBox[{"mL", "+", "mm"}]], " ", 
+      SqrtBox[
+       RowBox[{
+        RowBox[{
+         SuperscriptBox["B", "2"], " ", "mL"}], "+", 
+        RowBox[{
+         SuperscriptBox["B", "2"], " ", "mm"}], "-", 
+        RowBox[{"4", " ", "k", " ", "mL", " ", "mm"}]}]], " ", "xm0"}], "+", 
+     RowBox[{
+      SuperscriptBox["\[ExponentialE]", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"-", 
+           FractionBox["B", 
+            RowBox[{"2", " ", "mL"}]]}], "-", 
+          FractionBox["B", 
+           RowBox[{"2", " ", "mm"}]], "+", 
+          FractionBox[
+           RowBox[{
+            SqrtBox[
+             RowBox[{"mL", "+", "mm"}]], " ", 
+            SqrtBox[
+             RowBox[{
+              RowBox[{
+               SuperscriptBox["B", "2"], " ", "mL"}], "+", 
+              RowBox[{
+               SuperscriptBox["B", "2"], " ", "mm"}], "-", 
+              RowBox[{"4", " ", "k", " ", "mL", " ", "mm"}]}]]}], 
+           RowBox[{"2", " ", "mL", " ", "mm"}]]}], ")"}], " ", "t"}]], " ", 
+      "k", " ", "mL", " ", "mm", " ", 
+      SqrtBox[
+       RowBox[{"mL", "+", "mm"}]], " ", 
+      SqrtBox[
+       RowBox[{
+        RowBox[{
+         SuperscriptBox["B", "2"], " ", "mL"}], "+", 
+        RowBox[{
+         SuperscriptBox["B", "2"], " ", "mm"}], "-", 
+        RowBox[{"4", " ", "k", " ", "mL", " ", "mm"}]}]], " ", "xm0"}]}], 
+    ")"}]}]}]], "Output",
+ CellChangeTimes->{3.491334606108386*^9, 3.491334734615041*^9, 
+  3.491334801806007*^9}]
+}, Open  ]]
+},
+WindowSize->{2516, 373},
+WindowMargins->{{0, Automatic}, {Automatic, 26}},
+Magnification:>FEPrivate`If[
+  FEPrivate`Equal[FEPrivate`$VersionNumber, 6.], 1.5, 1.5 Inherited],
+FrontEndVersion->"7.0 for Linux x86 (32-bit) (February 25, 2009)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[545, 20, 259, 9, 72, "Input"],
+Cell[CellGroupData[{
+Cell[829, 33, 1649, 42, 90, "Input"],
+Cell[2481, 77, 4500, 134, 137, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[7018, 216, 1326, 40, 90, "Input"],
+Cell[8347, 258, 8546, 251, 284, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[16930, 514, 1401, 42, 93, "Input"],
+Cell[18334, 558, 8660, 254, 284, "Output"]
+}, Open  ]],
+Cell[27009, 815, 308, 10, 72, "Input"],
+Cell[CellGroupData[{
+Cell[27342, 829, 1320, 36, 117, "Input"],
+Cell[28665, 867, 4596, 137, 137, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[33298, 1009, 1664, 48, 117, "Input"],
+Cell[34965, 1059, 8502, 249, 284, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[43504, 1313, 1266, 36, 117, "Input"],
+Cell[44773, 1351, 8729, 256, 284, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[53539, 1612, 3155, 91, 117, "Input"],
+Cell[56697, 1705, 32584, 953, 869, "Output"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

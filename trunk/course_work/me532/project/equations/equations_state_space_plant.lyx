@@ -1,0 +1,243 @@
+#LyX 1.6.7 created this file. For more info see http://www.lyx.org/
+\lyxformat 345
+\begin_document
+\begin_header
+\textclass article
+\use_default_options true
+\language english
+\inputencoding auto
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\paperfontsize default
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_amsmath 1
+\use_esint 1
+\cite_engine basic
+\use_bibtopic false
+\paperorientation portrait
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\defskip medskip
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\author "" 
+\author "" 
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Equation of Motion for Stopping/Catching a Mass
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\series bold
+Constants:
+\series default
+
+\begin_inset Formula \[
+\begin{array}{c|l|l}
+k & \textrm{Spring constant} & \frac{N}{m}\\
+B & \textrm{Damping constant} & \frac{N\cdot s}{m}\\
+ & \\
+I & \textrm{Actuator inertia} & kg\cdot m^{2}\\
+r & \text{Motor radius} & m\\
+\tau & \text{Actuator torque}\\
+ & \\
+m & \textrm{Body mass} & kg\end{array}\]
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\series bold
+Iinitial Conditions & Constraints:
+\series default
+
+\begin_inset Formula \[
+\begin{array}{c|l|l}
+x_{0}=0 & \textrm{Body position} & m\\
+\dot{x}_{0}>0 & \textrm{Body velocity} & \frac{m}{s}\\
+\ddot{x}_{0}=0 & \textrm{Body acceleration} & \frac{m}{s^{2}}\\
+ & \\
+\theta_{0}=0 & \textrm{Actuator position} & rad\\
+\dot{\theta}_{0}=0 & \textrm{Actuator velocity} & \frac{rad}{s}\\
+\ddot{\theta}_{0}=0 & \textrm{Actuator acceleration}\textrm{} & \frac{rad}{s^{2}}\end{array}\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+The forces are defined as:
+\begin_inset Formula \begin{eqnarray*}
+F_{k} & = & k\left(r\theta-x\right)\\
+F_{B} & = & B\left(r\dot{\theta}-\dot{x}\right)\\
+F_{m} & = & \frac{\tau}{r}\end{eqnarray*}
+
+\end_inset
+
+Note: spring can only be in compression!
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+setlength{
+\backslash
+jot}{3mm+3pt}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+System 1 (actuator side):
+\begin_inset Formula \begin{eqnarray*}
+\Sigma\tau=I\ddot{\theta} & = & \tau-rF_{k}-rF_{B}\\
+I\ddot{\theta} & = & \tau-rk\left(r\theta-x\right)-rB\left(r\dot{\theta}-\dot{x}\right)\\
+I\ddot{\theta} & = & \tau-kr^{2}\theta+krx-Br^{2}\dot{\theta}+Br\dot{x}\\
+\ddot{\theta} & = & \frac{1}{I}\tau-\frac{kr^{2}}{I}\theta+\frac{kr}{I}x-\frac{Br^{2}}{I}\dot{\theta}+\frac{Br}{I}\dot{x}\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+System 2 (body side):
+\begin_inset Formula \begin{eqnarray*}
+\Sigma F=m\ddot{x} & = & F_{k}+F_{B}-F_{g}\\
+m\ddot{x} & = & k\left(r\theta-x\right)+B\left(r\dot{\theta}-\dot{x}\right)-mg\\
+m\ddot{x} & = & kr\theta-kx+Br\dot{\theta}-B\dot{x}-mg\\
+\ddot{x} & = & \frac{kr}{m}\theta-\frac{k}{m}x+\frac{Br}{m}\dot{\theta}-\frac{B}{m}\dot{x}-g\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+System of diff.
+ eq.s
+\begin_inset Formula \begin{eqnarray*}
+\ddot{x}_{a} & = & \frac{1}{m_{a}}F_{a}-\frac{k}{m_{a}}x_{a}+\frac{k}{m_{a}}x_{L}-\frac{B}{m_{a}}\dot{x}_{a}+\frac{B}{m_{a}}\dot{x}_{L}\\
+\ddot{x}_{L} & = & \frac{k}{m_{L}}x_{a}-\frac{k}{m_{L}}x_{L}+\frac{B}{m_{L}}\dot{x}_{a}-\frac{B}{m_{L}}\dot{x}_{L}-g\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Formula \begin{eqnarray*}
+x_{1} & = & x_{a}\\
+x_{2} & = & \dot{x}_{a}\\
+x_{3} & = & x_{L}+\frac{m_{L}g}{k}\\
+x_{4} & = & \dot{x}_{L}\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Formula \begin{eqnarray*}
+\dot{x}_{2} & = & \frac{1}{m_{a}}F_{a}-\frac{k}{m_{a}}x_{1}+\frac{k}{m_{a}}\left(x_{3}-\frac{m_{L}g}{k}\right)-\frac{B}{m_{a}}x_{2}+\frac{B}{m_{a}}x_{4}\\
+ & = & \frac{1}{m_{a}}F_{a}-\frac{k}{m_{a}}x_{1}+\frac{k}{m_{a}}x_{3}-\frac{m_{L}g}{m_{a}}-\frac{B}{m_{a}}x_{2}+\frac{B}{m_{a}}x_{4}\\
+\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Formula \begin{eqnarray*}
+\dot{x}_{4} & = & \frac{k}{m_{L}}x_{1}-\frac{k}{m_{L}}\left(x_{3}-\frac{m_{L}g}{k}\right)+\frac{B}{m_{L}}x_{2}-\frac{B}{m_{L}}x_{4}-g\\
+ & = & \frac{k}{m_{L}}x_{1}-\frac{k}{m_{L}}x_{3}+\frac{B}{m_{L}}x_{2}-\frac{B}{m_{L}}x_{4}\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Formula \begin{eqnarray*}
+\dot{x}_{1} & = & x_{2}\\
+\dot{x}_{2} & = & -\frac{k}{m_{a}}x_{1}-\frac{B}{m_{a}}x_{2}+\frac{k}{m_{a}}x_{3}+\frac{B}{m_{a}}x_{4}-\frac{m_{L}g}{m_{a}}+\frac{1}{m_{a}}F_{a}\\
+\dot{x}_{3} & = & x_{4}\\
+\dot{x}_{4} & = & \frac{k}{m_{L}}x_{1}+\frac{B}{m_{L}}x_{2}-\frac{k}{m_{L}}x_{3}-\frac{B}{m_{L}}x_{4}\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+State-space model durring contact:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula \[
+\begin{Bmatrix}\dot{x}_{1}\\
+\dot{x}_{2}\\
+\dot{x}_{3}\\
+\dot{x}_{4}\end{Bmatrix}=\begin{bmatrix}0 & 1 & 0 & 0\\
+-\frac{k}{m_{a}} & -\frac{B}{m_{a}} & \frac{k}{m_{a}} & \frac{B}{m_{a}}\\
+0 & 0 & 0 & 1\\
+\frac{k}{m_{L}} & \frac{B}{m_{L}} & -\frac{k}{m_{L}} & -\frac{B}{m_{L}}\end{bmatrix}\begin{Bmatrix}x_{1}\\
+x_{2}\\
+x_{3}\\
+x_{4}\end{Bmatrix}+\begin{bmatrix}0\\
+\frac{1}{m_{a}}\\
+0\\
+0\end{bmatrix}u\]
+
+\end_inset
+
+
+\begin_inset Formula \[
+u=F_{a}-m_{L}g\]
+
+\end_inset
+
+
+\begin_inset Formula \[
+A=\begin{bmatrix}0 & 1 & 0 & 0\\
+-\frac{kr^{2}}{I} & -\frac{Br^{2}}{I} & \frac{kr}{I} & \frac{Br}{I}\\
+0 & 0 & 0 & 1\\
+\frac{kr}{m} & \frac{Br}{m} & -\frac{k}{m} & -\frac{B}{m}\end{bmatrix}\]
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

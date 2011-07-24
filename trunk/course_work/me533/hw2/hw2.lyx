@@ -1,0 +1,652 @@
+#LyX 1.6.7 created this file. For more info see http://www.lyx.org/
+\lyxformat 345
+\begin_document
+\begin_header
+\textclass article
+\use_default_options true
+\language english
+\inputencoding auto
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\float_placement H
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_amsmath 1
+\use_esint 1
+\cite_engine basic
+\use_bibtopic false
+\paperorientation portrait
+\leftmargin 1in
+\topmargin 1in
+\rightmargin 1in
+\bottommargin 1in
+\secnumdepth -1
+\tocdepth 3
+\paragraph_separation indent
+\defskip medskip
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\author "" 
+\author "" 
+\end_header
+
+\begin_body
+
+\begin_layout Title
+ME 533 Homework 2
+\end_layout
+
+\begin_layout Author
+Kevin Kemper
+\end_layout
+
+\begin_layout Section
+Problem 1
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula \begin{eqnarray*}
+\dot{x} & = & y+x\underbrace{\left(1-x^{2}-y^{2}\right)}_{\phi}\\
+\dot{y} & = & -x+y\left(1-x^{2}-y^{2}\right)\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Formula \begin{eqnarray*}
+\dot{x} & = & y+x\phi\\
+\dot{y} & = & -x+y\phi\end{eqnarray*}
+
+\end_inset
+
+Check fixedpoints:
+\begin_inset Formula \begin{eqnarray*}
+0 & = & y+x\left(1-x^{2}-y^{2}\right)\\
+0 & = & -x+y\left(1-x^{2}-y^{2}\right)\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Formula \begin{eqnarray*}
+x & = & 0\\
+y & = & 0\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Formula \[
+Df=\left.\begin{bmatrix}1-3x^{2}-y^{2} & 1-2xy\\
+-1-2xy & 1-x^{2}-3y^{2}\end{bmatrix}\right|_{0,0}=\begin{bmatrix}1 & 1\\
+-1 & 1\end{bmatrix}\]
+
+\end_inset
+
+check eigenvalues:
+\begin_inset Formula \begin{eqnarray*}
+\left|\begin{bmatrix}\lambda-1 & 1\\
+-1 & \lambda-1\end{bmatrix}\right| & = & \left(\lambda-1\right)\left(\lambda-1\right)+1=0\\
+\\\lambda & = & 1\pm i\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Formula $\therefore$
+\end_inset
+
+ 
+\begin_inset Formula $\left(0,0\right)$
+\end_inset
+
+ is unstable.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+Define a Lyapunov function around the unit circle:
+\begin_inset Formula \begin{eqnarray*}
+V & = & \left(1-x^{2}-y^{2}\right)^{2}\\
+ & = & \phi^{2}\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Formula \begin{eqnarray*}
+\dot{V} & = & 2\left(1-x^{2}-y^{2}\right)\left(-2x\dot{x}-2y\dot{y}\right)\\
+ & = & 2\phi\left(-2x\left(y+x\phi\right)-2y\left(-x+y\phi\right)\right)\\
+ & = & 2\phi\left(-2xy-2x^{2}\phi+2xy-2y^{2}\phi\right)\\
+ & = & 2\phi^{2}\left(-2x^{2}-2y^{2}\right)\\
+\dot{V} & = & -2\phi^{2}\left(2x^{2}+2y^{2}\right)\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Formula $\dot{V}$
+\end_inset
+
+ is negative definate for all 
+\begin_inset Formula $x,y$
+\end_inset
+
+ not on the unit circle (the invariant set) or the fixed point 
+\begin_inset Formula $\left(0,0\right)$
+\end_inset
+
+ 
+\begin_inset Formula $\therefore$
+\end_inset
+
+ there is a periodic orbit at 
+\begin_inset Formula $1-x^{2}-y^{2}$
+\end_inset
+
+
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Problem 2
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula \[
+\ddot{x}+x-\epsilon x^{2}=0\]
+
+\end_inset
+
+
+\begin_inset Formula \[
+x\left(0\right)=A,\ \dot{x}\left(0\right)=0\]
+
+\end_inset
+
+Let 
+\begin_inset Formula $\tau=\omega t$
+\end_inset
+
+ and 
+\begin_inset Formula $\frac{d\left(\right)}{d\tau}=\left(\right)'$
+\end_inset
+
+
+\begin_inset Formula \[
+\omega^{2}x''+x-\epsilon x^{2}=0\]
+
+\end_inset
+
+Assume
+\begin_inset Formula \begin{eqnarray*}
+x & = & x_{0}+\epsilon x_{1}\\
+\omega & = & 1+\epsilon\omega_{1}\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Formula \begin{eqnarray*}
+0 & = & \left(1+\epsilon\omega_{1}\right)^{2}\left(x_{0}''+\epsilon x_{1}''\right)+x_{0}+\epsilon x_{1}-\epsilon\left(x_{0}+\epsilon x_{1}\right)^{2}\\
+ & = & \left(1+2\epsilon\omega_{1}+\underbrace{\epsilon^{2}\omega_{1}^{2}}\right)\left(x_{0}''+\epsilon x_{1}''\right)+x_{0}+\epsilon x_{1}-\epsilon x_{0}^{2}+\underbrace{2\epsilon^{2}x_{1}}+\underbrace{\epsilon^{3}x_{1}^{2}}\\
+ & = & \left(1+2\epsilon\omega_{1}\right)\left(x_{0}''+\epsilon x_{1}''\right)+x_{0}+\epsilon x_{1}-\epsilon x_{0}^{2}\\
+ & = & x_{0}''+\epsilon x_{1}''+2\epsilon\omega_{1}x_{0}''+\underbrace{2\epsilon^{2}\omega_{1}x_{1}''}+x_{0}+\epsilon x_{1}-\epsilon x_{0}^{2}\\
+0 & = & x_{0}''+\epsilon x_{1}''+2\epsilon\omega_{1}x_{0}''+x_{0}+\epsilon x_{1}-\epsilon x_{0}^{2}+\mathcal{O}\left(\epsilon^{2}\right)\end{eqnarray*}
+
+\end_inset
+
+Collect orders of 
+\begin_inset Formula $\epsilon$
+\end_inset
+
+:
+\begin_inset Formula \begin{eqnarray*}
+\epsilon^{0}:\\
+\\x_{0}''+x_{0} & = & 0\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Formula \begin{eqnarray*}
+\epsilon^{1}:\\
+\\x_{1}''+2\omega_{1}x_{0}''+x_{1}-x_{0}^{2} & = & 0\\
+x_{1}''+x_{1} & = & -2\omega_{1}x_{0}''+x_{0}^{2}\end{eqnarray*}
+
+\end_inset
+
+Solve 
+\begin_inset Formula $\epsilon^{0}$
+\end_inset
+
+:
+\begin_inset Formula \begin{eqnarray*}
+x_{0}''+x_{0} & = & 0\\
+\\x_{0} & = & c_{1}\cos\tau+c_{2}\sin\tau\\
+\\x_{0}\left(0\right) & = & A\implies c_{1}=A\\
+\dot{x}_{0}\left(0\right) & = & 0\implies c_{2}=0\\
+\\x_{0} & = & A\cos\tau\end{eqnarray*}
+
+\end_inset
+
+Solve 
+\begin_inset Formula $\epsilon^{1}$
+\end_inset
+
+
+\begin_inset Formula \begin{eqnarray*}
+x_{1}''+x_{1} & = & -2\omega_{1}x_{0}''+x_{0}^{2}\\
+x_{1}''+x_{1} & = & -2\omega_{1}\left(-A\cos\tau\right)+A^{2}\cos^{2}\tau\\
+ & = & 2\omega_{1}A\cos\tau+\frac{A^{2}}{2}\left(1+\cos2\tau\right)\\
+ & = & \underbrace{2\omega_{1}A\cos\tau}_{\text{secular term}}+\frac{A^{2}}{2}+\frac{A^{2}}{2}\cos2\tau\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Formula \[
+2\omega_{1}A\cos\tau=0\implies\omega_{1}=0\]
+
+\end_inset
+
+
+\begin_inset Formula \begin{eqnarray*}
+x_{1h} & = & h_{1}\cos\tau+h_{2}\sin\tau\\
+x_{1p} & = & p_{1}+p_{2}\cos2\tau\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Formula \[
+\frac{A^{2}}{2}+\frac{A^{2}}{2}\cos2\tau=-4p_{2}\cos2\tau+p_{1}+p_{2}\cos2\tau\]
+
+\end_inset
+
+
+\begin_inset Formula \[
+p_{1}=\frac{A^{2}}{2}\]
+
+\end_inset
+
+
+\begin_inset Formula \begin{eqnarray*}
+\left(p_{2}-4p_{2}\right) & = & \frac{A^{2}}{2}\\
+p_{2} & = & -\frac{A^{2}}{6}\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Formula \[
+x_{1p}=\frac{A^{2}}{2}-\frac{A^{2}}{6}\cos2\tau\]
+
+\end_inset
+
+
+\begin_inset Formula \[
+x_{1}=x_{1h}+x_{1p}=h_{1}\cos\tau+h_{2}\sin\tau+\frac{A^{2}}{2}-\frac{A^{2}}{6}\cos2\tau\]
+
+\end_inset
+
+
+\begin_inset Formula \begin{eqnarray*}
+h_{1} & = & A-\frac{A^{2}}{2}+\frac{A^{2}}{6}\\
+h_{2} & = & 0\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Formula \begin{eqnarray*}
+x_{1} & = & \left(A-\frac{A^{2}}{2}+\frac{A^{2}}{6}\right)\cos\tau+\frac{A^{2}}{2}-\frac{A^{2}}{6}\cos2\tau\\
+ & = & A\cos\tau-\frac{A^{2}}{2}\cos\tau+\frac{A^{2}}{6}\cos\tau+\frac{A^{2}}{2}-\frac{A^{2}}{6}\cos2\tau\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Formula \[
+x=A\cos\tau+\epsilon\left(A\cos\tau-\frac{A^{2}}{2}\cos\tau+\frac{A^{2}}{6}\cos\tau+\frac{A^{2}}{2}-\frac{A^{2}}{6}\cos2\tau\right)\]
+
+\end_inset
+
+
+\begin_inset Formula \[
+\omega=1\implies\tau=t\]
+
+\end_inset
+
+
+\begin_inset Formula \[
+x=A\cos t+\epsilon\left(A\cos t-\frac{A^{2}}{2}\cos t+\frac{A^{2}}{6}\cos t+\frac{A^{2}}{2}-\frac{A^{2}}{6}\cos2t\right)\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Problem 3
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula \[
+\ddot{y}+y+\epsilon\left(-\dot{y}+\frac{1}{3}\dot{y}^{3}\right)=0\]
+
+\end_inset
+
+
+\begin_inset Formula \begin{eqnarray*}
+y\left(0\right) & = & A\\
+\dot{y}\left(0\right) & = & 0\end{eqnarray*}
+
+\end_inset
+
+Let 
+\begin_inset Formula $T_{0}=t$
+\end_inset
+
+, 
+\begin_inset Formula $T_{1}=\epsilon t$
+\end_inset
+
+, and assume
+\begin_inset Formula \[
+y=y_{0}\left(T_{0},T_{1}\right)+\epsilon y_{1}\left(T_{0},T_{1}\right)\]
+
+\end_inset
+
+From the notes:
+\begin_inset Formula \begin{eqnarray*}
+\frac{d\left(\right)}{dt} & = & D_{0}+\epsilon D_{1}+\epsilon^{2}D_{2}\\
+\frac{d^{2}\left(\right)}{dt^{2}} & = & D_{0}^{2}+2\epsilon D_{0}D_{1}+\epsilon^{2}D_{1}^{2}\end{eqnarray*}
+
+\end_inset
+
+were 
+\begin_inset Formula \[
+D_{n}\left(\right)=\frac{\partial\left(\right)}{\partial T_{n}}\]
+
+\end_inset
+
+
+\begin_inset Formula \begin{eqnarray*}
+0 & = & \left(D_{0}^{2}+2\epsilon D_{0}D_{1}+\underbrace{\epsilon^{2}D_{1}^{2}}\right)\left(y_{0}+\epsilon y_{1}\right)+y_{0}+\epsilon y_{1}\\
+ &  & +\epsilon\left(-\left(D_{0}+\epsilon D_{1}+\underbrace{\epsilon^{2}D_{2}}\right)\left(y_{0}+\epsilon y_{1}\right)+\frac{1}{3}\left(\left(D_{0}+\epsilon D_{1}+\underbrace{\epsilon^{2}D_{2}}\right)\left(y_{0}+\epsilon y_{1}\right)\right)^{3}\right)\\
+\\ & = & \left(D_{0}^{2}+2\epsilon D_{0}D_{1}\right)\left(y_{0}+\epsilon y_{1}\right)+y_{0}+\epsilon y_{1}+\epsilon\left(-\left(D_{0}+\epsilon D_{1}\right)\left(y_{0}+\epsilon y_{1}\right)+\frac{1}{3}\left(\left(D_{0}+\epsilon D_{1}\right)\left(y_{0}+\epsilon y_{1}\right)\right)^{3}\right)\\
+\\ & = & \left(D_{0}^{2}y_{0}+\epsilon D_{0}^{2}y_{1}+2\epsilon D_{0}D_{1}y_{0}+\underbrace{2\epsilon^{2}D_{0}D_{1}y_{1}}\right)+y_{0}+\epsilon y_{1}\\
+ &  & +\epsilon\left(-\left(D_{0}y_{0}+\epsilon D_{0}y_{1}+\epsilon D_{1}y_{0}+\underbrace{\epsilon^{2}D_{1}y_{1}}\right)+\frac{1}{3}\left(D_{0}y_{0}+\epsilon D_{0}y_{1}+\epsilon D_{1}y_{0}+\underbrace{\epsilon^{2}D_{1}y_{1}}\right)^{3}\right)\\
+\\ & = & D_{0}^{2}y_{0}+\epsilon D_{0}^{2}y_{1}+2\epsilon D_{0}D_{1}y_{0}+y_{0}+\epsilon y_{1}-\epsilon D_{0}y_{0}-\underbrace{\epsilon^{2}D_{0}y_{1}}-\underbrace{\epsilon^{2}D_{1}y_{0}}+\frac{1}{3}\epsilon\left(D_{0}y_{0}+\underbrace{\epsilon D_{0}y_{1}}+\underbrace{\epsilon D_{1}y_{0}}\right)^{3}\\
+\\0 & = & D_{0}^{2}y_{0}+\epsilon D_{0}^{2}y_{1}+2\epsilon D_{0}D_{1}y_{0}+y_{0}+\epsilon y_{1}-\epsilon D_{0}y_{0}+\frac{1}{3}\epsilon\left(D_{0}y_{0}\right)^{3}+\mathcal{O}\left(\epsilon^{2}\right)\end{eqnarray*}
+
+\end_inset
+
+Collect power of 
+\begin_inset Formula $\epsilon$
+\end_inset
+
+:
+\begin_inset Formula \begin{eqnarray*}
+\epsilon^{0}:\\
+\\D_{0}^{2}y_{0}+y_{0} & = & 0\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Formula \begin{eqnarray*}
+\epsilon^{1}:\\
+\\D_{0}^{2}y_{1}+y_{1} & = & D_{0}y_{0}-2D_{0}D_{1}y_{0}-\frac{1}{3}\left(D_{0}y_{0}\right)^{3}\end{eqnarray*}
+
+\end_inset
+
+Solve 
+\begin_inset Formula $\epsilon^{0}:$
+\end_inset
+
+
+\begin_inset Formula \[
+y_{0}\left(T_{0},T_{1}\right)=r\left(T_{1}\right)\cos\left(T_{0}+\phi\left(T_{1}\right)\right)\]
+
+\end_inset
+
+Solve for 
+\begin_inset Formula $\phi\left(0\right)$
+\end_inset
+
+:
+\begin_inset Formula \[
+\dot{y}_{0}\left(0\right)=0=-r\left(0\right)\sin\left(0+\phi\left(0\right)\right)\implies\phi\left(0\right)=0\]
+
+\end_inset
+
+Solve for 
+\begin_inset Formula $r\left(0\right)$
+\end_inset
+
+:
+\begin_inset Formula \[
+y_{0}\left(0\right)=A=r\left(0\right)\cos\left(0+0\right)\implies r\left(0\right)=A\]
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+Solve 
+\begin_inset Formula $\epsilon^{1}$
+\end_inset
+
+:
+\begin_inset Formula \begin{eqnarray*}
+D_{0}^{2}y_{1}+y_{1} & = & D_{0}\left(r\left(T_{1}\right)\cos\left(T_{0}+\phi\left(T_{1}\right)\right)\right)-2D_{0}D_{1}\left(r\left(T_{1}\right)\cos\left(T_{0}+\phi\left(T_{1}\right)\right)\right)-\frac{1}{3}\left(D_{0}\left(r\left(T_{1}\right)\cos\left(T_{0}+\phi\left(T_{1}\right)\right)\right)\right)^{3}\\
+\\ & = & -r\left(T_{1}\right)\sin\left(T_{0}+\phi\left(T_{1}\right)\right)+2D_{1}\left(r\left(T_{1}\right)\sin\left(T_{0}+\phi\left(T_{1}\right)\right)\right)+\frac{1}{3}\left(r\left(T_{1}\right)\sin\left(T_{0}+\phi\left(T_{1}\right)\right)\right)^{3}\\
+\\ & = & -r\left(T_{1}\right)\sin\left(T_{0}+\phi\left(T_{1}\right)\right)\\
+ &  & +2\left(\frac{\partial r\left(T_{1}\right)}{\partial T_{1}}\sin\left(T_{0}+\phi\left(T_{1}\right)\right)+r\left(T_{1}\right)\frac{\partial\phi\left(T_{1}\right)}{\partial T_{1}}\cos\left(T_{0}+\phi\left(T_{1}\right)\right)\right)+\frac{1}{3}\left(r\left(T_{1}\right)\sin\left(T_{0}+\phi\left(T_{1}\right)\right)\right)^{3}\\
+\\ & = & -r\left(T_{1}\right)\sin\left(T_{0}+\phi\left(T_{1}\right)\right)\\
+ &  & +2\frac{\partial r\left(T_{1}\right)}{\partial T_{1}}\sin\left(T_{0}+\phi\left(T_{1}\right)\right)+2r\left(T_{1}\right)\frac{\partial\phi\left(T_{1}\right)}{\partial T_{1}}\cos\left(T_{0}+\phi\left(T_{1}\right)\right)+\frac{1}{3}\left(r\left(T_{1}\right)\sin\left(T_{0}+\phi\left(T_{1}\right)\right)\right)^{3}\\
+\\ & = & -r\left(T_{1}\right)\sin\left(T_{0}+\phi\left(T_{1}\right)\right)+2\frac{\partial r\left(T_{1}\right)}{\partial T_{1}}\sin\left(T_{0}+\phi\left(T_{1}\right)\right)\\
+ &  & +2r\left(T_{1}\right)\frac{\partial\phi\left(T_{1}\right)}{\partial T_{1}}\cos\left(T_{0}+\phi\left(T_{1}\right)\right)+\frac{1}{3}r\left(T_{1}\right)^{3}\left(\frac{3}{4}\sin\left(T_{0}+\phi\left(T_{1}\right)\right)-\frac{1}{4}\sin\left(3T_{0}+3\phi\left(T_{1}\right)\right)\right)\\
+\\ & = & -r\left(T_{1}\right)\sin\left(T_{0}+\phi\left(T_{1}\right)\right)+2\frac{\partial r\left(T_{1}\right)}{\partial T_{1}}\sin\left(T_{0}+\phi\left(T_{1}\right)\right)\\
+ &  & +2r\left(T_{1}\right)\frac{\partial\phi\left(T_{1}\right)}{\partial T_{1}}\cos\left(T_{0}+\phi\left(T_{1}\right)\right)+\frac{1}{4}r\left(T_{1}\right)^{3}\sin\left(T_{0}+\phi\left(T_{1}\right)\right)-\frac{1}{12}r\left(T_{1}\right)^{3}\sin\left(3T_{0}+3\phi\left(T_{1}\right)\right)\end{eqnarray*}
+
+\end_inset
+
+Collect terms (note 
+\begin_inset Formula $r\left(T_{1}\right)$
+\end_inset
+
+ cannot be zero).
+ 
+\begin_inset Formula $\sin\left(T_{0}+\phi\left(T_{1}\right)\right)$
+\end_inset
+
+ terms:
+\begin_inset Formula \begin{eqnarray*}
+0 & = & -r\left(T_{1}\right)+2\frac{\partial r\left(T_{1}\right)}{\partial T_{1}}+\frac{1}{4}r\left(T_{1}\right)^{3}\\
+\frac{\partial r\left(T_{1}\right)}{\partial T_{1}} & = & \frac{1}{2}\left(r\left(T_{1}\right)-\frac{1}{4}r\left(T_{1}\right)^{3}\right)\\
+\\\text{using mathematica:}\\
+r\left(T_{1}\right) & = & \pm\frac{2e^{\frac{t}{2}}}{\sqrt{e^{t}-c}}\\
+\\r\left(0\right)=A & = & \pm\frac{2}{\sqrt{1-c}}\\
+A^{2} & = & \frac{12}{1-c}\\
+A^{2}-A^{2}c & = & 12\\
+A^{2}c & = & A^{2}-4\\
+c & = & \frac{A^{2}-4}{A^{2}}\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Formula $\cos\left(T_{0}+\phi\left(T_{1}\right)\right)$
+\end_inset
+
+ terms:
+\begin_inset Formula \begin{eqnarray*}
+0 & = & 2r\left(T_{1}\right)\frac{\partial\phi\left(T_{1}\right)}{\partial T_{1}}\\
+\\\implies0 & = & \phi\left(T_{1}\right)\frac{\partial\phi\left(T_{1}\right)}{\partial T_{1}}\implies\phi=\text{constant}\implies\phi=0\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula \begin{eqnarray*}
+y_{1h} & = & \rho\cos\left(T_{0}+\psi\right)\\
+y_{1p} & = & \alpha\left(T_{1}\right)\sin\left(3T_{0}+\beta\left(T_{1}\right)\right)\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Formula \begin{eqnarray*}
+-\frac{1}{12}r\left(T_{1}\right)^{3}\sin\left(3T_{0}\right) & = & \alpha\left(T_{1}\right)\sin\left(3T_{0}+\beta\left(T_{1}\right)\right)-\alpha\left(T_{1}\right)9\sin\left(3T_{0}+\beta\left(T_{1}\right)\right)\\
+-\frac{1}{12}r\left(T_{1}\right)^{3}\sin\left(3T_{0}\right) & = & -\alpha\left(T_{1}\right)8\sin\left(3T_{0}+\beta\left(T_{1}\right)\right)\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Formula \[
+\frac{1}{96}r\left(T_{1}\right)^{3}=\alpha\left(T_{1}\right)\]
+
+\end_inset
+
+
+\begin_inset Formula \[
+0=\beta\left(T_{1}\right)\]
+
+\end_inset
+
+
+\begin_inset Formula \[
+y_{1}=y_{1h}+y_{1p}=\rho\cos\left(T_{0}+\psi\right)+\frac{1}{96}r\left(T_{1}\right)^{3}\sin\left(3T_{0}\right)\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula \[
+y_{1}\left(0\right)=0=\rho\cos\left(0+\psi\right)\implies0=\cos\left(0+\psi\right)\implies\psi=\frac{\pi}{2}\]
+
+\end_inset
+
+
+\begin_inset Formula \begin{eqnarray*}
+\dot{y}\left(0\right)=0 & = & \left(D_{0}+\epsilon D_{1}\right)\left(y_{0}\left(0\right)+\epsilon y_{1}\left(0\right)\right)\\
+0 & = & D_{0}y_{0}\left(0\right)+\epsilon D_{0}y_{1}\left(0\right)+\epsilon D_{1}y_{0}\left(0\right)+\epsilon^{2}D_{1}y_{1}\left(0\right)\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Formula \begin{eqnarray*}
+\epsilon^{0}:\\
+0 & = & D_{0}y_{0}\left(0\right)\\
+0 & = & -r\left(T_{1}\right)\sin\left(0\right)\\
+\\\epsilon^{1}:\\
+0 & = & D_{0}y_{1}\left(0\right)+D_{1}y_{0}\left(0\right)\\
+0 & = & -\rho\cos\left(0\right)+\frac{1}{96}A^{3}\cos\left(0\right)+\left(\frac{1}{2}\left(A-\frac{1}{4}A^{3}\right)\right)\cos\left(0\right)\\
+0 & = & -\rho+\frac{1}{96}A^{3}+\left(\frac{1}{2}\left(A-\frac{1}{4}A^{3}\right)\right)\\
+\rho & = & -\frac{11}{96}A^{3}+\frac{1}{2}A\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Formula \[
+y_{1}=\left(-\frac{11}{96}A^{3}+\frac{1}{2}A\right)\cos\left(T_{0}+\frac{\pi}{2}\right)+\frac{1}{96}r\left(T_{1}\right)^{3}\sin\left(3T_{0}\right)\]
+
+\end_inset
+
+
+\begin_inset Formula \begin{eqnarray*}
+y & = & y_{0}+\epsilon y_{1}\\
+\\y & = & r\left(\epsilon t\right)\cos\left(t\right)+\epsilon\left(\left(-\frac{11}{96}A^{3}+\frac{1}{2}A\right)\cos\left(t+\frac{\pi}{2}\right)+\frac{1}{96}r\left(\epsilon t\right)^{3}\sin\left(3t\right)\right)\\
+\\r\left(t\right) & = & \pm\frac{2e^{\frac{t}{2}}}{\sqrt{e^{t}-\frac{A^{2}-4}{A^{2}}}}\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\series bold
+
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/problem3_1.pdf
+	scale 80
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename images/problem3_2.pdf
+	scale 80
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/problem3_3.pdf
+	scale 80
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename images/problem3_4.pdf
+	scale 80
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\series bold
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Numerical solution and approximation for various parameters.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

@@ -1,0 +1,16 @@
+/home/koepld/Desktop/me537/coffeemachine/ros_tests/basic_world/basic_world/build/CMakeFiles/ROSBUILD_genmsg_cpp.dir
+/home/koepld/Desktop/me537/coffeemachine/ros_tests/basic_world/basic_world/build/CMakeFiles/ROSBUILD_genmsg_lisp.dir
+/home/koepld/Desktop/me537/coffeemachine/ros_tests/basic_world/basic_world/build/CMakeFiles/ROSBUILD_gensrv_cpp.dir
+/home/koepld/Desktop/me537/coffeemachine/ros_tests/basic_world/basic_world/build/CMakeFiles/ROSBUILD_gensrv_lisp.dir
+/home/koepld/Desktop/me537/coffeemachine/ros_tests/basic_world/basic_world/build/CMakeFiles/clean-test-results.dir
+/home/koepld/Desktop/me537/coffeemachine/ros_tests/basic_world/basic_world/build/CMakeFiles/rosbuild_precompile.dir
+/home/koepld/Desktop/me537/coffeemachine/ros_tests/basic_world/basic_world/build/CMakeFiles/rosbuild_premsgsrvgen.dir
+/home/koepld/Desktop/me537/coffeemachine/ros_tests/basic_world/basic_world/build/CMakeFiles/rospack_genmsg.dir
+/home/koepld/Desktop/me537/coffeemachine/ros_tests/basic_world/basic_world/build/CMakeFiles/rospack_genmsg_libexe.dir
+/home/koepld/Desktop/me537/coffeemachine/ros_tests/basic_world/basic_world/build/CMakeFiles/rospack_gensrv.dir
+/home/koepld/Desktop/me537/coffeemachine/ros_tests/basic_world/basic_world/build/CMakeFiles/simulation.dir
+/home/koepld/Desktop/me537/coffeemachine/ros_tests/basic_world/basic_world/build/CMakeFiles/test.dir
+/home/koepld/Desktop/me537/coffeemachine/ros_tests/basic_world/basic_world/build/CMakeFiles/test-future.dir
+/home/koepld/Desktop/me537/coffeemachine/ros_tests/basic_world/basic_world/build/CMakeFiles/test-results.dir
+/home/koepld/Desktop/me537/coffeemachine/ros_tests/basic_world/basic_world/build/CMakeFiles/test-results-run.dir
+/home/koepld/Desktop/me537/coffeemachine/ros_tests/basic_world/basic_world/build/CMakeFiles/tests.dir
