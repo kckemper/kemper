@@ -1,0 +1,105 @@
+#LyX 1.6.5 created this file. For more info see http://www.lyx.org/
+\lyxformat 345
+\begin_document
+\begin_header
+\textclass article
+\use_default_options true
+\language english
+\inputencoding auto
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\paperfontsize default
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_amsmath 1
+\use_esint 1
+\cite_engine basic
+\use_bibtopic false
+\paperorientation portrait
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\defskip medskip
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\author "" 
+\author "" 
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\begin_inset Formula \begin{eqnarray*}
+\theta & = & \theta_{M}+\theta_{S}\\
+-- & -- & --\\
+\ell_{0} & = & 2\ell_{S}\cos\theta_{M}\\
+\frac{\ell_{0}}{2\ell_{S}} & = & \cos\theta_{M}\\
+\theta_{M} & = & \arccos\left(\frac{\ell_{0}}{2\ell_{S}}\right)\\
+-- & -- & --\\
+\ell & = & 2\ell_{S}\cos\left(\theta_{M}+\theta_{S}\right)\\
+\frac{\ell}{2\ell_{S}} & = & \cos\left(\theta_{M}+\theta_{S}\right)\\
+\theta_{M}+\theta_{S} & = & \arccos\left(\frac{\ell}{2\ell_{S}}\right)\\
+\theta_{S} & = & \arccos\left(\frac{\ell}{2\ell_{S}}\right)-\theta_{M}\\
+\theta_{S} & = & \arccos\left(\frac{\ell}{2\ell_{S}}\right)-\arccos\left(\frac{\ell_{0}}{2\ell_{S}}\right)\\
+-- & -- & --\\
+\tau & = & k\theta_{S}\\
+-- & -- & --\\
+F & = & \frac{2\tau\sin\left(\theta_{M}+\theta_{S}\right)}{\ell_{S}}\\
+F & = & \frac{2k\theta_{S}\sin\left(\theta_{M}+\theta_{S}\right)}{\ell_{S}}\end{eqnarray*}
+
+\end_inset
+
+Pluggin in 
+\begin_inset Formula $\theta_{S}$
+\end_inset
+
+ we have:
+\begin_inset Formula \begin{eqnarray*}
+F & = & \frac{2k\left(\arccos\left(\frac{\ell}{2\ell_{S}}\right)-\arccos\left(\frac{\ell_{0}}{2\ell_{S}}\right)\right)\sin\left(\theta_{M}+\arccos\left(\frac{\ell}{2\ell_{S}}\right)-\theta_{M}\right)}{\ell_{S}}\\
+F & = & \frac{2k\left(\arccos\left(\frac{\ell}{2\ell_{S}}\right)-\arccos\left(\frac{\ell_{0}}{2\ell_{S}}\right)\right)\sin\left(\arccos\left(\frac{\ell}{2\ell_{S}}\right)\right)}{\ell_{S}}\end{eqnarray*}
+
+\end_inset
+
+Using the trigonometric identity:
+\begin_inset Formula \begin{eqnarray*}
+\sin\left(\arccos x\right) & = & \sqrt{1-x^{2}}\end{eqnarray*}
+
+\end_inset
+
+We have:
+\begin_inset Formula \begin{eqnarray*}
+F & = & \frac{2k\sqrt{1-\frac{\ell^{2}}{4\ell_{S}^{2}}}\left(\arccos\left(\frac{\ell}{2\ell_{S}}\right)-\arccos\left(\frac{\ell_{0}}{2\ell_{S}}\right)\right)}{\ell_{S}}\end{eqnarray*}
+
+\end_inset
+
+Now pluggin in the Taylor series for 
+\begin_inset Formula $\arccos x$
+\end_inset
+
+:
+\begin_inset Formula \begin{eqnarray*}
+\arccos x & = & \frac{\pi}{2}-\Sigma_{n=0}^{\infty}\left(\frac{\left(2n\right)!}{2^{2n}\left(n!\right)^{2}}\right)\frac{x^{2n+1}}{2n+1}\\
+F & = & \frac{2k\sqrt{1-\frac{\ell^{2}}{4\ell_{S}^{2}}}\left(\left(\frac{\pi}{2}-\Sigma_{n=0}^{\infty}\left(\frac{\left(2n\right)!}{2^{2n}\left(n!\right)^{2}}\right)\frac{\left(\frac{\ell}{2\ell_{S}}\right)^{2n+1}}{2n+1}\right)-\left(\frac{\pi}{2}-\Sigma_{n=0}^{\infty}\left(\frac{\left(2n\right)!}{2^{2n}\left(n!\right)^{2}}\right)\frac{\left(\frac{\ell_{0}}{2\ell_{S}}\right)^{2n+1}}{2n+1}\right)\right)}{\ell_{S}}\\
+F & = & \frac{2k\sqrt{1-\frac{\ell^{2}}{4\ell_{S}^{2}}}\left(\Sigma_{n=0}^{\infty}\left(\frac{\left(2n\right)!}{2^{2n}\left(n!\right)^{2}}\right)\frac{\left(\frac{\ell_{0}}{2\ell_{S}}\right)^{2n+1}}{2n+1}-\Sigma_{n=0}^{\infty}\left(\frac{\left(2n\right)!}{2^{2n}\left(n!\right)^{2}}\right)\frac{\left(\frac{\ell}{2\ell_{S}}\right)^{2n+1}}{2n+1}\right)}{\ell_{S}}\\
+F & = & \frac{2k\sqrt{1-\frac{\ell^{2}}{4\ell_{S}^{2}}}\left(\Sigma_{n=0}^{\infty}\left(\frac{\left(2n\right)!}{2^{2n}\left(n!\right)^{2}}\right)\frac{\left(\frac{\ell_{0}^{2n+1}-\ell^{2n+1}}{2^{2n+1}\ell_{S}^{2n+1}}\right)}{2n+1}\right)}{\ell_{S}}\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

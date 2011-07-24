@@ -1,0 +1,1404 @@
+#LyX 1.6.7 created this file. For more info see http://www.lyx.org/
+\lyxformat 345
+\begin_document
+\begin_header
+\textclass article
+\use_default_options true
+\language english
+\inputencoding auto
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\float_placement H
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_amsmath 1
+\use_esint 1
+\cite_engine basic
+\use_bibtopic false
+\paperorientation portrait
+\leftmargin 1in
+\topmargin 1in
+\rightmargin 1in
+\bottommargin 1in
+\secnumdepth -1
+\tocdepth 3
+\paragraph_separation indent
+\defskip medskip
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\author "" 
+\author "" 
+\end_header
+
+\begin_body
+
+\begin_layout Title
+ME 533 Midterm
+\end_layout
+
+\begin_layout Author
+Kevin Kemper
+\end_layout
+
+\begin_layout Section
+Problem 1
+\end_layout
+
+\begin_layout Enumerate
+Given that the moments of inertia are all unique, find ranges for the control
+ gains such that the system stabilizes for small deviations from equilibrium
+ 
+\begin_inset Formula $\left(\omega_{x}=\omega_{y}=\omega_{z}=0\right)$
+\end_inset
+
+.
+ Will the gains selected stabilize the system for any initial conditions
+ (i.e will the above control law with the gain ranges specified stop any
+ tumble, no matter how large)? Provide analytical support for your answer
+ .
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula \begin{eqnarray*}
+A\dot{\omega}_{x}-\left(B-C\right)\omega_{y}\omega_{z} & = & k_{1}A\omega_{x}\\
+B\dot{\omega}_{y}-\left(C-A\right)\omega_{x}\omega_{z} & = & k_{2}B\omega_{y}\\
+C\dot{\omega}_{z}-\left(A-B\right)\omega_{x}\omega_{y} & = & k_{3}C\omega_{z}\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Formula \begin{eqnarray*}
+A\dot{\omega}_{x} & = & k_{1}A\omega_{x}+\left(B-C\right)\omega_{y}\omega_{z}\\
+B\dot{\omega}_{y} & = & k_{2}B\omega_{y}+\left(C-A\right)\omega_{x}\omega_{z}\\
+C\dot{\omega}_{z} & = & k_{3}C\omega_{z}+\left(A-B\right)\omega_{x}\omega_{y}\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Formula \begin{eqnarray*}
+\dot{\omega}_{x} & = & \frac{k_{1}A\omega_{x}+\left(B-C\right)\omega_{y}\omega_{z}}{A}\\
+\dot{\omega}_{y} & = & \frac{k_{2}B\omega_{y}+\left(C-A\right)\omega_{x}\omega_{z}}{B}\\
+\dot{\omega}_{z} & = & \frac{k_{3}C\omega_{z}+\left(A-B\right)\omega_{x}\omega_{y}}{C}\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Formula \begin{eqnarray*}
+\dot{\omega}_{x} & = & k_{1}\omega_{x}+\frac{\left(B-C\right)}{A}\omega_{y}\omega_{z}\\
+\dot{\omega}_{y} & = & k_{2}\omega_{y}+\frac{\left(C-A\right)}{B}\omega_{x}\omega_{z}\\
+\dot{\omega}_{z} & = & k_{3}\omega_{z}+\frac{\left(A-B\right)}{C}\omega_{x}\omega_{y}\end{eqnarray*}
+
+\end_inset
+
+Linearize about 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+
+\begin_inset Formula $\omega_{x}=\omega_{y}=\omega_{z}=0$
+\end_inset
+
+:
+\begin_inset Formula \[
+D\dot{\omega}\left(\omega^{*}\right)=\begin{bmatrix}\frac{\partial\dot{\omega}_{x}}{\partial\omega_{x}} & \frac{\partial\dot{\omega}_{x}}{\partial\omega_{y}} & \frac{\partial\dot{\omega}_{x}}{\partial\omega_{z}}\\
+\frac{\partial\dot{\omega}_{y}}{\partial\omega_{x}} & \frac{\partial\dot{\omega}_{y}}{\partial\omega_{y}} & \frac{\partial\dot{\omega}_{y}}{\partial\omega_{z}}\\
+\frac{\partial\dot{\omega}_{z}}{\partial\omega_{x}} & \frac{\partial\dot{\omega}_{z}}{\partial\omega_{y}} & \frac{\partial\dot{\omega}_{z}}{\partial\omega_{z}}\end{bmatrix}\]
+
+\end_inset
+
+
+\begin_inset Formula \[
+D\dot{\omega}\left(\omega^{*}\right)=\begin{bmatrix}k_{1} & \frac{\left(B-C\right)}{A}\omega_{z} & \frac{\left(B-C\right)}{A}\omega_{y}\\
+\frac{\left(C-A\right)}{B}\omega_{z} & k_{2} & \frac{\left(C-A\right)}{B}\omega_{x}\\
+\frac{\left(A-B\right)}{C}\omega_{y} & \frac{\left(A-B\right)}{C}\omega_{x} & k_{3}\end{bmatrix}\]
+
+\end_inset
+
+
+\begin_inset Formula \[
+D\dot{\omega}\left(\omega^{*}\right)=\begin{bmatrix}k_{1} & 0 & 0\\
+0 & k_{2} & 0\\
+0 & 0 & k_{3}\end{bmatrix}\]
+
+\end_inset
+
+Eigenvalues of 
+\begin_inset Formula $D\dot{\omega}$
+\end_inset
+
+:
+\begin_inset Formula \[
+\lambda=k_{1},k_{2},k_{3}\]
+
+\end_inset
+
+The system is locally stable if the 
+\begin_inset Formula $\bar{k}$
+\end_inset
+
+ values are negative.
+ Next we will find the conditions where the system is Lyapunov stable for
+ all values of 
+\begin_inset Formula $\bar{\omega}$
+\end_inset
+
+ to find the permissible values of 
+\begin_inset Formula $\bar{k}$
+\end_inset
+
+.
+ Using the energy of the system assume:
+\begin_inset Formula \[
+V=\frac{1}{2}A\omega_{x}^{2}+\frac{1}{2}B\omega_{y}^{2}+\frac{1}{2}C\omega_{z}^{2}\]
+
+\end_inset
+
+
+\begin_inset Formula \[
+\dot{V}=A\omega_{x}\dot{\omega}_{x}+B\omega_{y}\dot{\omega}_{y}+C\omega_{z}\dot{\omega}_{z}\]
+
+\end_inset
+
+
+\begin_inset Formula \begin{eqnarray*}
+\dot{V} & = & A\omega_{x}\left(k_{1}\omega_{x}+\frac{\left(B-C\right)}{A}\omega_{y}\omega_{z}\right)+B\omega_{y}\left(k_{2}\omega_{y}+\frac{\left(C-A\right)}{B}\omega_{x}\omega_{z}\right)+C\omega_{z}\left(k_{3}\omega_{z}+\frac{\left(A-B\right)}{C}\omega_{x}\omega_{y}\right)\\
+ & = & A\omega_{x}^{2}k_{1}+\left(B-C\right)\omega_{x}\omega_{y}\omega_{z}+B\omega_{y}^{2}k_{2}+\left(C-A\right)\omega_{x}\omega_{y}\omega_{z}+C\omega_{z}^{2}k_{3}+\left(A-B\right)\omega_{x}\omega_{y}\omega_{z}\\
+ & = & A\omega_{x}^{2}k_{1}+B\omega_{y}^{2}k_{2}+C\omega_{z}^{2}k_{3}+B\omega_{x}\omega_{y}\omega_{z}-C\omega_{x}\omega_{y}\omega_{z}+C\omega_{x}\omega_{y}\omega_{z}-A\omega_{x}\omega_{y}\omega_{z}+A\omega_{x}\omega_{y}\omega_{z}-B\omega_{x}\omega_{y}\omega_{z}\\
+\dot{V} & = & A\omega_{x}^{2}k_{1}+B\omega_{y}^{2}k_{2}+C\omega_{z}^{2}k_{3}\end{eqnarray*}
+
+\end_inset
+
+If 
+\begin_inset Formula $\bar{k}<0$
+\end_inset
+
+ then 
+\begin_inset Formula $\dot{V}<0$
+\end_inset
+
+ and the system is asymptotically stable for any perturbation.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Consider the system:
+\begin_inset Formula \[
+\dot{x}=f\left(x\right)\theta+u\]
+
+\end_inset
+
+where 
+\begin_inset Formula $x$
+\end_inset
+
+ is a scalar, 
+\begin_inset Formula $f$
+\end_inset
+
+ is a scalar nonlinear function of 
+\begin_inset Formula $x$
+\end_inset
+
+, 
+\begin_inset Formula $\theta$
+\end_inset
+
+ is an unknown constant, and 
+\begin_inset Formula $u$
+\end_inset
+
+ is any arbitrary input.
+ Assuming that you have access to the state 
+\begin_inset Formula $x$
+\end_inset
+
+ and the input 
+\begin_inset Formula $u$
+\end_inset
+
+, you wish to determine 
+\begin_inset Formula $\theta$
+\end_inset
+
+.
+ Show that the following observer system
+\begin_inset Formula \begin{eqnarray*}
+\dot{\hat{x}} & = & f\left(x\right)\hat{\theta}+u+\left(x-\hat{x}\right)\\
+\dot{\hat{\theta}} & = & \left(x-\hat{x}\right)f\left(x\right)\end{eqnarray*}
+
+\end_inset
+
+ensures that the state and parameter estimates 
+\begin_inset Formula $\hat{x}$
+\end_inset
+
+ and 
+\begin_inset Formula $\hat{\theta}$
+\end_inset
+
+ will asymptotically approach the true values as time goes to infinity.
+ (15 points)
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+For our estimates to converge to the to the true values with error, 
+\begin_inset Formula $\theta-\hat{\theta}=\tilde{\theta}$
+\end_inset
+
+ and 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+
+\begin_inset Formula $x-\hat{x}=\tilde{x}$
+\end_inset
+
+.
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\noun default
+\color inherit
+
+\begin_inset Formula \begin{eqnarray*}
+\dot{\hat{x}} & = & f\left(x\right)\hat{\theta}+u+\tilde{x}\\
+\dot{\hat{\theta}} & = & \tilde{x}f\left(x\right)\end{eqnarray*}
+
+\end_inset
+
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+
+\begin_inset Formula \begin{eqnarray*}
+\dot{\tilde{x}} & = & \dot{x}-\dot{\hat{x}}\\
+\dot{\tilde{\theta}} & = & \dot{\theta}-\dot{\hat{\theta}}\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Formula \begin{eqnarray*}
+\dot{\tilde{x}} & = & \left(f\left(x\right)\theta+u\right)-\left(f\left(x\right)\hat{\theta}+u+\tilde{x}\right)\\
+\dot{\tilde{\theta}} & = & -\tilde{x}f\left(x\right)\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Formula \begin{eqnarray*}
+\dot{\tilde{x}} & = & f\left(x\right)\theta+u-f\left(x\right)\hat{\theta}-u-\tilde{x}\\
+\dot{\tilde{\theta}} & = & -\tilde{x}f\left(x\right)\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Formula \begin{eqnarray*}
+\dot{\tilde{x}} & = & f\left(x\right)\theta-f\left(x\right)\hat{\theta}-\tilde{x}\\
+\dot{\tilde{\theta}} & = & -\tilde{x}f\left(x\right)\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Formula \begin{eqnarray*}
+\dot{\tilde{x}} & = & f\left(x\right)\left(\theta-\hat{\theta}\right)-\tilde{x}\\
+\dot{\tilde{\theta}} & = & -\tilde{x}f\left(x\right)\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Formula \begin{eqnarray*}
+\dot{\tilde{x}} & = & f\left(x\right)\tilde{\theta}-\tilde{x}\\
+\dot{\tilde{\theta}} & = & -\tilde{x}f\left(x\right)\end{eqnarray*}
+
+\end_inset
+
+Choose fixed points 
+\begin_inset Formula $\tilde{\theta}=\tilde{x}=0$
+\end_inset
+
+:
+\begin_inset Formula \[
+v=\tilde{\theta}^{2}+\tilde{x}^{2}\]
+
+\end_inset
+
+
+\begin_inset Formula \begin{eqnarray*}
+\dot{v} & = & 2\tilde{\theta}\dot{\tilde{\theta}}+2\tilde{x}\dot{\tilde{x}}\\
+ & = & 2\tilde{\theta}\left(-\tilde{x}f\left(x\right)\right)+2\tilde{x}\left(f\left(x\right)\tilde{\theta}-\tilde{x}\right)\\
+\dot{v} & = & -2\tilde{x}^{2}\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Formula $\dot{v}<0$
+\end_inset
+
+ 
+\begin_inset Formula $\therefore$
+\end_inset
+
+ the system is 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\noun default
+\color inherit
+asymptotically stable toward 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+
+\begin_inset Formula $\tilde{\theta}=\tilde{x}=0$
+\end_inset
+
+ and the 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\noun default
+\color inherit
+estimates to converge to the to the true values.
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Problem 2
+\end_layout
+
+\begin_layout Standard
+Given the following system:
+\begin_inset Formula \begin{eqnarray*}
+\dot{x}_{1} & = & x_{2}-x_{1}^{7}\left(x_{1}^{4}+2x_{2}^{2}-10\right)\\
+\dot{x}_{2} & = & -x_{1}^{3}-3x_{2}^{5}\left(x_{1}^{4}+2x_{2}^{2}-10\right)\end{eqnarray*}
+
+\end_inset
+
+Use Lyapunov theory and associated extensions to determine the stability
+ of the invariant set that occurs in this system.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\series bold
+
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/prob2_PP.pdf
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\series bold
+\begin_inset Caption
+
+\begin_layout Plain Layout
+pplane plot of the system
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula \[
+v=x_{1}^{4}+2x_{2}^{2}\]
+
+\end_inset
+
+
+\begin_inset Formula \begin{eqnarray*}
+\dot{v} & = & 4x_{1}^{3}\dot{x}_{1}+4x_{2}\dot{x}_{2}\\
+ & = & 4x_{1}^{3}\left(x_{2}-x_{1}^{7}\left(x_{1}^{4}+2x_{2}^{2}-10\right)\right)+4x_{2}\left(-x_{1}^{3}-3x_{2}^{5}\left(x_{1}^{4}+2x_{2}^{2}-10\right)\right)\\
+ & = & 4x_{1}^{3}x_{2}-4x_{1}^{10}\left(x_{1}^{4}+2x_{2}^{2}-10\right)+-4x_{2}x_{1}^{3}-12x_{2}^{6}\left(x_{1}^{4}+2x_{2}^{2}-10\right)\\
+\dot{v} & = & -4x_{1}^{10}\left(x_{1}^{4}+2x_{2}^{2}-10\right)-12x_{2}^{6}\left(x_{1}^{4}+2x_{2}^{2}-10\right)\end{eqnarray*}
+
+\end_inset
+
+Because all powers of 
+\begin_inset Formula $x$
+\end_inset
+
+ are even, 
+\begin_inset Formula $\dot{v}<0$
+\end_inset
+
+ 
+\begin_inset Formula $\forall x\in\Omega_{l}$
+\end_inset
+
+:
+\begin_inset Formula \[
+\Omega_{l}=\left\{ \left(x_{1},x_{2}\right)|\left(x_{1}^{4}+2x_{2}^{2}-10\right)\ge0\right\} \]
+
+\end_inset
+
+
+\begin_inset Formula \[
+R=m=\left\{ \left(x_{1},x_{2}\right)|\left(x_{1}^{4}+2x_{2}^{2}-10\right)=0\right\} \]
+
+\end_inset
+
+They system is asymptotically stable at 
+\begin_inset Formula $\left(x_{1}^{4}+2x_{2}^{2}-10\right)=0$
+\end_inset
+
+.
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Problem 3
+\end_layout
+
+\begin_layout Standard
+Determine (and draw) the bifurcation diagram for the following system, where
+ 
+\begin_inset Formula $\mu$
+\end_inset
+
+ can vary:
+\begin_inset Formula \[
+\dot{x}=x\left(\mu+x-x^{2}\right)\left(1-\mu+x^{2}\right)\]
+
+\end_inset
+
+Identify all fixed points, provide the location of each bifurcation point,
+ and use the conditions provided in class to verify the type of bifurcation
+ that occurs in each instance.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+Find fixed points:
+\begin_inset Formula \begin{eqnarray*}
+0 & = & x\left(\mu+x-x^{2}\right)\left(1-\mu+x^{2}\right)\\
+ & = & \left(\mu x+x^{2}-x^{3}\right)\left(1-\mu+x^{2}\right)\\
+ & = & \left(\mu x-\mu^{2}x+\mu x^{3}\right)+\left(x^{2}-\mu x^{2}+x^{4}\right)+\left(-x^{3}+\mu x^{3}-x^{5}\right)\\
+0 & = & \mu x-\mu^{2}x+x^{2}-\mu x^{2}-x^{3}+2\mu x^{3}+x^{4}-x^{5}\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Formula \begin{eqnarray*}
+0 & = & x\\
+0 & = & \mu+x-x^{2}\\
+0 & = & 1-\mu+x^{2}\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Formula \begin{eqnarray*}
+x_{1}^{*} & = & 0\\
+x_{2}^{*} & = & \frac{1+\sqrt{1+4\mu}}{2}\\
+x_{3}^{*} & = & \frac{1-\sqrt{1+4\mu}}{2}\\
+x_{4}^{*} & = & \sqrt{-1+\mu}\\
+x_{5}^{*} & = & -\sqrt{-1+\mu}\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $x_{2,3}^{*}$
+\end_inset
+
+ exist only if 
+\begin_inset Formula $\mu\ge-\frac{1}{4}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $x_{4,5}^{*}$
+\end_inset
+
+ exist only if 
+\begin_inset Formula $\mu\ge1$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Find the eigenvalues of the linearized system at the fixed points:
+\begin_inset Formula \[
+\left.\frac{\partial f}{\partial x}\right|_{x^{*}}=\left.\mu-\mu^{2}+2x-2\mu x-3x^{2}+6\mu x^{2}+4x^{3}-5x^{4}\right|_{x^{*}}\]
+
+\end_inset
+
+
+\begin_inset Formula \[
+\left.\frac{\partial f}{\partial x}\right|_{x_{1}^{*}}=\mu-\mu^{2}\]
+
+\end_inset
+
+
+\begin_inset Formula \begin{eqnarray*}
+\left.\frac{\partial f}{\partial x}\right|_{x_{2}^{*}} & = & \mu-\mu^{2}+2\left(\frac{1+\sqrt{1+4\mu}}{2}\right)-2\mu\left(\frac{1+\sqrt{1+4\mu}}{2}\right)-3\left(\frac{1+\sqrt{1+4\mu}}{2}\right)^{2}+6\mu\left(\frac{1+\sqrt{1+4\mu}}{2}\right)^{2}+4\left(\frac{1+\sqrt{1+4\mu}}{2}\right)^{3}-5\left(\frac{1+\sqrt{1+4\mu}}{2}\right)^{4}\\
+ & = & \mu-\mu^{2}+\left(1+\sqrt{1+4\mu}\right)-\mu\left(1+\sqrt{1+4\mu}\right)-\frac{3}{4}\left(1+\sqrt{1+4\mu}\right)^{2}+3\mu\left(1+\sqrt{1+4\mu}\right)^{2}+2\left(1+\sqrt{1+4\mu}\right)^{3}-\frac{5}{2}\left(1+\sqrt{1+4\mu}\right)^{4}\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Formula \begin{eqnarray*}
+\left.\frac{\partial f}{\partial x}\right|_{x_{3}^{*}} & = & \mu-\mu^{2}+2\left(\frac{1-\sqrt{1+4\mu}}{2}\right)-2\mu\left(\frac{1-\sqrt{1+4\mu}}{2}\right)-3\left(\frac{1-\sqrt{1+4\mu}}{2}\right)^{2}+6\mu\left(\frac{1-\sqrt{1+4\mu}}{2}\right)^{2}+4\left(\frac{1-\sqrt{1+4\mu}}{2}\right)^{3}-5\left(\frac{1-\sqrt{1+4\mu}}{2}\right)^{4}\\
+ & = & \mu-\mu^{2}+\left(1-\sqrt{1+4\mu}\right)-\mu\left(1-\sqrt{1+4\mu}\right)-\frac{3}{4}\left(1-\sqrt{1+4\mu}\right)^{2}+3\mu\left(1-\sqrt{1+4\mu}\right)^{2}+2\left(1-\sqrt{1+4\mu}\right)^{3}-\frac{5}{2}\left(1-\sqrt{1+4\mu}\right)^{4}\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Formula \begin{eqnarray*}
+\left.\frac{\partial f}{\partial x}\right|_{x_{4}^{*}} & = & \mu-\mu^{2}+2\left(\sqrt{-1+\mu}\right)-2\mu\left(\sqrt{-1+\mu}\right)-3\left(\sqrt{-1+\mu}\right)^{2}+6\mu\left(\sqrt{-1+\mu}\right)^{2}+4\left(\sqrt{-1+\mu}\right)^{3}-5\left(\sqrt{-1+\mu}\right)^{4}\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Formula \begin{eqnarray*}
+\left.\frac{\partial f}{\partial x}\right|_{x_{5}^{*}} & = & \mu-\mu^{2}+2\left(-\sqrt{-1+\mu}\right)-2\mu\left(-\sqrt{-1+\mu}\right)-3\left(-\sqrt{-1+\mu}\right)^{2}+6\mu\left(-\sqrt{-1+\mu}\right)^{2}+4\left(-\sqrt{-1+\mu}\right)^{3}-5\left(-\sqrt{-1+\mu}\right)^{4}\end{eqnarray*}
+
+\end_inset
+
+Canidate bifurcation points 
+\begin_inset Formula $\left(\left.\frac{\partial f}{\partial x}\right|_{x^{*}}=0\right)$
+\end_inset
+
+ (using Mathemagica):
+\begin_inset Formula \begin{eqnarray*}
+\left.\frac{\partial f}{\partial x}\right|_{x_{1}^{*}}=0 & \implies & \mu_{1}=0,\,1\\
+\left.\frac{\partial f}{\partial x}\right|_{x_{2}^{*}}=0 & \implies & \mu_{2}=-\frac{1}{4}\\
+\left.\frac{\partial f}{\partial x}\right|_{x_{3}^{*}}=0 & \implies & \mu_{3}=-\frac{1}{4},\,0,\,2\\
+\left.\frac{\partial f}{\partial x}\right|_{x_{4}^{*}}=0 & \implies & \mu_{4}=1\\
+\left.\frac{\partial f}{\partial x}\right|_{x_{5}^{*}}=0 & \implies & \mu_{5}=1\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Formula \begin{eqnarray*}
+ &  & \left(x^{*},\mu\right)\\
+\\1 &  & \left(0,\,0\right)\\
+2 &  & \left(0,\,1\right)\\
+3 &  & \left(\frac{1}{2},\,-\frac{1}{4}\right)\\
+4 &  & \left(-1,\,2\right)\end{eqnarray*}
+
+\end_inset
+
+Now evaluate each point to determine bifurcation type.
+ Precompute some partials first.
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+
+\begin_inset Formula \[
+\frac{\partial f}{\partial\mu}=x-2\mu x-x^{2}+2x^{3}\]
+
+\end_inset
+
+
+\begin_inset Formula \[
+\frac{\partial^{2}f}{\partial\mu^{2}}=-2x\]
+
+\end_inset
+
+
+\begin_inset Formula \[
+\frac{\partial f}{\partial x\partial\mu}=1-2\mu-2x+6x^{2}\]
+
+\end_inset
+
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\noun default
+\color inherit
+
+\begin_inset Formula \[
+\frac{\partial^{2}f}{\partial x^{2}}=2-2\mu-6x+12\mu x+12x^{2}-20x^{3}\]
+
+\end_inset
+
+
+\begin_inset Formula \[
+\frac{\partial^{3}f}{\partial x^{3}}=-6+12\mu+24x-60x^{2}\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+Point 
+\begin_inset Formula $\left(0,\,0\right)$
+\end_inset
+
+:
+\begin_inset Formula \[
+\left.\frac{\partial f}{\partial\mu}\right|_{\left(0,\,0\right)}=0\]
+
+\end_inset
+
+
+\begin_inset Formula \[
+\left.\frac{\partial f}{\partial x\partial\mu}\right|_{\left(0,\,0\right)}=1\]
+
+\end_inset
+
+
+\begin_inset Formula \[
+\left.\frac{\partial^{2}f}{\partial x^{2}}\right|_{\left(0,\,0\right)}=2\]
+
+\end_inset
+
+
+\begin_inset Formula $\therefore$
+\end_inset
+
+ 
+\family default
+\series bold
+\shape default
+\size default
+\emph default
+\bar default
+\noun default
+\color inherit
+transcritical
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+ bifurcation.
+\end_layout
+
+\begin_layout Enumerate
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+Point 
+\begin_inset Formula $\left(0,\,1\right)$
+\end_inset
+
+:
+\begin_inset Formula \[
+\left.\frac{\partial f}{\partial\mu}\right|_{\left(0,\,1\right)}=0\]
+
+\end_inset
+
+
+\begin_inset Formula \[
+\left.\frac{\partial f}{\partial x\partial\mu}\right|_{\left(0,\,1\right)}=-1\]
+
+\end_inset
+
+
+\begin_inset Formula \[
+\left.\frac{\partial^{2}f}{\partial x^{2}}\right|_{\left(0,\,1\right)}=0\]
+
+\end_inset
+
+
+\begin_inset Formula \[
+\left.\frac{\partial^{3}f}{\partial x^{3}}\right|_{\left(0,\,1\right)}=6\]
+
+\end_inset
+
+
+\begin_inset Formula $\therefore$
+\end_inset
+
+ 
+\family default
+\series bold
+\shape default
+\size default
+\emph default
+\bar default
+\noun default
+\color inherit
+pitchfork
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+ bifurcation.
+\end_layout
+
+\begin_layout Enumerate
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+Point 
+\begin_inset Formula $\left(\frac{1}{2},\,-\frac{1}{4}\right)$
+\end_inset
+
+:
+\begin_inset Formula \begin{eqnarray*}
+\left.\frac{\partial f}{\partial\mu}\right|_{\left(\frac{1}{2},\,-\frac{1}{4}\right)} & = & \frac{1}{2}-2\left(-\frac{1}{4}\right)\left(\frac{1}{2}\right)-\left(\frac{1}{2}\right)^{2}+2\left(\frac{1}{2}\right)^{3}\\
+ & = & \frac{1}{2}+\frac{1}{4}-\frac{1}{4}+\frac{1}{4}\\
+ & = & \frac{3}{4}\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Formula \[
+\left.\frac{\partial^{2}f}{\partial\mu^{2}}\right|_{\left(\frac{1}{2},\,-\frac{1}{4}\right)}=-1\]
+
+\end_inset
+
+
+\begin_inset Formula $\therefore$
+\end_inset
+
+ 
+\family default
+\series bold
+\shape default
+\size default
+\emph default
+\bar default
+\noun default
+\color inherit
+saddle
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+ bifurcation.
+\end_layout
+
+\begin_layout Enumerate
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+Point 
+\begin_inset Formula $\left(-1,\,2\right)$
+\end_inset
+
+:
+\begin_inset Formula \[
+\left.\frac{\partial f}{\partial\mu}\right|_{\left(-1,\,2\right)}=-1+4-1-2=0\]
+
+\end_inset
+
+
+\begin_inset Formula \[
+\left.\frac{\partial f}{\partial x\partial\mu}\right|_{\left(-1,\,2\right)}=1-4+2+6=5\]
+
+\end_inset
+
+
+\begin_inset Formula \[
+\left.\frac{\partial^{2}f}{\partial x^{2}}\right|_{\left(-1,\,2\right)}=2-4+6-24+12+20=12\]
+
+\end_inset
+
+
+\begin_inset Formula $\therefore$
+\end_inset
+
+ 
+\family default
+\series bold
+\shape default
+\size default
+\emph default
+\bar default
+\noun default
+\color inherit
+transcritical
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+ bifurcation.
+\end_layout
+
+\begin_layout Standard
+Stable segments:
+\end_layout
+
+\begin_layout Enumerate
+u=-0.1250, x=0.8536 : eig= -1.1187
+\end_layout
+
+\begin_layout Enumerate
+u=-0.1250, x=0.0000 : eig= -0.1406
+\end_layout
+
+\begin_layout Enumerate
+u=0.5000, x=-0.3660 : eig= -0.4019
+\end_layout
+
+\begin_layout Enumerate
+u=1.5000, x=0.0000 : eig= -0.7500
+\end_layout
+
+\begin_layout Enumerate
+u=2.5000, x=-1.2247 : eig= -0.6742
+\end_layout
+
+\begin_layout Standard
+Unstable segments:
+\end_layout
+
+\begin_layout Enumerate
+u=-0.1250, x=0.1464 : eig= 0.1187
+\end_layout
+
+\begin_layout Enumerate
+u=0.5000, x=0.0000 : eig= 0.2500
+\end_layout
+
+\begin_layout Enumerate
+u=1.5000, x=0.7071 : eig= 1.7071
+\end_layout
+
+\begin_layout Enumerate
+u=1.5000, x=-0.7071 : eig= 0.2929
+\end_layout
+
+\begin_layout Enumerate
+u=2.5000, x=1.2247 : eig= 6.6742
+\end_layout
+
+\begin_layout Enumerate
+u=2.5000, x=-1.1583 : eig= 0.6082
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/prob3_1.pdf
+	scale 80
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\series bold
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Bifurcations
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\series default
+
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Problem 4
+\end_layout
+
+\begin_layout Standard
+Analyze the case of an imperfect transcritical bifurcation:
+\begin_inset Formula \[
+\dot{x}=h+rx-x^{2}\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Sketch the bifurcation diagram for 
+\begin_inset Formula $h<0$
+\end_inset
+
+, 
+\begin_inset Formula $h=0$
+\end_inset
+
+, and 
+\begin_inset Formula $h>0$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+Find fixed points:
+\begin_inset Formula \[
+h+rx-x^{2}=0\]
+
+\end_inset
+
+
+\begin_inset Formula \[
+x^{*}=\frac{r\pm\sqrt{4h+r^{2}}}{2}\]
+
+\end_inset
+
+which only exists for
+\begin_inset Formula \[
+h\ge-\frac{r^{2}}{4}\]
+
+\end_inset
+
+Find the eigenvalues of the linearized system at the fixed points:
+\begin_inset Formula \[
+\left.\frac{\partial f}{\partial x}\right|_{x^{*},h,r}=\left.r-2x\right|_{x^{*},h,r}\]
+
+\end_inset
+
+
+\begin_inset Formula \begin{eqnarray*}
+\left.\frac{\partial f}{\partial x}\right|_{x^{*}=\frac{r+\sqrt{4h+r^{2}}}{2}} & = & r-2\left(\frac{r+\sqrt{4h+r^{2}}}{2}\right)\\
+ & = & -\sqrt{4h+r^{2}}\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Formula \begin{eqnarray*}
+\left.\frac{\partial f}{\partial x}\right|_{x^{*}=\frac{r-\sqrt{4h+r^{2}}}{2}} & = & r-2\left(\frac{r-\sqrt{4h+r^{2}}}{2}\right)\\
+ & = & \sqrt{4h+r^{2}}\end{eqnarray*}
+
+\end_inset
+
+Candidate bifurcation points:
+\begin_inset Formula \[
+\frac{\partial f}{\partial x}=0\ if\ r=\pm2\sqrt{-h}\ and\ x=2r\]
+
+\end_inset
+
+
+\series bold
+Case 1:
+\series default
+ 
+\begin_inset Formula $h>0$
+\end_inset
+
+
+\begin_inset Formula \begin{eqnarray*}
+r & = & \pm2\sqrt{-h}\\
+ & = & \pm2i\sqrt{h}\end{eqnarray*}
+
+\end_inset
+
+Which is not permissible and thus there are no bifurcations.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\series bold
+Case 2:
+\series default
+ 
+\begin_inset Formula $h=0$
+\end_inset
+
+
+\begin_inset Formula \[
+r=0\]
+
+\end_inset
+
+
+\begin_inset Formula \[
+x^{*}=0\]
+
+\end_inset
+
+
+\begin_inset Formula \[
+\left.\frac{\partial f}{\partial r}\right|_{x=0}=x=0\]
+
+\end_inset
+
+
+\series bold
+
+\begin_inset Formula \[
+\frac{\partial^{2}f}{\partial x\partial r}=1\ne0\]
+
+\end_inset
+
+
+\begin_inset Formula \[
+\frac{\partial^{2}f}{\partial x^{2}}=-2\]
+
+\end_inset
+
+
+\series default
+
+\begin_inset Formula $\therefore$
+\end_inset
+
+ the candidate point
+\series bold
+ 
+\begin_inset Formula $\left(0,0\right)$
+\end_inset
+
+
+\series default
+ is a transcritical bifurcation.
+\series bold
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/prob4_1.pdf
+	scale 80
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\series bold
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Transcritical bifurcation
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Case 3:
+\series default
+ 
+\begin_inset Formula $h<0$
+\end_inset
+
+
+\begin_inset Formula \[
+r=\pm2\sqrt{-h}\]
+
+\end_inset
+
+
+\begin_inset Formula \begin{eqnarray*}
+x^{*} & = & \frac{r\pm\sqrt{4h+r^{2}}}{2}\\
+ & = & \frac{\left(\pm2\sqrt{-h}\right)\pm\sqrt{4h+\left(\pm2\sqrt{-h}\right)^{2}}}{2}\\
+ & = & \frac{\left(\pm2\sqrt{-h}\right)\pm\sqrt{4h-4h}}{2}\\
+x^{*} & = & \pm\sqrt{-h}\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Formula \[
+\left.\frac{\partial f}{\partial r}\right|_{x=\pm\sqrt{-h}}=\pm\sqrt{-h}\]
+
+\end_inset
+
+
+\begin_inset Formula \[
+\frac{\partial^{2}f}{\partial r^{2}}=0\]
+
+\end_inset
+
+
+\begin_inset Formula $\therefore$
+\end_inset
+
+ the candidate points
+\series bold
+ 
+\begin_inset Formula $\left(2\sqrt{-h},\sqrt{-h}\right)$
+\end_inset
+
+
+\series default
+ 
+\series bold
+
+\begin_inset Formula $\left(-2\sqrt{-h},-\sqrt{-h}\right)$
+\end_inset
+
+
+\series default
+ is a saddle bifurcation.
+\begin_inset Newline newline
+\end_inset
+
+
+\series bold
+
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/prob4_2.pdf
+	scale 80
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\series bold
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Saddle bifurcation
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Summarize your results by labeling the regions in the (r,a) plane that correspon
+d to qualitatively different classes of vector fields.
+ Bifurcations occur on the boundaries of these regions; identify the types
+ of bifurcations that occur.
+\begin_inset Newline newline
+\end_inset
+
+
+\series bold
+
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/prob4_3.pdf
+	scale 80
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\series bold
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Bifurcation boundaries
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Two fixed points:
+\begin_inset Formula \begin{eqnarray*}
+x^{*} & = & \frac{r+\sqrt{4h+r^{2}}}{2}\rightarrow\text{ stable}\\
+x^{*} & = & \frac{r-\sqrt{4h+r^{2}}}{2}\rightarrow\text{ unstable}\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+No fixed points.
+\end_layout
+
+\end_body
+\end_document

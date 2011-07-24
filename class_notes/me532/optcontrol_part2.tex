@@ -1,0 +1,61 @@
+
+
+ 
+ \subsection{Minimization of Functionals with Dynamic Constraints}
+ Instead of minimizing functionals in which the extremals are functions $f$, we will now consider functionals in which the extremals are given by $(x, u)$ where $x$ is a function of $u$. In these problems, we'll refer to $x$ as the state and $u$ as the control. Since $x$ is a function of $u$, we can consider the objective function as a functional with $u$ as the input.
+ 
+ The general form of the objective function that we'll now consider is
+ \begin{equation}\label{eqn:objfn}
+ J(u) = \varphi[t_f,x(t_f)] + \int_{t_0}^{t_f}L(t,x(t),u(t))dt
+ \end{equation}
+ subject to the dynamic constraints
+ \begin{equation}\label{eqn:const}
+ \dot x = f(t,x(t),u(t)),\quad x(t_0) = x_0, \quad t_0\leq t\leq t_f.
+ \end{equation}
+ Assume in this first case that $x(t) \in \Re$.
+ The minimization problem is to find a $u$ that minimizes (\ref{eqn:objfn}) where $u$ and $x$ are determined by the constraint equation (\ref{eqn:const}).
+ 
+ To determine the First Order Necessary Conditions for this problem, we'll assume that the control $u^*$ minimizes $J$ and $x^*$ is the corresponding optimal state trajectory. 
+ Notice that the constraint equation can be rewritten in an integral form as
+ $$\int_{t_0}^{t_f}\left[f(t,x(t),u(t)) - \dot x(t)\right]dt = 0.$$
+  So, this problem can be addressed as the previous set of problems that have integral constraints.Using that kind of approach, we can write a modified objective function
+ $${\tilde J}(u) = \varphi(t_f,x(t_f)) + \int_{t_0}^{t_f}\left\{L(t,x(t),u(t)) + \lambda(t)[f(t,x(t),u(t)) - \dot x(t)]\right\}dt  $$
+ 
+For simplicity in the derivation, define the {\it Hamiltonian}
+ $$H(u) = L(t,x(t),u(t)) + \lambda(t)[f(t,x(t),u(t))-\dot x(t)].$$
+ 
+ Assume that $u^*$ is a minimizer with corresponding optimal state trajectory $x^*$. Consider other controls $u = u^*+\epsilon h$ as before. Variations in $x$ are difficult to characterize; denote as $x(t,\epsilon)$; we know that $\epsilon=0$ yields the extremals $(u^*, x^*)$.  Write the objective function in terms of $\epsilon$, and repeat the approach that has been applied in the previous examples:
+ \begin{eqnarray*}
+ {\tilde J}(\epsilon) = \varphi(t_f,x(t_f,\epsilon)) + \int_{t_0}^{t_f}[H(t,x(t,\epsilon),u^*+\epsilon h) - \lambda(t)\dot x(t,\epsilon)]dt .
+ \end{eqnarray*}
+ Integrate the $\lambda \dot x$ term by  parts. Then
+ \begin{eqnarray*}
+ {\tilde J}(u^* + \epsilon h) = \varphi(t_f,x(t_f,\epsilon)) + \int_{t_0}^{t_f}[H(t,x(t,\epsilon),u^*+\epsilon h) + \dot\lambda(t)x(t,\epsilon)]dt - \lambda(t) x(t,\epsilon)\vert_{t_0}^{t_f}.
+ \end{eqnarray*}
+ We know that $$ \frac{d {\tilde J}}{d\epsilon}(0) = 0.$$ So,
+  \begin{eqnarray*}
+ \frac{d {\tilde J}}{d\epsilon}\vert_{\epsilon=0} = 0&=&\left[ \frac{\pd\varphi}{\pd x}\frac{dx}{d\epsilon}\vert_{t = t_f} + \lambda(t_0)\frac{\pd x}{\pd\epsilon}\vert_{t=t_0} - \lambda(t_f)\frac{\pd x}{\pd\epsilon}\vert_{t=t_f} \right.\\
+ &&+ \left.\int_{t_0}^{t_f}\left(\frac{\pd H}{\pd x} \frac{\pd x}{\pd\epsilon} +  \frac{\pd H}{\pd u} \frac{\pd u}{\pd\epsilon} + \dot\lambda(t)\frac{\pd x}{\pd\epsilon}\right)dt\right]\vert_{\epsilon=0} \\
+ &=&\left\{ \left(\frac{\pd\varphi}{\pd x}- \lambda(t_f)\right)\frac{\pd x}{\pd\epsilon}\vert_{t = t_f} + \lambda(t_0)\frac{\pd x}{\pd\epsilon}\vert_{t=t_0} \right.\\
+ &&+ \left.\int_{t_0}^{t_f}\left[\left(\frac{\pd H}{\pd x} +\dot\lambda\right)\frac{\pd x}{\pd\epsilon} +  \frac{\pd H}{\pd u}h  \right]dt\right\}\vert_{\epsilon=0} .
+ \end{eqnarray*}
+
+Since $\displaystyle \frac{\pd x}{\pd \epsilon}$ is completely uncertain, pick $\lambda$ so that
+$$\lambda(t_f)=\frac{\pd \varphi}{\pd x} (t_f,x(t_f,\epsilon))\qquad \dot\lambda(t) = -\frac{\pd H}{\pd x}.$$
+
+Then
+$$ 0 = \left[ \lambda(t_0)\frac{\pd x}{\pd\epsilon}\vert_{t=t_0}
++ \int_{t_0}^{t_f}  \frac{\pd H}{\pd u}h  dt\right].$$
+Since $x(t_0)=x_0$ for all solutions $x$, we must have that $\displaystyle\frac{\pd x}{\pd \epsilon}(t_0) = 0$. So we are left with
+$$ 0 =  \int_{t_0}^{t_f}  \frac{\pd H}{\pd u}h  dt .$$
+By the FLCOV, we must have that 
+$$\frac{\pd H}{\pd u}=0.$$
+
+So, the First Order Necessary Conditions are:
+$$\dot\lambda^*(t) = -\frac{\pd H}{\pd x}(t, x^*(t),u^*(t)), \quad \dot\lambda^*(t_f) = \frac{\pd \varphi}{\pd x}(t_f, x^*(t_f))$$
+$$ \frac{\pd H}{\pd u}(t, x^*(t),u^*(t)) = 0$$
+$$\dot x^*(t) = f(t, x^*(t),u^*(t)), \quad x^*(t_0) = x_0. $$
+
+\medskip
+Example
+\newpage

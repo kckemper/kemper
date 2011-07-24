@@ -1,0 +1,272 @@
+#LyX 1.6.7 created this file. For more info see http://www.lyx.org/
+\lyxformat 345
+\begin_document
+\begin_header
+\textclass article
+\use_default_options true
+\language english
+\inputencoding auto
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\paperfontsize default
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_amsmath 1
+\use_esint 1
+\cite_engine basic
+\use_bibtopic false
+\paperorientation portrait
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\defskip medskip
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\author "" 
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Equation of Motion for Stopping/Catching a Mass
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\series bold
+Variables:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula \[
+\begin{array}{c|l|l}
+F_{m}(t) & \textrm{Motor force} & N\\
+x_{m}(t) & \textrm{Motor position} & m\\
+ & \\
+F_{L}(t) & \textrm{Load force} & N\\
+x_{L}(t) & \textrm{Load position} & m\end{array}\]
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\series bold
+Constants:
+\series default
+
+\begin_inset Formula \[
+\begin{array}{c|l|l}
+k & \textrm{Spring constant} & N\cdot m\\
+B & \textrm{Damping constant} & \frac{kg\cdot m^{2}}{s}\\
+ & \\
+m_{m} & \textrm{Motor/transmission mass} & kg\\
+F_{limit} & \textrm{Motor force limit} & N\\
+F_{mc} & \textrm{Motor force constant} & N\\
+ & \\
+m_{L} & \textrm{Load mass} & kg\\
+F_{peak} & \textrm{Peak torque allowed at load} & N\end{array}\]
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\series bold
+Iinitial Conditions & Constraints:
+\series default
+
+\begin_inset Formula \[
+\begin{array}{c|l|l}
+x_{L0}=0 & \textrm{Load position} & m\\
+\dot{x}_{L0}>0 & \textrm{Load velocity} & \frac{m}{s}\\
+\ddot{x}_{L0}=0 & \textrm{Load acceleration} & \frac{m}{s^{2}}\\
+ & \\
+x_{m0}=0 & \textrm{Motor position} & m\\
+\dot{x}_{m0}=0 & \textrm{Motor velocity} & \frac{m}{s}\\
+\ddot{x}_{m0}=0 & \textrm{Motor acceleration}\textrm{} & \frac{m}{s^{2}}\end{array}\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The force of the spring is defined as:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula \begin{eqnarray*}
+F_{k} & = & k\left(x_{m}-x_{L}\right)\\
+F_{B} & = & B\left(\dot{x}_{m}-\dot{x}_{L}\right)\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Note: spring can only be in compression!
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+setlength{
+\backslash
+jot}{3mm+3pt}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+System 1 (motor side):
+\begin_inset Formula \begin{eqnarray*}
+\Sigma F=m_{m}\ddot{x}_{m} & = & F_{m}-F_{k}-F_{B}\\
+m_{m}\ddot{x}_{m}(t) & = & F_{m}(t)-k\left(x_{m}(t)-x_{L}(t)\right)-B\left(\dot{x}_{m}(t)-\dot{x}_{L}(t)\right)\\
+m_{m}\ddot{x}_{m}(t) & = & F_{m}(t)-kx_{m}(t)+kx_{L}(t)-B\dot{x}_{m}(t)+B\dot{x}_{L}(t)\\
+\ddot{x}_{m}(t) & = & \frac{1}{m_{m}}F_{m}(t)-\frac{k}{m_{m}}x_{m}(t)+\frac{k}{m_{m}}x_{L}(t)-\frac{B}{m_{m}}\dot{x}_{m}(t)+\frac{B}{m_{m}}\dot{x}_{L}(t)\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+System 2 (load side):
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula \begin{eqnarray*}
+\Sigma F=m_{L}\ddot{x}_{L} & = & F_{k}+F_{B}\\
+m_{L}\ddot{x}_{L} & = & k\left(x_{m}(t)-x_{L}(t)\right)+B\left(\dot{x}_{m}(t)-\dot{x}_{L}(t)\right)\\
+m_{L}\ddot{x}_{L} & = & x_{m}(t)k-x_{L}(t)k+\dot{x}_{m}(t)B-\dot{x}_{L}(t)B\\
+\ddot{x}_{L}(t) & = & \frac{k}{m_{L}}x_{m}(t)-\frac{k}{m_{L}}x_{L}(t)+\frac{B}{m_{L}}\dot{x}_{m}(t)-\frac{B}{m_{L}}\dot{x}_{L}(t)\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+System of diff.
+ eq.s
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula \begin{eqnarray*}
+\ddot{x}_{m}(t) & = & \frac{1}{m_{m}}F_{m}(t)-\frac{k}{m_{m}}x_{m}(t)+\frac{k}{m_{m}}x_{L}(t)-\frac{B}{m_{m}}\dot{x}_{m}(t)+\frac{B}{m_{m}}\dot{x}_{L}(t)\\
+\ddot{x}_{L}(t) & = & \frac{k}{m_{L}}x_{m}(t)-\frac{k}{m_{L}}x_{L}(t)+\frac{B}{m_{L}}\dot{x}_{m}(t)-\frac{B}{m_{L}}\dot{x}_{L}(t)\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Formula \begin{eqnarray*}
+x_{1} & = & x_{m}\\
+x_{2} & = & \dot{x}_{m}\\
+x_{3} & = & x_{L}\\
+x_{4} & = & \dot{x}_{L}\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Formula \begin{eqnarray*}
+\dot{x}_{2} & = & \frac{1}{m_{m}}F_{m}-\frac{k}{m_{m}}x_{1}+\frac{k}{m_{m}}x_{3}-\frac{B}{m_{m}}x_{2}+\frac{B}{m_{m}}x_{4}\\
+\dot{x}_{4} & = & \frac{k}{m_{L}}x_{1}-\frac{k}{m_{L}}x_{3}+\frac{B}{m_{L}}x_{2}-\frac{B}{m_{L}}x_{4}\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Formula \begin{eqnarray*}
+\dot{x}_{1} & = & x_{2}\\
+\dot{x}_{2} & = & \frac{1}{m_{m}}F_{m}-\frac{k}{m_{m}}x_{1}+\frac{k}{m_{m}}x_{3}-\frac{B}{m_{m}}x_{2}+\frac{B}{m_{m}}x_{4}\\
+\dot{x}_{3} & = & x_{4}\\
+\dot{x}_{4} & = & \frac{k}{m_{L}}x_{1}-\frac{k}{m_{L}}x_{3}+\frac{B}{m_{L}}x_{2}-\frac{B}{m_{L}}x_{4}\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+State-space model durring contact: 
+\begin_inset Formula \[
+\begin{Bmatrix}\dot{x}_{1}\\
+\dot{x}_{2}\\
+\dot{x}_{3}\\
+\dot{x}_{4}\end{Bmatrix}=\begin{bmatrix}0 & 1 & 0 & 0\\
+-\frac{k}{m_{m}} & -\frac{B}{m_{m}} & \frac{k}{m_{m}} & \frac{B}{m_{m}}\\
+0 & 0 & 0 & 1\\
+\frac{k}{m_{L}} & \frac{B}{m_{L}} & -\frac{k}{m_{L}} & -\frac{B}{m_{L}}\end{bmatrix}\begin{Bmatrix}x_{1}\\
+x_{2}\\
+x_{3}\\
+x_{4}\end{Bmatrix}+\begin{bmatrix}0\\
+\frac{1}{m_{m}}\\
+0\\
+0\end{bmatrix}F_{m}\]
+
+\end_inset
+
+
+\begin_inset Formula \[
+A=\begin{bmatrix}0 & 1 & 0 & 0\\
+-\frac{k}{m_{m}} & -\frac{B}{m_{m}} & \frac{k}{m_{m}} & \frac{B}{m_{m}}\\
+0 & 0 & 0 & 1\\
+\frac{k}{m_{L}} & \frac{B}{m_{L}} & -\frac{k}{m_{L}} & -\frac{B}{m_{L}}\end{bmatrix}\]
+
+\end_inset
+
+
+\begin_inset Formula \begin{eqnarray*}
+\det\left[\lambda I-A\right] & = & 0\\
+\det\begin{bmatrix}\lambda & 1 & 0 & 0\\
+-\frac{k}{m_{m}} & \lambda+\frac{B}{m_{m}} & \frac{k}{m_{m}} & \frac{B}{m_{m}}\\
+0 & 0 & \lambda & 1\\
+\frac{k}{m_{L}} & \frac{B}{m_{L}} & -\frac{k}{m_{L}} & \lambda+\frac{B}{m_{L}}\end{bmatrix} & = & 0\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

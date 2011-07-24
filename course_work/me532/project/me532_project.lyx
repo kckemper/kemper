@@ -1,0 +1,1845 @@
+#LyX 1.6.7 created this file. For more info see http://www.lyx.org/
+\lyxformat 345
+\begin_document
+\begin_header
+\textclass article
+\use_default_options true
+\language english
+\inputencoding auto
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_amsmath 1
+\use_esint 1
+\cite_engine basic
+\use_bibtopic false
+\paperorientation portrait
+\leftmargin 1in
+\topmargin 1.5in
+\rightmargin 1in
+\bottommargin 1.5in
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\defskip medskip
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\author "" 
+\author "" 
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\align right
+Kevin Kemper
+\end_layout
+
+\begin_layout Section*
+ME 532 Project
+\end_layout
+
+\begin_layout Section
+Project objective
+\end_layout
+
+\begin_layout Standard
+The goal of this work is to develop control laws that will stop a monopod
+ robot dropped from some (known) height without bouncing (losing contact
+ with the ground).
+ Understanding this problem is a stepping stone to developing 2-DOF controllers
+ that will allow our running robot to suddenly stop.
+ It will also facilitate the investigation of how spring values in the robot
+ affect the performance of this system so that we can intelligently decide
+ on the physical components such as spring constants and motor sizes.
+\end_layout
+
+\begin_layout Standard
+The basic model of the system is shown in Fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "Flo:simplemodel"
+
+\end_inset
+
+ for a single degree of freedom.
+ In this problem the robot is constrained to only allow vertical motion
+ (no pitching forward or backward).
+ The actual robot has two collinear motors at roughly the center of mass.
+ By activating them with equal and opposite torques we can remove any body
+ reactions and vector the toe force directly in one dimension through the
+ COM.
+\end_layout
+
+\begin_layout Section
+Spring function
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /home/kkemper/projects/aristotle/course_work/me532/project/images/SEDA_atrias.pdf
+	width 2.5in
+
+\end_inset
+
+
+\begin_inset Caption
+
+\begin_layout Plain Layout
+The basic model of the system for a single degree of freedom.
+ In this problem the robot is constrained to only allow vertical motion.
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "Flo:robotmodel"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\series bold
+Variables:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula \[
+\begin{array}{c|l|l}
+F(t) & \textrm{Motor force} & N\cdot m\\
+ & \\
+\theta_{m}(t) & \textrm{Motor position} & rad\\
+\theta_{s}(t) & \textrm{Spring deflection} & rad\end{array}\]
+
+\end_inset
+
+
+\series bold
+Constants:
+\series default
+
+\begin_inset Formula \[
+\begin{array}{c|l|l}
+k & \textrm{Spring constant}\\
+ & \\
+m_{B} & \textrm{Body mass} & kg\\
+m_{m} & \textrm{Motor/tranmission mass} & kg\\
+F_{limit} & \textrm{Motor force limit} & N\cdot m\\
+\ell_{0} & \text{Initial length} & m\\
+\ell_{s} & \text{Segment length} & m\\
+g & \text{Gravity} & \frac{m}{s^{2}}\end{array}\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula \[
+\theta=\theta_{M}+\theta_{S}\]
+
+\end_inset
+
+
+\begin_inset Formula \begin{eqnarray*}
+\ell_{0} & = & 2\ell_{S}\cos\theta_{M}\\
+\frac{\ell_{0}}{2\ell_{S}} & = & \cos\theta_{M}\\
+\theta_{M} & = & \arccos\left(\frac{\ell_{0}}{2\ell_{S}}\right)\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Formula \begin{eqnarray*}
+\ell & = & 2\ell_{S}\cos\left(\theta_{M}+\theta_{S}\right)\\
+\frac{\ell}{2\ell_{S}} & = & \cos\left(\theta_{M}+\theta_{S}\right)\\
+\theta_{M}+\theta_{S} & = & \arccos\left(\frac{\ell}{2\ell_{S}}\right)\\
+\theta_{S} & = & \arccos\left(\frac{\ell}{2\ell_{S}}\right)-\theta_{M}\\
+\theta_{S} & = & \arccos\left(\frac{\ell}{2\ell_{S}}\right)-\arccos\left(\frac{\ell_{0}}{2\ell_{S}}\right)\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Formula \[
+\tau=k\theta_{S}\]
+
+\end_inset
+
+
+\begin_inset Formula \begin{eqnarray*}
+F & = & \frac{2\tau\sin\left(\theta_{M}+\theta_{S}\right)}{\ell_{S}}\\
+F & = & \frac{2k\theta_{S}\sin\left(\theta_{M}+\theta_{S}\right)}{\ell_{S}}\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Pluggin in 
+\begin_inset Formula $\theta_{S}$
+\end_inset
+
+ we have:
+\begin_inset Formula \begin{eqnarray*}
+F & = & \frac{2k\left(\arccos\left(\frac{\ell}{2\ell_{S}}\right)-\arccos\left(\frac{\ell_{0}}{2\ell_{S}}\right)\right)\sin\left(\theta_{M}+\arccos\left(\frac{\ell}{2\ell_{S}}\right)-\theta_{M}\right)}{\ell_{S}}\\
+F & = & \frac{2k\left(\arccos\left(\frac{\ell}{2\ell_{S}}\right)-\arccos\left(\frac{\ell_{0}}{2\ell_{S}}\right)\right)\sin\left(\arccos\left(\frac{\ell}{2\ell_{S}}\right)\right)}{\ell_{S}}\end{eqnarray*}
+
+\end_inset
+
+Using the trigonometric identity:
+\begin_inset Formula \begin{eqnarray*}
+\sin\left(\arccos x\right) & = & \sqrt{1-x^{2}}\end{eqnarray*}
+
+\end_inset
+
+We now have:
+\begin_inset Formula \begin{eqnarray}
+F_{k} & = & \frac{2k\sqrt{1-\frac{\ell^{2}}{4\ell_{S}^{2}}}\left(\arccos\left(\frac{\ell}{2\ell_{S}}\right)-\arccos\left(\frac{\ell_{0}}{2\ell_{S}}\right)\right)}{\ell_{S}}\label{eq:fk}\end{eqnarray}
+
+\end_inset
+
+From this calculation we can show that the spring function is nonlinear.
+ We can now use this derivation to to abstract the system into a model composed
+ of the motor inertia (represented as a mass) connected to the body through
+ the spring defined by equation (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:fk"
+
+\end_inset
+
+).
+ An example of (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:fk"
+
+\end_inset
+
+) is ploted below:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /home/kkemper/projects/aristotle/course_work/me532/project/images/SpringFunction.pdf
+	width 4in
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Example spring force as a function of leg length.
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "Flo:springfun"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Contact dynamics
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /home/kkemper/projects/aristotle/course_work/me532/project/images/SEDA_atrias_simple.pdf
+	width 3.5in
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Abstracted model of the robot.
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "Flo:simplemodel"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Spring length as a function of motor mass and body mass positions:
+\begin_inset Formula \[
+\ell=\ell_{0}-x_{m}+x_{B}\]
+
+\end_inset
+
+Pluging that back into (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:fk"
+
+\end_inset
+
+) gives:
+\begin_inset Formula \begin{eqnarray*}
+F_{k} & = & \frac{2k\sqrt{1-\frac{\left(\ell_{0}-x_{m}+x_{B}\right)^{2}}{4\ell_{S}^{2}}}\left(\arccos\left(\frac{\left(\ell_{0}-x_{m}+x_{B}\right)}{2\ell_{S}}\right)-\arccos\left(\frac{\ell_{0}}{2\ell_{S}}\right)\right)}{\ell_{S}}\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+System 1 (actuator side):
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula \begin{eqnarray*}
+\Sigma F=m_{m}\ddot{x}_{m} & = & F-F_{k}\\
+m_{m}\ddot{x}_{m} & = & F-\frac{2k\sqrt{1-\frac{\left(\ell_{0}-x_{m}+x_{B}\right)^{2}}{4\ell_{S}^{2}}}\left(\arccos\left(\frac{\left(\ell_{0}-x_{m}+x_{B}\right)}{2\ell_{S}}\right)-\arccos\left(\frac{\ell_{0}}{2\ell_{S}}\right)\right)}{\ell_{S}}\\
+\ddot{x}_{m} & = & \frac{1}{m_{m}}F-\frac{2k\sqrt{1-\frac{\left(\ell_{0}-x_{m}+x_{B}\right)^{2}}{4\ell_{S}^{2}}}\left(\arccos\left(\frac{\left(\ell_{0}-x_{m}+x_{B}\right)}{2\ell_{S}}\right)-\arccos\left(\frac{\ell_{0}}{2\ell_{S}}\right)\right)}{m_{m}\ell_{S}}\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+System 2 (body side):
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula \begin{eqnarray*}
+\Sigma F=m_{B}\ddot{x}_{B} & = & F_{k}-F_{g}\\
+m_{B}\ddot{x}_{B} & = & \frac{2k\sqrt{1-\frac{\left(\ell_{0}-x_{m}+x_{B}\right)^{2}}{4\ell_{S}^{2}}}\left(\arccos\left(\frac{\left(\ell_{0}-x_{m}+x_{B}\right)}{2\ell_{S}}\right)-\arccos\left(\frac{\ell_{0}}{2\ell_{S}}\right)\right)}{\ell_{S}}-m_{B}g\\
+\ddot{x}_{B} & = & \frac{2k\sqrt{1-\frac{\left(\ell_{0}-x_{m}+x_{B}\right)^{2}}{4\ell_{S}^{2}}}\left(\arccos\left(\frac{\left(\ell_{0}-x_{m}+x_{B}\right)}{2\ell_{S}}\right)-\arccos\left(\frac{\ell_{0}}{2\ell_{S}}\right)\right)}{m_{B}\ell_{S}}-g\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula \begin{eqnarray*}
+\ddot{x}_{m} & = & \frac{1}{m_{m}}F-\frac{2k\sqrt{1-\frac{\left(\ell_{0}-x_{m}+x_{B}\right)^{2}}{4\ell_{S}^{2}}}\left(\arccos\left(\frac{\left(\ell_{0}-x_{m}+x_{B}\right)}{2\ell_{S}}\right)-\arccos\left(\frac{\ell_{0}}{2\ell_{S}}\right)\right)}{m_{m}\ell_{S}}\\
+\ddot{x}_{B} & = & \frac{2k\sqrt{1-\frac{\left(\ell_{0}-x_{m}+x_{B}\right)^{2}}{4\ell_{S}^{2}}}\left(\arccos\left(\frac{\left(\ell_{0}-x_{m}+x_{B}\right)}{2\ell_{S}}\right)-\arccos\left(\frac{\ell_{0}}{2\ell_{S}}\right)\right)}{m_{B}\ell_{S}}-g\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Define the state variables and plug back in to yield the final differential
+ equations:
+\begin_inset Formula \begin{eqnarray*}
+x_{1} & = & x_{m}\\
+x_{2} & = & \dot{x}_{m}\\
+x_{3} & = & x_{B}\\
+x_{4} & = & \dot{x}_{B}\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Formula \begin{eqnarray*}
+\dot{x}_{1} & = & x_{2}\\
+\dot{x}_{2} & = & \frac{1}{m_{m}}F-\frac{2k\sqrt{1-\frac{\left(\ell_{0}-x_{1}+x_{3}\right)^{2}}{4\ell_{S}^{2}}}\left(\arccos\left(\frac{\left(\ell_{0}-x_{1}+x_{3}\right)}{2\ell_{S}}\right)-\arccos\left(\frac{\ell_{0}}{2\ell_{S}}\right)\right)}{m_{m}\ell_{S}}\\
+\dot{x}_{3} & = & x_{4}\\
+\dot{x}_{4} & = & \frac{2k\sqrt{1-\frac{\left(\ell_{0}-x_{1}+x_{3}\right)^{2}}{4\ell_{S}^{2}}}\left(\arccos\left(\frac{\left(\ell_{0}-x_{1}+x_{3}\right)}{2\ell_{S}}\right)-\arccos\left(\frac{\ell_{0}}{2\ell_{S}}\right)\right)}{m_{B}\ell_{S}}-g\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "Flo:exsys"
+
+\end_inset
+
+show the state variables for 2 seconds for an example set of parameters.
+ The system simulated is a hybrid system with the nonlinear dynamics derived
+ above governing the contact phase and simple ballistic motion governing
+ the non-contact phase.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/sys.pdf
+	width 4in
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Example of uncontrolled dynamics for 
+\begin_inset Formula $k=100$
+\end_inset
+
+, 
+\begin_inset Formula $m_{m}=10$
+\end_inset
+
+, 
+\begin_inset Formula $m_{B}=1$
+\end_inset
+
+ and 
+\begin_inset Formula $\dot{x}_{B}\left(0\right)=-5$
+\end_inset
+
+.
+ If allowed, the system will drift away forever.
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "Flo:exsys"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Fixed points for contact model
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula \begin{eqnarray*}
+\text{Set inputs to zero:}\\
+F & = & 0\\
+g & = & 0\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula \begin{eqnarray*}
+0 & = & x_{2}\\
+0 & = & \frac{2k\sqrt{1-\frac{\left(\ell_{0}-x_{1}+x_{3}\right)^{2}}{4\ell_{S}^{2}}}\left(\arccos\left(\frac{\left(\ell_{0}-x_{1}+x_{3}\right)}{2\ell_{S}}\right)-\arccos\left(\frac{\ell_{0}}{2\ell_{S}}\right)\right)}{m_{m}\ell_{S}}\\
+0 & = & x_{4}\\
+0 & = & \frac{2k\sqrt{1-\frac{\left(\ell_{0}-x_{1}+x_{3}\right)^{2}}{4\ell_{S}^{2}}}\left(\arccos\left(\frac{\left(\ell_{0}-x_{1}+x_{3}\right)}{2\ell_{S}}\right)-\arccos\left(\frac{\ell_{0}}{2\ell_{S}}\right)\right)}{m_{B}\ell_{S}}\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula \begin{eqnarray*}
+0 & = & 2k\sqrt{1-\frac{\left(\ell_{0}-x_{1}+x_{3}\right)^{2}}{4\ell_{S}^{2}}}\left(\arccos\left(\frac{\left(\ell_{0}-x_{1}+x_{3}\right)}{2\ell_{S}}\right)-\arccos\left(\frac{\ell_{0}}{2\ell_{S}}\right)\right)\end{eqnarray*}
+
+\end_inset
+
+If 
+\begin_inset Formula $x_{1}=x_{3}$
+\end_inset
+
+:
+\begin_inset Formula \begin{eqnarray*}
+0 & = & 2k\sqrt{1-\frac{\ell_{0}^{2}}{4\ell_{S}^{2}}}\left(\arccos\left(\frac{\ell_{0}}{2\ell_{S}}\right)-\arccos\left(\frac{\ell_{0}}{2\ell_{S}}\right)\right)\\
+0 & = & 2k\sqrt{1-\frac{\ell_{0}^{2}}{4\ell_{S}^{2}}}\left(0\right)\end{eqnarray*}
+
+\end_inset
+
+Fixed points:
+\begin_inset Formula \begin{eqnarray*}
+x_{1} & = & x_{3}\\
+x_{2} & = & 0\\
+x_{4} & = & 0\end{eqnarray*}
+
+\end_inset
+
+All this says is that the fixed point (for the contact model) is at the
+ point where the spring is not compressed and the velocities of the two
+ masses are zero.
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Linearization about 
+\begin_inset Formula $\left(0,0\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula \begin{eqnarray*}
+\dot{x}_{1} & = & x_{2}\\
+\dot{x}_{2} & = & \frac{1}{m_{m}}F-\frac{2k\sqrt{1-\frac{\left(\ell_{0}-x_{1}+x_{3}\right)^{2}}{4\ell_{S}^{2}}}\left(\arccos\left(\frac{\left(\ell_{0}-x_{1}+x_{3}\right)}{2\ell_{S}}\right)-\arccos\left(\frac{\ell_{0}}{2\ell_{S}}\right)\right)}{m_{m}\ell_{S}}\\
+\dot{x}_{3} & = & x_{4}\\
+\dot{x}_{4} & = & \frac{2k\sqrt{1-\frac{\left(\ell_{0}-x_{1}+x_{3}\right)^{2}}{4\ell_{S}^{2}}}\left(\arccos\left(\frac{\left(\ell_{0}-x_{1}+x_{3}\right)}{2\ell_{S}}\right)-\arccos\left(\frac{\ell_{0}}{2\ell_{S}}\right)\right)}{m_{B}\ell_{S}}-g\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Formula \begin{eqnarray*}
+J & = & \begin{bmatrix}\frac{\partial\dot{x}_{1}}{\partial x_{1}} & \frac{\partial\dot{x}_{1}}{\partial x_{2}} & \frac{\partial\dot{x}_{1}}{\partial x_{3}} & \frac{\partial\dot{x}_{1}}{\partial x_{4}}\\
+\frac{\partial\dot{x}_{2}}{\partial x_{1}} & \frac{\partial\dot{x}_{2}}{\partial x_{2}} & \frac{\partial\dot{x}_{2}}{\partial x_{3}} & \frac{\partial\dot{x}_{2}}{\partial x_{4}}\\
+\frac{\partial\dot{x}_{3}}{\partial x_{1}} & \frac{\partial\dot{x}_{3}}{\partial x_{2}} & \frac{\partial\dot{x}_{3}}{\partial x_{3}} & \frac{\partial\dot{x}_{3}}{\partial x_{4}}\\
+\frac{\partial\dot{x}_{4}}{\partial x_{1}} & \frac{\partial\dot{x}_{4}}{\partial x_{2}} & \frac{\partial\dot{x}_{4}}{\partial x_{3}} & \frac{\partial\dot{x}_{4}}{\partial x_{4}}\end{bmatrix}_{\left(0,0,0.0\right)}\\
+ & = & \begin{bmatrix}0 & 1 & 0 & 0\\
+\frac{\partial\dot{x}_{2}}{\partial x_{1}} & 0 & \frac{\partial\dot{x}_{2}}{\partial x_{3}} & 0\\
+0 & 0 & 0 & 1\\
+\frac{\partial\dot{x}_{4}}{\partial x_{1}} & 0 & \frac{\partial\dot{x}_{4}}{\partial x_{3}} & 0\end{bmatrix}_{\left(0,0,0.0\right)}\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Formula \begin{eqnarray*}
+\frac{\partial\dot{x}_{2}}{\partial x_{1}} & = & -\frac{k}{m_{m}\ell_{s}^{2}}-\frac{k\left(\ell_{0}-x_{1}-x_{3}\right)\left(\arccos\left(-\frac{-\ell_{0}+x_{1}+x_{3}}{2\ell_{s}}\right)-\arccos\left(\frac{\ell_{0}}{2\ell_{s}}\right)\right)}{2\ell_{s}^{3}m_{m}\sqrt{1-\frac{\left(-\ell_{0}+x_{1}+x_{3}\right)^{2}}{4\ell_{s}^{2}}}}\\
+\left.\frac{\partial\dot{x}_{2}}{\partial x_{1}}\right|_{\left(0,0,0.0\right)} & = & -\frac{k}{m_{m}\ell_{s}^{2}}\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Formula \begin{eqnarray*}
+\frac{\partial\dot{x}_{2}}{\partial x_{3}} & = & -\frac{k}{m_{m}\ell_{s}^{2}}-\frac{k\left(\ell_{0}-x_{1}-x_{3}\right)\left(\arccos\left(-\frac{-\ell_{0}+x_{1}+x_{3}}{2\ell_{s}}\right)-\arccos\left(\frac{\ell_{0}}{2\ell_{s}}\right)\right)}{2\ell_{s}^{3}m_{m}\sqrt{1-\frac{\left(-\ell_{0}+x_{1}+x_{3}\right)^{2}}{4\ell_{s}^{2}}}}\\
+\left.\frac{\partial\dot{x}_{2}}{\partial x_{3}}\right|_{\left(0,0,0.0\right)} & = & -\frac{k}{m_{m}\ell_{s}^{2}}\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Formula \begin{eqnarray*}
+\frac{\partial\dot{x}_{4}}{\partial x_{1}} & = & \frac{k}{m_{B}\ell_{s}^{2}}+\frac{k\left(\ell_{0}-x_{1}-x_{3}\right)\left(\arccos\left(-\frac{-\ell_{0}+x_{1}+x_{3}}{2\ell_{s}}\right)-\arccos\left(\frac{\ell_{0}}{2\ell_{s}}\right)\right)}{2\ell_{s}^{3}m_{B}\sqrt{1-\frac{\left(-\ell_{0}+x_{1}+x_{3}\right)^{2}}{4\ell_{s}^{2}}}}\\
+\left.\frac{\partial\dot{x}_{4}}{\partial x_{1}}\right|_{\left(0,0,0.0\right)} & = & \frac{k}{m_{B}\ell_{s}^{2}}\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Formula \begin{eqnarray*}
+\frac{\partial\dot{x}_{4}}{\partial x_{3}} & = & \frac{k}{m_{B}\ell_{s}^{2}}+\frac{k\left(\ell_{0}-x_{1}-x_{3}\right)\left(\arccos\left(-\frac{-\ell_{0}+x_{1}+x_{3}}{2\ell_{s}}\right)-\arccos\left(\frac{\ell_{0}}{2\ell_{s}}\right)\right)}{2\ell_{s}^{3}m_{B}\sqrt{1-\frac{\left(-\ell_{0}+x_{1}+x_{3}\right)^{2}}{4\ell_{s}^{2}}}}\\
+\left.\frac{\partial\dot{x}_{4}}{\partial x_{3}}\right|_{\left(0,0,0.0\right)} & = & \frac{k}{m_{B}\ell_{s}^{2}}\end{eqnarray*}
+
+\end_inset
+
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+
+\begin_inset Formula \[
+A=\begin{bmatrix}0 & 1 & 0 & 0\\
+-\frac{k}{m_{m}\ell_{s}^{2}} & 0 & -\frac{k}{m_{m}\ell_{s}^{2}} & 0\\
+0 & 0 & 0 & 1\\
+\frac{k}{m_{B}\ell_{s}^{2}} & 0 & \frac{k}{m_{B}\ell_{s}^{2}} & 0\end{bmatrix}\]
+
+\end_inset
+
+From this we can extract the new linear spring function:
+\begin_inset Formula \[
+F_{k}=\frac{k}{\ell_{s}^{2}}x\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "Flo:exsys"
+
+\end_inset
+
+ shows how the linear model compares to the nonlinear function as the leg
+ length changes.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /home/kkemper/projects/aristotle/course_work/me532/project/images/SpringFunctionApprox1.pdf
+	width 4in
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Resulting spring function from linearization.
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "Flo:linVnon1"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /home/kkemper/projects/aristotle/course_work/me532/project/images/outs_10.pdf
+	width 3.5in
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename /home/kkemper/projects/aristotle/course_work/me532/project/images/outs_100.pdf
+	width 3.5in
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Comparison of the linear spring function to the nonlinear system.
+ As the stiffness of the system increases, the deflection of the spring
+ decreases and the approximation becomes more accurate.
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "Flo:exsys-1"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Eigenvalues of linear System
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+\begin_inset Formula \[
+A=\begin{bmatrix}0 & 1 & 0 & 0\\
+-\frac{k}{m_{m}\ell_{s}^{2}} & 0 & -\frac{k}{m_{m}\ell_{s}^{2}} & 0\\
+0 & 0 & 0 & 1\\
+\frac{k}{m_{B}\ell_{s}^{2}} & 0 & \frac{k}{m_{B}\ell_{s}^{2}} & 0\end{bmatrix}\]
+
+\end_inset
+
+
+\begin_inset Formula \begin{eqnarray*}
+0 & = & \det\left\{ \lambda I-A\right\} \\
+0 & = & \begin{vmatrix}\lambda & -1 & 0 & 0\\
+\frac{k}{m_{m}\ell_{s}^{2}} & \lambda & \frac{k}{m_{m}\ell_{s}^{2}} & 0\\
+0 & 0 & \lambda & -1\\
+-\frac{k}{m_{B}\ell_{s}^{2}} & 0 & -\frac{k}{m_{B}\ell_{s}^{2}} & \lambda\end{vmatrix}\\
+0 & = & -\frac{k\lambda^{2}}{\ell_{s}^{2}m_{B}}+\frac{k\lambda^{2}}{\ell_{s}^{2}m_{m}}+\lambda^{4}\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Formula \begin{eqnarray*}
+\lambda_{1} & = & 0\\
+\lambda_{2} & = & 0\\
+\lambda_{3} & = & -\sqrt{\frac{k}{\ell_{s}^{2}m_{B}}-\frac{k}{\ell_{s}^{2}m_{m}}}\\
+\lambda_{4} & = & \sqrt{\frac{k}{\ell_{s}^{2}m_{B}}-\frac{k}{\ell_{s}^{2}m_{m}}}\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Formula $\lambda_{4}>0$
+\end_inset
+
+ 
+\begin_inset Formula $\rightarrow$
+\end_inset
+
+The system is not stable.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Linear system control: LQR
+\end_layout
+
+\begin_layout Subsection
+Objective function and constraints
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula \[
+\min_{u}\ J\left(u\right)=\int_{0}^{t_{f}}\, x^{T}Qx+u^{T}Ru\, dt\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Subject to:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula \[
+\dot{\bar{x}}=A\bar{x}+B\bar{u}\]
+
+\end_inset
+
+
+\begin_inset Formula \[
+\bar{x}\left(0\right)=\begin{bmatrix}0\\
+0\\
+0\\
+v_{0}\end{bmatrix}\]
+
+\end_inset
+
+
+\begin_inset Formula \[
+\bar{u}=\begin{bmatrix}F\\
+g\end{bmatrix}\]
+
+\end_inset
+
+
+\begin_inset Formula \[
+g=9.81\,\frac{m}{s^{2}}\]
+
+\end_inset
+
+
+\begin_inset Formula \begin{eqnarray*}
+F & < & F_{limit}\\
+\ell_{0}-x_{1}+x_{3} & > & 0\\
+F_{k} & \ge & 0\end{eqnarray*}
+
+\end_inset
+
+Where 
+\begin_inset Formula $A$
+\end_inset
+
+ will be defined by the linearized system and 
+\begin_inset Formula $v_{0}$
+\end_inset
+
+ is the initial velocity of the robot body at the moment of impact.
+ The input 
+\begin_inset Formula $g$
+\end_inset
+
+ will be fixed and 
+\begin_inset Formula $F$
+\end_inset
+
+ must stay below the motor force limit, 
+\begin_inset Formula $F_{limit}$
+\end_inset
+
+ and the system cannot compress the spring more than the resting length
+ 
+\begin_inset Formula $\ell_{0}$
+\end_inset
+
+.
+ The final constraint is that the spring force must always be positive or
+ zero.
+ If this condition is not satisfied then the robot will break contact with
+ the ground and bounce.
+\end_layout
+
+\begin_layout Subsection
+LQR: Take 1
+\end_layout
+
+\begin_layout Standard
+Taking the base system derived earlier we can explore solutions to the LQR
+ with the cost function and conditions defined as:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula \[
+\min_{u}\ J\left(u\right)=\int_{0}^{\infty}\, x^{T}Qx+u^{T}Ru\, dt\]
+
+\end_inset
+
+
+\begin_inset Formula \begin{eqnarray*}
+x_{1} & = & x_{m}\\
+x_{2} & = & \dot{x}_{m}\\
+x_{3} & = & x_{B}\\
+x_{4} & = & \dot{x}_{B}\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula \[
+\begin{Bmatrix}\dot{x}_{1}\\
+\dot{x}_{2}\\
+\dot{x}_{3}\\
+\dot{x}_{4}\end{Bmatrix}=\begin{bmatrix}0 & 1 & 0 & 0\\
+-\frac{k}{m_{m}\ell_{s}^{2}} & 0 & -\frac{k}{m_{m}\ell_{s}^{2}} & 0\\
+0 & 0 & 0 & 1\\
+\frac{k}{m_{B}\ell_{s}^{2}} & 0 & \frac{k}{m_{B}\ell_{s}^{2}} & 0\end{bmatrix}\begin{Bmatrix}x_{1}\\
+x_{2}\\
+x_{3}\\
+x_{4}\end{Bmatrix}+\begin{bmatrix}0\\
+\frac{1}{m_{m}}\\
+0\\
+0\end{bmatrix}\begin{Bmatrix}F_{m}\end{Bmatrix}\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+And example of the system response with 
+\begin_inset Formula \[
+Q=\begin{bmatrix}0 & 0 & 0 & 0\\
+0 & 0 & 0 & 0\\
+0 & 0 & 100000 & 0\\
+0 & 0 & 0 & 1000\end{bmatrix}\]
+
+\end_inset
+
+
+\begin_inset Formula \[
+R=1\]
+
+\end_inset
+
+is shown in Fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "Flo:lqr_force1"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/force_LQR1.pdf
+	width 3.5in
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename images/pos_LQR1.pdf
+	width 3.5in
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption
+
+\begin_layout Plain Layout
+The base model does not include enough information for LQR to keep the body
+ from bouncing.
+ The red sections of the graph indicate where contact has been lost.
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "Flo:lqr_force1"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+After adjusting the 
+\begin_inset Formula $Q$
+\end_inset
+
+ values by hand along the diagonal it becomes clear that simply regulating
+ the position or velocity of the load will not keep the body from bouncing.
+\end_layout
+
+\begin_layout Subsection
+LQR: Take 2
+\end_layout
+
+\begin_layout Standard
+Observing the previous results, something must be missing from cost function
+ - adjusting the diagonals to directly regulate the states is not enough
+ to satisfy our no-bounce criteria.
+ Next well attempt to produce a 
+\begin_inset Formula $Q$
+\end_inset
+
+ matrix that can capture our desired behavior.
+ Lets define our controlled output as:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula \[
+z=Cx.\]
+
+\end_inset
+
+Define 
+\begin_inset Formula $C$
+\end_inset
+
+ such that 
+\begin_inset Formula $z$
+\end_inset
+
+ is related to the force from the spring:
+\begin_inset Formula \[
+C=\begin{bmatrix}c_{1} & 0 & -c_{3} & 0\end{bmatrix}\]
+
+\end_inset
+
+where 
+\begin_inset Formula $c_{1}$
+\end_inset
+
+ and 
+\begin_inset Formula $c_{3}$
+\end_inset
+
+ are weights on the motor position and body position respectively.
+ Using: 
+\begin_inset Formula \[
+z^{T}z=x^{T}\underbrace{C^{T}C}_{Q}x\]
+
+\end_inset
+
+then
+\begin_inset Formula \begin{eqnarray*}
+Q & = & C^{T}C\\
+ & = & \begin{bmatrix}c_{1}\\
+0\\
+-c_{3}\\
+0\end{bmatrix}\begin{bmatrix}c_{1} & 0 & -c_{3} & 0\end{bmatrix}\\
+ & = & \begin{bmatrix}c_{1}^{2} & 0 & -c_{1}c_{3} & 0\\
+0 & 0 & 0 & 0\\
+-c_{1}c_{3} & 0 & c_{3}^{2} & 0\\
+0 & 0 & 0 & 0\end{bmatrix}\end{eqnarray*}
+
+\end_inset
+
+Checking the eigenvalues yields
+\begin_inset Formula \begin{eqnarray*}
+0 & = & \det\begin{bmatrix}\lambda-c_{1}^{2} & 0 & c_{1}c_{3} & 0\\
+0 & \lambda & 0 & 0\\
+c_{1}c_{3} & 0 & \lambda-c_{3}^{2} & 0\\
+0 & 0 & 0 & \lambda\end{bmatrix}\\
+ & = & -c_{1}^{2}\lambda^{3}-c_{3}^{2}\lambda^{3}+\lambda^{4}\\
+\\\lambda & = & 0,\ c_{1}^{2}+c_{3}^{2}\end{eqnarray*}
+
+\end_inset
+
+Therefore 
+\begin_inset Formula $Q$
+\end_inset
+
+ is positive semi-definite for any 
+\begin_inset Formula $c_{1}$
+\end_inset
+
+ and 
+\begin_inset Formula $c_{3}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+The results of the controller are shown in figures 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "Flo:lqr_force_z"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "Flo:lqr_force_z2"
+
+\end_inset
+
+.
+ Fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "Flo:lqr_force_z"
+
+\end_inset
+
+ demonstrates the response when 
+\begin_inset Formula $c_{1}>c_{3}$
+\end_inset
+
+.
+ In that case, the system attempts to keep the motor position at the origin.
+ Fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "Flo:lqr_force_z2"
+
+\end_inset
+
+ demonstrates the response where 
+\begin_inset Formula $c_{1}<c_{3}$
+\end_inset
+
+.
+ For this case, the system generates a control strategy that initially bounces
+ the body and motor apart then drives the motor into the body with just
+ enough energy to stop the motion of the system at the origin.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/force_LQR_z.pdf
+	width 3.5in
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename images/pos_LQR_z.pdf
+	width 3.5in
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Strictly trying to regulate the spring force yields poor results.
+ Increasing 
+\begin_inset Formula $c_{1}$
+\end_inset
+
+ produces controller gains that cause the motor position to lock at the
+ origin, continuously bouncing the body.
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "Flo:lqr_force_z"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/force_LQR_z2.pdf
+	width 3.5in
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename images/pos_LQR_z2.pdf
+	width 3.5in
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Increasing 
+\begin_inset Formula $c_{1}$
+\end_inset
+
+ produces controller gains that cause the motor to bounce away initially,
+ coming back into contact with the body with just enough energy to stop
+ the system and hold the body at the origin.
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "Flo:lqr_force_z2"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+LQR: Take 3
+\end_layout
+
+\begin_layout Standard
+Another possible solution is to try and include more information in the
+ states.
+ We define the new state 
+\begin_inset Formula $x_{5}$
+\end_inset
+
+ as the force produced by the spring:
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+\begin_inset Formula \[
+x_{5}=F_{k}=\frac{k}{\ell_{s}^{2}}\left(x_{1}-x_{3}\right).\]
+
+\end_inset
+
+By differentiating, we can now write the ODE for the spring force and include
+ it in our system dynamics 
+\begin_inset Formula $\left[A\right]$
+\end_inset
+
+: 
+\begin_inset Formula \begin{eqnarray*}
+\dot{x}_{5} & = & \frac{k}{\ell_{s}^{2}}\left(\dot{x}_{1}-\dot{x}_{3}\right)\\
+\dot{x}_{5} & = & \frac{k}{\ell_{s}^{2}}x_{2}-\frac{k}{\ell_{s}^{2}}x_{4}\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula \[
+\begin{Bmatrix}\dot{x}_{1}\\
+\dot{x}_{2}\\
+\dot{x}_{3}\\
+\dot{x}_{4}\\
+\dot{x}_{5}\end{Bmatrix}=\begin{bmatrix}0 & 1 & 0 & 0 & 0\\
+-\frac{k}{m_{m}\ell_{s}^{2}} & 0 & -\frac{k}{m_{m}\ell_{s}^{2}} & 0 & 0\\
+0 & 0 & 0 & 1 & 0\\
+\frac{k}{m_{B}\ell_{s}^{2}} & 0 & \frac{k}{m_{B}\ell_{s}^{2}} & 0 & 0\\
+0 & \frac{k}{\ell_{s}^{2}} & 0 & -\frac{k}{\ell_{s}^{2}} & 0\end{bmatrix}\begin{Bmatrix}x_{1}\\
+x_{2}\\
+x_{3}\\
+x_{4}\\
+x_{5}\end{Bmatrix}+\begin{bmatrix}0\\
+\frac{1}{m_{m}}\\
+0\\
+0\\
+0\end{bmatrix}\begin{Bmatrix}F_{m}\end{Bmatrix}\]
+
+\end_inset
+
+We can then write a simple 
+\begin_inset Formula $\left[Q\right]$
+\end_inset
+
+ that emphasizes regulation of the load position as well as the force on
+ the load.
+ An example is given below with the response (on the linear system) shown
+ in Fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "Flo:lqr_force2"
+
+\end_inset
+
+.
+ 
+\begin_inset Formula \[
+Q=\begin{bmatrix}0 & 0 & 0 & 0 & 0\\
+0 & 0 & 0 & 0 & 0\\
+0 & 0 & 1000000 & 0 & 0\\
+0 & 0 & 0 & 0 & 0\\
+0 & 0 & 0 & 0 & 1000\end{bmatrix}\]
+
+\end_inset
+
+
+\begin_inset Formula \[
+R=1\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/force_LQR2.pdf
+	width 3.5in
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename images/pos_LQR2.pdf
+	width 3.5in
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption
+
+\begin_layout Plain Layout
+With the new state, LQR can stop the body from bouncing by regulating the
+ force applied to the body.
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "Flo:lqr_force2"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The resulting controller clearly maintains contact while driving the body
+ back toward the origin\SpecialChar \@.
+ Fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "Flo:lqr_force2_nonlin"
+
+\end_inset
+
+ shows the results of the same LQR gains used to control the linear system
+ defined above applied to the original non-linear system (without 
+\begin_inset Formula $F_{limit}$
+\end_inset
+
+ imposed).
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/force_LQR2_nonlin.pdf
+	width 3.5in
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename images/pos_LQR2_nonlin.pdf
+	width 3.5in
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption
+
+\begin_layout Plain Layout
+LQR gains applied to the original non-linear system.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset CommandInset label
+LatexCommand label
+name "Flo:lqr_force2_nonlin"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+LQR: Final take
+\end_layout
+
+\begin_layout Standard
+Finally we need to investigate how the controller handles the complete non-linea
+r system that includes the motor force limits.
+ Figures 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "Flo:lqr_force3"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "Flo:lqr_force3_nonlin"
+
+\end_inset
+
+ demonstrates that the controller (with the proper gains) can be designed
+ to regulate the system while being robust with respect to unknown actuator
+ limitations.
+ Fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "Flo:lqr_force3"
+
+\end_inset
+
+ shows the performance on the linear system with gain matrices: 
+\begin_inset Formula \[
+Q=\begin{bmatrix}0 & 0 & 0 & 0 & 0\\
+0 & 0 & 0 & 0 & 0\\
+0 & 0 & 500000 & 0 & 0\\
+0 & 0 & 0 & 0 & 0\\
+0 & 0 & 0 & 0 & 100\end{bmatrix}\]
+
+\end_inset
+
+
+\begin_inset Formula \[
+R=1\]
+
+\end_inset
+
+Where the 
+\begin_inset Formula $Q$
+\end_inset
+
+ is applying a small penelty to having a force on the body and a large penelty
+ to the position of the body.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/force_LQR3.pdf
+	width 3.5in
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename images/pos_LQR3.pdf
+	width 3.5in
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Even when the input force is clipped the new state allows LQR stop the body
+ from bouncing.
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "Flo:lqr_force3"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "Flo:lqr_force3_nonlin"
+
+\end_inset
+
+ shows the performance on the non-linear system with a detail of the motor
+ force near 
+\begin_inset Formula $t=0$
+\end_inset
+
+ in Fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "Flo:lqr_force3_nonlin_zoom"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/force_LQR3_nonlin.pdf
+	width 3.5in
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename images/pos_LQR3_nonlin.pdf
+	width 3.5in
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption
+
+\begin_layout Plain Layout
+LQR gains applied to the original non-linear system with clipped input force.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset CommandInset label
+LatexCommand label
+name "Flo:lqr_force3_nonlin"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/force_LQR3_nonlin_zoom.pdf
+	width 3.5in
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Close up view of the input force as applied to the system.
+ In this case 
+\begin_inset Formula $F_{limit}=350\, N$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset CommandInset label
+LatexCommand label
+name "Flo:lqr_force3_nonlin_zoom"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Discussion and conclusion
+\end_layout
+
+\begin_layout Standard
+On the surface, the problem of developing a controller that catches a mass
+ without bouncing it seems reasonably simple.
+ Writing the equations of motion for the system is reasonably straight forward
+ but the issue comes with trying to formulate the cost function in a manor
+ that fully describes the goals.
+ In this case the basic equations of motion are not enough to develop a
+ cost function within the framework of LQR to keep the body of the robot
+ from bouncing and losing contact.
+ The revelation is that by simply adding a new state to the system - one
+ that does not even need to be directly measured - is enough to facilitate
+ a meaningful cost-function.
+\end_layout
+
+\begin_layout Standard
+LQR is sufficient for our system because our sensors are very high resolution
+ absolute position encoders.
+ For now the robot is attached to a boom that allows for full state feedback
+ of the system's orientation.
+ Technically this would allow us to know what the vertical velocity of the
+ robot is at any moment (well before contact).
+ However our interest is in dealing with unexpected impacts such as underestimat
+ing (or having no estimate of) the vertical velocity.
+ The concept can be further abstracted to a larger set of impact related
+ problems where the goal is to maintain contact with the caught object to
+ safely control it's motion.
+ Examples of this could be spaceship docking where 
+\begin_inset Quotes eld
+\end_inset
+
+chattering
+\begin_inset Quotes erd
+\end_inset
+
+ is undesired or dangerous.
+ It is even possible that the actuator could 
+\begin_inset Quotes eld
+\end_inset
+
+couple
+\begin_inset Quotes erd
+\end_inset
+
+ with the caught object but because of mechanical constraints, only handle
+ small tensile forces.
+\end_layout
+
+\begin_layout Standard
+In any case, it is important to know that these problems can be solved sufficien
+t with classical optimal control techniques even in the presence of unknown
+ (as far as the controller is concerned) motor limitations.
+ Further work would revolve around searching for control boundaries related
+ to how increasing a system parameter (such as the spring constant) changes
+ the maximum initial velocity of the body that can be controlled to not
+ bounce away.
+\end_layout
+
+\end_body
+\end_document

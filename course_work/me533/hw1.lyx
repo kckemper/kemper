@@ -1,0 +1,508 @@
+#LyX 1.6.7 created this file. For more info see http://www.lyx.org/
+\lyxformat 345
+\begin_document
+\begin_header
+\textclass article
+\use_default_options true
+\language english
+\inputencoding auto
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_amsmath 1
+\use_esint 1
+\cite_engine basic
+\use_bibtopic false
+\paperorientation portrait
+\leftmargin 0.5in
+\topmargin 1in
+\rightmargin 0.5in
+\bottommargin 1in
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\defskip medskip
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\author "" 
+\author "" 
+\end_header
+
+\begin_body
+
+\begin_layout Enumerate
+Problem 6.3.14 in Strogatz 
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+If you simply linearize the system, what type of fixed point does the linearizat
+ion predict?
+\begin_inset Formula \begin{eqnarray*}
+\dot{x} & = & -y+ax^{3}\\
+\dot{y} & = & x+ay^{3}\end{eqnarray*}
+
+\end_inset
+
+Find fixed points:
+\begin_inset Formula \begin{eqnarray*}
+ax^{3} & = & y\\
+x & = & -ay^{3}\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Formula \[
+\left(x^{*},y^{*}\right)=\left(0,0\right)\]
+
+\end_inset
+
+Linearize about the fixed point:
+\begin_inset Formula \begin{eqnarray*}
+J & = & \begin{bmatrix}3ax^{2} & -1\\
+1 & 3ay^{2}\end{bmatrix}_{\left(0,0\right)}\\
+ & = & \begin{bmatrix}0 & -1\\
+1 & 0\end{bmatrix}\end{eqnarray*}
+
+\end_inset
+
+Find eigenvalues:
+\begin_inset Formula \begin{eqnarray*}
+0 & = & \det\left\{ \lambda I-A\right\} =\begin{vmatrix}\lambda & -1\\
+1 & \lambda\end{vmatrix}\\
+0 & = & \lambda^{2}+1\\
+\lambda & = & \pm i\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Formula $\therefore$
+\end_inset
+
+ we have a non-hyperbolic fixed point at 
+\begin_inset Formula $\left(0,0\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Does switching to polar coordinates provide any more information to change
+ your answer?
+\begin_inset Formula \begin{eqnarray*}
+x & = & r\cos\theta\\
+y & = & r\sin\theta\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Formula \begin{eqnarray*}
+\dot{x} & = & \dot{r}\cos\theta-r\dot{\theta}\sin\theta\\
+\dot{y} & = & \dot{r}\sin\theta+r\dot{\theta}\cos\theta\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Formula \begin{eqnarray*}
+\dot{r}\cos\theta-r\dot{\theta}\sin\theta & = & -r\sin\theta+a\left(r\cos\theta\right)^{3}\\
+\dot{r}\sin\theta+r\dot{\theta}\cos\theta & = & r\cos\theta+a\left(r\sin\theta\right)^{3}\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Formula \begin{eqnarray*}
+\dot{r}\cos\theta & = & r\dot{\theta}\sin\theta-r\sin\theta+a\left(r\cos\theta\right)^{3}\\
+\dot{r} & = & \frac{r\dot{\theta}\sin\theta-r\sin\theta+a\left(r\cos\theta\right)^{3}}{\cos\theta}\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Formula \begin{eqnarray*}
+\left(\frac{r\dot{\theta}\sin\theta-r\sin\theta+a\left(r\cos\theta\right)^{3}}{\cos\theta}\right)\sin\theta+r\dot{\theta}\cos\theta & = & r\cos\theta+a\left(r\sin\theta\right)^{3}\\
+\frac{r\dot{\theta}\sin^{2}\theta}{\cos\theta}+r\dot{\theta}\cos\theta & = & \frac{r\sin^{2}\theta}{\cos\theta}-\frac{a\sin\theta\left(r\cos\theta\right)^{3}}{\cos\theta}+r\cos\theta+a\left(r\sin\theta\right)^{3}\\
+\left(\sin^{2}\theta+\cos^{2}\theta\right)r\dot{\theta} & = & r\sin^{2}\theta-a\sin\theta\left(r\cos\theta\right)^{3}+r\cos^{2}\theta+a\left(r\sin\theta\right)^{3}\cos\theta\\
+\dot{\theta} & = & \sin^{2}\theta-a\sin\theta r^{2}\cos^{3}\theta+\cos^{2}\theta+ar^{2}\sin^{3}\theta\cos\theta\\
+\\\dot{\theta} & = & 1-\left(ar^{2}\sin\theta\cos\theta\right)\cos^{2}\theta+\left(ar^{2}\sin\theta\cos\theta\right)\sin^{2}\theta\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Formula \begin{eqnarray*}
+\dot{r}\cos\theta & = & r\left(1-\left(ar^{2}\sin\theta\cos\theta\right)\cos^{2}\theta+\left(ar^{2}\sin\theta\cos\theta\right)\sin^{2}\theta\right)\sin\theta-r\sin\theta+a\left(r\cos\theta\right)^{3}\\
+\dot{r} & = & -ar^{3}\sin^{2}\theta\cos^{2}\theta\end{eqnarray*}
+
+\end_inset
+
+...
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+\align left
+Determine the stability of the trivial solution (0,0) of:
+\begin_inset Formula \begin{eqnarray*}
+f_{1}=\dot{x} & = & xy^{2}-\frac{1}{2}x^{3}\\
+f_{2}=\dot{y} & = & -\frac{1}{2}y^{3}+\frac{1}{5}x^{2}y\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Formula \begin{eqnarray*}
+J & = & \begin{bmatrix}\frac{\partial f_{1}}{\partial x} & \frac{\partial f_{1}}{\partial y}\\
+\frac{\partial f_{2}}{\partial x} & \frac{\partial f_{2}}{\partial y}\end{bmatrix}_{\left(0,0\right)}\\
+ & = & \begin{bmatrix}y^{2}-\frac{3}{2}x^{2} & 2xy\\
+\frac{2}{5}xy & -\frac{3}{2}y^{2}+\frac{1}{5}x^{2}\end{bmatrix}_{\left(0.0\right)}\\
+ & = & \begin{bmatrix}0 & 0\\
+0 & 0\end{bmatrix}\end{eqnarray*}
+
+\end_inset
+
+Eigenvalues are zero so the linearization is not sufficent.
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename prob2.pdf
+	scale 80
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+The system appears to be stable around 
+\begin_inset Formula $\left(0,0\right)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Determine the stability of the origin of:
+\begin_inset Formula \begin{eqnarray*}
+\dot{x} & = & y\\
+\dot{y} & = & -\left(x+y\right)-\sin\left(x+y\right)\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename prob3.pdf
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+The system appears to be stable around 
+\begin_inset Formula $\left(0,0\right)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Determine where bifurcations occur:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset Formula $\dot{x}=1+rx+x^{2}$
+\end_inset
+
+
+\begin_inset Formula \begin{eqnarray*}
+0 & = & 1+rx+x^{2}\\
+\\x^{*} & = & \frac{-r\pm\sqrt{r^{2}-4}}{2}\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Formula \begin{eqnarray*}
+\frac{\partial f}{\partial x} & = & r+2x\\
+\\x & = & -\frac{r}{2}\\
+\implies\\
+-\frac{r}{2} & = & -\frac{r}{2}\pm\frac{\sqrt{r^{2}-4}}{2}\\
+0 & = & \pm\frac{\sqrt{r^{2}-4}}{2}\\
+r & = & \pm2\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Formula \[
+\left(x^{*},r_{o}\right)=\begin{matrix}\left(-1,2\right)\\
+\left(1,-2\right)\end{matrix}\]
+
+\end_inset
+
+
+\begin_inset Formula \[
+\frac{\partial f}{\partial r}=x\]
+
+\end_inset
+
+
+\begin_inset Formula \begin{eqnarray*}
+\left.\frac{\partial f}{\partial r}\right|_{x^{*}=-1} & = & -1\\
+\left.\frac{\partial f}{\partial r}\right|_{x^{*}=1} & = & 1\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Formula \[
+\frac{\partial^{2}f}{\partial x^{2}}=2\]
+
+\end_inset
+
+
+\begin_inset Formula $\therefore$
+\end_inset
+
+ there is a saddle bifurcation at both 
+\begin_inset Formula $\left(-1,2\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $\left(1,-2\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\dot{x}=x-rx\left(1-x\right)=x-rx+rx^{2}$
+\end_inset
+
+
+\begin_inset Formula \begin{eqnarray*}
+0 & = & x-rx\left(1-x\right)\\
+0 & = & -x\left(1-r+rx\right)\\
+\\x^{*} & = & \begin{matrix}0\\
+\frac{r-1}{r}\end{matrix}\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Formula \begin{eqnarray*}
+\frac{\partial f}{\partial x} & = & 1-r+2rx\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Formula \begin{eqnarray*}
+\left.\frac{\partial f}{\partial x}\right|_{x^{*}=0} & = & 1-r=0\implies r=1\\
+\\\left.\frac{\partial f}{\partial x}\right|_{x^{*}=\frac{r-1}{r}} & = & 1-r+2\left(r-1\right)=0\implies r=1\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Formula \[
+\left(x^{*},r_{0}\right)=\left(0,1\right)\]
+
+\end_inset
+
+
+\begin_inset Formula \[
+\frac{\partial f}{\partial r}=-x+x^{2}\]
+
+\end_inset
+
+
+\begin_inset Formula \[
+\left.\frac{\partial f}{\partial r}\right|_{x^{*}=0}=0\]
+
+\end_inset
+
+
+\begin_inset Formula \[
+\frac{\partial f}{\partial x\partial r}=-1+2x\]
+
+\end_inset
+
+
+\begin_inset Formula \[
+\left.\frac{\partial f}{\partial x\partial r}\right|_{x^{*}=0}=-1\]
+
+\end_inset
+
+
+\begin_inset Formula \[
+\frac{\partial^{2}f}{\partial x^{2}}=2r\]
+
+\end_inset
+
+
+\begin_inset Formula \[
+\left.\frac{\partial^{2}f}{\partial x^{2}}\right|_{r=1}=2\ne0\]
+
+\end_inset
+
+
+\begin_inset Formula $\therefore$
+\end_inset
+
+ there is a transcritical bifurcation at 
+\begin_inset Formula $\left(0,1\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\dot{x}=rx-4x^{3}$
+\end_inset
+
+
+\begin_inset Formula \begin{eqnarray*}
+0 & = & rx-4x^{3}\\
+0 & = & x\left(r-4x^{2}\right)\\
+\\x^{*} & = & \begin{matrix}0\\
+\sqrt{\frac{r}{4}}\end{matrix}\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Formula \begin{eqnarray*}
+\frac{\partial f}{\partial x} & = & r-12x^{2}\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Formula \begin{eqnarray*}
+\left.\frac{\partial f}{\partial x}\right|_{x^{*}=0} & = & r=0\\
+\\\left.\frac{\partial f}{\partial x}\right|_{x^{*}=\sqrt{\frac{r}{4}}} & = & r-12\sqrt{\frac{r}{4}}^{2}=0\\
+r-12\frac{r}{4} & = & 0\\
+r & = & 0\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Formula \[
+\left(x^{*},r_{0}\right)=\left(0,0\right)\]
+
+\end_inset
+
+
+\begin_inset Formula \[
+\frac{\partial f}{\partial r}=x\]
+
+\end_inset
+
+
+\begin_inset Formula \[
+\left.\frac{\partial f}{\partial r}\right|_{x^{*}=0}=0\]
+
+\end_inset
+
+
+\begin_inset Formula \[
+\frac{\partial f}{\partial x\partial r}=1\]
+
+\end_inset
+
+
+\begin_inset Formula \[
+\frac{\partial^{2}f}{\partial x^{2}}=-24x\]
+
+\end_inset
+
+
+\begin_inset Formula \[
+\left.\frac{\partial^{2}f}{\partial x^{2}}\right|_{x=0}=0\]
+
+\end_inset
+
+
+\begin_inset Formula \[
+\frac{\partial^{3}f}{\partial x^{3}}=-24\]
+
+\end_inset
+
+
+\begin_inset Formula $\therefore$
+\end_inset
+
+ there is a pitchfork bifurcation at 
+\begin_inset Formula $\left(0,0\right)$
+\end_inset
+
+.
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\end_body
+\end_document

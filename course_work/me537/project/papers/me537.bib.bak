@@ -1,0 +1,267 @@
+% This file was created with JabRef 2.6.
+% Encoding: UTF-8
+
+@ARTICLE{Baluja97visionbasedfocus,
+  author = {Shumeet Baluja and Dean Pomerleau},
+  title = {Dynamic Relevance: Vision-Based Focus of Attention using Artificial
+	Neural Networks},
+  journal = {Artificial Intelligence},
+  year = {1997},
+  file = {:./Baluja97visionbasedfocus.pdf:PDF}
+}
+
+@CONFERENCE{Chen2006,
+  author = {Hung-Ching Chen and Malik Magdon-Ismail},
+  title = {Neural Network for Option Pricing Using Multinomial Tree},
+  booktitle = {International Conference of Neural Information Processing},
+  year = {2006},
+  owner = {devin},
+  timestamp = {2010.11.13},
+  url = {http://books.google.com/books?id=sM3RnJWC_XAC&pg=PA388&lpg=PA388&dq=neural+network+ensemble+image&source=bl&ots=qvv8ebxqZe&sig=DtkplbNQ311AtZhS3CdcWtPJpK8&hl=en&ei=rVrfTO7IHJL6sAPzy-CKCg&sa=X&oi=book_result&ct=result&resnum=8&ved=0CDMQ6AEwBzgo#v=onepage&q=neural%20network%20ensemble%20image&f=false}
+}
+
+@CONFERENCE{Cheng1995,
+  author = {H.D. Cheng and C.H. Chen and R.I. Freimanis},
+  title = {A Neural Network for Breast Cancer Detection Using Fuzzy Entropy
+	Approach},
+  booktitle = {International Conference on Image Processing},
+  year = {1995},
+  owner = {devin},
+  timestamp = {2010.11.13}
+}
+
+@ARTICLE{Coombs98obstacleavoidanceflow,
+  author = {Coombs, D. and Herman, M. and Tsai-Hong Hong and Nashman, M.},
+  title = {Real-time obstacle avoidance using central flow divergence, and peripheral
+	flow},
+  journal = {Robotics and Automation, IEEE Transactions on},
+  year = {1998},
+  volume = {14},
+  pages = {49 -59},
+  number = {1},
+  month = {feb.},
+  doi = {10.1109/70.660840},
+  file = {:./Coombs98obstacleavoidanceflow.pdf:PDF},
+  issn = {1042-296X},
+  keywords = {2D image sequence;active gaze stabilization;active vision;central
+	flow divergence;digital control;feedback;image flow;mobile robot;motion
+	planning;object recognition;obstacle avoidance;peripheral flow;real-time
+	systems;recursive estimation;robot vision;active vision;digital control;feedback;mobile
+	robots;motion estimation;object recognition;path planning;real-time
+	systems;recursive estimation;robot vision;}
+}
+
+@INPROCEEDINGS{5407265,
+  author = {Debnath, K.K. and Ahdikary, J.K. and Shahjahan, M.},
+  title = {A currency recognition system using negatively correlated neural
+	network ensemble},
+  booktitle = {Computers and Information Technology, 2009. ICCIT '09. 12th International
+	Conference on},
+  year = {2009},
+  pages = {367 -372},
+  month = dec.,
+  doi = {10.1109/ICCIT.2009.5407265},
+  keywords = {Bangladeshi currency;currency recognition system;ensemble neural network
+	training;gray scale;image compression;negative correlation learning;correlation
+	methods;financial data processing;image classification;image coding;image
+	colour analysis;image recognition;learning (artificial intelligence);neural
+	nets;}
+}
+
+@ARTICLE{EgmontPetersen2002imageprocessingNN,
+  author = {M. Egmont-Petersen and D. de Ridder and H. Handels},
+  title = {Image processing with neural networks--a review},
+  journal = {Pattern Recognition},
+  year = {2002},
+  volume = {35},
+  pages = {2279 - 2301},
+  number = {10},
+  doi = {DOI: 10.1016/S0031-3203(01)00178-9},
+  file = {:./EgmontPetersen2002imageprocessingNN.pdf:PDF},
+  issn = {0031-3203},
+  keywords = {Neural networks},
+  url = {http://www.sciencedirect.com/science/article/B6V14-463FTWW-7/2/409c589fa2ab672c7067f526784ef0a8}
+}
+
+@ARTICLE{Giacinto2001,
+  author = {Giorgio Giacinto and Fabio Roli},
+  title = {Design of Effective Neural Network Ensembles for Image Classification
+	Purposes},
+  journal = {Image and Vision Computing},
+  year = {2001},
+  volume = {19},
+  pages = {699-707},
+  owner = {devin},
+  timestamp = {2010.11.13}
+}
+
+@ARTICLE{Hansen1990,
+  author = {Lars Kai Hansen and Peter Salamon},
+  title = {Neural Network Ensembles},
+  journal = {IEEE Transactions on Pattern Recognition Analysis and Machine Intelligence},
+  year = {1990},
+  volume = {12},
+  pages = {993-1001},
+  file = {:/home/devin/Desktop/coffeemachine/project/papers/HansenSalamon1990.pdf:PDF},
+  owner = {devin},
+  timestamp = {2010.11.13}
+}
+
+@INPROCEEDINGS{Jochem95visionbasedNNroaddetection,
+  author = {Jochem, T.M. and Pomerleau, D.A. and Thorpe, C.E.},
+  title = {Vision-based neural network road and intersection detection and traversal},
+  year = {1995},
+  volume = {3},
+  pages = {344 -349 vol.3},
+  month = {aug.},
+  doi = {10.1109/IROS.1995.525907},
+  file = {:./Jochem95visionbasedNNroaddetection.pdf:PDF},
+  journal = {Intelligent Robots and Systems 95. 'Human Robot Interaction and Cooperative
+	Robots', Proceedings. 1995 IEEE/RSJ International Conference on},
+  keywords = { ALVINN; artificial neural networks; autonomous driving; geometric
+	model; vision-based neural network intersection detection; vision-based
+	neural network road detection; computer vision; computerised navigation;
+	image sensors; mobile robots; neural nets; road vehicles;}
+}
+
+@ARTICLE{Kodjabachian98NNobstacleavoidance,
+  author = {Kodjabachian, J. and Meyer, J.-A.},
+  title = {Evolution and development of neural controllers for locomotion, gradient-following,
+	and obstacle-avoidance in artificial insects},
+  journal = {Neural Networks, IEEE Transactions on},
+  year = {1998},
+  volume = {9},
+  pages = {796 -812},
+  number = {5},
+  month = {sep.},
+  doi = {10.1109/72.712153},
+  file = {:./Kodjabachian98NNobstacleavoidance.pdf:PDF},
+  issn = {1045-9227},
+  keywords = {SGOCE paradigm;artificial insects;encoding;evolutionary algorithm;gradient-following;leaky
+	integrators;legged locomotion;neurocontrol;obstacle-avoidance;recurrent
+	neural networks;simple geometry oriented cellular encoding;syntactic
+	constraints;encoding;genetic algorithms;legged locomotion;neurocontrollers;path
+	planning;recurrent neural nets;}
+}
+
+@ARTICLE{Nelson89ObstacleAvoidanceFlow,
+  author = {Nelson, R.C. and Aloimonos, J.},
+  title = {Obstacle avoidance using flow field divergence},
+  journal = {Pattern Analysis and Machine Intelligence, IEEE Transactions on},
+  year = {1989},
+  volume = {11},
+  pages = {1102 -1106},
+  number = {10},
+  month = {oct.},
+  doi = {10.1109/34.42840},
+  file = {:./Nelson89ObstacleAvoidanceFlow.pdf:PDF},
+  issn = {0162-8828},
+  keywords = {2D motion field;computer vision;computerised pattern recognition;directional
+	divergence;flow field divergence;image sequences;obstacle avoidance;real-world
+	image;visual navigation;computer vision;computerised navigation;computerised
+	pattern recognition;}
+}
+
+@INPROCEEDINGS{Pardoe05evolvingneural,
+  author = {David Pardoe and Michael Ryoo and Risto Miikkulainen},
+  title = {Evolving neural network ensembles for control problems},
+  booktitle = {Proceedings of the 2005 conference on Genetic and evolutionary computation},
+  year = {2005},
+  pages = {1379--1384},
+  file = {:./Pardoe05evolvingneural.pdf:PDF}
+}
+
+@INPROCEEDINGS{Pomerleau93_NNforVehicles,
+  author = {Pomerleau, D.A.},
+  title = {Neural Networks For Intelligent Vehicles},
+  year = {1993},
+  pages = {19 -24},
+  month = {jul.},
+  doi = {10.1109/IVS.1993.697291},
+  file = {:./Pomerleau93_NNforVehicles.pdf:PDF},
+  journal = {Intelligent Vehicles '93 Symposium}
+}
+
+@INBOOK{Pomerleau93_NNrobotdriving,
+  chapter = {2},
+  pages = {19-44},
+  title = {Robot learning},
+  publisher = {Springer},
+  year = {1993},
+  editor = {J. H. Connell and Sridhar Mahadevan},
+  author = {Dean A. Pomerleau},
+  file = {:./Pomerleau93_NNrobotdriving.pdf:PDF},
+  owner = {kkemper},
+  timestamp = {2010.10.17}
+}
+
+@INPROCEEDINGS{Pomerleau96neuralnetwork,
+  author = {Dean A. Pomerleau},
+  title = {Neural Network Vision for Robot Driving},
+  booktitle = {The Handbook of Brain Theory and Neural Networks},
+  year = {1996},
+  pages = {161--181},
+  publisher = {University Press},
+  file = {:./Pomerleau96neuralnetwork.pdf:PDF}
+}
+
+@BOOK{Pomerleau93ALVINN,
+  title = {Neural Network Perception for Mobile Robot Guidance},
+  publisher = {Kluwer Academic Publishers},
+  year = {1993},
+  author = {Pomerleau, Dean A.},
+  address = {Norwell, MA, USA},
+  isbn = {0792393732}
+}
+
+@ARTICLE{Rao2006,
+  author = {K. Venu Gopala Rao and P. Prem Chand and M.V. Ramana Murthy},
+  title = {Soft Computing-Neural Networks Ensembles},
+  journal = {Journal of Theoretical and Apllied Information Technology},
+  year = {2006},
+  volume = {13},
+  pages = {45-50},
+  file = {:/home/devin/Desktop/coffeemachine/project/papers/rao06.pdf:PDF},
+  owner = {devin},
+  timestamp = {2010.11.13}
+}
+
+@CONFERENCE{Shi2010,
+  author = {Zhenghao Shi and Lifeng He},
+  title = {Application of Neural Networks in Medical Image Processing},
+  booktitle = {International Symposium on Networking and Network Security},
+  year = {2010},
+  file = {:/home/devin/Desktop/coffeemachine/project/papers/shi10.pdf:PDF},
+  owner = {devin},
+  timestamp = {2010.11.13}
+}
+
+@INPROCEEDINGS{Slade03_enn_sat,
+  author = {Slade, W.H., Jr. and Miller, R.L. and Ressom, H. and Natarajan, P.},
+  title = {Ensemble neural network methods for satellite-derived estimation
+	of chlorophyll alpha;},
+  booktitle = {Neural Networks, 2003. Proceedings of the International Joint Conference
+	on},
+  year = {2003},
+  volume = {1},
+  pages = { 547 - 552 vol.1},
+  month = july,
+  doi = {10.1109/IJCNN.2003.1223405},
+  issn = {1098-7576},
+  keywords = { Gulf of Maine; atmospheric correction; chlorophyll a concentration;
+	dataset; ensemble neural network methods; geographical variation;
+	natural waters; ocean reflectances; optical classification; perceptron
+	neural networks; radiance contributions; satellite-derived estimation;
+	sea-viewing wide-field-of-view sensor; temporal variation; brightness;
+	learning (artificial intelligence); perceptrons; remote sensing;
+	seawater;}
+}
+
+@comment{jabref-meta: selector_publisher:}
+
+@comment{jabref-meta: selector_author:}
+
+@comment{jabref-meta: selector_journal:}
+
+@comment{jabref-meta: selector_keywords:}
+

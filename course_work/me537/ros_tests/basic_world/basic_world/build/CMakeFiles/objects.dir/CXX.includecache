@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/koepld/Desktop/me537/coffeemachine/ros_tests/basic_world/basic_world/src/diff_drive_robot.cpp
+diff_drive_robot.h
+/home/koepld/Desktop/me537/coffeemachine/ros_tests/basic_world/basic_world/src/diff_drive_robot.h
+
+/home/koepld/Desktop/me537/coffeemachine/ros_tests/basic_world/basic_world/src/diff_drive_robot.h
+stdio.h
+-
+

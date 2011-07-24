@@ -1,0 +1,1428 @@
+#LyX 1.6.7 created this file. For more info see http://www.lyx.org/
+\lyxformat 345
+\begin_document
+\begin_header
+\textclass article
+\use_default_options true
+\language english
+\inputencoding auto
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\float_placement H
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_amsmath 1
+\use_esint 1
+\cite_engine basic
+\use_bibtopic false
+\paperorientation portrait
+\leftmargin 0.5in
+\topmargin 1in
+\rightmargin 0.5in
+\bottommargin 1in
+\secnumdepth -1
+\tocdepth 3
+\paragraph_separation indent
+\defskip medskip
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\author "" 
+\author "" 
+\end_header
+
+\begin_body
+
+\begin_layout Title
+ME 533 Final
+\end_layout
+
+\begin_layout Author
+Kevin Kemper
+\end_layout
+
+\begin_layout Section
+Problem 1
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula \begin{eqnarray*}
+\dot{x} & = & -y-xz\\
+\dot{y} & = & x-y^{3}\\
+\dot{z} & = & -z-2xy-2x^{4}+x^{2}\end{eqnarray*}
+
+\end_inset
+
+Determine the stability of the origin.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula \begin{eqnarray*}
+J & = & \left.\begin{bmatrix}\frac{\partial\dot{x}}{\partial x} & \frac{\partial\dot{x}}{\partial y} & \frac{\partial\dot{x}}{\partial z}\\
+\frac{\partial\dot{y}}{\partial x} & \frac{\partial\dot{y}}{\partial y} & \frac{\partial\dot{y}}{\partial z}\\
+\frac{\partial\dot{z}}{\partial x} & \frac{\partial\dot{z}}{\partial y} & \frac{\partial\dot{z}}{\partial z}\end{bmatrix}\right|_{\left(0,0,0\right)}\\
+ & = & \left.\begin{bmatrix}-z & -1 & -x\\
+1 & -3y^{2} & 0\\
+-2y-8x^{3}+2x & -2x & -1\end{bmatrix}\right|_{\left(0,0,0\right)}\\
+ & = & \begin{bmatrix}0 & -1 & 0\\
+1 & 0 & 0\\
+0 & 0 & -1\end{bmatrix}\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Formula \begin{eqnarray*}
+0 & = & \left|\lambda I-\begin{bmatrix}0 & -1 & 0\\
+1 & 0 & 0\\
+0 & 0 & -1\end{bmatrix}\right|\\
+0 & = & \left|\begin{bmatrix}\lambda & -1 & 0\\
+1 & \lambda & 0\\
+0 & 0 & \lambda+1\end{bmatrix}\right|\\
+0 & = & 1+\lambda+\lambda^{2}+\lambda^{3}\\
+\\\lambda & = & -1,\,\pm i\end{eqnarray*}
+
+\end_inset
+
+The origin is a non-hyperbolic fixed point, linearization failed - use center
+ manifold theory.
+\begin_inset Formula \[
+\begin{bmatrix}\dot{x}\\
+\dot{y}\\
+\dot{z}\end{bmatrix}=\begin{bmatrix}0 & -1 & 0\\
+1 & 0 & 0\\
+0 & 0 & -1\end{bmatrix}\begin{bmatrix}x\\
+y\\
+z\end{bmatrix}+\begin{bmatrix}-xz\\
+-y^{3}\\
+-2xy-2x^{4}+x^{2}\end{bmatrix}\]
+
+\end_inset
+
+Let
+\begin_inset Formula \[
+z=h\left(x,y\right)=ax^{2}+by^{2}+cxy\]
+
+\end_inset
+
+
+\begin_inset Formula \[
+\dot{z}=Dh\left(x,y\right)\begin{bmatrix}\dot{x}\\
+\dot{y}\end{bmatrix}=\begin{bmatrix}2ax+cy & 2by+cx\end{bmatrix}\begin{bmatrix}-y-xy\\
+x-y^{3}\end{bmatrix}\]
+
+\end_inset
+
+
+\begin_inset Formula \[
+\mathcal{N}=0=Dh\left(x,y\right)\begin{bmatrix}\dot{x}\\
+\dot{y}\end{bmatrix}-\dot{z}\]
+
+\end_inset
+
+
+\begin_inset Formula \begin{eqnarray*}
+\mathcal{N}=0 & = & \begin{bmatrix}2ax+cy & 2by+cx\end{bmatrix}\begin{bmatrix}-y-xy\\
+x-y^{3}\end{bmatrix}+z+2xy+2x^{4}-x^{2}\\
+ & = & \begin{bmatrix}2ax+cy & 2by+cx\end{bmatrix}\begin{bmatrix}-y-xy\\
+x-y^{3}\end{bmatrix}+ax^{2}+by^{2}+cxy+2xy+2x^{4}-x^{2}\\
+ & = & \left(2ax+cy\right)\left(-y-xy\right)+\left(2by+cx\right)\left(x-y^{3}\right)+ax^{2}+by^{2}+cxy+2xy+2x^{4}-x^{2}\\
+ & = & -x^{2}+ax^{2}+cx^{2}+2x^{4}+2xy-2axy+2bxy+cxy-2ax^{2}y+by^{2}-cy^{2}-cxy^{2}-cxy^{3}-2by^{4}\\
+ & = & -x^{2}+ax^{2}+cx^{2}+2xy-2axy+2bxy+cxy+by^{2}-cy^{2}+\mathcal{O}\left(\right)\end{eqnarray*}
+
+\end_inset
+
+Collect coefficients
+\begin_inset Formula \begin{eqnarray*}
+xy:\\
+0 & = & 2-2a+2b+c\\
+\\x^{2}:\\
+0 & = & -1+a+c\\
+\\y^{2}:\\
+0 & = & b-c\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Formula \begin{eqnarray*}
+a & = & 1\\
+b & = & 0\\
+c & = & 0\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Formula \[
+z=h\left(x,y\right)=x^{2}\]
+
+\end_inset
+
+
+\begin_inset Formula \begin{eqnarray*}
+\dot{x} & = & -y-x^{3}\\
+\dot{y} & = & x-y^{3}\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Formula \begin{eqnarray*}
+J & = & \left.\begin{bmatrix}\frac{\partial\dot{x}}{\partial x} & \frac{\partial\dot{x}}{\partial y}\\
+\frac{\partial\dot{y}}{\partial x} & \frac{\partial\dot{y}}{\partial y}\end{bmatrix}\right|_{\left(0,0,0\right)}\\
+ & = & \left.\begin{bmatrix}-3x^{2} & -1\\
+1 & -3y^{2}\end{bmatrix}\right|_{\left(0,0,0\right)}\\
+ & = & \begin{bmatrix}0 & -1\\
+1 & 0\end{bmatrix}\end{eqnarray*}
+
+\end_inset
+
+Linearization fails.
+ Try Lyapunov: 
+\begin_inset Formula \[
+V=x^{2}+y^{2}\]
+
+\end_inset
+
+
+\begin_inset Formula \begin{eqnarray*}
+\dot{V} & = & 2x\dot{x}+2y\dot{y}\\
+ & = & 2x\left(-y-x^{3}\right)+2y\left(x-y^{3}\right)\\
+ & = & -2x^{4}-2y^{4}\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Formula $\dot{V}$
+\end_inset
+
+ is negative definite for all 
+\begin_inset Formula $x$
+\end_inset
+
+ not 
+\begin_inset Formula $x^{*}$
+\end_inset
+
+therefore the fixed-point 
+\begin_inset Formula $\left(0,0\right)$
+\end_inset
+
+ is asymptotically stable.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Problem 2:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula \begin{eqnarray*}
+\dot{x} & = & 2\left(1-\mu\right)x+x^{2}-xy\\
+\dot{y} & = & x+\frac{x^{2}}{2}-y\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Part a:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula \begin{eqnarray*}
+0 & = & 2\left(1-\mu\right)x+x^{2}-xy\\
+0 & = & x+\frac{x^{2}}{2}-y\end{eqnarray*}
+
+\end_inset
+
+From Mathemagica:
+\begin_inset Formula \begin{eqnarray*}
+\left(x_{1}^{*},y_{1}^{*}\right) & = & 0,0\\
+\left(x_{2}^{*},y_{2}^{*}\right) & = & -2\sqrt{1-\mu},\ 2\left(1-\sqrt{1-\mu}-\mu\right)\\
+\left(x_{3}^{*},y_{3}^{*}\right) & = & 2\sqrt{1-\mu},\ 2\left(1+\sqrt{1-\mu}-\mu\right)\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Part b:
+\end_layout
+
+\begin_layout Standard
+Find the eigenvalues of the linearized system at the fixed points:
+\begin_inset Formula \begin{eqnarray*}
+\left.D\begin{bmatrix}\dot{x}\\
+\dot{y}\end{bmatrix}\right|_{\left(x^{*},y^{*}\right)} & = & \left.\begin{bmatrix}2\left(1-\mu\right)+2x-y & -x\\
+1+x & -1\end{bmatrix}\right|_{\left(x^{*},y^{*}\right)}\\
+ & = & \begin{bmatrix}2\left(1-\mu\right)+2x^{*}-y^{*} & -x^{*}\\
+1+x^{*} & -1\end{bmatrix}\end{eqnarray*}
+
+\end_inset
+
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+
+\begin_inset Formula \begin{eqnarray*}
+\left.D\begin{bmatrix}\dot{x}\\
+\dot{y}\end{bmatrix}\right|_{\left(x_{1}^{*},y_{1}^{*}\right)} & = & \begin{bmatrix}2\left(1-\mu\right) & 0\\
+1 & -1\end{bmatrix}\\
+\\\lambda_{1} & = & -1,\ 2\left(1-\mu\right)\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Formula \begin{eqnarray*}
+\left.D\begin{bmatrix}\dot{x}\\
+\dot{y}\end{bmatrix}\right|_{\left(x_{2}^{*},y_{2}^{*}\right)} & = & \begin{bmatrix}2\left(1-\mu\right)+2\left(-2\sqrt{1-\mu}\right)-2\left(1-\sqrt{1-\mu}-\mu\right) & -\left(-2\sqrt{1-\mu}\right)\\
+1+\left(-2\sqrt{1-\mu}\right) & -1\end{bmatrix}\\
+ & = & \begin{bmatrix}-2\sqrt{1-\mu} & 2\sqrt{1-\mu}\\
+1-2\sqrt{1-\mu} & -1\end{bmatrix}\\
+\\\\\lambda_{2} & = & -\frac{1}{2}-\sqrt{1-\mu}\pm\frac{1}{2}\sqrt{-11+4\sqrt{1-\mu}+12\mu}\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Formula \begin{eqnarray*}
+\left.D\begin{bmatrix}\dot{x}\\
+\dot{y}\end{bmatrix}\right|_{\left(x_{3}^{*},y_{3}^{*}\right)} & = & \begin{bmatrix}2\left(1-\mu\right)+2\left(2\sqrt{1-\mu}\right)-2\left(1+\sqrt{1-\mu}-\mu\right) & -\left(2\sqrt{1-\mu}\right)\\
+1+\left(2\sqrt{1-\mu}\right) & -1\end{bmatrix}\\
+ & = & \begin{bmatrix}2\sqrt{1-\mu} & -2\sqrt{1-\mu}\\
+1+2\sqrt{1-\mu} & -1\end{bmatrix}\\
+\\\\\lambda_{3} & = & -\frac{1}{2}+\sqrt{1-\mu}\pm\frac{1}{2}\sqrt{-11-4\sqrt{1-\mu}+12\mu}\end{eqnarray*}
+
+\end_inset
+
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\noun default
+\color inherit
+Canidate bifurcation points 
+\begin_inset Formula $\left(\lambda=0\right)$
+\end_inset
+
+:
+\begin_inset Formula \begin{eqnarray*}
+\lambda_{12}=0 & \implies & \mu_{1}=1\\
+\lambda_{22}=0 & \implies & \mu_{2}=1\\
+\lambda_{32}=0 & \implies & \mu_{3}=1\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Formula \begin{eqnarray*}
+\left(x^{*},y^{*},\mu\right) & = & \left(0,\,0,\,1\right)\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Part c:
+\end_layout
+
+\begin_layout Standard
+Identify the type of any and all bifurcations that occur.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula \begin{eqnarray*}
+\dot{x} & = & 2\left(1-\mu\right)x+x^{2}-xy\\
+\dot{y} & = & x+\frac{x^{2}}{2}-y\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Formula \begin{eqnarray*}
+D_{x}f\left(x^{*},y^{*},\mu\right) & = & \left.\begin{bmatrix}\frac{\partial\dot{x}}{\partial x} & \frac{\partial\dot{x}}{\partial y}\\
+\frac{\partial\dot{y}}{\partial x} & \frac{\partial\dot{y}}{\partial y}\end{bmatrix}\right|_{x^{*},y^{*},\mu}\\
+ & = & \left.\begin{bmatrix}2\left(1-\mu\right)+2x-y & -x\\
+1+x & -1\end{bmatrix}\right|_{x^{*},y^{*},\mu}\\
+ & = & \begin{bmatrix}0 & 0\\
+1 & -1\end{bmatrix}\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Formula \[
+\lambda=0\]
+
+\end_inset
+
+
+\begin_inset Formula \[
+w^{T}=\begin{bmatrix}-1 & 0\end{bmatrix}\]
+
+\end_inset
+
+
+\begin_inset Formula \[
+\frac{\partial f}{\partial\mu}=\begin{bmatrix}2x\\
+0\end{bmatrix}\]
+
+\end_inset
+
+
+\begin_inset Formula \[
+w^{T}\frac{\partial f}{\partial\mu}\left(x^{*},y^{*},\mu\right)=\begin{bmatrix}-1 & 0\end{bmatrix}\begin{bmatrix}2x\\
+0\end{bmatrix}=-2x^{*}=0\]
+
+\end_inset
+
+
+\begin_inset Formula \[
+D_{\mu x}f\left(x^{*},y^{*},\mu\right)=\left.\begin{bmatrix}-2 & 0\\
+0 & 0\end{bmatrix}\right|_{x^{*},y^{*},\mu}=\begin{bmatrix}-2 & 0\\
+0 & 0\end{bmatrix}\]
+
+\end_inset
+
+
+\begin_inset Formula \[
+w^{T}D_{\mu x}f\left(x_{1}^{*},x_{2}^{*},\mu\right)=\begin{bmatrix}-1 & 0\end{bmatrix}\begin{bmatrix}-2 & 0\\
+0 & 0\end{bmatrix}=\begin{bmatrix}2\\
+0\end{bmatrix}\ne0\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\therefore$
+\end_inset
+
+ it is a transcritical bifurcation.
+ Find branch stability:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula \begin{eqnarray*}
+\left(x_{1}^{*},y_{1}^{*}\right) & = & 0,0\\
+\left(x_{2}^{*},y_{2}^{*}\right) & = & -2\sqrt{1-\mu},\ 2\left(1-\sqrt{1-\mu}-\mu\right)\\
+\left(x_{3}^{*},y_{3}^{*}\right) & = & 2\sqrt{1-\mu},\ 2\left(1+\sqrt{1-\mu}-\mu\right)\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+\begin_inset Formula $\left(x_{1}^{*},y_{1}^{*}\right)=0,0$
+\end_inset
+
+
+\begin_inset Formula \[
+\left.\begin{bmatrix}2\left(1-\mu\right)+2x-y & -x\\
+1+x & -1\end{bmatrix}\right|_{x_{1}^{*},y_{1}^{*}}=\begin{bmatrix}2\left(1-\mu\right) & 0\\
+1 & -1\end{bmatrix}\]
+
+\end_inset
+
+
+\begin_inset Formula \[
+\lambda_{1}=-1,\ 2\left(1-\mu\right)\]
+
+\end_inset
+
+
+\begin_inset Formula \begin{eqnarray*}
+\mu<1 & \implies & \text{unstable}\\
+\mu>1 & \implies & \text{stable}\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\left(x_{2}^{*},y_{2}^{*}\right)=-2\sqrt{1-\mu},\ 2\left(1-\sqrt{1-\mu}-\mu\right)$
+\end_inset
+
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+
+\begin_inset Formula \[
+\left.\begin{bmatrix}2\left(1-\mu\right)+2x-y & -x\\
+1+x & -1\end{bmatrix}\right|_{x_{2}^{*},y_{2}^{*}}=\begin{bmatrix}2\left(1-\mu\right)-4\sqrt{1-\mu}-2\left(1-\sqrt{1-\mu}-\mu\right) & 2\sqrt{1-\mu}\\
+1-2\sqrt{1-\mu} & -1\end{bmatrix}\]
+
+\end_inset
+
+
+\begin_inset Formula \[
+\lambda_{2}=-\frac{1}{2}-\sqrt{1-\mu}\pm\frac{1}{2}\sqrt{-11+4\sqrt{1-\mu}+12\mu}\]
+
+\end_inset
+
+
+\begin_inset Formula \begin{eqnarray*}
+\mu<1 & \implies & \text{stable}\\
+\mu>1 & \implies & \text{unstable}\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\left(x_{3}^{*},y_{3}^{*}\right)=2\sqrt{1-\mu},\ 2\left(1+\sqrt{1-\mu}-\mu\right)$
+\end_inset
+
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+
+\begin_inset Formula \[
+\left.\begin{bmatrix}2\left(1-\mu\right)+2x-y & -x\\
+1+x & -1\end{bmatrix}\right|_{x_{3}^{*},y_{3}^{*}}=\begin{bmatrix}2\left(1-\mu\right)+4\sqrt{1-\mu}-2\left(1+\sqrt{1-\mu}-\mu\right) & -2\sqrt{1-\mu}\\
+1+2\sqrt{1-\mu} & -1\end{bmatrix}\]
+
+\end_inset
+
+
+\begin_inset Formula \[
+\lambda_{3}=-\frac{1}{2}-\sqrt{1-\mu}\pm\frac{1}{2}\sqrt{-11+4\sqrt{1-\mu}+12\mu}\]
+
+\end_inset
+
+
+\begin_inset Formula \begin{eqnarray*}
+\mu<1 & \implies & \text{stable}\\
+\mu>1 & \implies & \text{unstable}\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Problem 3
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula \[
+\ddot{y}+y+\epsilon y^{5}=0\]
+
+\end_inset
+
+
+\begin_inset Formula \[
+y\left(0\right)=A,\ \dot{y}\left(0\right)=0,\ \epsilon\ll1\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $\tau=\omega t$
+\end_inset
+
+, and 
+\begin_inset Formula $\frac{d\left(\right)}{d\tau}=\left(\right)'$
+\end_inset
+
+.
+ Assume
+\begin_inset Formula \begin{eqnarray*}
+y & = & y_{0}+\epsilon y_{1}\\
+\omega & = & 1+\epsilon\omega_{1}\end{eqnarray*}
+
+\end_inset
+
+then
+\begin_inset Formula \[
+0=\left(1+\epsilon\omega_{1}\right)^{2}\left(y_{0}''+\epsilon y_{1}''\right)+y_{0}+\epsilon y_{1}+\epsilon\left(y_{0}+\epsilon y_{1}\right)^{5}\]
+
+\end_inset
+
+
+\begin_inset Formula \begin{eqnarray*}
+0 & = & y_{0}''+y_{0}+y_{1}''\epsilon+y_{0}^{5}\epsilon+y_{1}\epsilon+5y_{0}^{4}y_{1}\epsilon^{2}+10y_{0}^{3}y_{1}^{2}\epsilon^{3}+10y_{0}^{2}y_{1}^{3}\epsilon^{4}+5y_{0}y_{1}^{4}\epsilon^{5}\\
+ &  & +y_{1}^{5}\epsilon^{6}+2y_{0}''\epsilon\omega_{1}+2y_{1}''\epsilon^{2}\omega_{1}+y_{0}''\epsilon^{2}\omega_{1}^{2}+y_{1}''\epsilon^{3}\omega_{1}^{2}\\
+\\0 & = & y_{0}''+y_{0}+\epsilon y_{1}''+\epsilon y_{0}^{5}+\epsilon y_{1}+2\epsilon\omega_{1}y_{0}''+\mathcal{O}\left(\epsilon^{2}\right)\end{eqnarray*}
+
+\end_inset
+
+Collect terms:
+\begin_inset Formula \begin{eqnarray*}
+\epsilon^{0}:\\
+\\0 & = & y_{0}''+y_{0}\\
+\\\epsilon^{1}:\\
+\\0 & = & y_{1}''+y_{0}^{5}+y_{1}+2\omega_{1}y_{0}''\\
+y_{1}''+y_{1} & = & -2\omega_{1}y_{0}''-y_{0}^{5}\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Solve 
+\begin_inset Formula $\epsilon^{0}$
+\end_inset
+
+:
+\begin_inset Formula \begin{eqnarray*}
+y_{0}''+y_{0} & = & 0\\
+\\y_{0} & = & c_{1}\cos\tau+c_{2}\sin\tau\\
+\\y\left(0\right)=A & = & c_{1}\cos0+c_{2}\sin0\implies c_{1}=A\\
+\dot{y}\left(0\right)=0 & = & -c_{1}\sin0+c_{2}\cos0\implies c_{2}=0\\
+\\y_{0} & = & A\cos\tau\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Solve 
+\begin_inset Formula $\epsilon^{1}$
+\end_inset
+
+:
+\begin_inset Formula \begin{eqnarray*}
+y_{1}''+y_{1} & = & -2\omega_{1}y_{0}''-y_{0}^{5}\\
+ & = & -2\omega_{1}\left(-A\cos\tau\right)-A^{5}\cos^{5}\tau\\
+ & = & -2\omega_{1}\left(-A\cos\tau\right)-A^{5}\left[\frac{10}{16}\cos\tau+\frac{5}{16}\cos3\tau+\frac{1}{16}\cos5\tau\right]\\
+ & = & 2\omega_{1}A\cos\tau-\frac{10A^{5}}{16}\cos\tau+\frac{5A^{5}}{16}\cos3\tau+\frac{A^{5}}{16}\cos5\tau\\
+ & = & \left(\omega_{1}A-\frac{5A^{5}}{16}\right)\underbrace{2\cos\tau}_{gahh!}+\frac{5A^{5}}{16}\cos3\tau+\frac{A^{5}}{16}\cos5\tau\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Formula \begin{eqnarray*}
+0 & = & \omega_{1}A-\frac{5A^{5}}{16}\\
+\omega_{1} & = & \frac{5A^{4}}{16}\end{eqnarray*}
+
+\end_inset
+
+Therefore
+\begin_inset Formula \begin{eqnarray*}
+\omega & = & 1+\epsilon\omega_{1}\\
+\omega & = & 1+\epsilon\frac{5A^{4}}{16}\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Formula \begin{eqnarray*}
+\tau & = & \omega t\\
+\tau & = & \left(1+\epsilon\frac{5A^{4}}{16}\right)t\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Formula \[
+y_{0}\left(t\right)=A\cos\left(t+\epsilon\frac{5A^{4}}{16}t\right)\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Problem 4
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula \begin{eqnarray*}
+\ddot{y}+9y & = & \epsilon\left(\left(1-y^{3}\right)\dot{y}+y^{3}\right)\\
+\\0 & = & \ddot{y}+9y-\epsilon\left(\left(1-y^{3}\right)\dot{y}+y^{3}\right)\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Formula \[
+y\left(0\right)=1,\ \dot{y}\left(0\right)=0,\ \epsilon\ll1\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $T_{0}=t$
+\end_inset
+
+, and 
+\begin_inset Formula $T_{1}=\epsilon t$
+\end_inset
+
+ assume:
+\begin_inset Formula \[
+y=y_{0}\left(T_{0},T_{1}\right)+\epsilon y_{1}\left(T_{0},T_{1}\right)\]
+
+\end_inset
+
+
+\begin_inset Formula \begin{eqnarray*}
+\frac{d\left(\right)}{dt} & = & D_{0}+\epsilon D_{1}+\epsilon^{2}D_{2}\\
+\frac{d^{2}\left(\right)}{dt^{2}} & = & D_{0}^{2}+2\epsilon D_{0}D_{1}+\epsilon^{2}D_{1}^{2}\end{eqnarray*}
+
+\end_inset
+
+where 
+\begin_inset Formula $D_{n}=\frac{\partial\left(\right)}{\partial T_{n}}$
+\end_inset
+
+.
+\begin_inset Formula \begin{eqnarray*}
+0 & = & \ddot{y}+9y-\epsilon\left(\left(1-y^{3}\right)\dot{y}+y^{3}\right)\\
+ & = & \left(D_{0}^{2}+2\epsilon D_{0}D_{1}+\epsilon^{2}D_{1}^{2}\right)\left(y_{0}+\epsilon y_{1}\right)+9\left(y_{0}+\epsilon y_{1}\right)-\epsilon\left[\left(1-\left(y_{0}+\epsilon y_{1}\right)^{3}\right)\left(D_{0}+\epsilon D_{1}+\epsilon^{2}D_{2}\right)\left(y_{0}+\epsilon y_{1}\right)+\left(y_{0}+\epsilon y_{1}\right)^{3}\right]\end{eqnarray*}
+
+\end_inset
+
+Expand and remove 
+\begin_inset Formula $\mathcal{O}\left(\epsilon^{2}\right)$
+\end_inset
+
+ terms (using Mathemagica):
+\begin_inset Formula \[
+0=9y_{0}+D_{0}^{2}y_{0}-\epsilon D_{0}y_{0}+2\epsilon D_{0}D_{1}y_{0}-\epsilon y_{0}^{3}+\epsilon D_{0}y_{0}^{4}+9\epsilon y_{1}+\epsilon D_{0}^{2}y_{1}+\mathcal{O}\left(\epsilon^{2}\right)\]
+
+\end_inset
+
+Collect terms:
+\begin_inset Formula \begin{eqnarray*}
+\epsilon^{0}:\\
+\\0 & = & D_{0}^{2}y_{0}+9y_{0}\\
+\\\epsilon^{1}:\\
+0 & = & -D_{0}y_{0}+2D_{0}D_{1}y_{0}-y_{0}^{3}+D_{0}y_{0}^{4}+9y_{1}+D_{0}^{2}y_{1}\\
+D_{0}^{2}y_{1}+9y_{1} & = & -D_{0}y_{0}^{4}+D_{0}y_{0}-2D_{0}D_{1}y_{0}+y_{0}^{3}\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Solve 
+\begin_inset Formula $\epsilon^{0}$
+\end_inset
+
+:
+\begin_inset Formula \begin{eqnarray}
+0 & = & D_{0}^{2}y_{0}+9y_{0}\nonumber \\
+\nonumber \\y_{0} & = & r\left(T_{1}\right)\cos\left(3T_{0}+\phi\left(T_{1}\right)\right)\label{eq:y0}\end{eqnarray}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Using inital conditions, find 
+\begin_inset Formula $r\left(0\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $\phi\left(0\right)$
+\end_inset
+
+:
+\begin_inset Formula \begin{eqnarray}
+\dot{y}_{0}\left(0\right)=0 & = & -r\left(0\right)3\sin\left(0+\phi\left(0\right)\right)\implies\phi\left(0\right)=0\label{eq:phi0}\\
+\nonumber \\y_{0}\left(0\right)=1 & = & r\left(0\right)\cos\left(0+\underbrace{\phi\left(0\right)}_{0}\right)\implies r\left(0\right)=1\label{eq:r0}\end{eqnarray}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Note - I'm dropping the 
+\begin_inset Formula $\left(T_{1}\right)$
+\end_inset
+
+ on 
+\begin_inset Formula $r\left(T_{1}\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $\phi\left(T_{1}\right)$
+\end_inset
+
+ to save space.
+ Solve 
+\begin_inset Formula $\epsilon^{1}$
+\end_inset
+
+: 
+\begin_inset Formula \begin{eqnarray*}
+D_{0}^{2}y_{1}+9y_{1} & = & -D_{0}y_{0}^{4}+D_{0}y_{0}-2D_{0}D_{1}y_{0}+y_{0}^{3}\\
+ & = & -D_{0}\left(r\cos\left(3T_{0}+\phi\right)\right)^{4}+D_{0}\left(r\cos\left(3T_{0}+\phi\right)\right)-2D_{0}D_{1}\left(r\cos\left(3T_{0}+\phi\right)\right)+\left(r\cos\left(3T_{0}+\phi\right)\right)^{3}\\
+ & = & r^{4}4\cos^{3}\left(3T_{0}+\phi\right)3\sin\left(3T_{0}+\phi\right)-3r\sin\left(3T_{0}+\phi\right)+2D_{1}\left(r\sin\left(3T_{0}+\phi\right)\right)+r^{3}\cos^{3}\left(3T_{0}+\phi\right)\\
+\\ & = & 12r^{4}\cos^{3}\left(3T_{0}+\phi\right)\sin\left(3T_{0}+\phi\right)-3r\sin\left(3T_{0}+\phi\right)\\
+ &  & +6\left(\frac{\partial r}{\partial T_{1}}\sin\left(3T_{0}+\phi\right)+r\frac{\partial\phi}{\partial T_{1}}\cos\left(3T_{0}+\phi\right)\right)+r^{3}\cos^{3}\left(3T_{0}+\phi\right)\end{eqnarray*}
+
+\end_inset
+
+Rewrite with reduced orders on the trig functions (again using Mathemagica
+ - TrigReduce[]):
+\begin_inset Formula \begin{eqnarray*}
+D_{0}^{2}y_{1}+9y_{1} & = & 6r\frac{\partial\phi}{\partial T_{1}}\underbrace{\cos\left(3T_{0}+\phi\right)}_{\text{bad}}+\frac{3}{4}r^{3}\underbrace{\cos\left(3T_{0}+\phi\right)}_{\text{bad}}+\frac{1}{4}r^{3}\cos\left(9T_{0}+3\phi\right)\\
+ &  & +6\frac{\partial r}{\partial T_{1}}\underbrace{\sin\left(3T_{0}+\phi\right)}_{\text{bad}}-3r\underbrace{\sin\left(3T_{0}+\phi\right)}_{\text{bad}}+3r^{4}\sin\left(6T_{0}+2\phi\right)+\frac{3}{2}r^{4}\sin\left(12T_{0}+4\phi\right)\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Eliminate the secular terms:
+\begin_inset Formula \begin{eqnarray*}
+\cos:\\
+0 & = & 6r\frac{\partial\phi}{\partial T_{1}}+\frac{3}{4}r^{3}\\
+\\\sin:\\
+0 & = & 6\frac{\partial r}{\partial T_{1}}-3r\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Solve sine terms for 
+\begin_inset Formula $r$
+\end_inset
+
+:
+\begin_inset Formula \[
+r=2\frac{\partial r}{\partial T_{1}}\implies r\left(T_{1}\right)=c_{1}e^{2T_{1}}\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Using (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:r0"
+
+\end_inset
+
+):
+\begin_inset Formula \[
+r\left(0\right)=1=c_{1}e^{0}\implies c_{1}=1\]
+
+\end_inset
+
+
+\begin_inset Formula \begin{equation}
+r\left(T_{1}\right)=e^{2T_{1}}\label{eq:rt}\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Solve cosine terms for 
+\begin_inset Formula $\phi$
+\end_inset
+
+:
+\begin_inset Formula \begin{eqnarray*}
+0 & = & 6r\frac{\partial\phi}{\partial T_{1}}+\frac{3}{4}r^{3}\\
+ & = & 6\frac{\partial\phi}{\partial T_{1}}e^{2T_{1}}+\frac{3}{4}\left(e^{2T_{1}}\right)^{3}\\
+ & = & 6\frac{\partial\phi}{\partial T_{1}}e^{2T_{1}}+\frac{3}{4}e^{6T_{1}}\\
+\frac{\partial\phi}{\partial T_{1}}e^{2T_{1}} & = & -\frac{3}{24}e^{6T_{1}}\\
+\frac{\partial\phi}{\partial T_{1}} & = & -\frac{1}{8}e^{4T_{1}}\\
+\\\phi\left(T_{1}\right) & = & -\frac{1}{32}e^{4T_{1}}+c_{2}\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Using (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:phi0"
+
+\end_inset
+
+):
+\begin_inset Formula \[
+\phi\left(0\right)=0=-\frac{1}{32}e^{0}+c_{2}\implies c_{2}=\frac{1}{32}\]
+
+\end_inset
+
+
+\begin_inset Formula \begin{equation}
+\phi\left(T_{1}\right)=-\frac{e^{4T_{1}}}{32}+\frac{1}{32}\label{eq:phit}\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Now solve for 
+\begin_inset Formula $y_{1}$
+\end_inset
+
+:
+\begin_inset Formula \[
+y_{1}=y_{1h}+y_{1p}\]
+
+\end_inset
+
+
+\begin_inset Formula \[
+y_{1h}=\rho\cos\left(3T_{0}+\psi\right)\]
+
+\end_inset
+
+
+\begin_inset Formula \begin{eqnarray*}
+y_{1p} & = & \alpha_{1}\cos\left(9T_{0}+\beta_{1}\right)+\alpha_{2}\sin\left(12T_{0}+\beta_{2}\right)+\alpha_{3}\sin\left(6T_{0}+\beta_{3}\right)\\
+\frac{\partial^{2}y_{1p}}{\partial T_{0}^{2}} & = & -81\alpha_{1}\cos\left(9T_{0}+\beta_{1}\right)-144\alpha_{2}\sin\left(12T_{0}+\beta_{2}\right)-36\alpha_{3}\sin\left(6T_{0}+\beta_{3}\right)\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Formula \begin{eqnarray*}
+\frac{1}{4}r^{3}\cos\left(9T_{0}+3\phi\right)+\frac{3}{2}r^{4}\sin\left(12T_{0}+4\phi\right)+3r^{4}\sin\left(6T_{0}+2\phi\right) & = & -81\alpha_{1}\cos\left(9T_{0}+\beta_{1}\right)-144\alpha_{2}\sin\left(12T_{0}+\beta_{2}\right)-36\alpha_{3}\sin\left(6T_{0}+\beta_{3}\right)\\
+ &  & +9\alpha_{1}\cos\left(9T_{0}+\beta_{1}\right)+9\alpha_{2}\sin\left(12T_{0}+\beta_{2}\right)+9\alpha_{3}\sin\left(6T_{0}+\beta_{3}\right)\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Collect terms and solve for coefficients:
+\begin_inset Formula \begin{eqnarray*}
+\cos\left(9T_{0}+\beta_{1}\right):\\
+\frac{1}{4}r^{3} & = & -81\alpha_{1}+9\alpha_{1}\\
+\alpha_{1} & = & -\frac{r^{3}}{288}\\
+\beta_{1} & = & 3\phi\\
+\\\sin\left(12T_{0}+\beta_{2}\right):\\
+\frac{3}{2}r^{4} & = & -144\alpha_{2}+9\alpha_{2}\\
+\alpha_{2} & = & -\frac{r^{4}}{90}\\
+\beta_{2} & = & 4\phi\\
+\\\sin\left(6T_{0}+\beta_{3}\right):\\
+3r^{4} & = & -36\alpha_{3}+9\alpha_{3}\\
+\alpha_{3} & = & -\frac{r^{4}}{9}\\
+\beta_{3} & = & 2\phi\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula \begin{eqnarray*}
+y_{1}=y_{1h}+y_{1p} & = & \rho\cos\left(3T_{0}+\psi\right)+\alpha_{1}\cos\left(9T_{0}+\beta_{1}\right)+\alpha_{2}\sin\left(12T_{0}+\beta_{2}\right)+\alpha_{3}\sin\left(6T_{0}+\beta_{3}\right)\\
+y_{1} & = & \rho\cos\left(3T_{0}+\psi\right)-\frac{r^{3}}{288}\cos\left(9T_{0}+3\phi\right)-\frac{r^{4}}{90}\sin\left(12T_{0}+4\phi\right)-\frac{r^{4}}{9}\sin\left(6T_{0}+2\phi\right)\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Solve for 
+\begin_inset Formula $\rho$
+\end_inset
+
+ and 
+\begin_inset Formula $\psi$
+\end_inset
+
+: 
+\begin_inset Formula \begin{eqnarray*}
+y_{1}\left(0\right)=0 & = & \rho\cos\left(0+\psi\right)-\frac{1}{288}\cos\left(0\right)-\frac{1}{90}\sin\left(0\right)-\frac{1}{9}\sin\left(0\right)\\
+0 & = & \rho\cos\left(\psi\right)-\frac{1}{288}\\
+\frac{1}{288} & = & \rho\cos\left(\psi\right)\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Formula \begin{eqnarray*}
+\dot{y}_{1}\left(0\right)=0 & = & \left(D_{0}+\epsilon D_{1}\right)\left(y_{0}\left(0\right)+\epsilon y_{1}\left(0\right)\right)\\
+ & = & D_{0}y_{0}\left(0\right)+\epsilon D_{0}y_{1}\left(0\right)+\epsilon D_{1}y_{0}\left(0\right)+\epsilon^{2}D_{1}y_{1}\left(0\right)\\
+ & = & D_{0}y_{0}\left(0\right)+\epsilon D_{0}y_{1}\left(0\right)+\epsilon D_{1}y_{0}\left(0\right)+\mathcal{O}\left(\epsilon^{2}\right)\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Formula \begin{eqnarray*}
+\epsilon^{0}:\\
+0 & = & D_{0}y_{0}\left(0\right)\\
+\\\epsilon^{1}:\\
+0 & = & D_{0}y_{1}\left(0\right)+D_{1}y_{0}\left(0\right)\\
+ & = & -\rho\sin\left(\psi\right)+\frac{\partial r\left(0\right)}{\partial T_{1}}\cos\left(0\right)-r\frac{\partial\phi\left(0\right)}{\partial T_{1}}\sin\left(0\right)\\
+ & = & -\rho\sin\left(\psi\right)+2\end{eqnarray*}
+
+\end_inset
+
+From Mathmagica we have 
+\begin_inset Formula \[
+\rho=-\frac{\sqrt{331777}}{288},\ \psi=-\arccos\left(-\frac{1}{\sqrt{331777}}\right)\]
+
+\end_inset
+
+
+\begin_inset Formula \[
+\rho=\frac{\sqrt{331777}}{288},\ \psi=\arccos\left(\frac{1}{\sqrt{331777}}\right)\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Put it all back together:
+\begin_inset Formula \begin{eqnarray*}
+y\left(t\right)=y_{0}+\epsilon y_{1} & = & r\left(t\right)\cos\left(3t+\phi\left(t\right)\right)\\
+ &  & +\epsilon\left[\rho\cos\left(3t+\psi\right)-\frac{r\left(t\right)^{3}}{288}\cos\left(9t+3\phi\left(t\right)\right)-\frac{r\left(t\right)^{4}}{90}\sin\left(12t+4\phi\left(t\right)\right)-\frac{r\left(t\right)^{4}}{9}\sin\left(6t+2\phi\left(t\right)\right)\right]\end{eqnarray*}
+
+\end_inset
+
+where
+\begin_inset Formula \begin{eqnarray*}
+r\left(t\right) & = & e^{2\epsilon t}\\
+\phi\left(t\right) & = & -\frac{e^{4\epsilon t}}{32}+\frac{1}{32}\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Problem 5
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula \[
+\ddot{x}+\left(x^{2}+\dot{x}^{2}-\mu\right)\dot{x}+x=0\]
+
+\end_inset
+
+
+\begin_inset Formula \begin{eqnarray*}
+\ddot{x} & = & -\left(x^{2}+\dot{x}^{2}-\mu\right)\dot{x}-x\\
+ & = & -x^{2}\dot{x}-\dot{x}^{3}+\mu\dot{x}-x\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Formula \begin{eqnarray*}
+x_{1} & = & x\\
+x_{2} & = & \dot{x}\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Formula \begin{eqnarray*}
+\dot{x}_{1} & = & x_{2}\\
+\dot{x}_{2} & = & -x_{1}^{2}x_{2}-x_{2}^{3}+\mu x_{2}-x_{1}\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Part a:
+\end_layout
+
+\begin_layout Standard
+For what values of µ are periodic orbits impossible?
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula \[
+V=x_{1}^{2}+x_{2}^{2}\]
+
+\end_inset
+
+
+\begin_inset Formula \begin{eqnarray*}
+\dot{V} & = & 2x_{1}\dot{x}_{1}+2x_{2}\dot{x}_{2}\\
+ & = & 2x_{1}x_{2}+2x_{2}\left(-x_{1}^{2}x_{2}-x_{2}^{3}+\mu x_{2}-x_{1}\right)\\
+ & = & 2x_{1}x_{2}-2x_{1}^{2}x_{2}^{2}-2x_{2}^{4}+2\mu x_{2}^{2}-2x_{1}x_{2}\\
+ & = & -2x_{1}^{2}x_{2}^{2}-2x_{2}^{4}+2\mu x_{2}^{2}\end{eqnarray*}
+
+\end_inset
+
+Periodic orbits exist when 
+\begin_inset Formula $\dot{V}=0$
+\end_inset
+
+:
+\begin_inset Formula \begin{eqnarray*}
+\dot{V}=0 & = & -2x_{1}^{2}x_{2}^{2}-2x_{2}^{4}+2\mu x_{2}^{2}\\
+2x_{1}^{2}x_{2}^{2}+2x_{2}^{4} & = & 2\mu x_{2}^{2}\\
+x_{1}^{2}+x_{2}^{2} & = & \mu\end{eqnarray*}
+
+\end_inset
+
+Because LHE is positive definate, if 
+\begin_inset Formula $\mu\le0$
+\end_inset
+
+ then 
+\begin_inset Formula $\dot{V}>0$
+\end_inset
+
+ for any 
+\begin_inset Formula $\left(x_{1},x_{2}\right)$
+\end_inset
+
+ making any periodic orbits impossible.
+\end_layout
+
+\begin_layout Subsection
+Part b:
+\end_layout
+
+\begin_layout Standard
+For 
+\begin_inset Formula $\mu=0$
+\end_inset
+
+ , determine the stability of the origin.
+\begin_inset Formula \begin{eqnarray*}
+J & = & \left.\begin{bmatrix}\frac{\partial\dot{x}_{1}}{\partial x_{1}} & \frac{\partial\dot{x}_{1}}{\partial x_{2}}\\
+\frac{\partial\dot{x}_{2}}{\partial x_{1}} & \frac{\partial\dot{x}_{2}}{\partial x_{2}}\end{bmatrix}\right|_{\left(0,0\right)}\\
+ & = & \left.\begin{bmatrix}0 & 1\\
+-2x_{1}x_{2}-1 & -x_{1}^{2}-3x_{2}^{2}+\mu\end{bmatrix}\right|_{\left(0,0\right)}\\
+ & = & \begin{bmatrix}0 & 1\\
+-1 & \mu\end{bmatrix}\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Formula \begin{eqnarray*}
+\lambda & = & \frac{1}{2}\mu\pm\frac{1}{2}\sqrt{-4+\mu^{2}}\\
+ & = & 0\pm i\end{eqnarray*}
+
+\end_inset
+
+Linerization fails.
+ Look at Lyapunov from part a:
+\begin_inset Formula \[
+V=x_{1}^{2}+x_{2}^{2}\]
+
+\end_inset
+
+
+\begin_inset Formula \[
+V\left(x_{1}^{*},x_{2}^{*}\right)=V\left(0,0\right)=0\]
+
+\end_inset
+
+and 
+\begin_inset Formula $V$
+\end_inset
+
+ positive definite so it is a valid Lyapunov function.
+ 
+\begin_inset Formula \begin{eqnarray*}
+\dot{V} & = & -2x_{1}^{2}x_{2}^{2}-2x_{2}^{4}+2\mu x_{2}^{2}\\
+ & = & -2x_{1}^{2}x_{2}^{2}-2x_{2}^{4}\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Formula $\dot{V}$
+\end_inset
+
+ is negative definite for all 
+\begin_inset Formula $x$
+\end_inset
+
+ not 
+\begin_inset Formula $x^{*}$
+\end_inset
+
+therefore the fixed-point 
+\begin_inset Formula $\left(0,0\right)$
+\end_inset
+
+ is asymptotically stable.
+\end_layout
+
+\begin_layout Subsection
+Part c:
+\end_layout
+
+\begin_layout Standard
+For 
+\begin_inset Formula $\mu>0$
+\end_inset
+
+ , determine the stability of the limit cycle that appears.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula \begin{eqnarray*}
+\dot{V} & = & -2x_{1}^{2}x_{2}^{2}-2x_{2}^{4}+2\mu x_{2}^{2}\\
+ & = & -2x_{2}^{2}\left(x_{1}^{2}+x_{2}^{2}-\mu\right)\\
+ & =\end{eqnarray*}
+
+\end_inset
+
+Because all powers of 
+\begin_inset Formula $x$
+\end_inset
+
+ are even, 
+\begin_inset Formula $\dot{V}<0$
+\end_inset
+
+ 
+\begin_inset Formula $\forall x\in\Omega_{l}$
+\end_inset
+
+:
+\begin_inset Formula \[
+\Omega_{l}=\left\{ \left(x_{1},x_{2}\right)|\left(x_{1}^{2}+x_{2}^{2}-\mu\right)^{2}<4\mu^{2}\right\} \]
+
+\end_inset
+
+
+\begin_inset Formula \[
+R=m=\left\{ \left(x_{1},x_{2}\right)|\left(x_{1}^{2}+x_{2}^{2}-\mu\right)=0\right\} \]
+
+\end_inset
+
+They system is asymptotically stable at 
+\begin_inset Formula $\left(x_{1}^{2}+x_{2}^{2}-\mu\right)=0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Part d:
+\end_layout
+
+\begin_layout Standard
+Does a bifurcation occur at 
+\begin_inset Formula $\mu=0$
+\end_inset
+
+?
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula \begin{eqnarray*}
+0 & = & x_{2}\\
+0 & = & -x_{1}^{2}x_{2}-x_{2}^{3}-x_{1}\end{eqnarray*}
+
+\end_inset
+
+Only fixed point at 
+\begin_inset Formula $\left(x_{1}^{*},x_{2}^{*}\right)=\left(0,0\right)$
+\end_inset
+
+ when 
+\begin_inset Formula $\mu=0$
+\end_inset
+
+.
+ Find the eigenvalues of the linearized system at the fixed points:
+\begin_inset Formula \begin{eqnarray*}
+J & = & \left.\begin{bmatrix}\frac{\partial\dot{x}_{1}}{\partial x_{1}} & \frac{\partial\dot{x}_{1}}{\partial x_{2}}\\
+\frac{\partial\dot{x}_{2}}{\partial x_{1}} & \frac{\partial\dot{x}_{2}}{\partial x_{2}}\end{bmatrix}\right|_{\left(0,0\right)}\\
+ & = & \left.\begin{bmatrix}0 & 1\\
+-2x_{1}x_{2}-1 & -x_{1}^{2}-3x_{2}^{2}+\mu\end{bmatrix}\right|_{\left(0,0\right)}\\
+ & = & \begin{bmatrix}0 & 1\\
+-1 & \mu\end{bmatrix}\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Formula \begin{eqnarray*}
+\lambda & = & \frac{1}{2}\mu\pm\frac{1}{2}\sqrt{-4+\mu^{2}}\\
+ & = & 0\pm i\end{eqnarray*}
+
+\end_inset
+
+Real part of the eigenvalues are zero, 
+\begin_inset Formula $\therefore$
+\end_inset
+
+
+\begin_inset Formula $\mu=0$
+\end_inset
+
+ is a candidate.
+\begin_inset Formula \begin{eqnarray*}
+D_{x}f\left(x_{1}^{*},x_{2}^{*},\mu\right) & = & \left.\begin{bmatrix}\frac{\partial\dot{x}_{1}}{\partial x_{1}} & \frac{\partial\dot{x}_{1}}{\partial x_{2}}\\
+\frac{\partial\dot{x}_{2}}{\partial x_{1}} & \frac{\partial\dot{x}_{2}}{\partial x_{2}}\end{bmatrix}\right|_{x_{1}^{*},x_{2}^{*},\mu}\\
+ & = & \left.\begin{bmatrix}0 & 1\\
+-2x_{1}x_{2}-1 & -x_{1}^{2}-3x_{2}^{2}+\mu\end{bmatrix}\right|_{x_{1}^{*},x_{2}^{*},\mu}\\
+ & = & \begin{bmatrix}0 & 1\\
+-1 & 0\end{bmatrix}\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Formula \[
+\lambda=0\pm i\]
+
+\end_inset
+
+
+\begin_inset Formula \[
+w^{T}=\begin{bmatrix}-i & 1\\
+i & 1\end{bmatrix}\]
+
+\end_inset
+
+
+\begin_inset Formula \[
+\frac{\partial f}{\partial\mu}=\begin{bmatrix}0\\
+x_{2}\end{bmatrix}\]
+
+\end_inset
+
+
+\begin_inset Formula \[
+w^{T}\frac{\partial f}{\partial\mu}\left(x^{*},\mu\right)=\begin{bmatrix}-i & 1\\
+i & 1\end{bmatrix}\begin{bmatrix}0\\
+x_{2}\end{bmatrix}=\begin{bmatrix}x_{2}\\
+x_{2}\end{bmatrix}=\begin{bmatrix}0\\
+0\end{bmatrix}\]
+
+\end_inset
+
+
+\begin_inset Formula \[
+D_{\mu x}f\left(x_{1}^{*},x_{2}^{*},\mu\right)=\begin{bmatrix}0 & 0\\
+0 & 1\end{bmatrix}\]
+
+\end_inset
+
+
+\begin_inset Formula \[
+w^{T}D_{\mu x}f\left(x_{1}^{*},x_{2}^{*},\mu\right)=\begin{bmatrix}-i & 1\\
+i & 1\end{bmatrix}\begin{bmatrix}0 & 0\\
+0 & 1\end{bmatrix}=\begin{bmatrix}0 & 1\\
+0 & 1\end{bmatrix}\ne0\]
+
+\end_inset
+
+
+\begin_inset Formula $\therefore$
+\end_inset
+
+ it is a transcritical bifurcation.
+\end_layout
+
+\end_body
+\end_document

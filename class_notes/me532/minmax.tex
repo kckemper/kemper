@@ -1,0 +1,46 @@
+The goal in Minmax problem is to design a control that rejects a worst-case disturbance--useful for unknown disturbance signals.
+
+The dynamics take the form
+\begin{equation}\label{eqn:mmdyn}
+\dot x(t) = Ax(t) + Bu(t) + Dw(t), \quad x(0) = x_0
+\end{equation}
+where $w$ represents a disturbance to the system. The standard LQR objective function does not account for disturbances. If we assume the ``goal'' of the disturbance is to maximally disrupt the system with minimum effort, then the disturbance maximizes the objective function
+$$\max J(w) = \int_0^{t_f} (x^TQX - \gamma^2w^TR_2w)dt$$
+where $Q=Q^T$ is positive semidefinite and $R_2 = R_2^T$ is positive definite. 
+
+So, the goal of the control, $u$, is to regulate the state in the presence of the disturbance $w$. The Minmax control problem can be posed as:
+
+Find $u^*(t), w^*(t)$ satisfying
+$$\min_u \max_w J(u,w) = \int_0^{t_f} (x^TQX + u^TR_1u- \gamma^2w^TR_2w)dt$$
+where $R_1=R_1^T$ is positive definite.
+
+This kind of problem is a dynamic game. The optimal $(u^*,w^*)$ is a saddle point of the cost functional, i.e.,
+$$J(u^*,w)\leq J(u^*,w^*)\leq J(u,w^*)$$
+for all admissible $u, w$.
+To find the optimal control and optimal disturbance, we develop first order necessary conditions using calculus of variations.
+
+If $(x,u,w)$ satisfy the system dynamics in (\ref{eqn:mmdyn}), then we write the augmented cost function
+$$ \tilde J = \int_0^{t_f} (x^TQX + u^TR_1u- \gamma^2w^TR_2w + \lambda^T(Ax + Bu + Dw - \dot x)dt.$$
+Define the Hamiltonian for this problem to be
+$$H = x^TQX + u^TR_1u- \gamma^2w^TR_2w + \lambda^TAx + Bu + Dw.$$
+A similar derivation as the one developed for the first optimal control problem yields the necessary condition for a saddle point:
+$$\frac{\pd H}{\pd u} = 0$$
+$$\dot \lambda = -\left(\frac{\pd H}{\pd x}\right)^T, \quad \lambda(t_f) = 0$$
+$$\frac{\pd H}{\pd w} = 0$$.
+Returning to the derivation of the optimal control and Riccati equation for the LQR problem, we obtain the following results:
+$$ u = -\frac 1 2 R_1^{-1}B^T\lambda$$
+$$0 = -1\gamma^2w^TR_w + \lambda^T D$$ which implies that $$w = \frac{1}{2\gamma^2} R_2^{-1}D^T\lambda.$$
+Assume that $\lambda = 2\Pi x$. Then for $$\theta = \frac 1 \gamma$$
+\begin{eqnarray*}
+\dot \lambda &=& 2\dot\Pi x + 2\Pi \dot x\\
+&=& 2\dot\Pi x + 2\Pi (Ax+Bu+Dw)\\
+&=& 2\left(\dot\Pi x  + \Pi Ax   -\frac 1 2 \Pi B R_1^{-1}B^T\lambda+\frac 1 2\theta^2\Pi D R_2^{-1}D^T\lambda\right) \\
+&=& 2\left(\dot\Pi  + \Pi A   - \Pi B R_1^{-1}B^T\Pi +\theta^2 \Pi DR_2^{-1}D^T\Pi \right)x \\
+\end{eqnarray*}
+Also $\dot\lambda = -(2x^TQ + \lambda^TA)^T = -2(Qx + A^T\Pi)x$.  Pulling this all together provides the MinMax Differential Riccati Equation (MDRE):
+$$\dot\Pi = \Pi A + A^T\Pi - \Pi(BR_1^{-1}B^T - \theta^2DR_2^{-1}D^T\Pi + Q, \quad \Pi(t_f) = 0.$$
+
+What is the role of $\theta$?  Unlike the standard DRE, the MDRE may not have a solution for all $t\in[0,t_f']$. There is a critical value, $\theta_{\max}$ so that for all $0\leq\theta\leq\theta_{\max},$ the MDRE has a solution for all t. Note that $\theta = 0$ yields the LQR equation.
+
+
+

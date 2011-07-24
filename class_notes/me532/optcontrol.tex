@@ -1,0 +1,136 @@
+\subsection{Basic  Problem in Optimal Control:}
+$$\min J(x,u)=\int_{t_0}^{t_f} L(t,x(t),u(t)) dt + \varphi(x(t_f),t_f)$$
+\hspace{1.5in}{\it subject to}
+$$\dot x(t) = f(t,x(t),u(t)), \qquad  x(t_0) = x_0.$$
+
+To work up to solving this, we'll follow the pattern of what we did with algebraic optimization problems.  Instead of having objective functions that map from $\Re^n$ into $\Re$, the objective functions can be functionals.  Functionals map functions to real numbers. The calculus required to find minima for functionals is called the calculus of variations (COV).
+
+\noindent {\bf Fundamental Problem in the Calculus of Variations: } Given a functional $J$ and a set of admissible functions $A$, determine which function (or functions) provide a minimum value for $J$.
+
+\bigskip
+\noindent Example problems:
+\begin{enumerate}
+\item Find the function $f$ with minimum arclength in the set $A$ of all continuously differentiable functions on $a\leq x\leq b$ with $f(a) = f_1$, $f(b) = f_2$. Define
+$$J(f) = \int_a^b \sqrt{1+f'(x)^2}dx$$
+Then, we want to find the $f$ that minimizes $J$.
+\item A bead with mass $m$ and initial velocity $v(0) = 0$ slides with no friction under the force of gravity from point $(x_1, y_1)$ to $(x_2, y_2)$ along a wire defined by a curve $f(x)$. What is the shape that has the shortest travel time?
+$$T = \int_0^Tdt = \int_0^{s_1} \frac{dt}{ds} ds = \int_0^{s_1} \frac 1v ds = \int_{x_1}^{x_2}\frac{ \sqrt{1+f'(x)^2}}vdx.$$
+To determine $v$ in terms of $f$ or $x$, use the fact that energy is conserved. Energy in the system:
+$$\frac 12 mv^2 + mgf = 0 + mgy_1$$
+at the starting point; this implies that
+$$v = \sqrt{2g(y_1-f(x))}.$$
+So for any curve, the time to traverse the curve is given by
+$$T(f) = \int_{x_1}^{x_2}\frac{ \sqrt{1+f'(x)^2}}{\sqrt{2g(y_1-f(x))}}dx$$
+\item Linear Quadratic Regulator with sensed measurements
+$$\min \int_0^{\infty} \left(x^T(t)Qx(t) + u^T(t)Ru(t) \right)dt$$
+\hspace{1.5in}{\it subject to}
+$$\dot x(t) = Ax(t) + Bu(t), \quad x(0) = x_0$$
+$$ y(t) = Cx(t)$$
+$$ x(t) \in \Re^n, \quad u(t) \in \Re^m, \quad A\in\Re ^{n\times n }, \quad B\in \Re ^{n\times m}, \quad C\in\Re^{n\times p}$$
+$Q$ positive semidefinite, $R$ positive definite.
+\end{enumerate}
+
+To minimize these problems, we need to develop necessary and sufficient conditions. There are many intricacies to this, and we will just scratch the surface. 
+
+{\it Key point to remember:} Analogously to the calculus used for basic optimization problems, we would like to have a condition like ``$J'(f)=0$" as a way to find candidate minimizers $f^*$.  We will return to this idea repeatedly to develop the ideas that can be used to solve optimal control problems.
+
+\medskip
+
+Suppose $f^*$ minimizes $J$ locally. Then we can generate other admissible functions ``nearby $f^*$" in the set $A$ by $f = f^* + \epsilon h$ where $\epsilon$ is a small real number and $h$ is a function. If we pick $h$ carefully and keep $\epsilon$ small, $f$ will remain in $A$.
+
+ If $J$ is minimized at $f^*$ then ${\cal J}(\epsilon)=J(f^* +\epsilon h)$ is minimized when $\epsilon = 0$. So, related to $J(f)$, we have created a related function $\cal J(\epsilon)$. We can apply standard calculus to minimizing $\cal J$ and thus uncover necessary conditions for $J(f)$. In particular, we know that ${\cal J}(\epsilon)$ is minimized when $\epsilon = 0$.  Therefore the first order necessary condition for a minimum for $\cal J$ is ${\cal J}'(0) = 0$.  The function $f^*$ is called the {\it extremizer} (or candidate minimizer) for $J$ and $J$ is called {\it stationary} at $f^*$.
+ 
+\subsection{\bf Simplest problem in the calculus of variations:}
+ Find a local minimum for $$J(f) = \int_a^b L(x,f,f')dx$$ where $f\in C^2[a,b]$, $f(a) = y_1$, $f(b) = y_2$, $L$ is a given function that is $C^2$ on $[a,b]\times \Re^2$. Note that $f$ is smoother than needed if a more general approach is used. It is easier to develop the necessary conditions with this assumptions, but not applicable to as wide a variety of problems.
+ 
+ Form ${\cal J}(\epsilon) = J(f^* + \epsilon h)$. We know that $\cal J$ is optimized when $\epsilon=0$ and so the first order necessary condition is ${\cal J}'(0) = 0$. 
+ $${\cal J}(\epsilon) = J(f^* + \epsilon h) = \int_a^b L(x, (f^*+\epsilon h), ( f^*+\epsilon h)') dx.$$ 
+ 
+ First order necessary condition:  $\ds \frac{d}{d\epsilon}{\cal J}(0) = 0$ corresponds to the candidate minimizer $f^*$, and $J$ is stationary at $f^*$.   Assume that $h$ is chosen to be twice continuously differentiable with $h(a) = 0 = h(b)$. Then for $\epsilon$ small enough, $f^* + \epsilon h$ remains in $A$ and is called an {\it admissible variation}.
+$$ \frac{d}{d\epsilon}{\cal J}(\epsilon)\vert_{\epsilon=0} = \frac{d}{d\epsilon}J(f^* + \epsilon h)\vert_{\epsilon=0}  = \int_a^b \frac{\pd}{\pd\epsilon}L(x, (f^*+\epsilon h), ( f^*+\epsilon h)') dx\vert_{\epsilon=0} $$ 
+$$  = \int_a^b \left(\frac{\pd L}{\pd x}(x, (\cdot), (\cdot)')\frac{dx}{d\epsilon} + \frac{\pd L}{\pd f}(x, (\cdot), ( \cdot)')\frac{df}{d\epsilon} + \frac{\pd L}{\pd f'}(x, (\cdot), (\cdot)')\frac{df'}{d\epsilon}\right)dx\vert_{\epsilon=0}$$
+$$  = \int_a^b \left( \frac{\pd L}{\pd f}(x, f^*, (f^*)')h + \frac{\pd L}{\pd f'}(x, f^*, (f^*)')h'\right)dx = 0$$
+This last line is the first order initial condition and will hold for all $h\in C^2[a,b]$ with $h(a) = 0 = h(b)$.
+To put this in a more usable form, integrate by parts on the second term to change $h'$ to $h$.
+\vspace{.25in}
+
+Set $\ds u =  \frac{\pd L}{\pd f'}$ and $dv = h'dx.$  Then $\ds du = \frac{d}{dx} \frac{\pd L}{\pd f'} dx$ and $v = h$. This implies that 
+\begin{eqnarray}
+ 0 &=& \int_a^b \left( \frac{\pd L}{\pd f}(x, f^*, (f^*)')h + \frac{\pd L}{\pd f'}(x, f^*, (f^*)')h'\right)dx \nonumber\\
+ &=& 
+\int_a^b \left( \frac{\pd L}{\pd f}(x, f^*, (f^*)') - \frac{d}{dx}\frac{\pd L}{\pd f'}(x, f^*, (f^*)')\right)hdx \label{eq:keyeqn}
+\\&&+\frac{\pd L}{\pd f'}(x, f^*, (f^*)')h\vert_{a}^{b} \nonumber
+\end{eqnarray}
+
+\noindent To use this, we need to apply the
+
+\noindent {\it Fundamental Lemma of the Calculus of Variations}: If $f$ is continuous on $[a,b]$ and if $\ds \int_a^b f(x) h(x) dx = 0$ for every $h \in C^2[a,b]$ with $h(a) = 0 = h(b)$, then $f(x) = 0$ for $x\in[a,b]$.
+
+\medskip
+\noindent From this, we can conclude that $$\frac{\pd L}{\pd f}(x, f^*, (f^*)') - \frac{d}{dx}\frac{\pd L}{\pd f'}(x, f^*, (f^*)')= 0. $$
+
+To summarize this, we can write the following theorem which represents the First Order Necessary Condition for the Simplest Optimal Control problem:
+
+\noindent{\it Theorem}: If $f^*$ provides a local minimum to $$J(f) = \int_a^b L(x, f, f') dx$$ where $f\in C^2[a,b]$ and $f(a)=y_1$, $f(b) = y_2$ then $f$ must satisfy 
+\begin{equation}\label{eq:eleqn}
+\frac{\pd L}{\pd f}(x, f^*, (f^*)') - \frac{d}{dx}\frac{\pd L}{\pd f'}(x, f^*, (f^*)')= 0 \quad {\rm for} \quad x \in [a,b].
+\end{equation}
+Equation (\ref{eq:eleqn}) is called the {\it Euler-Lagrange Equation}. Solutions $f^*$ to the Euler-Lagrange equation are called {\it extremals} and $J$ is {\it stationary} at such functions.
+
+\noindent Examples:
+
+\newpage
+
+\subsection{Variation on the simplest problem:  higher derivatives of $f$ in the objective function} If
+$$J(f) = \int_a^b L(x, f(x), f'(x), ..., f^{(n)}(x)) dx$$ with boundary conditions
+$$f(a) = y_1, f'(a) = y_2, ..., f^{(n-1)}(a) = y_n$$
+$$f(b) = z_1, f'(b) = z_2, ..., f^{(n-1)}(b) = z_n,$$
+then the 1st order necessary condition becomes
+$$\frac{\pd L}{\pd f} - \frac{d}{dx}\frac{\pd L}{\pd f'} + \frac{d^2}{dx^2}\frac{\pd L}{\pd f''} - \cdots + (-1)^n\frac{d^n}{dx^n}\frac{\pd L}{\pd f^{(n)}} = 0 \quad {\rm for} \quad x \in [a,b].$$
+where each of the terms in the necessary condition are evaluated at $(x, f^*, (f^*)',\ldots, (f^{*(n)})$. This equation is solved to find the {\it candidate minimizers} or {\it extremals}, $f^*$, for the objective function.
+\medskip
+
+\noindent Example
+\newpage
+
+\subsection{Variation 2 on the simplest problem:  multiple functions $f, g$ in the objective function} If
+$$J(f) = \int_a^b L(x, f(x), f'(x), g(x), g'(x)) dx$$ with boundary conditions
+$$f(a) = y_1, f(b) = y_2, g(a) = z_1, g(b) = z_2,$$
+then the 1st order necessary condition takes the form of a system of Euler-Lagrange equations for $f$ and $g$:
+$$
+\frac{\pd L}{\pd f}(x, f^*, (f^*)',g^*, (g^*)')) - \frac{d}{dx}\frac{\pd L}{\pd f'}(x, f^*, (f^*)',g^*, (g^*)'))= 0$$
+$$\frac{\pd L}{\pd g}(x, f^*, (f^*)',g^*, (g^*)')) - \frac{d}{dx}\frac{\pd L}{\pd g'}(x, f^*, (f^*)',g^*, (g^*)'))= 0,$$
+ for $ x \in [a,b]$.
+These equations (typically coupled) are solved to find the {\it candidate minimizers} or {\it extremals}, $f^*, g^*$, for the objective function.
+
+
+\medskip
+
+
+
+\noindent Example
+\newpage
+
+\subsection{Variation 3 on the simplest problem:  unspecified boundary condition} Instead of having $f(a)$ and $f(b)$ specified, assume $f(a) = y_1$ and $f(b)$ is unspecified. This means that the admissible variations, $h$, have $h(a) = 0$ and $h(b)$ is unspecified. Then in order for (\ref{eq:keyeqn}) to reduce to the form to which we can apply the FLCOV, we need to assume that 
+$$\frac{\pd L}{\pd f'}(b, f^*(b), (f^*(b))') = 0$$
+and the Euler-Lagrange equation will still hold. 
+
+Example
+
+\newpage
+\subsection{Hamiltonian Theory}
+One method to obtain equations of motion for a physical system is to use the idea that the system should evolve along a path of least resistance. The concept of {\it action} was proposed (where action has the units of energy $\times$ time), and the motion is to minimize the action (a.k.a. Principle of Least Action).
+
+Define $y_1, y_2, \ldots, y_n$ to be the coordinates of a given system dynamics. Then $\dot y_1, \dot y_2, \ldots, \dot y_n$ are the corresponding velocities. Denote the kinetic and potential energies of the system as $T$ and $V$ respectively.
+\smallskip
+
+\noindent Hamilton's principle states that the time evolution of a mechanical system takes place so that the integral of the difference of kinetic and potential energy is {\it stationary}.  Or, the motion of the system from time $t_0$ to $t_1$ provides an extremal for the functional
+$$J(y_1, \ldots, y_n, \dot y_1, \ldots, \dot y_n) = \int_{t_0}^{t_1} (T-V)dt$$
+
+The functions $y_1(t), \ldots, y_n(t)$ can also be thought of as parametric equations defining the paths that the system takes over time.
+
+\medskip
+
+Examples
+
+

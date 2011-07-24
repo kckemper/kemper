@@ -1,0 +1,450 @@
+#LyX 1.6.5 created this file. For more info see http://www.lyx.org/
+\lyxformat 345
+\begin_document
+\begin_header
+\textclass article
+\begin_preamble
+\usepackage[samesize]{cancel}
+\usepackage{calc}
+\end_preamble
+\use_default_options true
+\language english
+\inputencoding auto
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize custom
+\use_geometry true
+\use_amsmath 1
+\use_esint 1
+\cite_engine basic
+\use_bibtopic false
+\paperorientation landscape
+\paperwidth 11in
+\paperheight 17in
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\defskip medskip
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\author "" 
+\author "" 
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Equation of Motion for Stopping/Catching a Mass
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\series bold
+Variables:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula \[
+\begin{array}{c|l|l}
+F_{m}(t) & \textrm{Motor force} & N\\
+x_{m}(t) & \textrm{Motor position} & m\\
+ & \\
+F_{L}(t) & \textrm{Load force} & N\\
+x_{L}(t) & \textrm{Load position} & m\end{array}\]
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\series bold
+Constants:
+\series default
+
+\begin_inset Formula \[
+\begin{array}{c|l|l}
+k & \textrm{Spring constant} & N\cdot m\\
+B & \textrm{Damping constant} & \frac{kg\cdot m^{2}}{s}\\
+ & \\
+m_{m} & \textrm{Motor/transmission mass} & kg\\
+F_{limit} & \textrm{Motor force limit} & N\\
+ & \\
+m_{L} & \textrm{Load mass} & kg\\
+F_{peak} & \textrm{Peak torque allowed at load} & N\end{array}\]
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\series bold
+Iinitial Conditions & Constraints:
+\series default
+
+\begin_inset Formula \[
+\begin{array}{c|l|l}
+x_{L0}=0 & \textrm{Load position} & m\\
+\dot{x}_{L0}>0 & \textrm{Load velocity} & \frac{m}{s}\\
+\ddot{x}_{L0}=0 & \textrm{Load acceleration} & \frac{m}{s^{2}}\\
+ & \\
+x_{m0}=0 & \textrm{Motor position} & m\\
+\dot{x}_{m0}=0 & \textrm{Motor velocity} & \frac{m}{s}\\
+\ddot{x}_{m0}=0 & \textrm{Motor acceleration}\textrm{} & \frac{m}{s^{2}}\end{array}\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The force of the spring is defined as:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula \begin{eqnarray*}
+F_{k} & = & k[x_{m}-x_{L}]\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Note: spring can only be in compression!
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+setlength{
+\backslash
+jot}{3mm+3pt}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+System 1 (motor side):
+\begin_inset Formula \begin{eqnarray*}
+\Sigma F=m_{m}\ddot{x}_{m} & = & F_{m}-F_{k}\\
+m_{m}\ddot{x}_{m}(t) & = & F_{m}(t)-k[x_{m}(t)-x_{L}(t)]\\
+m_{m}\ddot{x}_{m}(t)+kx_{m}(t) & = & F_{m}(t)+kx_{L}(t)\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Take the Laplace:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula \begin{eqnarray}
+m_{m}\left[s^{2}X_{m}(s)-sx_{m0}-\dot{x}_{m0}\right] & = & F_{m}(s)-k\left[X_{m}(s)-X_{L}(s)\right]\nonumber \\
+m_{m}s^{2}X_{m}(s)-m_{m}x_{m0}s-m_{m}\dot{x}_{m0} & = & F_{m}(s)-kX_{m}(s)+kX_{L}(s)\nonumber \\
+\nonumber \\\textrm{Move }X_{m}(s)\textrm{ to the left side:}\nonumber \\
+m_{m}s^{s}X_{m}(s)+kX_{m}(s) & = & F_{m}(s)+X_{L}(s)k+m_{m}x_{m0}s+m_{m}\dot{x}_{m0}\nonumber \\
+X_{m}(s)\left[m_{m}s^{2}+k\right] & = & F_{m}(s)+X_{L}(s)k+m_{m}x_{m0}s+m_{m}\dot{x}_{m0}\nonumber \\
+X_{m}(s) & = & \frac{F_{m}(s)+X_{L}(s)k+m_{m}x_{m0}s+m_{m}\dot{x}_{m0}}{m_{m}s^{2}+k}\label{eq:sys1}\end{eqnarray}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+System 2 (load side):
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula \begin{eqnarray*}
+\Sigma F=m_{L}\ddot{x}_{L} & = & F_{k}\\
+m_{L}\ddot{x}_{L} & = & k\left[x_{m}(t)-x_{L}(t)\right]\\
+kx_{m}(t) & = & kx_{L}(t)+m_{L}\ddot{x}_{L}\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Take the Laplace:
+\begin_inset Formula \begin{eqnarray}
+m_{L}\left[s^{2}X_{L}(s)-sx_{L0}-\dot{x}_{L0}\right] & = & k\left[X_{m}(s)-X_{L}(s)\right]\nonumber \\
+m_{L}s^{2}X_{L}(s)-m_{L}x_{L0}s-m_{L}\dot{x}_{L0} & = & kX_{m}(s)-kX_{L}(s)\nonumber \\
+\nonumber \\\textrm{Move }X_{m}(s)\textrm{ to the left side:}\nonumber \\
+X_{m}(s)k & = & m_{L}s^{2}X_{L}(s)+kX_{L}(s)-m_{L}x_{L0}s-m_{L}\dot{x}_{L0}\nonumber \\
+X_{m}(s)k & = & X_{L}(s)\left(m_{L}s^{2}+k\right)-m_{L}x_{L0}s-m_{L}\dot{x}_{L0}\nonumber \\
+X_{m}(s) & = & \frac{X_{L}(s)\left(m_{L}s^{2}+k\right)-m_{L}x_{L0}s-m_{L}\dot{x}_{L0}}{k}\label{eq:sys2}\end{eqnarray}
+
+\end_inset
+
+
+\begin_inset Formula \begin{eqnarray*}
+\textrm{Move }X_{L}(s)\textrm{ to the left side:}\\
+X_{L}(s)\left(m_{L}s^{2}+k\right) & = & kX_{m}(s)+m_{L}x_{L0}s+m_{L}\dot{x}_{L0}\\
+X_{L}(s) & = & \frac{kX_{m}(s)+m_{L}x_{L0}s+m_{L}\dot{x}_{L0}}{m_{L}s^{2}+k}\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Solve for 
+\begin_inset Formula $X_{m}(s)$
+\end_inset
+
+:
+\begin_inset Formula \begin{eqnarray*}
+X_{m}(s) & = & \frac{F_{m}(s)+\left(\frac{kX_{m}(s)+m_{L}x_{L0}s+m_{L}\dot{x}_{L0}}{m_{L}s^{2}+k}\right)k+m_{m}x_{m0}s+m_{m}\dot{x}_{m0}}{m_{m}s^{2}+k}\\
+X_{m}(s) & = & F_{m}(s)\frac{1}{m_{m}s^{2}+k}+\frac{X_{m}(s)k^{2}+m_{L}x_{L0}ks+m_{L}\dot{x}_{L0}k}{\left(m_{L}s^{2}+k\right)\left(m_{m}s^{2}+k\right)}+\frac{m_{m}x_{m0}s}{m_{m}s^{2}+k}+\frac{m_{m}\dot{x}_{m0}}{m_{m}s^{2}+k}\\
+X_{m}(s) & = & F_{m}(s)\frac{1}{m_{m}s^{2}+k}+X_{m}(s)\frac{k^{2}}{\left(m_{L}s^{2}+k\right)\left(m_{m}s^{2}+k\right)}+\frac{m_{L}x_{L0}ks}{\left(m_{L}s^{2}+k\right)\left(m_{m}s^{2}+k\right)}+\frac{m_{L}\dot{x}_{L0}k}{\left(m_{L}s^{2}+k\right)\left(m_{m}s^{2}+k\right)}+\frac{m_{m}x_{m0}s}{m_{m}s^{2}+k}+\frac{m_{m}\dot{x}_{m0}}{m_{m}s^{2}+k}\\
+X_{m}(s)-X_{m}(s)\frac{k^{2}}{\left(m_{L}s^{2}+k\right)\left(m_{m}s^{2}+k\right)} & = & F_{m}(s)\frac{1}{m_{m}s^{2}+k}+\frac{m_{L}x_{L0}ks}{\left(m_{L}s^{2}+k\right)\left(m_{m}s^{2}+k\right)}+\frac{m_{L}\dot{x}_{L0}k}{\left(m_{L}s^{2}+k\right)\left(m_{m}s^{2}+k\right)}+\frac{m_{m}x_{m0}s}{m_{m}s^{2}+k}+\frac{m_{m}\dot{x}_{m0}}{m_{m}s^{2}+k}\\
+X_{m}(s)\left(1-\frac{k^{2}}{\left(m_{L}s^{2}+k\right)\left(m_{m}s^{2}+k\right)}\right) & = & F_{m}(s)\frac{1}{m_{m}s^{2}+k}+\frac{m_{L}x_{L0}ks}{\left(m_{L}s^{2}+k\right)\left(m_{m}s^{2}+k\right)}+\frac{m_{L}\dot{x}_{L0}k}{\left(m_{L}s^{2}+k\right)\left(m_{m}s^{2}+k\right)}+\frac{m_{m}x_{m0}s}{m_{m}s^{2}+k}+\frac{m_{m}\dot{x}_{m0}}{m_{m}s^{2}+k}\\
+X_{m}(s)\left(1-\frac{k^{2}}{\left(m_{L}s^{2}+k\right)\left(m_{m}s^{2}+k\right)}\right) & = & F_{m}(s)\frac{1}{m_{m}s^{2}+k}+\frac{m_{L}x_{L0}ks}{\left(m_{L}s^{2}+k\right)\left(m_{m}s^{2}+k\right)}+\frac{m_{L}\dot{x}_{L0}k}{\left(m_{L}s^{2}+k\right)\left(m_{m}s^{2}+k\right)}+\frac{m_{m}x_{m0}s}{m_{m}s^{2}+k}+\frac{m_{m}\dot{x}_{m0}}{m_{m}s^{2}+k}\\
+X_{m}(s) & = & \frac{F_{m}(s)\frac{1}{m_{m}s^{2}+k}+\frac{m_{L}x_{L0}ks}{\left(m_{L}s^{2}+k\right)\left(m_{m}s^{2}+k\right)}+\frac{m_{L}\dot{x}_{L0}k}{\left(m_{L}s^{2}+k\right)\left(m_{m}s^{2}+k\right)}+\frac{m_{m}x_{m0}s}{m_{m}s^{2}+k}+\frac{m_{m}\dot{x}_{m0}}{m_{m}s^{2}+k}}{1-\frac{k^{2}}{\left(m_{L}s^{2}+k\right)\left(m_{m}s^{2}+k\right)}}\\
+X_{m}(s) & = & F_{m}(s)\frac{1}{\left(m_{m}s^{2}+k\right)\left(1-\frac{k^{2}}{\left(m_{L}s^{2}+k\right)\left(m_{m}s^{2}+k\right)}\right)}+\frac{\frac{m_{L}x_{L0}ks}{\left(m_{L}s^{2}+k\right)\left(m_{m}s^{2}+k\right)}}{1-\frac{k^{2}}{\left(m_{L}s^{2}+k\right)\left(m_{m}s^{2}+k\right)}}+\frac{\frac{m_{L}\dot{x}_{L0}k}{\left(m_{L}s^{2}+k\right)\left(m_{m}s^{2}+k\right)}}{1-\frac{k^{2}}{\left(m_{L}s^{2}+k\right)\left(m_{m}s^{2}+k\right)}}+\frac{\frac{m_{m}x_{m0}s}{m_{m}s^{2}+k}}{1-\frac{k^{2}}{\left(m_{L}s^{2}+k\right)\left(m_{m}s^{2}+k\right)}}+\frac{\frac{m_{m}\dot{x}_{m0}}{m_{m}s^{2}+k}}{1-\frac{k^{2}}{\left(m_{L}s^{2}+k\right)\left(m_{m}s^{2}+k\right)}}\\
+X_{m}(s) & = & F_{m}(s)\frac{1}{\left(m_{m}s^{2}+k-\frac{k^{2}}{m_{L}s^{2}+k}\right)}+\frac{m_{L}x_{L0}ks}{\left(m_{L}s^{2}+k\right)\left(m_{m}s^{2}+k\right)-k^{2}}+\frac{m_{L}\dot{x}_{L0}k}{\left(m_{L}s^{2}+k\right)\left(m_{m}s^{2}+k\right)-k^{2}}+\frac{m_{m}x_{m0}s}{m_{m}s^{2}+k-\frac{k^{2}}{m_{L}s^{2}+k}}+\frac{m_{m}\dot{x}_{m0}}{m_{m}s^{2}+k-\frac{k^{2}}{m_{L}s^{2}+k}}\\
+\\\textrm{Sub in }F_{m}(s):\\
+X_{m}(s) & = & \frac{F_{limit}}{s\left(m_{m}s^{2}+k-\frac{k^{2}}{m_{L}s^{2}+k}\right)}+\frac{m_{L}x_{L0}ks}{\left(m_{L}s^{2}+k\right)\left(m_{m}s^{2}+k\right)-k^{2}}+\frac{m_{L}\dot{x}_{L0}k}{\left(m_{L}s^{2}+k\right)\left(m_{m}s^{2}+k\right)-k^{2}}+\frac{m_{m}x_{m0}s}{m_{m}s^{2}+k-\frac{k^{2}}{m_{L}s^{2}+k}}+\frac{m_{m}\dot{x}_{m0}}{m_{m}s^{2}+k-\frac{k^{2}}{m_{L}s^{2}+k}}\\
+\textrm{Bring it back to time:}\\
+x_{m}(t) & = & F_{limit}\left(\frac{m_{L}^{2}}{k\left(m_{L}+m_{m}\right)^{2}}-\frac{e^{-\frac{\sqrt{-k\left(m_{L}+m_{m}\right)}t}{\sqrt{m_{L}}\sqrt{m_{m}}}}\left(1+e^{\frac{2\sqrt{-k\left(m_{L}+m_{m}\right)}t}{\sqrt{m_{L}}\sqrt{m_{m}}}}\right)m_{L}^{2}}{2k\left(m_{L}+m_{m}\right)^{2}}+\frac{t^{2}}{2\left(m_{L}+m_{m}\right)}\right)-\frac{e^{-\frac{\sqrt{-k\left(m_{L}+m_{m}\right)}t}{\sqrt{m_{L}}\sqrt{m_{m}}}}\left(-1+e^{\frac{\sqrt{-k\left(m_{L}+m_{m}\right)}t}{\sqrt{m_{L}}\sqrt{m_{m}}}}\right)^{2}m_{L}x_{L0}}{2\left(m_{L}+m_{m}\right)}\\
+ &  & +m_{L}\dot{x}_{L0}\left(-\frac{e^{-\frac{\sqrt{-k\left(m_{L}+m_{m}\right)}t}{\sqrt{m_{L}}\sqrt{m_{m}}}}\left(-1+e^{\frac{2\sqrt{-k\left(m_{L}+m_{m}\right)}t}{\sqrt{m_{L}}\sqrt{m_{m}}}}\right)\sqrt{m_{L}}\sqrt{m_{m}}}{2\left(m_{L}+m_{m}\right)\sqrt{-k\left(m_{L}+m_{m}\right)}}+\frac{t}{\left(m_{L}+m_{m}\right)}\right)+m_{m}x_{m0}\left(\frac{1}{m_{L}+m_{m}}+\frac{e^{-\frac{\sqrt{-k\left(m_{L}+m_{m}\right)}t}{\sqrt{m_{L}}\sqrt{m_{m}}}}\left(1+e^{\frac{2\sqrt{-k\left(m_{L}+m_{m}\right)}t}{\sqrt{m_{L}}\sqrt{m_{m}}}}\right)m_{L}}{2m_{m}\left(m_{L}+m_{m}\right)}\right)\\
+ &  & +m_{m}\dot{x}_{m0}\left(\frac{e^{-\frac{\sqrt{-k\left(m_{L}+m_{m}\right)}t}{\sqrt{m_{L}}\sqrt{m_{m}}}}\left(-1+e^{\frac{2\sqrt{-k\left(m_{L}+m_{m}\right)}t}{\sqrt{m_{L}}\sqrt{m_{m}}}}\right)m_{L}^{3/2}}{2\sqrt{m_{m}}\left(m_{L}+m_{m}\right)\sqrt{-k\left(m_{L}+m_{m}\right)}}+\frac{t}{m_{L}+m_{m}}\right)\\
+\\\\\textrm{With initial conditions:}\\
+x_{m}(t) & = & F_{limit}\left(\frac{m_{L}^{2}}{k\left(m_{L}+m_{m}\right)^{2}}-\frac{e^{-\frac{\sqrt{-k\left(m_{L}+m_{m}\right)}t}{\sqrt{m_{L}}\sqrt{m_{m}}}}\left(1+e^{\frac{2\sqrt{-k\left(m_{L}+m_{m}\right)}t}{\sqrt{m_{L}}\sqrt{m_{m}}}}\right)m_{L}^{2}}{2k\left(m_{L}+m_{m}\right)^{2}}+\frac{t^{2}}{2\left(m_{L}+m_{m}\right)}\right)+m_{L}\dot{x}_{L0}\left(-\frac{e^{-\frac{\sqrt{-k\left(m_{L}+m_{m}\right)}t}{\sqrt{m_{L}}\sqrt{m_{m}}}}\left(-1+e^{\frac{2\sqrt{-k\left(m_{L}+m_{m}\right)}t}{\sqrt{m_{L}}\sqrt{m_{m}}}}\right)\sqrt{m_{L}}\sqrt{m_{m}}}{2\left(m_{L}+m_{m}\right)\sqrt{-k\left(m_{L}+m_{m}\right)}}+\frac{t}{\left(m_{L}+m_{m}\right)}\right)\\
+ & = & \frac{F_{limit}\left(2m_{L}^{2}+k\left(m_{L}+m_{m}\right)t^{2}-2m_{L}^{2}\cos\left(t\,\sqrt{k\left(\frac{1}{m_{L}}+\frac{1}{m_{m}}\right)}\right)\right)}{2k\left(m_{L}+m_{m}\right)^{2}}+\frac{m_{L}\dot{x}_{L0}\left(t-\frac{m_{L}m_{m}\sin\left(t\,\sqrt{k\left(\frac{1}{m_{L}}+\frac{1}{m_{m}}\right)}\right)}{\sqrt{km_{L}m_{m}\left(m_{L}+m_{m}\right)}}\right)}{m_{L}+m_{m}}\\
+x_{m}(t) & = & \frac{F_{limit}m_{L}^{2}}{k\left(m_{L}+m_{m}\right)^{2}}+\frac{F_{limit}t^{2}}{2\left(m_{L}+m_{m}\right)}-\frac{F_{limit}m_{L}^{2}\cos\left(t\,\sqrt{k\left(\frac{1}{m_{L}}+\frac{1}{m_{m}}\right)}\right)}{k\left(m_{L}+m_{m}\right)^{2}}+\frac{m_{L}\dot{x}_{L0}t}{m_{L}+m_{m}}-\frac{\dot{x}_{L0}m_{L}^{2}m_{m}\sin\left(t\,\sqrt{k\left(\frac{1}{m_{L}}+\frac{1}{m_{m}}\right)}\right)}{\left(m_{L}+m_{m}\right)\sqrt{km_{L}m_{m}\left(m_{L}+m_{m}\right)}}\end{eqnarray*}
+
+\end_inset
+
+Combine equations 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:sys1"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:sys2"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula \begin{eqnarray*}
+\frac{X_{L}(s)\left(m_{L}s^{2}+k\right)-m_{L}x_{L0}s-m_{L}\dot{x}_{L0}}{k} & = & \frac{F_{m}(s)+X_{L}(s)k+m_{m}x_{m0}s+m_{m}\dot{x}_{m0}}{m_{m}s^{2}+k}\\
+\\\textrm{Solve for }X_{L}(s):\\
+\\\left(X_{L}(s)\left(m_{L}s^{2}+k\right)-m_{L}x_{L0}s-m_{L}\dot{x}_{L0}\right)\left(m_{m}s^{2}+k\right) & = & \left(F_{m}(s)+X_{L}(s)k+m_{m}x_{m0}s+m_{m}\dot{x}_{m0}\right)k\\
+X_{L}(s)\left(m_{L}s^{2}+k\right)m_{m}s^{2}-m_{L}m_{m}x_{L0}s^{3}-m_{L}m_{m}\dot{x}_{L0}s^{2}+X_{L}(s)\left(m_{L}s^{2}+k\right)k-m_{L}x_{L0}ks-m_{L}\dot{x}_{L0}k & = & F_{m}(s)k+X_{L}(s)k^{2}+m_{m}x_{m0}ks+m_{m}\dot{x}_{m0}k\\
+X_{L}(s)\left(m_{L}s^{2}+k\right)m_{m}s^{2}+X_{L}(s)\left(m_{L}s^{2}+k\right)k-X_{L}(s)k^{2} & = & F_{m}(s)k+m_{m}x_{m0}ks+m_{m}\dot{x}_{m0}k+m_{L}m_{m}x_{L0}s^{3}+m_{L}m_{m}\dot{x}_{L0}s^{2}+m_{L}x_{L0}ks+m_{L}\dot{x}_{L0}k\\
+X_{L}(s)\left(m_{L}m_{m}s^{4}+m_{m}ks^{2}+m_{L}ks^{2}\right) & = & F_{m}(s)k+m_{m}x_{m0}ks+m_{m}\dot{x}_{m0}k+m_{L}m_{m}x_{L0}s^{3}+m_{L}m_{m}\dot{x}_{L0}s^{2}+m_{L}x_{L0}ks+m_{L}\dot{x}_{L0}k\\
+X_{L}(s) & = & \frac{F_{m}(s)k+m_{m}x_{m0}ks+m_{m}\dot{x}_{m0}k+m_{L}m_{m}x_{L0}s^{3}+m_{L}m_{m}\dot{x}_{L0}s^{2}+m_{L}x_{L0}ks+m_{L}\dot{x}_{L0}k}{m_{L}m_{m}s^{4}+m_{m}ks^{2}+m_{L}ks^{2}}\\
+ & = & F_{m}(s)\frac{k}{m_{L}m_{m}s^{4}+m_{m}ks^{2}+m_{L}ks^{2}}+\frac{m_{m}x_{m0}k}{m_{L}m_{m}s^{3}+m_{m}ks+m_{L}ks}+\frac{m_{m}\dot{x}_{m0}k}{m_{L}m_{m}s^{4}+m_{m}ks^{2}+m_{L}ks^{2}}+\frac{m_{L}m_{m}x_{L0}s}{m_{L}m_{m}s^{2}+m_{m}k+m_{L}k}+\frac{m_{L}m_{m}\dot{x}_{L0}}{m_{L}m_{m}s^{2}+m_{m}k+m_{L}k}+\frac{m_{L}x_{L0}k}{m_{L}m_{m}s^{3}+m_{m}ks+m_{L}ks}+\frac{m_{L}\dot{x}_{L0}k}{m_{L}m_{m}s^{4}+m_{m}ks^{2}+m_{L}ks^{2}}\\
+\\\\\\\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula \begin{equation}
+X_{L}(s)=F_{m}(s)\frac{k}{m_{L}m_{m}s^{4}+m_{m}ks^{2}+m_{L}ks^{2}}+\frac{m_{m}x_{m0}k}{m_{L}m_{m}s^{3}+m_{m}ks+m_{L}ks}+\frac{m_{m}\dot{x}_{m0}k}{m_{L}m_{m}s^{4}+m_{m}ks^{2}+m_{L}ks^{2}}+\frac{m_{L}m_{m}x_{L0}s}{m_{L}m_{m}s^{2}+m_{m}k+m_{L}k}+\frac{m_{L}m_{m}\dot{x}_{L0}}{m_{L}m_{m}s^{2}+m_{m}k+m_{L}k}+\frac{m_{L}x_{L0}k}{m_{L}m_{m}s^{3}+m_{m}ks+m_{L}ks}+\frac{m_{L}\dot{x}_{L0}k}{m_{L}m_{m}s^{4}+m_{m}ks^{2}+m_{L}ks^{2}}\label{eq:tf}\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+First find the Laplace of 
+\begin_inset Formula $F_{m}(t)$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula \begin{eqnarray*}
+\textrm{Set the motor to constant max torque:}\\
+F_{m}(t) & = & F_{limit}u(t)\\
+F_{m}(s) & = & \frac{F_{limit}}{s}\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Now subsitute back in 
+\begin_inset Formula $X_{L}(s)$
+\end_inset
+
+ and 
+\begin_inset Formula $F_{L}(s)$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula \begin{eqnarray*}
+X_{L}(s) & = & \left(\frac{F_{limit}}{s}\right)\frac{k}{m_{L}m_{m}s^{4}+m_{m}ks^{2}+m_{L}ks^{2}}+\frac{m_{m}x_{m0}k}{m_{L}m_{m}s^{3}+m_{m}ks+m_{L}ks}+\frac{m_{m}\dot{x}_{m0}k}{m_{L}m_{m}s^{4}+m_{m}ks^{2}+m_{L}ks^{2}}+\frac{m_{L}m_{m}x_{L0}s}{m_{L}m_{m}s^{2}+m_{m}k+m_{L}k}+\frac{m_{L}m_{m}\dot{x}_{L0}}{m_{L}m_{m}s^{2}+m_{m}k+m_{L}k}+\frac{m_{L}x_{L0}k}{m_{L}m_{m}s^{3}+m_{m}ks+m_{L}ks}+\frac{m_{L}\dot{x}_{L0}k}{m_{L}m_{m}s^{4}+m_{m}ks^{2}+m_{L}ks^{2}}\\
+X_{L}(s) & = & \frac{F_{limit}k}{m_{L}m_{m}s^{5}+m_{m}ks^{3}+m_{L}ks^{3}}+\frac{m_{m}x_{m0}k}{m_{L}m_{m}s^{3}+m_{m}ks+m_{L}ks}+\frac{m_{m}\dot{x}_{m0}k}{m_{L}m_{m}s^{4}+m_{m}ks^{2}+m_{L}ks^{2}}+\frac{m_{L}m_{m}x_{L0}s}{m_{L}m_{m}s^{2}+m_{m}k+m_{L}k}+\frac{m_{L}m_{m}\dot{x}_{L0}}{m_{L}m_{m}s^{2}+m_{m}k+m_{L}k}+\frac{m_{L}x_{L0}k}{m_{L}m_{m}s^{3}+m_{m}ks+m_{L}ks}+\frac{m_{L}\dot{x}_{L0}k}{m_{L}m_{m}s^{4}+m_{m}ks^{2}+m_{L}ks^{2}}\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Take the inverse Laplace:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula \begin{eqnarray*}
+x_{L}(t) & = & F_{limit}\left(-\frac{m_{L}m_{m}}{k\left(m_{L}+m_{m}\right)^{2}}+\frac{e^{-\frac{\sqrt{-k\left(m_{L}+m_{m}\right)}t}{\sqrt{m_{L}}\sqrt{m_{m}}}}\left(1+e^{\frac{2\sqrt{-k\left(m_{L}+m_{m}\right)}t}{\sqrt{m_{L}}\sqrt{m_{m}}}}\right)m_{L}m_{m}}{2k\left(m_{L}+m_{m}\right)^{2}}+\frac{t^{2}}{2\left(m_{L}+m_{m}\right)}\right)-\frac{e^{-\frac{\sqrt{-k\left(m_{L}+m_{m}\right)}t}{\sqrt{m_{L}}\sqrt{m_{m}}}}\left(-1+e^{\frac{\sqrt{-k\left(m_{L}+m_{m}\right)}t}{\sqrt{m_{L}}\sqrt{m_{m}}}}\right)^{2}m_{m}x_{m0}}{2\left(m_{L}+m_{m}\right)}+\dot{x}_{m0}m_{m}\left(-\frac{e^{-\frac{\sqrt{-k\left(m_{L}+m_{m}\right)}t}{\sqrt{m_{L}}\sqrt{m_{m}}}}\left(-1+e^{\frac{2\sqrt{-k\left(m_{L}+m_{m}\right)}t}{\sqrt{m_{L}}\sqrt{m_{m}}}}\right)\sqrt{m_{L}}\sqrt{m_{m}}}{2\left(m_{L}+m_{m}\right)\sqrt{-k\left(m_{L}+m_{m}\right)}}+\frac{t}{m_{L}+m_{m}}\right)\\
+ &  & +\frac{x_{L0}}{2}e^{-\frac{\sqrt{-k\left(m_{L}+m_{m}\right)}t}{\sqrt{m_{L}}\sqrt{m_{m}}}}\left(1+e^{\frac{2\sqrt{-k\left(m_{L}+m_{m}\right)}t}{\sqrt{m_{L}}\sqrt{m_{m}}}}\right)+\dot{x}_{L0}\frac{e^{-\frac{\sqrt{-k\left(m_{L}+m_{m}\right)}t}{\sqrt{m_{L}}\sqrt{m_{m}}}}\left(-1+e^{\frac{2\sqrt{-k\left(m_{L}+m_{m}\right)}t}{\sqrt{m_{L}}\sqrt{m_{m}}}}\right)\sqrt{m_{L}}\sqrt{m_{m}}}{2\sqrt{-k\left(m_{L}+m_{m}\right)}}-\frac{e^{-\frac{\sqrt{-k\left(m_{L}+m_{m}\right)}t}{\sqrt{m_{L}}\sqrt{m_{m}}}}\left(-1+e^{\frac{\sqrt{-k\left(m_{L}+m_{m}\right)}t}{\sqrt{m_{L}}\sqrt{m_{m}}}}\right)^{2}m_{L}x_{L0}}{2\left(m_{L}+m_{m}\right)}+\dot{x}_{L0}m_{L}\left(-\frac{e^{-\frac{\sqrt{-k\left(m_{L}+m_{m}\right)}t}{\sqrt{m_{L}}\sqrt{m_{m}}}}\left(-1+e^{\frac{2\sqrt{-k\left(m_{L}+m_{m}\right)}t}{\sqrt{m_{L}}\sqrt{m_{m}}}}\right)\sqrt{m_{L}}\sqrt{m_{m}}}{2\left(m_{L}+m_{m}\right)\sqrt{-k\left(m_{L}+m_{m}\right)}}+\frac{t}{m_{L}+m_{m}}\right)\\
+\\\\\\\textrm{Initial conditions removed:}\\
+\\x_{L}(t) & = & F_{limit}\left(-\frac{m_{L}m_{m}}{k\left(m_{L}+m_{m}\right)^{2}}+\frac{e^{-\frac{\sqrt{-k\left(m_{L}+m_{m}\right)}t}{\sqrt{m_{L}}\sqrt{m_{m}}}}\left(1+e^{\frac{2\sqrt{-k\left(m_{L}+m_{m}\right)}t}{\sqrt{m_{L}}\sqrt{m_{m}}}}\right)m_{L}m_{m}}{2k\left(m_{L}+m_{m}\right)^{2}}+\frac{t^{2}}{2\left(m_{L}+m_{m}\right)}\right)+\dot{x}_{L0}\frac{e^{-\frac{\sqrt{-k\left(m_{L}+m_{m}\right)}t}{\sqrt{m_{L}}\sqrt{m_{m}}}}\left(-1+e^{\frac{2\sqrt{-k\left(m_{L}+m_{m}\right)}t}{\sqrt{m_{L}}\sqrt{m_{m}}}}\right)\sqrt{m_{L}}\sqrt{m_{m}}}{2\sqrt{-k\left(m_{L}+m_{m}\right)}}+\dot{x}_{L0}m_{L}\left(-\frac{e^{-\frac{\sqrt{-k\left(m_{L}+m_{m}\right)}t}{\sqrt{m_{L}}\sqrt{m_{m}}}}\left(-1+e^{\frac{2\sqrt{-k\left(m_{L}+m_{m}\right)}t}{\sqrt{m_{L}}\sqrt{m_{m}}}}\right)\sqrt{m_{L}}\sqrt{m_{m}}}{2\left(m_{L}+m_{m}\right)\sqrt{-k\left(m_{L}+m_{m}\right)}}+\frac{t}{m_{L}+m_{m}}\right)\\
+ & = & \frac{F_{limit}\left(-2m_{L}m_{m}+k\left(m_{L}+m_{m}\right)t^{2}+2m_{L}m_{m}\cos\left(t\,\sqrt{k\left(\frac{1}{m_{L}}+\frac{1}{m_{m}}\right)}\right)\right)}{2k\left(m_{L}+m_{m}\right)^{2}}+\frac{\dot{x}_{L0}m_{L}m_{m}\sin\left(t\,\sqrt{k\left(\frac{1}{m_{L}}+\frac{1}{m_{m}}\right)}\right)}{\sqrt{km_{L}m_{m}\left(m_{L}+m_{m}\right)}}+\frac{\dot{x}_{L0}m_{L}\left(t-\frac{m_{L}m_{m}\sin\left(t\,\sqrt{k\left(\frac{1}{m_{L}}+\frac{1}{m_{m}}\right)}\right)}{\sqrt{km_{L}m_{m}\left(m_{L}+m_{m}\right)}}\right)}{m_{L}+m_{m}}\\
+x_{L}(t) & = & -\frac{F_{limit}m_{L}m_{m}}{k\left(m_{L}+m_{m}\right)^{2}}+\frac{F_{limit}t^{2}}{2\left(m_{L}+m_{m}\right)}+\frac{F_{limit}m_{L}m_{m}\cos\left(t\,\sqrt{k\left(\frac{1}{m_{L}}+\frac{1}{m_{m}}\right)}\right)}{k\left(m_{L}+m_{m}\right)^{2}}+\frac{\dot{x}_{L0}m_{L}m_{m}\sin\left(t\,\sqrt{k\left(\frac{1}{m_{L}}+\frac{1}{m_{m}}\right)}\right)}{\sqrt{km_{L}m_{m}\left(m_{L}+m_{m}\right)}}+\frac{\dot{x}_{L0}m_{L}t}{m_{L}+m_{m}}-\frac{\dot{x}_{L0}m_{L}^{2}m_{m}\sin\left(t\,\sqrt{k\left(\frac{1}{m_{L}}+\frac{1}{m_{m}}\right)}\right)}{\left(m_{L}+m_{m}\right)\sqrt{km_{L}m_{m}\left(m_{L}+m_{m}\right)}}\\
+\\\\\\\\\\\\\\\textrm{Find the velocity of the load:}\\
+\frac{d}{dt}x_{L}(t) & =\frac{d}{dt} & \left(F_{limit}\left(-\frac{m_{L}m_{m}}{k\left(m_{L}+m_{m}\right)^{2}}+\frac{e^{-\frac{\sqrt{-k\left(m_{L}+m_{m}\right)}t}{\sqrt{m_{L}}\sqrt{m_{m}}}}\left(1+e^{2\frac{2\sqrt{-k\left(m_{L}+m_{m}\right)}t}{\sqrt{m_{L}}\sqrt{m_{m}}}}\right)m_{L}m_{m}}{2k\left(m_{L}+m_{m}\right)^{2}}+\frac{t^{2}}{2\left(m_{L}+m_{m}\right)}\right)+\dot{x}_{L0}\frac{e^{-\frac{\sqrt{-k\left(m_{L}+m_{m}\right)}t}{\sqrt{m_{L}}\sqrt{m_{m}}}}\left(-1+e^{2\frac{\sqrt{-k\left(m_{L}+m_{m}\right)}t}{\sqrt{m_{L}}\sqrt{m_{m}}}}\right)\sqrt{m_{L}}\sqrt{m_{m}}}{2\sqrt{-k\left(m_{L}+m_{m}\right)}}+\dot{x}_{L0}m_{L}\left(-\frac{e^{-\frac{\sqrt{-k\left(m_{L}+m_{m}\right)}t}{\sqrt{m_{L}}\sqrt{m_{m}}}}\left(-1+e^{2\frac{\sqrt{-k\left(m_{L}+m_{m}\right)}t}{\sqrt{m_{L}}\sqrt{m_{m}}}}\right)\sqrt{m_{L}}\sqrt{m_{m}}}{2\left(m_{L}+m_{m}\right)\sqrt{-k\left(m_{L}+m_{m}\right)}}+\frac{t}{m_{L}+m_{m}}\right)\right)\\
+\dot{x}_{L}(t) & = & F_{limit}\left(\frac{e^{\frac{\sqrt{-k\left(m_{L}+m_{m}\right)}t}{\sqrt{m_{L}}\sqrt{m_{m}}}}\sqrt{m_{L}}\sqrt{m_{m}}\sqrt{-k\left(m_{L}+m_{m}\right)}}{k\left(m_{L}+m_{m}\right)^{2}}-\frac{e^{-\frac{\sqrt{-k\left(m_{L}+m_{m}\right)}t}{\sqrt{m_{L}}\sqrt{m_{m}}}}\left(1+e^{2\frac{\sqrt{-k\left(m_{L}+m_{m}\right)}t}{\sqrt{m_{L}}\sqrt{m_{m}}}}\right)\sqrt{m_{L}}\sqrt{m_{m}}\sqrt{-k\left(m_{L}+m_{m}\right)}}{2k\left(m_{L}+m_{m}\right)^{2}}+\frac{t}{m_{L}+m_{m}}\right)\\
+ &  & +\dot{x}_{L0}e^{\frac{\sqrt{-k\left(m_{L}+m_{m}\right)}t}{\sqrt{m_{L}}\sqrt{m_{m}}}}-\frac{1}{2}\dot{x}_{L0}e^{-\frac{\sqrt{-k\left(m_{L}+m_{m}\right)}t}{\sqrt{m_{L}}\sqrt{m_{m}}}}\left(-1+e^{2\frac{\sqrt{-k\left(m_{L}+m_{m}\right)}t}{\sqrt{m_{L}}\sqrt{m_{m}}}}\right)\\
+ &  & +m_{L}\dot{x}_{L0}\left(\frac{1}{m_{L}+m_{m}}-\frac{e^{\frac{\sqrt{-k\left(m_{L}+m_{m}\right)}t}{\sqrt{m_{L}}\sqrt{m_{m}}}}}{m_{L}+m_{m}}+\frac{e^{-\frac{\sqrt{-k\left(m_{L}+m_{m}\right)}t}{\sqrt{m_{L}}\sqrt{m_{m}}}}\left(-1+e^{2\frac{\sqrt{-k\left(m_{L}+m_{m}\right)}t}{\sqrt{m_{L}}\sqrt{m_{m}}}}\right)}{2\left(m_{L}+m_{m}\right)}\right)\\
+\\\\\\\dot{x}_{L}(t) & = & \frac{\dot{x}_{L0}m_{L}}{m_{L}+m_{m}}+\frac{F_{limit}t}{m_{L}+m_{m}}+\frac{\dot{x}_{L0}\sqrt{k\left(\frac{1}{m_{L}}+\frac{1}{m_{m}}\right)}m_{m}\cos\left(t\,\sqrt{k\left(\frac{1}{m_{L}}+\frac{1}{m_{m}}\right)}\right)}{\sqrt{km_{L}m_{m}\left(m_{L}+m_{m}\right)}}-\frac{\dot{x}_{L0}m_{L}^{2}\sqrt{k\left(\frac{1}{m_{L}}+\frac{1}{m_{m}}\right)}m_{m}\cos\left(t\,\sqrt{k\left(\frac{1}{m_{L}}+\frac{1}{m_{m}}\right)}\right)}{\left(m_{L}+m_{m}\right)\sqrt{km_{L}m_{m}\left(m_{L}+m_{m}\right)}}-\frac{F_{limit}m_{L}\sqrt{k\left(\frac{1}{m_{L}}+\frac{1}{m_{m}}\right)}m_{m}\sin\left(t\,\sqrt{k\left(\frac{1}{m_{L}}+\frac{1}{m_{m}}\right)}\right)}{k\left(m_{L}+m_{m}\right)^{2}}\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Find if the velocity crosses zero:
+\begin_inset Formula \begin{eqnarray*}
+\dot{x}_{L}(t) & = & \frac{\dot{x}_{L0}m_{L}}{m_{L}+m_{m}}+\frac{F_{limit}t}{m_{L}+m_{m}}+\frac{\dot{x}_{L0}\sqrt{k\left(\frac{1}{m_{L}}+\frac{1}{m_{m}}\right)}m_{m}\cos\left(t\,\sqrt{k\left(\frac{1}{m_{L}}+\frac{1}{m_{m}}\right)}\right)}{\sqrt{km_{L}m_{m}\left(m_{L}+m_{m}\right)}}-\frac{\dot{x}_{L0}m_{L}^{2}\sqrt{k\left(\frac{1}{m_{L}}+\frac{1}{m_{m}}\right)}m_{m}\cos\left(t\,\sqrt{k\left(\frac{1}{m_{L}}+\frac{1}{m_{m}}\right)}\right)}{\left(m_{L}+m_{m}\right)\sqrt{km_{L}m_{m}\left(m_{L}+m_{m}\right)}}-\frac{F_{limit}m_{L}\sqrt{k\left(\frac{1}{m_{L}}+\frac{1}{m_{m}}\right)}m_{m}\sin\left(t\,\sqrt{k\left(\frac{1}{m_{L}}+\frac{1}{m_{m}}\right)}\right)}{k\left(m_{L}+m_{m}\right)^{2}}\\
+\\\text{Find \ensuremath{\ddot{x}_{L}}:}\\
+\ddot{x}_{L}(t) & = & \frac{F_{limit}}{m_{L}+m_{m}}-\frac{F_{limit}\cos\left(t\,\sqrt{k\left(\frac{1}{m_{L}}+\frac{1}{m_{m}}\right)}\right)}{m_{L}+m_{m}}-\frac{\dot{x}_{L0}\sqrt{km_{L}m_{m}\left(m_{L}+m_{m}\right)}\sin\left(t\,\sqrt{k\left(\frac{1}{m_{L}}+\frac{1}{m_{m}}\right)}\right)}{m_{L}\left(m_{L}+m_{m}\right)}\\
+\text{Set \ensuremath{\ddot{x}_{L}=0}:}\\
+0 & = & \frac{F_{limit}}{m_{L}+m_{m}}-\frac{F_{limit}\cos\left(t\,\sqrt{k\left(\frac{1}{m_{L}}+\frac{1}{m_{m}}\right)}\right)}{m_{L}+m_{m}}-\frac{\dot{x}_{L0}\sqrt{km_{L}m_{m}\left(m_{L}+m_{m}\right)}\sin\left(t\,\sqrt{k\left(\frac{1}{m_{L}}+\frac{1}{m_{m}}\right)}\right)}{m_{L}\left(m_{L}+m_{m}\right)}\\
+\\t & = & \begin{cases}
+ & 0\\
+ & -\frac{\cos^{-1}\left(-1+\frac{2F_{limit}^{2}m_{L}}{F_{limit}^{2}m_{L}+\dot{x}_{L0}^{2}km_{m}\left(m_{L}+m_{m}\right)}\right)}{\sqrt{k\left(\frac{1}{m_{L}}+\frac{1}{m_{m}}\right)}}\\
+ & \frac{\cos^{-1}\left(-1+\frac{2F_{limit}^{2}m_{L}}{F_{limit}^{2}m_{L}+\dot{x}_{L0}^{2}km_{m}\left(m_{L}+m_{m}\right)}\right)}{\sqrt{k\left(\frac{1}{m_{L}}+\frac{1}{m_{m}}\right)}}\end{cases}\\
+\\\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Force on the load
+\begin_inset Formula $F_{L}$
+\end_inset
+
+:
+\begin_inset Formula \begin{eqnarray*}
+F_{L}(t)=F_{k}(t) & = & k[x_{m}(t)-x_{L}(t)]\\
+F_{L}(t) & = & k\left(\frac{F_{limit}m_{L}^{2}}{k\left(m_{L}+m_{m}\right)^{2}}+\frac{F_{limit}t^{2}}{2\left(m_{L}+m_{m}\right)}-\frac{F_{limit}m_{L}^{2}\cos\left(t\,\sqrt{k\left(\frac{1}{m_{L}}+\frac{1}{m_{m}}\right)}\right)}{k\left(m_{L}+m_{m}\right)^{2}}+\frac{m_{L}\dot{x}_{L0}t}{m_{L}+m_{m}}-\frac{\dot{x}_{L0}m_{L}^{2}m_{m}\sin\left(t\,\sqrt{k\left(\frac{1}{m_{L}}+\frac{1}{m_{m}}\right)}\right)}{\left(m_{L}+m_{m}\right)\sqrt{km_{L}m_{m}\left(m_{L}+m_{m}\right)}}\right)\\
+ &  & -k\left(-\frac{F_{limit}m_{L}m_{m}}{k\left(m_{L}+m_{m}\right)^{2}}+\frac{F_{limit}t^{2}}{2\left(m_{L}+m_{m}\right)}+\frac{F_{limit}m_{L}m_{m}\cos\left(t\,\sqrt{k\left(\frac{1}{m_{L}}+\frac{1}{m_{m}}\right)}\right)}{k\left(m_{L}+m_{m}\right)^{2}}+\frac{\dot{x}_{L0}m_{L}m_{m}\sin\left(t\,\sqrt{k\left(\frac{1}{m_{L}}+\frac{1}{m_{m}}\right)}\right)}{\sqrt{km_{L}m_{m}\left(m_{L}+m_{m}\right)}}+\frac{\dot{x}_{L0}m_{L}t}{m_{L}+m_{m}}-\frac{\dot{x}_{L0}m_{L}^{2}m_{m}\sin\left(t\,\sqrt{k\left(\frac{1}{m_{L}}+\frac{1}{m_{m}}\right)}\right)}{\left(m_{L}+m_{m}\right)\sqrt{km_{L}m_{m}\left(m_{L}+m_{m}\right)}}\right)\\
+\\ & = & \frac{F_{limit}m_{L}^{2}}{\left(m_{L}+m_{m}\right)^{2}}+\frac{F_{limit}kt^{2}}{2\left(m_{L}+m_{m}\right)}-\frac{F_{limit}m_{L}^{2}\cos\left(t\,\sqrt{k\left(\frac{1}{m_{L}}+\frac{1}{m_{m}}\right)}\right)}{\left(m_{L}+m_{m}\right)^{2}}+\frac{m_{L}\dot{x}_{L0}kt}{m_{L}+m_{m}}-\frac{\dot{x}_{L0}m_{L}^{2}m_{m}k\,\sin\left(t\,\sqrt{k\left(\frac{1}{m_{L}}+\frac{1}{m_{m}}\right)}\right)}{\left(m_{L}+m_{m}\right)\sqrt{km_{L}m_{m}\left(m_{L}+m_{m}\right)}}\\
+ &  & +\frac{F_{limit}m_{L}m_{m}}{\left(m_{L}+m_{m}\right)^{2}}-\frac{F_{limit}kt^{2}}{2\left(m_{L}+m_{m}\right)}-\frac{F_{limit}m_{L}m_{m}\cos\left(t\,\sqrt{k\left(\frac{1}{m_{L}}+\frac{1}{m_{m}}\right)}\right)}{\left(m_{L}+m_{m}\right)^{2}}-\frac{\dot{x}_{L0}m_{L}m_{m}k\,\sin\left(t\,\sqrt{k\left(\frac{1}{m_{L}}+\frac{1}{m_{m}}\right)}\right)}{\sqrt{km_{L}m_{m}\left(m_{L}+m_{m}\right)}}-\frac{\dot{x}_{L0}m_{L}kt}{m_{L}+m_{m}}+\frac{\dot{x}_{L0}m_{L}^{2}m_{m}k\,\sin\left(t\,\sqrt{k\left(\frac{1}{m_{L}}+\frac{1}{m_{m}}\right)}\right)}{\left(m_{L}+m_{m}\right)\sqrt{km_{L}m_{m}\left(m_{L}+m_{m}\right)}}\\
+\\ & = & \frac{F_{limit}m_{L}^{2}}{\left(m_{L}+m_{m}\right)^{2}}+\frac{F_{limit}m_{L}m_{m}}{\left(m_{L}+m_{m}\right)^{2}}-\frac{F_{limit}m_{L}^{2}\cos\left(t\,\sqrt{k\left(\frac{1}{m_{L}}+\frac{1}{m_{m}}\right)}\right)}{\left(m_{L}+m_{m}\right)^{2}}-\frac{F_{limit}m_{L}m_{m}\cos\left(t\,\sqrt{k\left(\frac{1}{m_{L}}+\frac{1}{m_{m}}\right)}\right)}{\left(m_{L}+m_{m}\right)^{2}}-\frac{\dot{x}_{L0}m_{L}m_{m}k\,\sin\left(t\,\sqrt{k\left(\frac{1}{m_{L}}+\frac{1}{m_{m}}\right)}\right)}{\sqrt{km_{L}m_{m}\left(m_{L}+m_{m}\right)}}\\
+\\\\\\F_{L}(t) & = & \frac{F_{limit}m_{L}}{m_{L}+m_{m}}-\frac{F_{limit}m_{L}\cos\left(t\,\sqrt{k\left(\frac{1}{m_{L}}+\frac{1}{m_{m}}\right)}\right)}{m_{L}+m_{m}}-\frac{\dot{x}_{L0}\sqrt{km_{L}m_{m}\left(m_{L}+m_{m}\right)}\sin\left(t\,\sqrt{k\left(\frac{1}{m_{L}}+\frac{1}{m_{m}}\right)}\right)}{m_{L}+m_{m}}\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Find peak force:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula \begin{eqnarray*}
+\\F_{L}(t) & = & \frac{F_{limit}m_{L}}{m_{L}+m_{m}}-\frac{F_{limit}m_{L}\cos\left(t\,\sqrt{k\left(\frac{1}{m_{L}}+\frac{1}{m_{m}}\right)}\right)}{m_{L}+m_{m}}-\frac{\dot{x}_{L0}\sqrt{km_{L}m_{m}\left(m_{L}+m_{m}\right)}\sin\left(t\,\sqrt{k\left(\frac{1}{m_{L}}+\frac{1}{m_{m}}\right)}\right)}{m_{L}+m_{m}}\\
+\dot{F}_{L}(t) & = & \sqrt{k\left(\frac{1}{m_{L}}+\frac{1}{m_{m}}\right)}\left(\frac{F_{limit}m_{L}\sin\left(t\,\sqrt{k\left(\frac{1}{m_{L}}+\frac{1}{m_{m}}\right)}\right)}{m_{L}+m_{m}}-\frac{\dot{x}_{L0}\sqrt{km_{L}m_{m}\left(m_{L}+m_{m}\right)}\cos\left(t\,\sqrt{k\left(\frac{1}{m_{L}}+\frac{1}{m_{m}}\right)}\right)}{m_{L}+m_{m}}\right)\\
+\\\text{Set \ensuremath{\dot{F}_{L}=0}:}\\
+\dot{F}_{L}(t)=0 & = & \sqrt{k\left(\frac{1}{m_{L}}+\frac{1}{m_{m}}\right)}\left(\frac{F_{limit}m_{L}\sin\left(t\,\sqrt{k\left(\frac{1}{m_{L}}+\frac{1}{m_{m}}\right)}\right)}{m_{L}+m_{m}}-\frac{\dot{x}_{L0}\sqrt{km_{L}m_{m}\left(m_{L}+m_{m}\right)}\cos\left(t\,\sqrt{k\left(\frac{1}{m_{L}}+\frac{1}{m_{m}}\right)}\right)}{m_{L}+m_{m}}\right)\\
+\\t & = & -\frac{\cos^{-1}\left(-\frac{F_{limit}\sqrt{m_{L}}}{\sqrt{F_{limit}^{2}m_{L}+\dot{x}_{L0}^{2}km_{m}\left(m_{L}+m_{m}\right)}}\right)}{\sqrt{k\left(\frac{1}{m_{L}}+\frac{1}{m_{L}}\right)}}\\
+ &  & \frac{\cos^{-1}\left(-\frac{F_{limit}\sqrt{m_{L}}}{\sqrt{F_{limit}^{2}m_{L}+\dot{x}_{L0}^{2}km_{m}\left(m_{L}+m_{m}\right)}}\right)}{\sqrt{k\left(\frac{1}{m_{L}}+\frac{1}{m_{L}}\right)}}\\
+ &  & -\frac{\cos^{-1}\left(\frac{F_{limit}\sqrt{m_{L}}}{\sqrt{F_{limit}^{2}m_{L}+\dot{x}_{L0}^{2}km_{m}\left(m_{L}+m_{m}\right)}}\right)}{\sqrt{k\left(\frac{1}{m_{L}}+\frac{1}{m_{L}}\right)}}\\
+ &  & \frac{\cos^{-1}\left(\frac{F_{limit}\sqrt{m_{L}}}{\sqrt{F_{limit}^{2}m_{L}+\dot{x}_{L0}^{2}km_{m}\left(m_{L}+m_{m}\right)}}\right)}{\sqrt{k\left(\frac{1}{m_{L}}+\frac{1}{m_{L}}\right)}}\\
+\\\\ & = & \frac{\cos^{-1}\left(-\frac{F_{limit}\sqrt{m_{L}}}{\sqrt{F_{limit}^{2}m_{L}+\dot{x}_{L0}^{2}km_{m}\left(m_{L}+m_{m}\right)}}\right)}{\sqrt{k\left(\frac{1}{m_{L}}+\frac{1}{m_{L}}\right)}}\\
+\\F_{peak} & = & \frac{F_{limit}m_{L}}{m_{L}+m_{m}}-\frac{\dot{x}_{L0}km_{m}\sqrt{m_{L}\left(m_{L}+m_{m}\right)}\sqrt{\frac{\dot{x}_{L0}^{2}\left(m_{L}+m_{m}\right)}{F_{limit}^{2}m_{L}+\dot{x}_{L0}^{2}km_{m}\left(m_{L}+m_{m}\right)}}}{m_{L}+m_{m}}+\frac{\frac{F_{limit}^{2}m_{L}^{3/2}}{\sqrt{F_{limit}^{2}m_{L}+\dot{x}_{L0}^{2}km_{m}\left(m_{L}+m_{m}\right)}}}{m_{L}+m_{m}}\\
+F_{peak} & = & \frac{F_{limit}m_{L}}{m_{L}+m_{m}}-\frac{\dot{x}_{L0}km_{L}m_{m}\sqrt{\frac{\dot{x}_{L0}^{2}\left(m_{L}+m_{m}\right)}{F_{limit}^{2}m_{L}+\dot{x}_{L0}^{2}km_{m}\left(m_{L}+m_{m}\right)}}}{\sqrt{m_{L}\left(m_{L}+m_{m}\right)}}+\frac{F_{limit}^{2}m_{L}^{3/2}}{\left(m_{L}+m_{m}\right)\sqrt{F_{limit}^{2}m_{L}+\dot{x}_{L0}^{2}km_{m}\left(m_{L}+m_{m}\right)}}\\
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

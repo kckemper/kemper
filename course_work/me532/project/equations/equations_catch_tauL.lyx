@@ -1,0 +1,359 @@
+#LyX 1.6.5 created this file. For more info see http://www.lyx.org/
+\lyxformat 345
+\begin_document
+\begin_header
+\textclass article
+\begin_preamble
+\usepackage[samesize]{cancel}
+\usepackage{calc}
+\end_preamble
+\use_default_options true
+\language english
+\inputencoding auto
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize custom
+\use_geometry true
+\use_amsmath 1
+\use_esint 1
+\cite_engine basic
+\use_bibtopic false
+\paperorientation landscape
+\paperwidth 11in
+\paperheight 17in
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\defskip medskip
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\author "" 
+\author "" 
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Equation of Motion for Stopping/Catching a Mass
+\end_layout
+
+\begin_layout Standard
+The goal is to find the motor torque (
+\begin_inset Formula $F_{m}(t)$
+\end_inset
+
+) that generates the optimal torque at the load.
+ The optimal torque is defined as: 
+\begin_inset Formula $F_{L}(t)=F_{peak}u(t)-F_{peak}u(t-t_{stop})$
+\end_inset
+
+ where 
+\begin_inset Formula $t_{stop}$
+\end_inset
+
+ is the time needed to apply the peak torque (
+\begin_inset Formula $F_{peak}$
+\end_inset
+
+) to stop the load at a specific distance.
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\series bold
+Variables:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula \[
+\begin{array}{c|l|l}
+F_{m}(t) & \textrm{Motor force} & N\\
+x_{m}(t) & \textrm{Motor position} & m\\
+ & \\
+F_{L}(t) & \textrm{Load force} & N\\
+x_{L}(t) & \textrm{Load position} & m\end{array}\]
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\series bold
+Constants:
+\series default
+
+\begin_inset Formula \[
+\begin{array}{c|l|l}
+k & \textrm{Spring constant} & N\cdot m\\
+B & \textrm{Damping constant} & \frac{kg\cdot m^{2}}{s}\\
+ & \\
+m_{m} & \textrm{Motor/transmission mass} & kg\\
+F_{limit} & \textrm{Motor force limit} & N\\
+ & \\
+m_{L} & \textrm{Load mass} & kg\\
+F_{peak} & \textrm{Peak torque allowed at load} & N\end{array}\]
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\series bold
+Iinitial Conditions & Constraints:
+\series default
+
+\begin_inset Formula \[
+\begin{array}{c|l|l}
+x_{L0}=0 & \textrm{Load position} & m\\
+\dot{x}_{L0}>0 & \textrm{Load velocity} & \frac{m}{s}\\
+\ddot{x}_{L0}=0 & \textrm{Load acceleration} & \frac{m}{s^{2}}\\
+ & \\
+x_{m0}=0 & \textrm{Motor position} & m\\
+\dot{x}_{m0}=0 & \textrm{Motor velocity} & \frac{m}{s}\\
+\ddot{x}_{m0}=0 & \textrm{Motor acceleration}\textrm{} & \frac{m}{s^{2}}\end{array}\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The torque of the spring and damper are defined as:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula \begin{eqnarray*}
+F_{k} & = & k[x_{m}-x_{L}]\\
+F_{B} & = & B[\dot{x}_{m}-\dot{x}_{L}]\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+setlength{
+\backslash
+jot}{3mm+3pt}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+System 1)
+\begin_inset Formula \begin{eqnarray*}
+\Sigma F=m_{m}\ddot{x}_{m} & = & F_{m}-F_{B}-F_{k}\\
+m_{m}\ddot{x}_{m}(t) & = & F_{m}(t)-B[\dot{x}_{m}(t)-\dot{x}_{L}(t)]-k[x_{m}(t)-x_{L}(t)]\\
+m_{m}\ddot{x}_{m}(t)+B\dot{x}_{m}(t)+kx_{m}(t) & = & F_{m}(t)+B\dot{x}_{L}(t)+kx_{L}(t)\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Take the Laplace:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula \begin{eqnarray}
+I_{m}\left[s^{2}\Theta_{m}(s)-s\theta_{m0}-\dot{\theta}_{m0}\right] & = & T_{m}(s)-B\left[s\Theta_{m}(s)-\theta_{m0}-s\Theta_{L}(s)+\theta_{L0}\right]-k\left[\Theta_{m}(s)-\Theta_{L}(s)\right]\nonumber \\
+I_{m}s^{2}\Theta_{m}(s)-I_{m}\theta_{m0}s-I_{m}\dot{\theta}_{m0} & = & T_{m}(s)-Bs\Theta_{m}(s)+B\theta_{m0}+Bs\Theta_{L}(s)-B\theta_{L0}-k\Theta_{m}(s)+k\Theta_{L}(s)\nonumber \\
+\nonumber \\\textrm{Move }\Theta_{m}(s)\textrm{ to the left side:}\nonumber \\
+I_{m}s^{s}\Theta_{m}(s)+Bs\Theta_{m}(s)+k\Theta_{m}(s) & = & T_{m}(s)+Bs\Theta_{L}(s)+k\Theta_{L}(s)+I_{m}\theta_{m0}s+I_{m}\dot{\theta}_{m0}+B\theta_{m0}-B\theta_{L0}\nonumber \\
+\Theta_{m}(s)\left[I_{m}s^{2}+Bs+k\right] & = & T_{m}(s)+\Theta_{L}(s)(Bs+k)+I_{m}\theta_{m0}s+I_{m}\dot{\theta}_{m0}+B\theta_{m0}-B\theta_{L0}\nonumber \\
+\Theta_{m}(s) & = & \frac{T_{m}(s)+\Theta_{L}(s)(Bs+k)+I_{m}\theta_{m0}s+I_{m}\dot{\theta}_{m0}+B\theta_{m0}-B\theta_{L0}}{I_{m}s^{2}+Bs+k}\label{eq:sys1}\end{eqnarray}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+System 2)
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula \begin{eqnarray*}
+\Sigma F=m_{L}\ddot{x}_{L} & = & F_{B}+F_{k}-F_{L}\\
+m_{L}\ddot{x}_{L} & = & B\left[\dot{x}_{m}(t)-\dot{x}_{L}(t)\right]+k\left[x_{m}(t)-x_{L}(t)\right]-F_{L}(t)\\
+B\dot{x}_{m}(t)+kx_{m}(t) & = & +B\dot{x}_{L}(t)+kx_{L}(t)+F_{L}(t)+m_{L}\ddot{x}_{L}\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Take the Laplace:
+\begin_inset Formula \begin{eqnarray}
+I_{L}\left[s^{2}\Theta_{L}(s)-s\theta_{L0}-\dot{\theta}_{L0}\right] & = & B\left[s\Theta_{m}(s)-\theta_{m0}-s\Theta_{L}(s)+\theta_{L0}\right]+k\left[\Theta_{m}(s)-\Theta_{L}(s)\right]-T_{L}(s)\nonumber \\
+I_{L}s^{2}\Theta_{L}(s)-I_{L}\theta_{L0}s-I_{L}\dot{\theta}_{L0} & = & Bs\Theta_{m}(s)-B\theta_{m0}-Bs\Theta_{L}(s)+B\theta_{L0}+k\Theta_{m}(s)-k\Theta_{L}(s)-T_{L}(s)\nonumber \\
+\nonumber \\\textrm{Move }\Theta_{m}(s)\textrm{ to the left side:}\nonumber \\
+Bs\Theta_{m}(s)+k\Theta_{m}(s) & = & T_{L}(s)-I_{L}s^{2}\Theta_{L}(s)+Bs\Theta_{L}(s)+k\Theta_{L}(s)+B\theta_{m0}-B\theta_{L0}+I_{L}\theta_{L0}s+I_{L}\dot{\theta}_{L0}\nonumber \\
+\Theta_{m}(s)\left(Bs+k\right) & = & T_{L}(s)+\Theta_{L}(s)\left(-I_{L}s^{2}+Bs+k\right)+B\theta_{m0}-B\theta_{L0}+I_{L}\theta_{L0}s+I_{L}\dot{\theta}_{L0}\nonumber \\
+\Theta_{m}(s) & = & \frac{T_{L}(s)+\Theta_{L}(s)\left(-I_{L}s^{2}+Bs+k\right)+B\theta_{m0}-B\theta_{L0}+I_{L}\theta_{L0}s+I_{L}\dot{\theta}_{L0}}{Bs+k}\label{eq:sys2}\end{eqnarray}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Combine equations 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:sys1"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:sys2"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula \begin{eqnarray*}
+\frac{T_{m}(s)+\Theta_{L}(s)(Bs+k)+I_{m}\theta_{m0}s+I_{m}\dot{\theta}_{m0}+B\theta_{m0}-B\theta_{L0}}{I_{m}s^{2}+Bs+k} & = & \frac{T_{L}(s)+\Theta_{L}(s)\left(-I_{L}s^{2}+Bs+k\right)+B\theta_{m0}-B\theta_{L0}+I_{L}\theta_{L0}s+I_{L}\dot{\theta}_{L0}}{Bs+k}\\
+\\\textrm{Solve for }T_{L}(s):\\
+\frac{T_{m}(s)+\Theta_{L}(s)(Bs+k)+I_{m}\theta_{m0}s+I_{m}\dot{\theta}_{m0}+B\theta_{m0}-B\theta_{L0}}{I_{m}s^{2}+Bs+k} & = & \frac{T_{L}(s)}{Bs+k}+\frac{\Theta_{L}(s)\left(-I_{L}s^{2}+Bs+k\right)+B\theta_{m0}-B\theta_{L0}+I_{L}\theta_{L0}s+I_{L}\dot{\theta}_{L0}}{Bs+k}\\
+\frac{T_{L}(s)}{Bs+k} & = & \frac{T_{m}(s)+\Theta_{L}(s)(Bs+k)+I_{m}\theta_{m0}s+I_{m}\dot{\theta}_{m0}+B\theta_{m0}-B\theta_{L0}}{I_{m}s^{2}+Bs+k}-\frac{\Theta_{L}(s)\left(-I_{L}s^{2}+Bs+k\right)+B\theta_{m0}-B\theta_{L0}+I_{L}\theta_{L0}s+I_{L}\dot{\theta}_{L0}}{Bs+k}\\
+T_{L}(s) & = & \frac{\left(T_{m}(s)+\Theta_{L}(s)(Bs+k)+I_{m}\theta_{m0}s+I_{m}\dot{\theta}_{m0}+B\theta_{m0}-B\theta_{L0}\right)\left(Bs+k\right)}{I_{m}s^{2}+Bs+k}-\frac{\left(\Theta_{L}(s)\left(-I_{L}s^{2}+Bs+k\right)+B\theta_{m0}-B\theta_{L0}+I_{L}\theta_{L0}s+I_{L}\dot{\theta}_{L0}\right)\left(Bs+k\right)}{Bs+k}\\
+ & = & \frac{T_{m}(s)(Bs+k)}{I_{m}s^{2}+Bs+k}+\frac{\Theta_{L}(s)(Bs+k)^{2}}{I_{m}s^{2}+Bs+k}+\frac{\left(I_{m}\theta_{m0}s+I_{m}\dot{\theta}_{m0}+B\theta_{m0}-B\theta_{L0}\right)\left(Bs+k\right)}{I_{m}s^{2}+Bs+k}-\left(\Theta_{L}(s)\left(-I_{L}s^{2}+Bs+k\right)+B\theta_{m0}-B\theta_{L0}+I_{L}\theta_{L0}s+I_{L}\dot{\theta}_{L0}\right)\\
+ & = & T_{m}(s)\frac{Bs+k}{I_{m}s^{2}+Bs+k}+\Theta_{L}(s)\frac{(Bs+k)^{2}}{I_{m}s^{2}+Bs+k}-\Theta_{L}(s)\left(-I_{L}s^{2}+Bs+k\right)+\frac{I_{m}B\theta_{m0}s^{2}+I_{m}B\dot{\theta}_{m0}s+B^{2}\theta_{m0}s-B^{2}\theta_{L0}s+I_{m}k\theta_{m0}s+I_{m}k\dot{\theta}_{m0}+Bk\theta_{m0}-Bk\theta_{L0}}{I_{m}s^{2}+Bs+k}-B\theta_{m0}+B\theta_{L0}-I_{L}\theta_{L0}s-I_{L}\dot{\theta}_{L0}\\
+ & = & T_{m}(s)\frac{Bs+k}{I_{m}s^{2}+Bs+k}+\Theta_{L}(s)\left(\frac{(Bs+k)^{2}}{I_{m}s^{2}+Bs+k}+I_{L}s^{2}-Bs-k\right)+\frac{I_{m}B\theta_{m0}s^{2}+I_{m}B\dot{\theta}_{m0}s+B^{2}\theta_{m0}s-B^{2}\theta_{L0}s+I_{m}k\theta_{m0}s+I_{m}k\dot{\theta}_{m0}+Bk\theta_{m0}-Bk\theta_{L0}}{I_{m}s^{2}+Bs+k}-B\theta_{m0}+B\theta_{L0}-I_{L}\theta_{L0}s-I_{L}\dot{\theta}_{L0}\\
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula \begin{equation}
+T_{L}(s)=T_{m}(s)\frac{Bs+k}{I_{m}s^{2}+Bs+k}+\Theta_{L}(s)\left(\frac{(Bs+k)^{2}}{I_{m}s^{2}+Bs+k}+I_{L}s^{2}-Bs-k\right)+\frac{I_{m}B\theta_{m0}s^{2}+I_{m}B\dot{\theta}_{m0}s+B^{2}\theta_{m0}s-B^{2}\theta_{L0}s+I_{m}k\theta_{m0}s+I_{m}k\dot{\theta}_{m0}+Bk\theta_{m0}-Bk\theta_{L0}}{I_{m}s^{2}+Bs+k}-B\theta_{m0}+B\theta_{L0}-I_{L}\theta_{L0}s-I_{L}\dot{\theta}_{L0}\label{eq:tf}\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+First find the Laplace of 
+\begin_inset Formula $\theta_{L}(t)$
+\end_inset
+
+ and 
+\begin_inset Formula $\tau_{L}(t)$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula \begin{eqnarray*}
+\tau_{m} & = & ?\\
+\\\\\\\\\\\\\theta_{L}(t) & = & \frac{\tau_{peak}}{I_{L}}\,\iint\, u(t)-u(t-t_{stop})\, dt^{2}\\
+ & = & \frac{\tau_{peak}t_{stop}}{I_{L}}\int t\, dt\\
+ & = & \left(\frac{\tau_{peak}t_{stop}}{I_{L}}\right)\frac{t^{2}}{2}\\
+\\\Theta_{L}(s) & = & \left(\frac{\tau_{peak}t_{stop}}{I_{L}}\right)\frac{1}{s^{3}}\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Approximate versions:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula \begin{eqnarray*}
+\tau_{L}(t) & = & \frac{\tau_{peak}}{1+e^{-2kt}}\ \textrm{: where k is a huge number}\\
+\\T_{L}(s) & =\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Now subsitute back in 
+\begin_inset Formula $\Theta_{L}(s)$
+\end_inset
+
+ and 
+\begin_inset Formula $T_{L}(s)$
+\end_inset
+
+:
+\end_layout
+
+\end_body
+\end_document

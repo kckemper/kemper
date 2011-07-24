@@ -1,0 +1,70 @@
+(* Content-type: application/mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 7.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       145,          7]
+NotebookDataLength[      1604,         61]
+NotebookOptionsPosition[      1356,         48]
+NotebookOutlinePosition[      1694,         63]
+CellTagsIndexPosition[      1651,         60]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{"Eigenvalues", "[", 
+  RowBox[{"(", "\[NoBreak]", GridBox[{
+     {"0", "1", "0", "0"},
+     {"9.4865", 
+      RowBox[{
+       RowBox[{"-", "0.1055"}], "v"}], 
+      RowBox[{"-", 
+       RowBox[{"(", 
+        RowBox[{"0.5713", "+", 
+         RowBox[{"0.8912", 
+          SuperscriptBox["v", "2"]}]}], ")"}]}], 
+      RowBox[{
+       RowBox[{"-", "0.3305"}], "v"}]},
+     {"0", "0", "0", "1"},
+     {"11.7155", 
+      RowBox[{"3.6768", "v"}], 
+      RowBox[{"-", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"-", "30.8982"}], "+", 
+         RowBox[{"1.9717", 
+          SuperscriptBox["v", "2"]}]}], ")"}]}], 
+      RowBox[{
+       RowBox[{"-", "3.0849"}], "v"}]}
+    }], "\[NoBreak]", ")"}], "]"}]], "Input",
+ CellChangeTimes->{{3.500309346312999*^9, 3.500309447410742*^9}}]
+},
+WindowSize->{640, 455},
+WindowMargins->{{148, Automatic}, {Automatic, 31}},
+FrontEndVersion->"7.0 for Linux x86 (32-bit) (February 25, 2009)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[545, 20, 807, 26, 118, "Input"]
+}
+]
+*)
+
+(* End of internal cache information *)

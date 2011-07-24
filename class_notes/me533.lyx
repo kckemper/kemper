@@ -1,0 +1,2187 @@
+#LyX 1.6.5 created this file. For more info see http://www.lyx.org/
+\lyxformat 345
+\begin_document
+\begin_header
+\textclass article
+\use_default_options true
+\language english
+\inputencoding auto
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize letterpaper
+\use_geometry true
+\use_amsmath 1
+\use_esint 1
+\cite_engine basic
+\use_bibtopic false
+\paperorientation portrait
+\leftmargin 0.75in
+\topmargin 1in
+\rightmargin 0.75in
+\bottommargin 1in
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\defskip medskip
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\author "" 
+\author "" 
+\end_header
+
+\begin_body
+
+\begin_layout Title
+ME 533
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset toc
+LatexCommand tableofcontents
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+1/3/2011
+\end_layout
+
+\begin_layout Itemize
+Introduction
+\end_layout
+
+\begin_layout Itemize
+Types of systems (definitions)
+\end_layout
+
+\begin_layout Itemize
+Exisence and uniqueness
+\end_layout
+
+\begin_layout Itemize
+Phase plane
+\end_layout
+
+\begin_layout Subsection
+Nonlinear systems
+\end_layout
+
+\begin_layout Standard
+We will focus on equations of the form: 
+\begin_inset Formula \begin{eqnarray*}
+\dot{x}_{1} & = & f_{1}\left(x_{1}\dots x_{n},t,c_{i}\right)\\
+\dot{x}_{1} & = & f_{2}\left(x_{1}\dots x_{n},t,c_{i}\right)\\
+\vdots &  & \vdots\\
+\dot{x}_{n} & = & f_{n}\left(x_{1}\dots x_{n},t,c_{i}\right)\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Focus on developing tools to analyze the behavior of these systems and predict
+ the response.
+\end_layout
+
+\begin_layout Itemize
+Equilibrium solutions/ fixed points
+\end_layout
+
+\begin_layout Itemize
+Stability of the above (linearization, Lyapunov)
+\end_layout
+
+\begin_layout Itemize
+Bifurcations
+\end_layout
+
+\begin_layout Itemize
+Periodic solutions and stability
+\end_layout
+
+\begin_layout Itemize
+Perturbation methods
+\end_layout
+
+\begin_layout Itemize
+Nonperiodic solutions
+\end_layout
+
+\begin_layout Subsection
+Introduction: Example of population dynamics (ch10:p.348-366)
+\end_layout
+
+\begin_layout Standard
+Logistic equation:
+\begin_inset Formula \[
+N_{n+1}=rN_{n}\left(1-\frac{N_{n}}{k}\right)\]
+
+\end_inset
+
+
+\begin_inset Formula \begin{eqnarray*}
+N & : & \text{number of individuals}\\
+r & : & \text{factor determines how many individuals will exist based upon current \#}\\
+k & : & \text{carrying capacity, max number of individuals that can occur }=N_{0}\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Nondimensionalize:
+\begin_inset Formula \[
+x_{n}=\frac{N_{n}}{N_{0}}\]
+
+\end_inset
+
+
+\begin_inset Formula \[
+N_{0}x_{n+1}=rN_{0}x_{n}-\frac{r}{k}N_{0}^{2}x_{n}^{2}\]
+
+\end_inset
+
+Divide by 
+\begin_inset Formula $N_{0}$
+\end_inset
+
+
+\begin_inset Formula \[
+x_{n+1}=rx_{n}-rx_{n}^{2}\]
+
+\end_inset
+
+Fixed points 
+\begin_inset Formula $\rightarrow$
+\end_inset
+
+ set 
+\begin_inset Formula $x_{n+1}=x_{n}$
+\end_inset
+
+ and solve:
+\begin_inset Formula \begin{eqnarray*}
+x_{n} & = & rx_{n}-rx_{n}^{2}\\
+0 & = & rx_{n}-rx_{n}^{2}-x_{n}\\
+0 & = & x_{n}\left(r-rx_{n}-1\right)\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Formula \begin{eqnarray*}
+r-rx_{n}-1 & = & 0\\
+rx_{n} & = & r-1\\
+x_{n} & = & 1-\frac{1}{r}\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+2 solutions:
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $x_{n}=0$
+\end_inset
+
+ (extinction)
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $x_{n}=1-\frac{1}{r}$
+\end_inset
+
+ (some population) - true for 
+\begin_inset Formula $r>1$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Examine stability of these fixed points as a function of 
+\begin_inset Formula $r$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula \[
+x_{n}=x^{*}+\eta_{n}\]
+
+\end_inset
+
+
+\begin_inset Formula \[
+x_{n+1}=x^{*}+\eta_{n+1}\]
+
+\end_inset
+
+
+\begin_inset Formula \[
+x_{n+1}=f\left(x_{n},r\right)\]
+
+\end_inset
+
+
+\begin_inset Formula \[
+\rightarrow x^{*}+\eta_{n+1}=f\left(x^{*}+\eta_{n},r\right)\]
+
+\end_inset
+
+expand 
+\begin_inset Formula $f\left(x^{*}+\eta_{n},r\right)$
+\end_inset
+
+ in a taylor series expansion about 
+\begin_inset Formula $x^{*}$
+\end_inset
+
+
+\begin_inset Formula \begin{eqnarray*}
+f\left(\eta_{n}+x^{*},r\right) & = & f\left(x^{*}\right)+f'\left(X^{*}\right)\eta_{n}+\mathcal{O}\left(\eta_{n}^{2}\right)\\
+x^{*}+\eta_{n+1} & = & x^{*}+f'\left(X^{*}\right)\eta_{n}+\mathcal{O}\left(\eta_{n}^{2}\right)\\
+\eta_{n+1} & = & f'\left(X^{*}\right)\eta_{n}+\underbrace{\mathcal{O}\left(\eta_{n}^{2}\right)}_{\text{if sufficiently close these higher order terms go to zero}}\\
+\eta_{n+1} & = & f'\left(X^{*}\right)\eta_{n}\end{eqnarray*}
+
+\end_inset
+
+want 
+\begin_inset Formula $\left|f'\left(x^{*}\right)\right|<1$
+\end_inset
+
+ for stability, if 
+\begin_inset Formula $\left|f'\left(x^{*}\right)\right|>1$
+\end_inset
+
+ 
+\begin_inset Formula $\rightarrow$
+\end_inset
+
+ unstable.
+\end_layout
+
+\begin_layout Subsubsection
+Analyze stability:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula \[
+\frac{dx_{n+1}}{dx_{n}}=r-2rx_{n}\]
+
+\end_inset
+
+for 
+\begin_inset Formula $x_{n}=0$
+\end_inset
+
+ 
+\begin_inset Formula $\rightarrow$
+\end_inset
+
+ 
+\begin_inset Formula $f'\left(x^{*}\right)=r$
+\end_inset
+
+ 
+\begin_inset Formula $\rightarrow$
+\end_inset
+
+ if 
+\begin_inset Formula $r<1$
+\end_inset
+
+ 
+\begin_inset Formula $\rightarrow$
+\end_inset
+
+ stable, 
+\begin_inset Formula $r>1$
+\end_inset
+
+ 
+\begin_inset Formula $\rightarrow$
+\end_inset
+
+ unstable.
+\end_layout
+
+\begin_layout Standard
+For 
+\begin_inset Formula $x_{n}=1-\frac{1}{r}$
+\end_inset
+
+
+\begin_inset Formula \begin{eqnarray*}
+f'\left(x^{*}\right) & = & r-2r\left(1-\frac{1}{r}\right)\\
+ & = & r-2r+2\\
+ & = & -r+2\end{eqnarray*}
+
+\end_inset
+
+for 
+\begin_inset Formula $1<r<3$
+\end_inset
+
+ stable, 
+\begin_inset Formula $r>3$
+\end_inset
+
+ unstable
+\end_layout
+
+\begin_layout Subsubsection
+Summary
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $0<r<1$
+\end_inset
+
+ population goes to zero over iterations
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset Formula $x_{n}=0$
+\end_inset
+
+ 
+\begin_inset Formula $\rightarrow$
+\end_inset
+
+ stable
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $x_{n}=1-\frac{1}{r}$
+\end_inset
+
+ 
+\begin_inset Formula $\rightarrow$
+\end_inset
+
+ not a physical solution
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+\begin_inset Formula $1<r<3$
+\end_inset
+
+ achieve a steady state population
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset Formula $x_{n}=0$
+\end_inset
+
+ 
+\begin_inset Formula $\rightarrow$
+\end_inset
+
+ unstable
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $x_{n}=1-\frac{1}{r}$
+\end_inset
+
+ 
+\begin_inset Formula $\rightarrow$
+\end_inset
+
+ stable
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+\begin_inset Formula $r>3$
+\end_inset
+
+ both unstable
+\end_layout
+
+\begin_layout Enumerate
+See matlab scripts on logistics maps for bifurcations and solution analysis.
+\end_layout
+
+\begin_layout Subsection
+Types (ch1,2 and start 6)
+\end_layout
+
+\begin_layout Standard
+Nonlinear systems appear in both continuous and discrete formats.
+\end_layout
+
+\begin_layout Itemize
+Continuous systems are further subdivided into autonomous and nonautonomous
+ systems
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Autonomous: 
+\begin_inset Formula $\dot{\bar{x}}=\bar{f}\left(\bar{x},const\right)$
+\end_inset
+
+ 
+\begin_inset Formula $\implies$
+\end_inset
+
+ not explicitly time dependent
+\end_layout
+
+\begin_layout Itemize
+Nonautonomous: 
+\begin_inset Formula $\dot{\bar{x}}=\bar{f}\left(\bar{x},const,t\right)$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+Local existence & uniqueness of solutions
+\end_layout
+
+\begin_layout Standard
+For the autonomous system
+\begin_inset Formula \[
+\dot{\bar{x}}=\bar{f}\left(\bar{x},c\right)\]
+
+\end_inset
+
+if the components of 
+\begin_inset Formula $\bar{f}\left(f_{1}\left(\bar{x},c\right),f_{2}\left(\bar{x},c\right),\dots\right)$
+\end_inset
+
+ are 
+\begin_inset Formula $C'$
+\end_inset
+
+ (continuous and differentiable) then for a given initial conditions 
+\begin_inset Formula $\bar{x}\left(0\right)=\bar{x}_{0}$
+\end_inset
+
+ there exists a unique solution 
+\begin_inset Formula $\bar{x}\left(t\right),\, t>0$
+\end_inset
+
+ true for some local range 
+\begin_inset Formula $\implies$
+\end_inset
+
+ local existence (does not imply global existence).
+\end_layout
+
+\begin_layout Subsection
+Phase plane/space
+\end_layout
+
+\begin_layout Standard
+A phase plot is a projectoin of solution trajectories in the space of state
+ varables:
+\end_layout
+
+\begin_layout Subsubsection
+Example
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula \[
+\ddot{x}+x=0\ \rightarrow z_{1},z_{2}\]
+
+\end_inset
+
+
+\begin_inset Formula \begin{eqnarray*}
+z_{1} & = & x\\
+z_{2} & = & \dot{x}\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Formula \begin{eqnarray*}
+\dot{z}_{1} & = & z_{2}\\
+\dot{z}_{2} & = & -z_{1}\end{eqnarray*}
+
+\end_inset
+
+Given the state-space formuation 
+\begin_inset Formula \[
+\dot{x}_{i}=f_{i}\left(x\right)\ i=1\dots n\]
+
+\end_inset
+
+use one of the components 
+\begin_inset Formula $x_{i}$
+\end_inset
+
+ as a new independent variable.
+ With the chain rule we can obtain 
+\begin_inset Formula $\left(n-1\right)$
+\end_inset
+
+ equations:
+\begin_inset Formula \begin{eqnarray*}
+\frac{dx_{2}}{dx_{1}} & = & \frac{f_{2}}{f_{1}}\\
+\vdots &  & \vdots\\
+\frac{dx_{n}}{dx_{1}} & = & \frac{f_{n}}{f_{1}}\end{eqnarray*}
+
+\end_inset
+
+so
+\begin_inset Formula \begin{eqnarray*}
+\frac{dz_{2}}{dz_{1}} & = & \frac{-z_{1}}{z_{2}}\\
+\\z_{2}dz_{2} & = & -z_{1}dz_{1}\\
+\\z_{2}^{2}+z_{1}^{2} & = & c^{2}\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+the graph of 
+\begin_inset Formula $z_{1}$
+\end_inset
+
+vs 
+\begin_inset Formula $z_{2}$
+\end_inset
+
+ will look like circles.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+1/5/2011
+\end_layout
+
+\begin_layout Itemize
+Phase space
+\end_layout
+
+\begin_layout Itemize
+Invariant spaces/sets
+\end_layout
+
+\begin_layout Itemize
+Review linear systems
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Classification of linear system solutions
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Linearization
+\end_layout
+
+\begin_layout Subsection
+Phase space continued
+\end_layout
+
+\begin_layout Standard
+Any point in phase-space uniquely determines the state and thus the future
+ trajectory.
+ Trajectories in phase plane cannot cross, except at fixed points.
+\end_layout
+
+\begin_layout Subsubsection
+Example
+\end_layout
+
+\begin_layout Standard
+(use matlab plot)
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula \[
+\ddot{x}-x=0\]
+
+\end_inset
+
+
+\begin_inset Formula \begin{eqnarray*}
+\dot{x}_{1} & = & x_{2}\\
+\dot{x}_{2} & = & x_{1}\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Formula \[
+\frac{dx_{2}}{dx_{1}}=\frac{x_{1}}{x_{2}}\ \rightarrow\ x_{1}^{2}-x_{2}^{2}=c^{2}\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Pendulum example
+\end_layout
+
+\begin_layout Standard
+(use matlab to plot)
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula \[
+\ddot{x}+\sin x=0\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Invariant sets & spaces
+\end_layout
+
+\begin_layout Standard
+A set 
+\begin_inset Formula $S$
+\end_inset
+
+ is invariant for the the flow 
+\begin_inset Formula $\phi_{t}$
+\end_inset
+
+ if 
+\begin_inset Formula $\phi_{t}$
+\end_inset
+
+ remains in 
+\begin_inset Formula $S$
+\end_inset
+
+ for all 
+\begin_inset Formula $x\in S,\ \forall t$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Positively invariant if true for 
+\begin_inset Formula $t\ge0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Negatively invariant if true for 
+\begin_inset Formula $t\le0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+A positively invariant region is a 
+\series bold
+trapping region
+\series default
+ if 
+\begin_inset Formula $\phi_{t}\left(s\right)$
+\end_inset
+
+ remains in the interior of 
+\begin_inset Formula $S$
+\end_inset
+
+.
+ A closed invariant set an attracting set if there is a neighborhood 
+\begin_inset Formula $U$
+\end_inset
+
+ of 
+\begin_inset Formula $A$
+\end_inset
+
+ such that the image 
+\begin_inset Formula $\phi_{t}\left(x\right)\in U$
+\end_inset
+
+ for all 
+\begin_inset Formula $t\ge0$
+\end_inset
+
+ and 
+\begin_inset Formula $\phi_{t}\left(x\right)\rightarrow A$
+\end_inset
+
+ as 
+\begin_inset Formula $t\rightarrow\infty$
+\end_inset
+
+ 
+\begin_inset Formula $\forall x\in U$
+\end_inset
+
+.
+ Orbits 
+\begin_inset Quotes eld
+\end_inset
+
+near
+\begin_inset Quotes erd
+\end_inset
+
+ 
+\begin_inset Formula $A$
+\end_inset
+
+ go to 
+\begin_inset Formula $A$
+\end_inset
+
+ as 
+\begin_inset Formula $t\rightarrow\infty$
+\end_inset
+
+.
+ Attracting set's limitations:
+\end_layout
+
+\begin_layout Itemize
+Doesn't tell us where most solutions wind up.
+\end_layout
+
+\begin_layout Subsection
+Linear systems (review)
+\end_layout
+
+\begin_layout Standard
+A linear, constant coefficient system can be written as:
+\begin_inset Formula \[
+\dot{\bar{x}}=A\bar{x}\]
+
+\end_inset
+
+Given 
+\begin_inset Formula $\bar{x}=\bar{x}\left(0\right)$
+\end_inset
+
+ 
+\begin_inset Formula $\implies$
+\end_inset
+
+ 
+\begin_inset Formula $\bar{x}\left(t\right)=Te^{J_{r}t}T^{-1}\bar{x}_{0}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $J_{r}$
+\end_inset
+
+ is the Jordan normal form of 
+\begin_inset Formula $A$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $T$
+\end_inset
+
+ is a matrix composed of the generalized eigenvectors of 
+\begin_inset Formula $A$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Transformation 
+\begin_inset Formula $T$
+\end_inset
+
+ can be used 
+\begin_inset Formula $\bar{x}=T\bar{z}$
+\end_inset
+
+ such that 
+\begin_inset Formula $\dot{\bar{z}}=\underbrace{T^{-1}AT}_{J_{r}}\bar{z}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Classify linear systems
+\end_layout
+
+\begin_layout Itemize
+Unstable if any 
+\begin_inset Formula $\Re\left(\lambda_{i}\right)>0$
+\end_inset
+
+.
+ The corresponding eigenvectors span an unstable subspace 
+\begin_inset Formula $E^{u}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Stable if all 
+\begin_inset Formula $\Re\left(\lambda_{i}\right)<0$
+\end_inset
+
+.
+ Corresponding eigenvectors span a stable subspace 
+\begin_inset Formula $E^{s}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Neutrally stable if 
+\begin_inset Formula $\Re\left(\lambda_{i}\right)=0$
+\end_inset
+
+.
+ Corresponding eigenvectors span a center subspace 
+\begin_inset Formula $E^{c}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Consider 4 cases of a 
+\begin_inset Formula $2\times2$
+\end_inset
+
+ linear system:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\lambda_{1}\ne\lambda_{2}\ne0$
+\end_inset
+
+: 3 subcases:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Stable sink node:
+\begin_inset Formula $\lambda_{2}<\lambda_{1}<0$
+\end_inset
+
+: trajectories move faster along 
+\begin_inset Formula $\lambda_{2}$
+\end_inset
+
+ vector toward the center.
+\end_layout
+
+\begin_layout Enumerate
+Source node (unstable):
+\begin_inset Formula $\lambda_{2}>\lambda_{1}>0$
+\end_inset
+
+: exact oposite from above case
+\end_layout
+
+\begin_layout Enumerate
+Saddle point: 
+\begin_inset Formula $\lambda_{2}$
+\end_inset
+
+ stable, 
+\begin_inset Formula $\lambda_{1}$
+\end_inset
+
+unstable: 
+\begin_inset Formula $\lambda_{2}<0<\lambda_{1}$
+\end_inset
+
+:
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Complex eigenvalues: 
+\begin_inset Formula $\lambda_{1,2}=\alpha\pm\beta j$
+\end_inset
+
+
+\begin_inset Formula \begin{eqnarray*}
+\dot{z}_{1} & = & \alpha z_{1}-\beta z_{2}\\
+\dot{z}_{2} & = & \beta z_{1}+\alpha z_{2}\end{eqnarray*}
+
+\end_inset
+
+Oscillatory response, best viewed in polar coordinates:
+\begin_inset Formula \begin{eqnarray*}
+r & = & \sqrt{z_{1}^{2}+z_{2}^{2}}\\
+\theta & = & \tan^{-1}\left(\frac{z_{2}}{z_{!}}\right)\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset Formula $\alpha<0$
+\end_inset
+
+ stable focus; sprials toward the center
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\alpha>0$
+\end_inset
+
+ unstable focus; sprials away fromt the center
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\alpha=0$
+\end_inset
+
+ centers; circles around the center
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+\begin_inset Formula $\lambda_{1}=\lambda_{2}=\lambda\ne0$
+\end_inset
+
+: If 2 linearly indepenant eigenvectors 
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset Formula $\lambda<0$
+\end_inset
+
+; everything moves toward the center at the same rate
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\lambda>0$
+\end_inset
+
+; everything moves away from the center
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+\begin_inset Formula $\lambda_{1}$
+\end_inset
+
+ or 
+\begin_inset Formula $\lambda_{2}=0$
+\end_inset
+
+ degenerate
+\end_layout
+
+\begin_layout Subsubsection
+Example
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula \[
+\dot{\bar{y}}=\begin{bmatrix}0 & 1\\
+3 & -2\end{bmatrix}\bar{y}\]
+
+\end_inset
+
+
+\begin_inset Formula \begin{eqnarray*}
+\dot{\bar{y}}=0\ \rightarrow\dot{y}_{1} & = & y_{2}\\
+\dot{y}_{2} & = & 3y_{1}-2y_{2}\\
+\\y_{2} & = & 0\\
+y_{1} & = & 0\end{eqnarray*}
+
+\end_inset
+
+Eigenvalues and eigenvectors
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+1/12/2011
+\end_layout
+
+\begin_layout Itemize
+Finish linearization for continuous systems
+\end_layout
+
+\begin_layout Itemize
+Manifolds and stable manifold theorem
+\end_layout
+
+\begin_layout Itemize
+Maps
+\end_layout
+
+\begin_layout Itemize
+Lyapunov theory
+\end_layout
+
+\begin_layout Subsection
+Notes about linearization
+\end_layout
+
+\begin_layout Itemize
+While linearization can be used to determine local stability near a fixed
+ point it does not provide a region in which this stability result holds.
+\end_layout
+
+\begin_layout Itemize
+To determine a region where the stability result holds
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Local Lyapunov functions (Lasalle extensions)
+\end_layout
+
+\begin_layout Itemize
+Numarical investigation
+\end_layout
+
+\begin_layout Itemize
+Other methods.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+What about nonhyperbolic fixed points?
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Linearization fails.
+ A nonlinear analysis including higher order nonlinear terms is required
+ (center manifold theory).
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+Eigenspaces and invariant manifolds
+\end_layout
+
+\begin_layout Standard
+Assume a linearization 
+\begin_inset Formula $\dot{\bar{y}}=D\bar{f}\left(\bar{x}^{*}\right)\bar{y}$
+\end_inset
+
+ of 
+\begin_inset Formula $\dot{\bar{x}}=\bar{f}\left(\bar{x}\right)$
+\end_inset
+
+ and that 
+\begin_inset Formula $D\bar{f}\left(\bar{x}^{*}\right)$
+\end_inset
+
+has:
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $S$
+\end_inset
+
+ eigs with 
+\begin_inset Formula $-$
+\end_inset
+
+ real part
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $U$
+\end_inset
+
+ eigs with 
+\begin_inset Formula $+$
+\end_inset
+
+ real part
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $C$
+\end_inset
+
+ eigs with zero real part
+\end_layout
+
+\begin_layout Standard
+The eigenvectors associated with these eigenvalues will create subspaces
+ of the same dimension\SpecialChar \@.
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula \begin{eqnarray*}
+E^{S} & = & span\left(\bar{v}_{1},\dots\bar{v}_{S}\right)\\
+E^{U} & = & span\left(\bar{v}_{S+1},\dots\bar{v}_{S+U}\right)\\
+E^{C} & = & span\left(\bar{v}_{S+U+1},\dots\bar{v}_{S+U+C}\right)\end{eqnarray*}
+
+\end_inset
+
+Spaces 
+\begin_inset Formula $E^{S}$
+\end_inset
+
+, 
+\begin_inset Formula $E^{U}$
+\end_inset
+
+, 
+\begin_inset Formula $E^{C}$
+\end_inset
+
+ invariant subspaces of the corresponding linear system.
+ Any solution started in 
+\begin_inset Formula $E^{S}$
+\end_inset
+
+, 
+\begin_inset Formula $E^{U}$
+\end_inset
+
+ or 
+\begin_inset Formula $E^{C}$
+\end_inset
+
+ stays in that subspace for all time\SpecialChar \@.
+
+\end_layout
+
+\begin_layout Itemize
+Solutions in 
+\begin_inset Formula $E^{S}$
+\end_inset
+
+ 
+\begin_inset Formula $\rightarrow$
+\end_inset
+
+ Fixed point as 
+\begin_inset Formula $t\rightarrow\infty$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Solutions in 
+\begin_inset Formula $E^{U}$
+\end_inset
+
+ 
+\begin_inset Formula $\rightarrow$
+\end_inset
+
+ Fixed point as 
+\begin_inset Formula $t\rightarrow-\infty$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Solutions in 
+\begin_inset Formula $E^{C}$
+\end_inset
+
+ 
+\begin_inset Formula $\rightarrow$
+\end_inset
+
+ Neither grow nor decay
+\end_layout
+
+\begin_layout Standard
+How do our manifolds of our linearized system relate to those of the nonlinear
+ system?
+\end_layout
+
+\begin_layout Subsection
+Stable manifold theorem
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\dot{\bar{x}}=\bar{f}\left(\bar{x}\right)$
+\end_inset
+
+ has a hyperbolic fixed point 
+\begin_inset Formula $\bar{x}^{*}$
+\end_inset
+
+ then there exists local stable and unstable manifolds 
+\begin_inset Formula $W_{local}^{S,U}$
+\end_inset
+
+
+\begin_inset Formula $\left(\bar{x}^{*}\right)$
+\end_inset
+
+ of the same dimension 
+\begin_inset Formula $N_{S}$
+\end_inset
+
+, 
+\begin_inset Formula $N_{U}$
+\end_inset
+
+ as those of the eigenspaces 
+\begin_inset Formula $E^{S}$
+\end_inset
+
+, 
+\begin_inset Formula $E^{U}$
+\end_inset
+
+ of the linearized system.
+ 
+\begin_inset Formula $W_{loca}^{S,U}\left(\bar{x}^{*}\right)$
+\end_inset
+
+ are tangent to 
+\begin_inset Formula $E^{S}$
+\end_inset
+
+ and 
+\begin_inset Formula $E^{U}$
+\end_inset
+
+ at the fixed point 
+\begin_inset Formula $\bar{x}^{*}$
+\end_inset
+
+ and are as smooth as 
+\begin_inset Formula $\bar{f}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection
+Stable manifold
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $W^{S}$
+\end_inset
+
+ set of all initial conditions such that the flow initiated at these poits
+ approaches the fixed point as 
+\begin_inset Formula $t\rightarrow\infty$
+\end_inset
+
+\SpecialChar \@.
+ Unstable manifold, 
+\begin_inset Formula $W^{U}$
+\end_inset
+
+same as for 
+\begin_inset Formula $W^{S}$
+\end_inset
+
+but as 
+\begin_inset Formula $t\rightarrow-\infty$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+For small dimensional systems:
+\end_layout
+
+\begin_layout Itemize
+To find the manifolds numrically
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Unstable: Start near the fixed ponit and simulate forward in time.
+\end_layout
+
+\begin_layout Itemize
+Stable: start near the fixed point and simulate backward in time.
+\end_layout
+
+\end_deeper
+\begin_layout Paragraph
+Notes
+\end_layout
+
+\begin_layout Itemize
+Unstable manifolds of 2 fixed points cannot intersect.
+\end_layout
+
+\begin_layout Itemize
+Stable manifolds of 2 fixed points cannot intersect.
+\end_layout
+
+\begin_layout Itemize
+Stable and unstable manifolds can intersect in a fixed point.
+\end_layout
+
+\begin_layout Standard
+A point 
+\begin_inset Formula $q$
+\end_inset
+
+ which is the intersecition of 
+\begin_inset Formula $W^{U}\left(P_{1}\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $W^{S}\left(P_{2}\right)$
+\end_inset
+
+ is called a heteroclinic point if 
+\begin_inset Formula $P_{1}=P_{2}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+Example
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula \begin{eqnarray*}
+\dot{\bar{x}}_{1} & = & x_{2}\\
+\dot{\bar{x}} & = & -x_{1}+x_{2}^{2}\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Maps
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula \[
+\bar{x}_{n+1}\bar{f}\left(x_{n}\right)\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Fixed points, need to find 
+\begin_inset Formula $\bar{x}^{*}$
+\end_inset
+
+such that 
+\begin_inset Formula $\bar{x}_{n+1}=\bar{f}\left(\bar{x}^{*}\right)=\bar{x}^{*}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Linearization about the fixed point follows in a similar fashion as for
+ continuous sytems
+\begin_inset Formula \[
+\bar{y}_{n+1}=D\bar{f}\left(\bar{x}^{*}\right)\bar{y}_{n}\]
+
+\end_inset
+
+where 
+\begin_inset Formula $D\bar{f}\left(\bar{x}^{*}\right)$
+\end_inset
+
+ is our Jacobian.
+\end_layout
+
+\begin_layout Itemize
+Stability of fixed point is governed by the eigenvalues of 
+\begin_inset Formula $D\bar{f}\left(\bar{x}^{*}\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+If all 
+\begin_inset Formula $\left|\lambda_{i}\right|<1$
+\end_inset
+
+ 
+\begin_inset Formula $\implies$
+\end_inset
+
+ fixed point is stable
+\end_layout
+
+\begin_layout Itemize
+If any 
+\begin_inset Formula $\left|\lambda_{i}\right|>1$
+\end_inset
+
+ 
+\begin_inset Formula $\implies$
+\end_inset
+
+ fixed point is unstable
+\end_layout
+
+\begin_layout Itemize
+If any 
+\begin_inset Formula $\left|\lambda_{i}\right|=1$
+\end_inset
+
+ 
+\begin_inset Formula $\implies$
+\end_inset
+
+ neutrally stable
+\end_layout
+
+\begin_layout Itemize
+If 
+\begin_inset Formula $\left|\lambda_{i}\right|<1$
+\end_inset
+
+ and 
+\begin_inset Formula $\left|\lambda_{j}\right|>1$
+\end_inset
+
+ 
+\begin_inset Formula $\implies$
+\end_inset
+
+ saddle point
+\end_layout
+
+\begin_layout Itemize
+If all 
+\begin_inset Formula $\left|\lambda_{i}\right|<1$
+\end_inset
+
+ 
+\begin_inset Formula $\implies$
+\end_inset
+
+ sink
+\end_layout
+
+\begin_layout Itemize
+If all 
+\begin_inset Formula $\left|\lambda_{i}>1\right|$
+\end_inset
+
+ 
+\begin_inset Formula $\implies$
+\end_inset
+
+ source
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Definitions for 
+\begin_inset Formula $E^{C}$
+\end_inset
+
+, 
+\begin_inset Formula $E^{U}$
+\end_inset
+
+, 
+\begin_inset Formula $E^{S}$
+\end_inset
+
+ hold in a similar fashion as for continuous systems
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Theorems exist that extend both Harman-Grobman and stable manifold theorem
+ to maps.
+\end_layout
+
+\begin_layout Itemize
+Linearization is valid for determining stability in a local area near the
+ fixed point
+\end_layout
+
+\end_deeper
+\begin_layout Paragraph
+Example
+\end_layout
+
+\begin_layout Standard
+Henon map:
+\begin_inset Formula \begin{eqnarray*}
+x_{n+1} & = & 1+y_{n}-\alpha x_{n}^{2}\\
+y_{n+1} & = & \beta x_{n}\end{eqnarray*}
+
+\end_inset
+
+Fixed points:
+\begin_inset Formula \begin{eqnarray*}
+x_{n} & = & 1+y_{n}-\alpha x_{n}^{2}\\
+y_{n} & = & \beta x_{n}\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Formula \[
+x_{n}=1+\beta x_{n}-\alpha x_{n}^{2}\]
+
+\end_inset
+
+
+\begin_inset Formula \[
+\alpha x_{n}^{2}+\left(1-\beta\right)x_{n}-1=0\]
+
+\end_inset
+
+
+\begin_inset Formula \begin{eqnarray*}
+x_{n} & = & \frac{1}{2\alpha}\left[\left(\beta-1\right)\pm\sqrt{\left(1-\beta\right)^{2}+4\alpha}\right]\\
+y_{n} & = & \beta x_{n}\end{eqnarray*}
+
+\end_inset
+
+Stability governed by:
+\begin_inset Formula \[
+D\bar{f}=\begin{bmatrix}-2\alpha x_{n} & 1\\
+\beta & 0\end{bmatrix}\]
+
+\end_inset
+
+
+\begin_inset Formula \[
+\text{Eigs: }\begin{bmatrix}\lambda+2\alpha x_{n} & -1\\
+-\beta & \lambda\end{bmatrix}\]
+
+\end_inset
+
+
+\begin_inset Formula \[
+\lambda^{2}+2\alpha x_{n}\lambda-\beta=0\]
+
+\end_inset
+
+
+\begin_inset Formula \[
+\lambda=-\alpha x_{n}\pm\sqrt{\alpha^{2}x_{n}^{2}+\beta}\]
+
+\end_inset
+
+Let 
+\begin_inset Formula $\alpha=0.08$
+\end_inset
+
+, 
+\begin_inset Formula $\beta=0.3$
+\end_inset
+
+
+\begin_inset Formula \[
+\left(x_{1},y_{1}\right)=\left(-10,-3\right)\ \implies\ \lambda=-0.1695,\,1.7695\text{ (saddle)}\]
+
+\end_inset
+
+
+\begin_inset Formula \[
+\left(x_{2},y_{2}\right)=\left(1.25,0.375\right)\ \implies\ \lambda=-0.6568,\,0.4568\text{ (sink)}\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+1/24/2011
+\end_layout
+
+\begin_layout Itemize
+Finish examples
+\end_layout
+
+\begin_layout Itemize
+Krasovskii's theorem
+\end_layout
+
+\begin_layout Itemize
+Invariant ste theorem
+\end_layout
+
+\begin_layout Itemize
+Finding lyapunov functions
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+For LTI systems
+\end_layout
+
+\begin_layout Itemize
+Estimating region of attraction
+\end_layout
+
+\begin_layout Itemize
+Krasovskii's method
+\end_layout
+
+\begin_layout Itemize
+Variable gradient method
+\end_layout
+
+\end_deeper
+\begin_layout Subsubsection
+Example: Pendulum with damping
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula \begin{eqnarray*}
+\dot{x}_{1} & = & x_{2}\\
+\dot{x}_{2} & = & -\frac{g}{l}\sin x_{1}-\frac{c}{m}x_{2}\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Formula \begin{eqnarray*}
+v & = & \frac{1}{2}\bar{x}^{T}P\bar{x}+\frac{g}{l}\left[1-\cos\left(x_{1}\right)\right]\\
+ & = & \frac{1}{2}\left[P_{11}x_{1}^{2}+2P_{12}x_{1}x_{2}+P_{22}x_{2}^{2}\right]+\frac{g}{l}\left[1-\cos\left(x_{1}\right)\right]\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Formula \begin{eqnarray*}
+\dot{v} & = & P_{11}x_{1}\dot{x}_{1}+P_{12}\dot{x}_{1}x_{2}+P_{12}x_{1}\dot{x}_{2}+P_{22}x_{2}\dot{x}_{2}+\frac{g}{l}\sin x_{1}\left(\dot{x}_{1}\right)\\
+ & = & P_{11}x_{1}x_{2}+P_{12}x_{2}^{2}+P_{12}\left[-\frac{g}{l}x_{1}\sin x_{1}-\frac{c}{m}x_{1}x_{2}\right]+P_{22}\left[-\frac{g}{l}x_{2}\sin x_{1}-\frac{c}{m}x_{2}^{2}\right]+\frac{g}{l}x_{2}\sin x_{1}\\
+ & = & \frac{g}{l}x_{2}\sin x_{1}\left[1-P_{22}\right]-\frac{g}{l}x_{1}P_{12}\sin x_{1}+x_{1}x_{2}\left[P_{11}-\frac{c}{m}P_{12}\right]+x_{2}^{2}\left[P_{12}-\frac{c}{m}P_{22}\right]\end{eqnarray*}
+
+\end_inset
+
+Let 
+\begin_inset Formula $P_{22}=1$
+\end_inset
+
+ 
+\begin_inset Formula $P_{11}=\frac{c}{m}P_{12}$
+\end_inset
+
+
+\begin_inset Formula \[
+\dot{v}=-\frac{g}{l}x_{1}P_{12}\sin x_{1}+x_{2}^{2}\left[P_{12}-\frac{c}{m}\right]\]
+
+\end_inset
+
+If 
+\begin_inset Formula $0<P_{12}<\frac{c}{m}\,\implies\,\dot{v}<0$
+\end_inset
+
+.
+ Let 
+\begin_inset Formula $P_{12}=\frac{1}{2}\frac{c}{m}$
+\end_inset
+
+, 
+\begin_inset Formula $P_{22}=1$
+\end_inset
+
+, 
+\begin_inset Formula $P_{11}=\frac{1}{2}\frac{c^{2}}{m^{2}}$
+\end_inset
+
+
+\begin_inset Formula \[
+P=\begin{bmatrix}\frac{1}{2}\frac{c^{2}}{m^{2}} & \frac{1}{2}\frac{c}{m}\\
+\frac{1}{2}\frac{c}{m} & 1\end{bmatrix}\ \implies\,\text{positive definite}\]
+
+\end_inset
+
+
+\begin_inset Formula $V>0$
+\end_inset
+
+, 
+\begin_inset Formula $\dot{v}<0$
+\end_inset
+
+, 
+\begin_inset Formula $x_{1}\in-\pi\rightarrow\pi$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\implies$
+\end_inset
+
+ origin is asymptotically stable
+\end_layout
+
+\begin_layout Subsubsection
+Example: Duffing oscillator
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula \[
+\ddot{x}+2\mu\dot{x}+x-x^{3}=0\]
+
+\end_inset
+
+State space:
+\begin_inset Formula \begin{eqnarray*}
+\dot{x}_{1} & = & x_{2}\\
+\dot{x}_{2} & = & -x_{1}+x_{1}^{3}-2\mu x_{2}\end{eqnarray*}
+
+\end_inset
+
+assume:
+\begin_inset Formula \[
+v=\frac{1}{2}x_{2}^{2}+\frac{1}{2}x_{1}^{2}-\frac{1}{4}x_{1}^{4}\]
+
+\end_inset
+
+
+\begin_inset Formula \begin{eqnarray*}
+\dot{v} & = & x_{2}\dot{x}_{2}+x_{1}\dot{x}_{1}-x_{1}^{3}x_{1}\\
+ & = & -x_{1}x_{2}+x_{2}x_{1}^{3}-2\mu x_{2}^{2}+x_{1}x_{2}-x_{2}x_{1}^{3}\\
+ & = & -2\mu x_{2}^{2}\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Formula $\implies$
+\end_inset
+
+ only Lyapunov stable since 
+\begin_inset Formula $\dot{v}=0$
+\end_inset
+
+ along 
+\begin_inset Formula $x_{2}=0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Karsovskii's theorem
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $v\left(\bar{x}\right)$
+\end_inset
+
+ be a scalar function with continuous 
+\begin_inset Formula $1^{st}$
+\end_inset
+
+ partial derivatives with 
+\begin_inset Formula $v\left(\bar{x}^{*}\right)=0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\Omega_{l}=\left\{ \bar{x}\,|\, v\left(x\right)\le l\right\} $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $v\left(\bar{x}\right)>0\,\forall\,\bar{x}\in\Omega_{l}$
+\end_inset
+
+ and 
+\begin_inset Formula $\bar{x}\ne\bar{x}^{*}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\dot{v}\left(\bar{x}\right)\le0\,\forall\,\bar{x}\in\Omega_{l}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+If there is no soution 
+\begin_inset Formula $\bar{x}\left(t\right)$
+\end_inset
+
+ for 
+\begin_inset Formula $\dot{\bar{x}}=\bar{f}\left(\bar{x}\right)$
+\end_inset
+
+ other than 
+\begin_inset Formula $\bar{x}^{*}$
+\end_inset
+
+ wich lies completely in 
+\begin_inset Formula $\Omega_{l}$
+\end_inset
+
+ and for which 
+\begin_inset Formula $\dot{v}\left(\bar{x}\right)=0$
+\end_inset
+
+, then every solution that starts in 
+\begin_inset Formula $\Omega_{l}$
+\end_inset
+
+tends to 
+\begin_inset Formula $\bar{x}^{*}$
+\end_inset
+
+ and 
+\begin_inset Formula $\bar{x}^{*}$
+\end_inset
+
+ is asymptotically stable.
+ For the duffing oscillator, consider
+\begin_inset Formula \[
+\Omega_{l}=\frac{1}{2}x_{2}^{2}+\frac{1}{2}x_{1}^{2}-\frac{1}{4}x_{1}^{4}<\frac{1}{4}\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+By finding the largest possible region 
+\begin_inset Formula $\Omega_{l}$
+\end_inset
+
+ that satisfies Krasovskii's theorem, we can determine an approximation
+ of the basin of stability.
+\end_layout
+
+\begin_layout Subsection
+Invariant set theorem (Lasalle's theorem)
+\end_layout
+
+\begin_layout Standard
+Consider 
+\begin_inset Formula $\dot{\bar{x}}=\bar{f}\left(\bar{x}\right)$
+\end_inset
+
+ with 
+\begin_inset Formula $v\left(\bar{x}\right)$
+\end_inset
+
+ having continuous first partial derivatives assume:
+\end_layout
+
+\begin_layout Itemize
+For some 
+\begin_inset Formula $l$
+\end_inset
+
+, region 
+\begin_inset Formula $\Omega_{l}$
+\end_inset
+
+ defined by 
+\begin_inset Formula $v\left(x\right)<l$
+\end_inset
+
+ is bounded
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\dot{v}\left(\bar{x}\right)\le0\,\forall\, x\in\Omega_{l}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $R$
+\end_inset
+
+ be the set of points in 
+\begin_inset Formula $\Omega_{l}$
+\end_inset
+
+ where 
+\begin_inset Formula $\dot{v}\left(\bar{x}\right)=0$
+\end_inset
+
+ and 
+\begin_inset Formula $m$
+\end_inset
+
+ be the largest invariant set in 
+\begin_inset Formula $R$
+\end_inset
+
+.
+ Then every solution 
+\begin_inset Formula $\bar{x}\left(t\right)$
+\end_inset
+
+ originating in 
+\begin_inset Formula $R$
+\end_inset
+
+ tends to 
+\begin_inset Formula $m$
+\end_inset
+
+ as 
+\begin_inset Formula $t\rightarrow\infty$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Examine duffing oscillator 
+\begin_inset Formula $\implies$
+\end_inset
+
+ stabiliity of 
+\begin_inset Formula $\left(0,0\right)$
+\end_inset
+
+.
+ 
+\begin_inset Formula $R$
+\end_inset
+
+ is defined by 
+\begin_inset Formula $x_{2}=0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Want to show that 
+\begin_inset Formula $m$
+\end_inset
+
+ contains only 1 point.
+ Assume that 
+\begin_inset Formula $m$
+\end_inset
+
+ contains a point with non-zero 
+\begin_inset Formula $x_{1}$
+\end_inset
+
+
+\begin_inset Formula \[
+\dot{x}_{2}=-x_{1}+x_{1}^{3}\ne0\,\implies\text{ immediately leaves set \ensuremath{R} and \ensuremath{\therefore} out of \ensuremath{m}, which is a contradiction of our definition.}\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Largest invariant set 
+\begin_inset Formula $m$
+\end_inset
+
+ is just the origin.
+\end_layout
+
+\begin_layout Itemize
+By invariant set theorem, solutions in 
+\begin_inset Formula $\Omega_{l}\rightarrow\bar{x}^{*}=\left(0,0\right)$
+\end_inset
+
+ as 
+\begin_inset Formula $t\rightarrow\infty$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Itemize
+Origin is asymptotically stable.
+\end_layout
+
+\begin_layout Subsection
+How to find Lyapunov functions
+\end_layout
+
+\begin_layout Itemize
+No genearl method exists
+\end_layout
+
+\begin_layout Itemize
+For mechanical & electrical systems on can often use energy
+\end_layout
+
+\begin_layout Itemize
+For Hamiltonian systems, you can use the Hamiltonian as a candidate Lyapunov
+ function
+\end_layout
+
+\begin_layout Itemize
+Other methods (variable gradient method, Krasovskii's method, trial and
+ error)
+\end_layout
+
+\begin_layout Subsection
+Lyapunov functions for LTI systems
+\end_layout
+
+\begin_layout Standard
+Given 
+\begin_inset Formula \[
+\dot{\bar{x}}=A\bar{x}\]
+
+\end_inset
+
+consider 
+\begin_inset Formula \[
+v\left(\bar{x}\right)-\bar{x}^{T}P\bar{x}\]
+
+\end_inset
+
+ where 
+\begin_inset Formula $P$
+\end_inset
+
+ is a symmetric positive definite matrix 
+\begin_inset Formula \[
+\dot{v}=\dot{\bar{x}}^{T}P\bar{x}+\bar{x}^{T}P\dot{\bar{x}}=-\bar{x}^{T}Q\bar{x}\]
+
+\end_inset
+
+
+\begin_inset Formula \[
+\dot{v}=\bar{x}^{T}A^{T}P\bar{x}+\bar{x}^{T}PA\bar{x}=-\bar{x}^{T}Q\bar{x}\]
+
+\end_inset
+
+
+\begin_inset Formula $\implies$
+\end_inset
+
+ want 
+\bar under
+
+\begin_inset Formula $\underbrace{A^{T}P+PA=-Q}_{\text{Lyapunov equation}}$
+\end_inset
+
+
+\bar default
+ wth 
+\begin_inset Formula $Q$
+\end_inset
+
+ positve definiate
+\end_layout
+
+\begin_layout Itemize
+If 
+\begin_inset Formula $Q$
+\end_inset
+
+ is positive def 
+\begin_inset Formula $\implies$
+\end_inset
+
+ fixed point is asymptotically stable.
+\end_layout
+
+\begin_layout Standard
+Choose 
+\begin_inset Formula $Q$
+\end_inset
+
+ positve definite solve for 
+\begin_inset Formula $P$
+\end_inset
+
+ from 
+\begin_inset Formula $A^{T}P+PA=-Q$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Check if 
+\begin_inset Formula $P$
+\end_inset
+
+ is positive definite and symmetric
+\end_layout
+
+\end_body
+\end_document

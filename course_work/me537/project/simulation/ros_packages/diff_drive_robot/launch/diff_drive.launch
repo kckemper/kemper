@@ -1,0 +1,20 @@
+<launch>
+  <!-- this launch file corresponds to robot model in ros-pkg/robot_descriptions/pr2/erratic_defs/robots for full erratic -->
+  <!-- start up wg world -->
+  <include file="$(find gazebo_worlds)/launch/wg_world.launch"/>
+<!--	  <include file="$(find gazebo_worlds)/launch/office_world.launch"/>-->
+<!--	<include file="$(find gazebo_worlds)/launch/empty_world.launch"/>-->
+
+  <!-- send pr2.xml to param server -->
+  <param name="robot_description" command="$(find xacro)/xacro.py '$(find diff_drive_robot)/robots/diff_drive.urdf.xacro'" />
+
+  <!-- push robot_description to factory and spawn robot in gazebo -->
+  <node name="spawn_erratic" pkg="gazebo_tools" type="gazebo_model" args="-z 0.051 -p robot_description spawn robot_description" respawn="false" output="screen" />
+
+  <!-- Controller Manager -->
+  <include file="$(find pr2_controller_manager)/controller_manager.launch" />
+
+  <!-- load controllers -->
+  <node name="diffdrive" pkg="gazebo_plugins" type="gazebo_ros_diffdrive" respawn="true" output="screen"/>
+</launch>
+

@@ -1,0 +1,14 @@
+<package>
+  <description brief="service_client">
+
+     service_client
+
+  </description>
+  <author>koepld</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/service_client</url>
+
+</package>
+
+

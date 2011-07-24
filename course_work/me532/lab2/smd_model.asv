@@ -1,0 +1,13 @@
+function xdot = smd_model( t, x, sys )
+%MASS_SPRING_ODE Summary of this function goes here
+%   Detailed explanation goes here
+
+	f		= 10*sin(30*pi*t);
+	xd		= sys.s + sys.a*cos(2*pi*sys.freq*t);
+	b		= ( sys.PI*() )/( -sys.A'-sys.PI*sys.B*sys.R^-1*sys.B' );
+	
+	u		= -(sys.R^-1)*sys.B'*sys.PI(x-xd) - (sys.R^-1)*B'*b;
+	
+	xdot	= sys.A*x + sys.B*u + sys.F*f;
+
+end

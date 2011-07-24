@@ -1,0 +1,600 @@
+#LyX 1.6.7 created this file. For more info see http://www.lyx.org/
+\lyxformat 345
+\begin_document
+\begin_header
+\textclass article
+\use_default_options true
+\language english
+\inputencoding auto
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\float_placement H
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_amsmath 1
+\use_esint 1
+\cite_engine basic
+\use_bibtopic false
+\paperorientation portrait
+\leftmargin 1in
+\topmargin 1in
+\rightmargin 1in
+\bottommargin 1in
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\defskip medskip
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\author "" 
+\author "" 
+\end_header
+
+\begin_body
+
+\begin_layout Section
+P
+\end_layout
+
+\begin_layout Standard
+Consider the following model for the motion of a space vehicle about its
+ principal axes of inertia:
+\begin_inset Formula \begin{eqnarray*}
+A\dot{\omega}_{x}-\left(B-C\right)\omega_{y}\omega_{z} & = & T_{x}\\
+B\dot{\omega}_{y}-\left(C-A\right)\omega_{x}\omega_{z} & = & T_{y}\\
+C\dot{\omega}_{z}-\left(A-B\right)\omega_{x}\omega_{y} & = & T_{z}\end{eqnarray*}
+
+\end_inset
+
+where 
+\begin_inset Formula $A$
+\end_inset
+
+, 
+\begin_inset Formula $B$
+\end_inset
+
+, and 
+\begin_inset Formula $C$
+\end_inset
+
+ denote the moments of inertia about the principal axes; 
+\begin_inset Formula $\omega_{x}$
+\end_inset
+
+, 
+\begin_inset Formula $\omega_{y}$
+\end_inset
+
+, and 
+\begin_inset Formula $\omega_{z}$
+\end_inset
+
+ denote the angular velocities about the principal axes; and 
+\begin_inset Formula $T_{x}$
+\end_inset
+
+, 
+\begin_inset Formula $T_{y}$
+\end_inset
+
+, and 
+\begin_inset Formula $T_{z}$
+\end_inset
+
+ are control torques that are used to control the vehicle.
+ Assume that the space vehicle is tumbling in orbit.
+ In an attempt to stabilize the system, the control torques applied to the
+ vehicle are assumed to be of the form:
+\begin_inset Formula \begin{eqnarray*}
+T_{x} & = & k_{1}A\omega_{x}\\
+T_{y} & = & k_{2}B\omega_{y}\\
+T_{z} & = & k_{3}C\omega_{z}\end{eqnarray*}
+
+\end_inset
+
+where 
+\begin_inset Formula $k_{1}$
+\end_inset
+
+, 
+\begin_inset Formula $k_{2}$
+\end_inset
+
+, and 
+\begin_inset Formula $k_{3}$
+\end_inset
+
+ are control gains that you specify.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Given that the moments of inertia are all unique, find ranges for the control
+ gains such that the system stabilizes for small deviations from equilibrium
+ 
+\begin_inset Formula $\left(\omega_{x}=\omega_{y}=\omega_{z}=0\right)$
+\end_inset
+
+.
+ Will the gains selected stabilize the system for any initial conditions
+ (i.e will the above control law with the gain ranges specified stop any
+ tumble, no matter how large)? Provide analytical support for your answer
+ (10 points)
+\begin_inset Formula \begin{eqnarray*}
+A\dot{\omega}_{x}-\left(B-C\right)\omega_{y}\omega_{z} & = & k_{1}A\omega_{x}\\
+B\dot{\omega}_{y}-\left(C-A\right)\omega_{x}\omega_{z} & = & k_{2}B\omega_{y}\\
+C\dot{\omega}_{z}-\left(A-B\right)\omega_{x}\omega_{y} & = & k_{3}C\omega_{z}\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Formula \begin{eqnarray*}
+A\dot{\omega}_{x} & = & k_{1}A\omega_{x}+\left(B-C\right)\omega_{y}\omega_{z}\\
+B\dot{\omega}_{y} & = & k_{2}B\omega_{y}+\left(C-A\right)\omega_{x}\omega_{z}\\
+C\dot{\omega}_{z} & = & k_{3}C\omega_{z}+\left(A-B\right)\omega_{x}\omega_{y}\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Formula \begin{eqnarray*}
+\dot{\omega}_{x} & = & \frac{k_{1}A\omega_{x}+\left(B-C\right)\omega_{y}\omega_{z}}{A}\\
+\dot{\omega}_{y} & = & \frac{k_{2}B\omega_{y}+\left(C-A\right)\omega_{x}\omega_{z}}{B}\\
+\dot{\omega}_{z} & = & \frac{k_{3}C\omega_{z}+\left(A-B\right)\omega_{x}\omega_{y}}{C}\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Formula \begin{eqnarray*}
+\dot{\omega}_{x} & = & k_{1}\omega_{x}+\frac{\left(B-C\right)}{A}\omega_{y}\omega_{z}\\
+\dot{\omega}_{y} & = & k_{2}\omega_{y}+\frac{\left(C-A\right)}{B}\omega_{x}\omega_{z}\\
+\dot{\omega}_{z} & = & k_{3}\omega_{z}+\frac{\left(A-B\right)}{C}\omega_{x}\omega_{y}\end{eqnarray*}
+
+\end_inset
+
+Linearize about 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+
+\begin_inset Formula $\omega_{x}=\omega_{y}=\omega_{z}=0$
+\end_inset
+
+:
+\begin_inset Formula \[
+D\dot{\omega}\left(\omega^{*}\right)=\begin{bmatrix}\frac{\partial\dot{\omega}_{x}}{\partial\omega_{x}} & \frac{\partial\dot{\omega}_{x}}{\partial\omega_{y}} & \frac{\partial\dot{\omega}_{x}}{\partial\omega_{z}}\\
+\frac{\partial\dot{\omega}_{y}}{\partial\omega_{x}} & \frac{\partial\dot{\omega}_{y}}{\partial\omega_{y}} & \frac{\partial\dot{\omega}_{y}}{\partial\omega_{z}}\\
+\frac{\partial\dot{\omega}_{z}}{\partial\omega_{x}} & \frac{\partial\dot{\omega}_{z}}{\partial\omega_{y}} & \frac{\partial\dot{\omega}_{z}}{\partial\omega_{z}}\end{bmatrix}\]
+
+\end_inset
+
+
+\begin_inset Formula \[
+D\dot{\omega}\left(\omega^{*}\right)=\begin{bmatrix}k_{1} & \frac{\left(B-C\right)}{A}\omega_{z} & \frac{\left(B-C\right)}{A}\omega_{y}\\
+\frac{\left(C-A\right)}{B}\omega_{z} & k_{2} & \frac{\left(C-A\right)}{B}\omega_{x}\\
+\frac{\left(A-B\right)}{C}\omega_{y} & \frac{\left(A-B\right)}{C}\omega_{x} & k_{3}\end{bmatrix}\]
+
+\end_inset
+
+
+\begin_inset Formula \[
+D\dot{\omega}\left(\omega^{*}\right)=\begin{bmatrix}k_{1} & 0 & 0\\
+0 & k_{2} & 0\\
+0 & 0 & k_{3}\end{bmatrix}\]
+
+\end_inset
+
+Eigenvalues of 
+\begin_inset Formula $D\dot{\omega}$
+\end_inset
+
+:
+\begin_inset Formula \[
+\lambda=k_{1},k_{2},k_{3}\]
+
+\end_inset
+
+The system is locally stable if the 
+\begin_inset Formula $\bar{k}$
+\end_inset
+
+ values are negative.
+ Next we will find the conditions where the system is Lyapunov stable for
+ all values of 
+\begin_inset Formula $\bar{\omega}$
+\end_inset
+
+ to find the permissible values of 
+\begin_inset Formula $\bar{k}$
+\end_inset
+
+.
+ Using the energy of the system assume:
+\begin_inset Formula \[
+V=\frac{1}{2}A\omega_{x}^{2}+\frac{1}{2}B\omega_{y}^{2}+\frac{1}{2}C\omega_{z}^{2}\]
+
+\end_inset
+
+
+\begin_inset Formula \[
+\dot{V}=A\omega_{x}\dot{\omega}_{x}+B\omega_{y}\dot{\omega}_{y}+C\omega_{z}\dot{\omega}_{z}\]
+
+\end_inset
+
+
+\begin_inset Formula \begin{eqnarray*}
+\dot{V} & = & A\omega_{x}\left(k_{1}\omega_{x}+\frac{\left(B-C\right)}{A}\omega_{y}\omega_{z}\right)+B\omega_{y}\left(k_{2}\omega_{y}+\frac{\left(C-A\right)}{B}\omega_{x}\omega_{z}\right)+C\omega_{z}\left(k_{3}\omega_{z}+\frac{\left(A-B\right)}{C}\omega_{x}\omega_{y}\right)\\
+ & = & A\omega_{x}^{2}k_{1}+\left(B-C\right)\omega_{x}\omega_{y}\omega_{z}+B\omega_{y}^{2}k_{2}+\left(C-A\right)\omega_{x}\omega_{y}\omega_{z}+C\omega_{z}^{2}k_{3}+\left(A-B\right)\omega_{x}\omega_{y}\omega_{z}\\
+ & = & A\omega_{x}^{2}k_{1}+B\omega_{y}^{2}k_{2}+C\omega_{z}^{2}k_{3}+B\omega_{x}\omega_{y}\omega_{z}-C\omega_{x}\omega_{y}\omega_{z}+C\omega_{x}\omega_{y}\omega_{z}-A\omega_{x}\omega_{y}\omega_{z}+A\omega_{x}\omega_{y}\omega_{z}-B\omega_{x}\omega_{y}\omega_{z}\\
+\dot{V} & = & A\omega_{x}^{2}k_{1}+B\omega_{y}^{2}k_{2}+C\omega_{z}^{2}k_{3}\end{eqnarray*}
+
+\end_inset
+
+If 
+\begin_inset Formula $\bar{k}<0$
+\end_inset
+
+ then 
+\begin_inset Formula $\dot{V}<0$
+\end_inset
+
+ and the system is asymptotically stable for any perturbation.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Consider the system:
+\begin_inset Formula \[
+\dot{x}=f\left(x\right)\theta+u\]
+
+\end_inset
+
+where 
+\begin_inset Formula $x$
+\end_inset
+
+ is a scalar, 
+\begin_inset Formula $f$
+\end_inset
+
+ is a scalar nonlinear function of 
+\begin_inset Formula $x$
+\end_inset
+
+, 
+\begin_inset Formula $\theta$
+\end_inset
+
+ is an unknown constant, and 
+\begin_inset Formula $u$
+\end_inset
+
+ is any arbitrary input.
+ Assuming that you have access to the state 
+\begin_inset Formula $x$
+\end_inset
+
+ and the input 
+\begin_inset Formula $u$
+\end_inset
+
+, you wish to determine 
+\begin_inset Formula $\theta$
+\end_inset
+
+.
+ Show that the following observer system
+\begin_inset Formula \begin{eqnarray*}
+\dot{\hat{x}} & = & f\left(x\right)\hat{\theta}+u+\left(x-\hat{x}\right)\\
+\dot{\hat{\theta}} & = & \left(x-\hat{x}\right)f\left(x\right)\end{eqnarray*}
+
+\end_inset
+
+ensures that the state and parameter estimates 
+\begin_inset Formula $\hat{x}$
+\end_inset
+
+ and 
+\begin_inset Formula $\hat{\theta}$
+\end_inset
+
+ will asymptotically approach the true values as time goes to infinity.
+ (15 points)
+\end_layout
+
+\begin_layout Section
+P
+\end_layout
+
+\begin_layout Standard
+Given the following system:
+\end_layout
+
+\begin_layout Section
+P
+\end_layout
+
+\begin_layout Standard
+Determine (and draw) the bifurcation diagram for the following system, where
+\end_layout
+
+\begin_layout Section
+P
+\end_layout
+
+\begin_layout Standard
+Analyze the case of an imperfect transcritical bifurcation:
+\begin_inset Formula \[
+\dot{x}=h+rx-x^{2}\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Sketch the bifurcation diagram for 
+\begin_inset Formula $h<0$
+\end_inset
+
+, 
+\begin_inset Formula $h=0$
+\end_inset
+
+, and 
+\begin_inset Formula $h>0$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+Find fixed points:
+\begin_inset Formula \[
+h+rx-x^{2}=0\]
+
+\end_inset
+
+
+\begin_inset Formula \[
+x^{*}=\frac{r\pm\sqrt{4h+r^{2}}}{2}\]
+
+\end_inset
+
+which only exists for
+\begin_inset Formula \[
+h\ge-\frac{r^{2}}{4}\]
+
+\end_inset
+
+Find the eigenvalues of the linearized system at the fixed points:
+\begin_inset Formula \[
+\frac{\partial f}{\partial x}=\left.r-2x\right|_{x^{*},h,r}=0\]
+
+\end_inset
+
+
+\begin_inset Formula \begin{eqnarray*}
+\left.\frac{\partial f}{\partial x}\right|_{x^{*}=\frac{r+\sqrt{4h+r^{2}}}{2}} & = & r-2\left(\frac{r+\sqrt{4h+r^{2}}}{2}\right)\\
+ & = & -\sqrt{4h+r^{2}}\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Formula \begin{eqnarray*}
+\left.\frac{\partial f}{\partial x}\right|_{x^{*}=\frac{r-\sqrt{4h+r^{2}}}{2}} & = & r-2\left(\frac{r-\sqrt{4h+r^{2}}}{2}\right)\\
+ & = & \sqrt{4h+r^{2}}\end{eqnarray*}
+
+\end_inset
+
+Canidate bifurcation points:
+\begin_inset Formula \[
+\frac{\partial f}{\partial x}=0\ if\ r=\pm2\sqrt{-h}\ and\ x=2r\]
+
+\end_inset
+
+
+\series bold
+Case 1:
+\series default
+ 
+\begin_inset Formula $h>0$
+\end_inset
+
+
+\begin_inset Formula \begin{eqnarray*}
+r & = & \pm2\sqrt{-h}\\
+ & = & \pm2i\sqrt{h}\end{eqnarray*}
+
+\end_inset
+
+Which is not permissable.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\series bold
+Case 2:
+\series default
+ 
+\begin_inset Formula $h=0$
+\end_inset
+
+
+\begin_inset Formula \[
+r=0\]
+
+\end_inset
+
+
+\begin_inset Formula \[
+x^{*}=0\]
+
+\end_inset
+
+
+\begin_inset Formula \[
+\left.\frac{\partial f}{\partial r}\right|_{x=0}=x=0\]
+
+\end_inset
+
+
+\series bold
+
+\begin_inset Formula \[
+\frac{\partial^{2}f}{\partial x\partial r}=1\ne0\]
+
+\end_inset
+
+
+\begin_inset Formula \[
+\frac{\partial^{2}f}{\partial x^{2}}=-2\]
+
+\end_inset
+
+
+\series default
+
+\begin_inset Formula $\therefore$
+\end_inset
+
+ the canidate point
+\series bold
+ 
+\begin_inset Formula $\left(0,0\right)$
+\end_inset
+
+
+\series default
+ is a transcritical bifurcation.
+\series bold
+
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\series bold
+\begin_inset Caption
+
+\begin_layout Plain Layout
+
+\series bold
+\begin_inset Graphics
+	filename images/prob4_1.pdf
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+Case 3:
+\series default
+ 
+\begin_inset Formula $h<0$
+\end_inset
+
+
+\begin_inset Formula \[
+r=\pm2\sqrt{-h}\]
+
+\end_inset
+
+
+\begin_inset Formula \begin{eqnarray*}
+x^{*} & = & \frac{r\pm\sqrt{4h+r^{2}}}{2}\\
+ & = & \frac{\left(\pm2\sqrt{-h}\right)\pm\sqrt{4h+\left(\pm2\sqrt{-h}\right)^{2}}}{2}\\
+ & = & \frac{\left(\pm2\sqrt{-h}\right)\pm\sqrt{4h-4h}}{2}\\
+x^{*} & = & \pm\sqrt{-h}\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Formula \[
+\left.\frac{\partial f}{\partial r}\right|_{x=\pm\sqrt{-h}}=\pm\sqrt{-h}\]
+
+\end_inset
+
+
+\begin_inset Formula \[
+\frac{\partial^{2}f}{\partial r^{2}}=0\]
+
+\end_inset
+
+
+\begin_inset Formula $\therefore$
+\end_inset
+
+ the canidate points
+\series bold
+ 
+\begin_inset Formula $\left(2\sqrt{-h},\sqrt{-h}\right)$
+\end_inset
+
+
+\series default
+ 
+\series bold
+
+\begin_inset Formula $\left(-2\sqrt{-h},-\sqrt{-h}\right)$
+\end_inset
+
+
+\series default
+ is a saddle bifurcation.
+\end_layout
+
+\end_body
+\end_document
