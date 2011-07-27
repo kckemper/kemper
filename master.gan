@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="Untitled Gantt Project" company="" webLink="http://" view-date="2011-07-24" view-index="0" gantt-divider-location="424" resource-divider-location="301" version="2.0">
+<project name="Degree" company="" webLink="http://" view-date="2011-07-24" view-index="0" gantt-divider-location="424" resource-divider-location="301" version="2.0">
     <description/>
     <view zooming-state="default:2" id="gantt-chart"/>
     <view id="resource-table">
@@ -12,7 +12,7 @@
             <day-type id="0"/>
             <day-type id="1"/>
             <calendar id="1" name="default">
-                <default-week sun="1" mon="0" tue="0" wed="0" thu="0" fri="0" sat="1"/>
+                <default-week sun="0" mon="0" tue="0" wed="0" thu="0" fri="0" sat="0"/>
                 <overriden-day-types/>
                 <days/>
             </calendar>
