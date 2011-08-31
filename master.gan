@@ -37,9 +37,13 @@
         <task id="2" name="Run dummy fixed-toe test" color="#8cb6ce" meeting="false" start="2011-07-28" duration="1" complete="0" priority="1" expand="true">
             <depend id="3" type="2" difference="0" hardness="Strong"/>
         </task>
-        <task id="3" name="Run full fixed-toe experiment" color="#8cb6ce" meeting="false" start="2011-07-29" duration="6" complete="0" priority="1" expand="true"/>
-        <task id="4" name="Document fixed-toe experiment" color="#ffcccc" meeting="false" start="2011-07-29" duration="6" complete="0" priority="1" expand="true"/>
-        <task id="5" name="Run dummy fixed-force test" color="#8cb6ce" meeting="false" start="2011-08-08" duration="1" complete="0" priority="1" expand="true"/>
+        <task id="3" name="Run full fixed-toe experiment" color="#8cb6ce" meeting="false" start="2011-07-29" duration="5" complete="0" priority="1" expand="true">
+            <depend id="5" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="4" name="Document fixed-toe experiment" color="#ffcccc" meeting="false" start="2011-07-29" duration="5" complete="0" priority="1" expand="true"/>
+        <task id="5" name="Run dummy fixed-force test" color="#8cb6ce" meeting="false" start="2011-08-03" duration="1" complete="0" priority="1" expand="true"/>
+        <task id="7" name="New task_7" color="#8cb6ce" meeting="false" start="2011-07-24" duration="1" complete="0" priority="1" expand="true"/>
+        <task id="6" name="Send out final specs for Menial" color="#ccffcc" meeting="false" start="2011-07-28" duration="2" complete="0" priority="1" expand="true"/>
     </tasks>
     <resources/>
     <allocations/>
