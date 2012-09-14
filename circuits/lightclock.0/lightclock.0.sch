@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
+<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="yes" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="no" active="no"/>
 <layer number="16" name="Bottom" color="1" fill="1" visible="no" active="no"/>
@@ -1338,6 +1338,14 @@
 <part name="R4" library="Kemper-Passives" deviceset="RES-0603" device="" value="750"/>
 <part name="R5" library="Kemper-Passives" deviceset="RES-0603" device="" value="750"/>
 <part name="R7" library="Kemper-Passives" deviceset="RES-0603" device="" value="750"/>
+<part name="J18" library="Kemper-Connectors" deviceset="TESTPAD" device=""/>
+<part name="J19" library="Kemper-Connectors" deviceset="TESTPAD" device=""/>
+<part name="J20" library="Kemper-Connectors" deviceset="TESTPAD" device=""/>
+<part name="J21" library="Kemper-Connectors" deviceset="TESTPAD" device=""/>
+<part name="GND16" library="supply1" deviceset="GND" device=""/>
+<part name="GND17" library="supply1" deviceset="GND" device=""/>
+<part name="+3V8" library="supply1" deviceset="+3V3" device=""/>
+<part name="+3V9" library="supply1" deviceset="+3V3" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -1478,6 +1486,18 @@
 <instance part="R7" gate="G$1" x="220.98" y="246.38" smashed="yes" rot="R90">
 <attribute name="NAME" x="223.52" y="248.92" size="1.778" layer="95"/>
 <attribute name="VALUE" x="223.52" y="246.38" size="1.778" layer="96" rot="MR180"/>
+</instance>
+<instance part="J18" gate="G$1" x="154.94" y="182.88" rot="R180"/>
+<instance part="J19" gate="G$1" x="154.94" y="180.34" rot="R180"/>
+<instance part="J20" gate="G$1" x="233.68" y="187.96"/>
+<instance part="J21" gate="G$1" x="233.68" y="185.42"/>
+<instance part="GND16" gate="1" x="228.6" y="182.88"/>
+<instance part="GND17" gate="1" x="160.02" y="177.8"/>
+<instance part="+3V8" gate="G$1" x="228.6" y="190.5" smashed="yes" rot="MR0">
+<attribute name="VALUE" x="228.6" y="190.5" size="1.778" layer="96" align="bottom-center"/>
+</instance>
+<instance part="+3V9" gate="G$1" x="160.02" y="185.42" smashed="yes" rot="MR0">
+<attribute name="VALUE" x="160.02" y="185.42" size="1.778" layer="96" align="bottom-center"/>
 </instance>
 </instances>
 <busses>
@@ -1647,6 +1667,16 @@
 <wire x1="147.32" y1="248.92" x2="147.32" y2="246.38" width="0.1524" layer="91"/>
 <pinref part="C8" gate="G$1" pin="2"/>
 </segment>
+<segment>
+<pinref part="J19" gate="G$1" pin="P$1"/>
+<pinref part="GND17" gate="1" pin="GND"/>
+<wire x1="157.48" y1="180.34" x2="160.02" y2="180.34" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="GND16" gate="1" pin="GND"/>
+<pinref part="J21" gate="G$1" pin="P$1"/>
+<wire x1="228.6" y1="185.42" x2="231.14" y2="185.42" width="0.1524" layer="91"/>
+</segment>
 </net>
 <net name="+3V3" class="0">
 <segment>
@@ -1716,6 +1746,16 @@
 <wire x1="220.98" y1="256.54" x2="220.98" y2="259.08" width="0.1524" layer="91"/>
 <junction x="220.98" y="259.08"/>
 <pinref part="R7" gate="G$1" pin="P$2"/>
+</segment>
+<segment>
+<pinref part="J18" gate="G$1" pin="P$1"/>
+<pinref part="+3V9" gate="G$1" pin="+3V3"/>
+<wire x1="157.48" y1="182.88" x2="160.02" y2="182.88" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="J20" gate="G$1" pin="P$1"/>
+<pinref part="+3V8" gate="G$1" pin="+3V3"/>
+<wire x1="231.14" y1="187.96" x2="228.6" y2="187.96" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$1" class="0">
@@ -2140,6 +2180,16 @@
 </nets>
 </sheet>
 </sheets>
+<errors>
+<approved hash="110,1,340.36,180.34,GND,PWM_B,,,,"/>
+<approved hash="110,1,332.74,190.5,GND,PWM_G,,,,"/>
+<approved hash="110,1,335.28,92.71,BT_TX/RX_STATUS_LED,GND,,,,"/>
+<approved hash="111,1,335.28,92.71,BT_TX/RX_STATUS_LED,,,,,"/>
+<approved hash="111,1,332.74,190.5,GND,,,,,"/>
+<approved hash="111,1,340.36,180.34,GND,,,,,"/>
+<approved hash="115,1,215.796,139.596,FRAME1,,,,,"/>
+<approved hash="115,1,166.37,92.9555,L1,,,,,"/>
+</errors>
 </schematic>
 </drawing>
 </eagle>
