@@ -3,6 +3,9 @@
 
 
 
-= Part Ideas =
+= References =
 
-  * Bluetooth - https://www.sparkfun.com/products/8497
+ * Bluetooth section in the DevGuide:
+  * http://developer.android.com/guide/topics/connectivity/bluetooth.html
+ * Bluetooth chat example:
+  * http://developer.android.com/tools/samples/index.html
