@@ -9,3 +9,5 @@
   * http://developer.android.com/guide/topics/connectivity/bluetooth.html
  * Bluetooth chat example:
   * http://developer.android.com/tools/samples/index.html
+ * Bluetooth serial example:
+  * http://www.basic4ppc.com/forum/basic4android-getting-started-tutorials/6908-android-serial-tutorial.html
