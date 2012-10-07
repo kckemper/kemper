@@ -5,6 +5,9 @@
 
 = References =
 
+ * USB bootloader
+  * http://www.atmel.com/Images/doc8457.pdf
+
  * Bluetooth section in the DevGuide:
   * http://developer.android.com/guide/topics/connectivity/bluetooth.html
  * Bluetooth chat example:
